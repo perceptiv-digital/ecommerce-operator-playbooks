@@ -10,7 +10,7 @@ These playbooks are written for operators who run many stores. Running them by h
 
 **What does it connect to?** Shopify and other storefronts, Meta / Google / TikTok ads, Google Merchant Center, GA4, Search Console, Klaviyo and other email/SMS, Stripe, and more. See the platform list in the [catalogue](../indexes/catalogue.md) and each play's **Required Evidence**.
 
-**What does it cost, and how is data handled?** ShopMCP has per-operator and multi-client agency plans. For current plans, data handling, and security details, see [shop-mcp.app](https://my.shop-mcp.app). This repo deliberately doesn't restate pricing or security specifics so they can't go stale — check the source.
+**What does it cost, and how is data handled?** ShopMCP has per-operator and multi-client agency plans. For current plans, data handling, and security details, see [shop-mcp.app](https://shop-mcp.app) — it's free for 14 days, no credit card. This repo deliberately doesn't restate pricing or security specifics so they can't go stale — check the source.
 
 ## The agency plays
 

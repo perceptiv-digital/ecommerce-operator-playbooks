@@ -208,15 +208,13 @@ Note how the audit *inverts* the dashboard: the Generic Search campaign that loo
 
 > No Google Ads connection inside your AI assistant? That's the wall every manual run hits. ShopMCP *is* the connection — and the same audit then runs in one prompt instead of one spreadsheet-afternoon.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Google Ads Search-Term Audit play for the last 30 days. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/perf-google-search-term-audit?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

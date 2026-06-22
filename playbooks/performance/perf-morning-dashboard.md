@@ -206,7 +206,7 @@ Note how triage *re-ranks the morning*: the scariest single number (Meta CPA +60
 
 > No Meta, Google, or TikTok connection inside your AI assistant? That's the wall every manual morning hits. ShopMCP *is* the connection — the same triage then runs in one prompt instead of three browser tabs and a stopwatch.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Performance Morning Dashboard triage across Meta, Google, and TikTok for
@@ -214,9 +214,7 @@ yesterday vs. the prior day. Reconcile time zones, flag only what needs a human 
 ranked by money at risk, and keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/perf-morning-dashboard?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

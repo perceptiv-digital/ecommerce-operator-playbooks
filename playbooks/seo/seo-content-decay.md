@@ -205,16 +205,14 @@ Note how the answer *inverts* the raw report: the blog post that lost the **most
 
 > No Search Console or GA4 connection inside your AI assistant? That's the wall every manual run hits. ShopMCP *is* the connection — and the same playbook then runs in one prompt instead of a spreadsheet afternoon of joins and row-cap workarounds.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the SEO Content Decay Watch play. Compare the last 90 days to the same 90 days last
 year to control for seasonality, and rank pages by recoverable clicks x revenue. Read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/seo-content-decay?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

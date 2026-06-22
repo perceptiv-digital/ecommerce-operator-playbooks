@@ -200,15 +200,13 @@ Note how the ranking inverts the Merchant Center view: the account shows 15 flag
 
 > No Merchant Center, Google Ads, or store connection inside your AI assistant? That's the wall every manual run hits — you can diagnose a disapproval, but you can't see which item bleeds $640/day until you've joined three systems by hand. ShopMCP *is* that join, and the same playbook runs in one prompt instead of a morning of exports.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Shopping Feed Watch play for the last 30 days. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/perf-shopping-feed-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

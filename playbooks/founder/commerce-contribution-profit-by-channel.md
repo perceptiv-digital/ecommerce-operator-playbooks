@@ -213,15 +213,13 @@ Every row carries its source, window, and confidence; any row missing a cost lin
 
 > No store, GA4, or ad-platform connection inside your AI assistant? That's the wall every manual run hits — and it hits hardest here, where the answer needs five sources reconciled against each other. ShopMCP *is* that connection, and the same play then runs in one prompt instead of a month-end spreadsheet build.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Contribution Profit by Channel play for the last 30 days. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/commerce-contribution-profit-by-channel?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

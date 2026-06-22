@@ -219,7 +219,7 @@ The packet inverts the lazy read: the headline revenue beat is real but the quar
 
 > No live line into this client's commerce, ads, GA4, and Klaviyo inside your AI assistant is the wall every manual QBR build hits — which is why the honest cause-attribution and the contribution check are the first things skipped under deadline. ShopMCP *is* that connection, reconciled to store truth and held against last quarter's agreed targets, so the same playbook runs in one prompt instead of a one-to-two-hour build — and you walk into the review with a packet that survives the CFO reading it line by line.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Client QBR Builder play for this client for the last quarter. Show every headline metric
@@ -228,9 +228,7 @@ give me 3 genuine wins and 3 honest misses, and a next-quarter plan with budget 
 read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/agency-qbr-builder?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

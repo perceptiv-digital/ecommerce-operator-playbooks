@@ -202,15 +202,13 @@ Note how the answer refuses the lazy "kill all brand" move: the largest line (co
 
 > No Google Ads or Search Console connection inside your AI assistant? That's the wall every manual run hits — the whole answer is the join between those two systems. ShopMCP *is* the connection, and the same playbook then runs in one prompt instead of a month of cross-tab spreadsheets.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Brand Cannibalisation Audit play for the last 30 days. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/marketing-brand-cannibalisation?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

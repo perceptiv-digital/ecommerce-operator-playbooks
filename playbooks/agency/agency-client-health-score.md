@@ -226,7 +226,7 @@ Minimum table columns:
 
 > This is the agency multiplier in its sharpest form: the manual version costs one spreadsheet-afternoon *per client*, so a 12- or 20-account roster is your whole week — which is why the slide usually gets caught at the renewal call, not three weeks early. ShopMCP runs the identical scoring across **every connected client account at once**, on demand, so you walk into the Monday stand-up already knowing which two or three accounts need the week. No live line into each client's commerce, ads, and Klaviyo is the wall every manual run hits. ShopMCP *is* that connection — and running it across the whole roster at once is the entire point.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Agency Client Health Score play across my whole connected roster for the last 30 days.
@@ -234,9 +234,7 @@ Score each client against its own targets, rank worst-first, and surface the 2-3
 need intervention before this week's meetings. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/agency-client-health-score?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

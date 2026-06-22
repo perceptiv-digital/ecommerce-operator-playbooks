@@ -223,15 +223,13 @@ Note how the answer *inverts* the headline: the scary "−4 points of revenue sh
 
 > No Klaviyo or store connection inside your AI assistant? That's the wall every manual run hits. ShopMCP *is* the connection — and the same recap then writes itself in one prompt instead of a Monday-morning spreadsheet session.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Email Monday Recap play for the last 30 days. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/email-monday-recap?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

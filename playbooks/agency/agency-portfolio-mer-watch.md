@@ -200,15 +200,13 @@ Note how the ranking *inverts* the dashboard view. Lumen and Kindle & Co both lo
 
 > No live line into each client's store and ad accounts inside your AI assistant? That's the wall every manual portfolio run hits. ShopMCP *is* that connection — and the same playbook then runs across the whole roster in one prompt instead of one spreadsheet-afternoon per client.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Portfolio Efficiency Watch play for the last 4 weeks. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/agency-portfolio-mer-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 
