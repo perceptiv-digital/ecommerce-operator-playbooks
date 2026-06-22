@@ -1,0 +1,12 @@
+{
+  "slug": "example-playbook",
+  "title": "Example Playbook",
+  "operating_question": "What decision does this play answer?",
+  "persona": "Head of Ecommerce",
+  "category": "Trading and profit",
+  "platforms": [
+    "commerce"
+  ],
+  "manual_time": "30-75 min",
+  "shopmcp_time": "3-8 min"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "ecommerce-operator-playbooks",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Evidence-first AI playbooks for ecommerce operators.",
+  "scripts": {
+    "bootstrap": "node scripts/bootstrap.mjs",
+    "validate": "node scripts/validate.mjs"
+  }
+}

@@ -1,0 +1,3789 @@
+{
+  "name": "eCommerce Operator OS",
+  "repo": "perceptiv-digital/ecommerce-operator-playbooks",
+  "generated_at": "2026-06-22T07:57:31.863Z",
+  "playbook_count": 50,
+  "playbooks": [
+    {
+      "schema_version": 1,
+      "slug": "founder-pace-to-target",
+      "title": "Pace to Target",
+      "summary": "Pace to Target helps ecommerce operators answer: Are we on pace to hit the target, and what must change today?",
+      "short_title": "Pace to Target",
+      "path": "playbooks/founder/founder-pace-to-target.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/founder/founder-pace-to-target.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/founder/founder-pace-to-target.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/founder-pace-to-target?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "founder",
+      "primary_persona_label": "Founder / CEO",
+      "personas": [
+        "founder"
+      ],
+      "persona_labels": [
+        "Founder / CEO"
+      ],
+      "category": "trading-profit",
+      "category_label": "Trading and profit",
+      "platforms": [
+        "commerce"
+      ],
+      "cadence": "daily",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Are we on pace to hit the target, and what must change today?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/founder-pace-to-target",
+        "cta_url": "https://my.shop-mcp.app/playbooks/founder-pace-to-target?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Pace to Target play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "founder-anomaly-watch",
+      "title": "Revenue Anomaly Watch",
+      "summary": "Revenue Anomaly Watch helps ecommerce operators answer: What changed enough to explain the revenue anomaly?",
+      "short_title": "Revenue Anomaly",
+      "path": "playbooks/founder/founder-anomaly-watch.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/founder/founder-anomaly-watch.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/founder/founder-anomaly-watch.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/founder-anomaly-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "founder",
+      "primary_persona_label": "Founder / CEO",
+      "personas": [
+        "founder"
+      ],
+      "persona_labels": [
+        "Founder / CEO"
+      ],
+      "category": "trading-profit",
+      "category_label": "Trading and profit",
+      "platforms": [
+        "commerce",
+        "google-analytics-4"
+      ],
+      "cadence": "triggered",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "What changed enough to explain the revenue anomaly?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/founder-anomaly-watch",
+        "cta_url": "https://my.shop-mcp.app/playbooks/founder-anomaly-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "google-analytics-4"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Revenue Anomaly Watch play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "commerce-contribution-profit-by-channel",
+      "title": "Contribution Profit by Channel",
+      "summary": "Contribution Profit by Channel helps ecommerce operators answer: Which channels are creating contribution profit, not just revenue?",
+      "short_title": "Contribution Profit by Channel",
+      "path": "playbooks/founder/commerce-contribution-profit-by-channel.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/founder/commerce-contribution-profit-by-channel.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/founder/commerce-contribution-profit-by-channel.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/commerce-contribution-profit-by-channel?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "founder",
+      "primary_persona_label": "Founder / CEO",
+      "personas": [
+        "founder",
+        "ecommerce",
+        "marketing"
+      ],
+      "persona_labels": [
+        "Founder / CEO",
+        "Head of Ecommerce",
+        "Head of Marketing"
+      ],
+      "category": "trading-profit",
+      "category_label": "Trading and profit",
+      "platforms": [
+        "commerce",
+        "google-analytics-4",
+        "meta-ads",
+        "google-ads",
+        "tiktok-ads"
+      ],
+      "cadence": "weekly",
+      "difficulty": "intermediate",
+      "manual_time_minutes": {
+        "min": 45,
+        "max": 90
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": true,
+      "shopmcp_ready": true,
+      "operating_question": "Which channels are creating contribution profit, not just revenue?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Tiktok Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/commerce-contribution-profit-by-channel",
+        "cta_url": "https://my.shop-mcp.app/playbooks/commerce-contribution-profit-by-channel?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "google-analytics-4",
+          "meta-ads",
+          "google-ads",
+          "tiktok-ads"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Contribution Profit by Channel play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "founder-promo-postmortem",
+      "title": "Promo Post-Mortem",
+      "summary": "Promo Post-Mortem helps ecommerce operators answer: Did the promotion create incremental value or just pull forward demand?",
+      "short_title": "Promo Post-Mortem",
+      "path": "playbooks/founder/founder-promo-postmortem.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/founder/founder-promo-postmortem.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/founder/founder-promo-postmortem.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/founder-promo-postmortem?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "founder",
+      "primary_persona_label": "Founder / CEO",
+      "personas": [
+        "founder",
+        "ecommerce",
+        "marketing"
+      ],
+      "persona_labels": [
+        "Founder / CEO",
+        "Head of Ecommerce",
+        "Head of Marketing"
+      ],
+      "category": "trading-profit",
+      "category_label": "Trading and profit",
+      "platforms": [
+        "commerce"
+      ],
+      "cadence": "ad-hoc",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Did the promotion create incremental value or just pull forward demand?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/founder-promo-postmortem",
+        "cta_url": "https://my.shop-mcp.app/playbooks/founder-promo-postmortem?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Promo Post-Mortem play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "founder-cash-runway-snapshot",
+      "title": "Cash and Payout Snapshot",
+      "summary": "Cash and Payout Snapshot helps ecommerce operators answer: What does cash, payout, refund, and sales evidence say about runway pressure?",
+      "short_title": "Cash and Payout Snapshot",
+      "path": "playbooks/founder/founder-cash-runway-snapshot.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/founder/founder-cash-runway-snapshot.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/founder/founder-cash-runway-snapshot.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/founder-cash-runway-snapshot?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "founder",
+      "primary_persona_label": "Founder / CEO",
+      "personas": [
+        "founder"
+      ],
+      "persona_labels": [
+        "Founder / CEO"
+      ],
+      "category": "trading-profit",
+      "category_label": "Trading and profit",
+      "platforms": [
+        "stripe",
+        "commerce"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "What does cash, payout, refund, and sales evidence say about runway pressure?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Stripe payment, charge, payout, invoice, dispute, or subscription evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/founder-cash-runway-snapshot",
+        "cta_url": "https://my.shop-mcp.app/playbooks/founder-cash-runway-snapshot?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "stripe",
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Cash and Payout Snapshot play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "ecom-weekly-trading-deck",
+      "title": "Weekly Trading Deck",
+      "summary": "Weekly Trading Deck helps ecommerce operators answer: What happened this week, why, and what should the operator do next?",
+      "short_title": "Weekly Trading",
+      "path": "playbooks/ecommerce/ecom-weekly-trading-deck.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/ecommerce/ecom-weekly-trading-deck.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/ecommerce/ecom-weekly-trading-deck.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/ecom-weekly-trading-deck?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "ecommerce",
+      "primary_persona_label": "Head of Ecommerce",
+      "personas": [
+        "ecommerce",
+        "founder"
+      ],
+      "persona_labels": [
+        "Head of Ecommerce",
+        "Founder / CEO"
+      ],
+      "category": "trading-profit",
+      "category_label": "Trading and profit",
+      "platforms": [
+        "commerce",
+        "google-analytics-4"
+      ],
+      "cadence": "weekly",
+      "difficulty": "intermediate",
+      "manual_time_minutes": {
+        "min": 45,
+        "max": 90
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": true,
+      "shopmcp_ready": true,
+      "operating_question": "What happened this week, why, and what should the operator do next?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/ecom-weekly-trading-deck",
+        "cta_url": "https://my.shop-mcp.app/playbooks/ecom-weekly-trading-deck?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "google-analytics-4"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Weekly Trading Deck play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "ecom-funnel-leak-finder",
+      "title": "Funnel Leak Finder",
+      "summary": "Funnel Leak Finder helps ecommerce operators answer: Where is the buying journey leaking revenue?",
+      "short_title": "Funnel Leak Finder",
+      "path": "playbooks/ecommerce/ecom-funnel-leak-finder.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/ecommerce/ecom-funnel-leak-finder.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/ecommerce/ecom-funnel-leak-finder.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/ecom-funnel-leak-finder?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "ecommerce",
+      "primary_persona_label": "Head of Ecommerce",
+      "personas": [
+        "ecommerce"
+      ],
+      "persona_labels": [
+        "Head of Ecommerce"
+      ],
+      "category": "onsite-cro",
+      "category_label": "Onsite CRO",
+      "platforms": [
+        "commerce",
+        "google-analytics-4"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Where is the buying journey leaking revenue?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/ecom-funnel-leak-finder",
+        "cta_url": "https://my.shop-mcp.app/playbooks/ecom-funnel-leak-finder?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "google-analytics-4"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Funnel Leak Finder play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "ecom-checkout-health",
+      "title": "Checkout Health Watch",
+      "summary": "Checkout Health Watch helps ecommerce operators answer: Is checkout conversion healthy enough to trust demand generation?",
+      "short_title": "Checkout Health",
+      "path": "playbooks/ecommerce/ecom-checkout-health.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/ecommerce/ecom-checkout-health.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/ecommerce/ecom-checkout-health.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/ecom-checkout-health?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "ecommerce",
+      "primary_persona_label": "Head of Ecommerce",
+      "personas": [
+        "ecommerce",
+        "operations"
+      ],
+      "persona_labels": [
+        "Head of Ecommerce",
+        "Ops / Dispatch Lead"
+      ],
+      "category": "onsite-cro",
+      "category_label": "Onsite CRO",
+      "platforms": [
+        "commerce",
+        "google-analytics-4"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Is checkout conversion healthy enough to trust demand generation?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/ecom-checkout-health",
+        "cta_url": "https://my.shop-mcp.app/playbooks/ecom-checkout-health?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "google-analytics-4"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Checkout Health Watch play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "ecom-tracking-sanity",
+      "title": "Tracking Sanity Check",
+      "summary": "Tracking Sanity Check helps ecommerce operators answer: Can we trust the tracking before making growth decisions?",
+      "short_title": "Tracking Sanity",
+      "path": "playbooks/ecommerce/ecom-tracking-sanity.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/ecommerce/ecom-tracking-sanity.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/ecommerce/ecom-tracking-sanity.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/ecom-tracking-sanity?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "ecommerce",
+      "primary_persona_label": "Head of Ecommerce",
+      "personas": [
+        "ecommerce",
+        "performance",
+        "marketing"
+      ],
+      "persona_labels": [
+        "Head of Ecommerce",
+        "Performance Marketer",
+        "Head of Marketing"
+      ],
+      "category": "tracking-data-quality",
+      "category_label": "Tracking and data quality",
+      "platforms": [
+        "commerce",
+        "google-analytics-4",
+        "meta-ads",
+        "google-ads",
+        "klaviyo"
+      ],
+      "cadence": "weekly",
+      "difficulty": "intermediate",
+      "manual_time_minutes": {
+        "min": 45,
+        "max": 90
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": true,
+      "shopmcp_ready": true,
+      "operating_question": "Can we trust the tracking before making growth decisions?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/ecom-tracking-sanity",
+        "cta_url": "https://my.shop-mcp.app/playbooks/ecom-tracking-sanity?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "google-analytics-4",
+          "meta-ads",
+          "google-ads",
+          "klaviyo"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Tracking Sanity Check play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "commerce-product-visibility-audit",
+      "title": "Commerce Product Visibility Audit",
+      "summary": "Commerce Product Visibility Audit helps ecommerce operators answer: Which products are invisible across commerce, search, and feed surfaces?",
+      "short_title": "Commerce Product Visibility",
+      "path": "playbooks/ecommerce/commerce-product-visibility-audit.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/ecommerce/commerce-product-visibility-audit.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/ecommerce/commerce-product-visibility-audit.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/commerce-product-visibility-audit?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "ecommerce",
+      "primary_persona_label": "Head of Ecommerce",
+      "personas": [
+        "ecommerce",
+        "merchandising",
+        "seo",
+        "agency"
+      ],
+      "persona_labels": [
+        "Head of Ecommerce",
+        "Merchandising Manager",
+        "SEO / Content Lead",
+        "Agency AM / COO"
+      ],
+      "category": "merchandising-feed",
+      "category_label": "Merchandising and feed",
+      "platforms": [
+        "commerce",
+        "google-merchant-center",
+        "google-search-console",
+        "dataforseo"
+      ],
+      "cadence": "ad-hoc",
+      "difficulty": "intermediate",
+      "manual_time_minutes": {
+        "min": 45,
+        "max": 90
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": true,
+      "shopmcp_ready": true,
+      "operating_question": "Which products are invisible across commerce, search, and feed surfaces?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Merchant Center product status, disapprovals, price, availability, and feed diagnostics.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Search Console query, page, click, impression, CTR, and position evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "SERP, keyword, competitor, page, or structured-data evidence from DataForSEO.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/commerce-product-visibility-audit",
+        "cta_url": "https://my.shop-mcp.app/playbooks/commerce-product-visibility-audit?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "google-merchant-center",
+          "google-search-console",
+          "dataforseo"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Commerce Product Visibility Audit play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "perf-morning-dashboard",
+      "title": "Performance Morning Dashboard",
+      "summary": "Performance Morning Dashboard helps ecommerce operators answer: What needs attention in paid media this morning?",
+      "short_title": "Performance Morning",
+      "path": "playbooks/performance/perf-morning-dashboard.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/performance/perf-morning-dashboard.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/performance/perf-morning-dashboard.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/perf-morning-dashboard?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "performance",
+      "primary_persona_label": "Performance Marketer",
+      "personas": [
+        "performance"
+      ],
+      "persona_labels": [
+        "Performance Marketer"
+      ],
+      "category": "acquisition-efficiency",
+      "category_label": "Acquisition efficiency",
+      "platforms": [
+        "meta-ads",
+        "google-ads",
+        "tiktok-ads"
+      ],
+      "cadence": "daily",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "What needs attention in paid media this morning?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Tiktok Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/perf-morning-dashboard",
+        "cta_url": "https://my.shop-mcp.app/playbooks/perf-morning-dashboard?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "meta-ads",
+          "google-ads",
+          "tiktok-ads"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Performance Morning Dashboard play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "perf-wasted-spend-killer",
+      "title": "Wasted Spend Killer",
+      "summary": "Wasted Spend Killer helps ecommerce operators answer: Which spend should be killed, refreshed, watched, or kept?",
+      "short_title": "Wasted Spend Killer",
+      "path": "playbooks/performance/perf-wasted-spend-killer.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/performance/perf-wasted-spend-killer.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/performance/perf-wasted-spend-killer.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/perf-wasted-spend-killer?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "performance",
+      "primary_persona_label": "Performance Marketer",
+      "personas": [
+        "performance",
+        "marketing"
+      ],
+      "persona_labels": [
+        "Performance Marketer",
+        "Head of Marketing"
+      ],
+      "category": "acquisition-efficiency",
+      "category_label": "Acquisition efficiency",
+      "platforms": [
+        "meta-ads",
+        "google-ads",
+        "tiktok-ads",
+        "commerce"
+      ],
+      "cadence": "weekly",
+      "difficulty": "intermediate",
+      "manual_time_minutes": {
+        "min": 45,
+        "max": 90
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": true,
+      "shopmcp_ready": true,
+      "operating_question": "Which spend should be killed, refreshed, watched, or kept?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Tiktok Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/perf-wasted-spend-killer",
+        "cta_url": "https://my.shop-mcp.app/playbooks/perf-wasted-spend-killer?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "meta-ads",
+          "google-ads",
+          "tiktok-ads",
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Wasted Spend Killer play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "perf-creative-fatigue-list",
+      "title": "Creative Fatigue List",
+      "summary": "Creative Fatigue List helps ecommerce operators answer: Which ads are fatigued enough to refresh before they drain spend?",
+      "short_title": "Creative Fatigue",
+      "path": "playbooks/performance/perf-creative-fatigue-list.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/performance/perf-creative-fatigue-list.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/performance/perf-creative-fatigue-list.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/perf-creative-fatigue-list?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "performance",
+      "primary_persona_label": "Performance Marketer",
+      "personas": [
+        "performance",
+        "marketing"
+      ],
+      "persona_labels": [
+        "Performance Marketer",
+        "Head of Marketing"
+      ],
+      "category": "acquisition-efficiency",
+      "category_label": "Acquisition efficiency",
+      "platforms": [
+        "meta-ads",
+        "tiktok-ads",
+        "google-ads"
+      ],
+      "cadence": "weekly",
+      "difficulty": "intermediate",
+      "manual_time_minutes": {
+        "min": 45,
+        "max": 90
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": true,
+      "shopmcp_ready": true,
+      "operating_question": "Which ads are fatigued enough to refresh before they drain spend?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Tiktok Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/perf-creative-fatigue-list",
+        "cta_url": "https://my.shop-mcp.app/playbooks/perf-creative-fatigue-list?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "meta-ads",
+          "tiktok-ads",
+          "google-ads"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Creative Fatigue List play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "perf-google-search-term-audit",
+      "title": "Google Ads Search-Term Audit",
+      "summary": "Google Ads Search-Term Audit helps ecommerce operators answer: Which search terms are wasting spend or cannibalising intent?",
+      "short_title": "Google Ads Search-Term",
+      "path": "playbooks/performance/perf-google-search-term-audit.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/performance/perf-google-search-term-audit.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/performance/perf-google-search-term-audit.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/perf-google-search-term-audit?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "performance",
+      "primary_persona_label": "Performance Marketer",
+      "personas": [
+        "performance"
+      ],
+      "persona_labels": [
+        "Performance Marketer"
+      ],
+      "category": "acquisition-efficiency",
+      "category_label": "Acquisition efficiency",
+      "platforms": [
+        "google-ads"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which search terms are wasting spend or cannibalising intent?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/perf-google-search-term-audit",
+        "cta_url": "https://my.shop-mcp.app/playbooks/perf-google-search-term-audit?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "google-ads"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Google Ads Search-Term Audit play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "marketing-blended-mer-watch",
+      "title": "Blended MER Watch",
+      "summary": "Blended MER Watch helps ecommerce operators answer: Is blended efficiency moving in the right direction?",
+      "short_title": "Blended MER",
+      "path": "playbooks/marketing/marketing-blended-mer-watch.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/marketing/marketing-blended-mer-watch.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/marketing/marketing-blended-mer-watch.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/marketing-blended-mer-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "marketing",
+      "primary_persona_label": "Head of Marketing",
+      "personas": [
+        "marketing",
+        "founder"
+      ],
+      "persona_labels": [
+        "Head of Marketing",
+        "Founder / CEO"
+      ],
+      "category": "acquisition-efficiency",
+      "category_label": "Acquisition efficiency",
+      "platforms": [
+        "commerce",
+        "meta-ads",
+        "google-ads",
+        "tiktok-ads"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Is blended efficiency moving in the right direction?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Tiktok Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/marketing-blended-mer-watch",
+        "cta_url": "https://my.shop-mcp.app/playbooks/marketing-blended-mer-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "meta-ads",
+          "google-ads",
+          "tiktok-ads"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Blended MER Watch play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "marketing-cac-by-channel",
+      "title": "New-Customer CAC by Channel",
+      "summary": "New-Customer CAC by Channel helps ecommerce operators answer: Which channels are acquiring new customers at acceptable cost?",
+      "short_title": "New-Customer CAC by Channel",
+      "path": "playbooks/marketing/marketing-cac-by-channel.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/marketing/marketing-cac-by-channel.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/marketing/marketing-cac-by-channel.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/marketing-cac-by-channel?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "marketing",
+      "primary_persona_label": "Head of Marketing",
+      "personas": [
+        "marketing",
+        "founder",
+        "performance"
+      ],
+      "persona_labels": [
+        "Head of Marketing",
+        "Founder / CEO",
+        "Performance Marketer"
+      ],
+      "category": "acquisition-efficiency",
+      "category_label": "Acquisition efficiency",
+      "platforms": [
+        "commerce",
+        "google-analytics-4",
+        "meta-ads",
+        "google-ads",
+        "tiktok-ads"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which channels are acquiring new customers at acceptable cost?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Tiktok Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/marketing-cac-by-channel",
+        "cta_url": "https://my.shop-mcp.app/playbooks/marketing-cac-by-channel?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "google-analytics-4",
+          "meta-ads",
+          "google-ads",
+          "tiktok-ads"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the New-Customer CAC by Channel play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "email-flow-health-check",
+      "title": "Klaviyo Flow Health Check",
+      "summary": "Klaviyo Flow Health Check helps ecommerce operators answer: Which lifecycle flows are underperforming or broken?",
+      "short_title": "Klaviyo Flow Health",
+      "path": "playbooks/retention/email-flow-health-check.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/retention/email-flow-health-check.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/retention/email-flow-health-check.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/email-flow-health-check?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "retention",
+      "primary_persona_label": "Retention / Email Lead",
+      "personas": [
+        "retention"
+      ],
+      "persona_labels": [
+        "Retention / Email Lead"
+      ],
+      "category": "retention-ltv",
+      "category_label": "Retention and LTV",
+      "platforms": [
+        "klaviyo",
+        "commerce"
+      ],
+      "cadence": "weekly",
+      "difficulty": "intermediate",
+      "manual_time_minutes": {
+        "min": 45,
+        "max": 90
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": true,
+      "shopmcp_ready": true,
+      "operating_question": "Which lifecycle flows are underperforming or broken?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/email-flow-health-check",
+        "cta_url": "https://my.shop-mcp.app/playbooks/email-flow-health-check?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "klaviyo",
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Klaviyo Flow Health Check play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "email-monday-recap",
+      "title": "Email Monday Recap",
+      "summary": "Email Monday Recap helps ecommerce operators answer: What changed in email and retention last week?",
+      "short_title": "Email Monday Recap",
+      "path": "playbooks/retention/email-monday-recap.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/retention/email-monday-recap.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/retention/email-monday-recap.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/email-monday-recap?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "retention",
+      "primary_persona_label": "Retention / Email Lead",
+      "personas": [
+        "retention",
+        "marketing"
+      ],
+      "persona_labels": [
+        "Retention / Email Lead",
+        "Head of Marketing"
+      ],
+      "category": "retention-ltv",
+      "category_label": "Retention and LTV",
+      "platforms": [
+        "klaviyo",
+        "commerce"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "What changed in email and retention last week?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/email-monday-recap",
+        "cta_url": "https://my.shop-mcp.app/playbooks/email-monday-recap?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "klaviyo",
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Email Monday Recap play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "merch-gmc-feed-audit",
+      "title": "GMC Feed Audit",
+      "summary": "GMC Feed Audit helps ecommerce operators answer: Which feed issues are blocking product visibility or trust?",
+      "short_title": "GMC Feed",
+      "path": "playbooks/merchandising/merch-gmc-feed-audit.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/merchandising/merch-gmc-feed-audit.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/merchandising/merch-gmc-feed-audit.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/merch-gmc-feed-audit?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "merchandising",
+      "primary_persona_label": "Merchandising Manager",
+      "personas": [
+        "merchandising",
+        "performance"
+      ],
+      "persona_labels": [
+        "Merchandising Manager",
+        "Performance Marketer"
+      ],
+      "category": "merchandising-feed",
+      "category_label": "Merchandising and feed",
+      "platforms": [
+        "google-merchant-center",
+        "commerce"
+      ],
+      "cadence": "weekly",
+      "difficulty": "intermediate",
+      "manual_time_minutes": {
+        "min": 45,
+        "max": 90
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": true,
+      "shopmcp_ready": true,
+      "operating_question": "Which feed issues are blocking product visibility or trust?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Merchant Center product status, disapprovals, price, availability, and feed diagnostics.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/merch-gmc-feed-audit",
+        "cta_url": "https://my.shop-mcp.app/playbooks/merch-gmc-feed-audit?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "google-merchant-center",
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the GMC Feed Audit play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "merch-stockout-priority",
+      "title": "Stockout Priority List",
+      "summary": "Stockout Priority List helps ecommerce operators answer: Which stockouts create the most commercial risk?",
+      "short_title": "Stockout Priority",
+      "path": "playbooks/merchandising/merch-stockout-priority.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/merchandising/merch-stockout-priority.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/merchandising/merch-stockout-priority.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/merch-stockout-priority?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "merchandising",
+      "primary_persona_label": "Merchandising Manager",
+      "personas": [
+        "merchandising",
+        "operations"
+      ],
+      "persona_labels": [
+        "Merchandising Manager",
+        "Ops / Dispatch Lead"
+      ],
+      "category": "merchandising-feed",
+      "category_label": "Merchandising and feed",
+      "platforms": [
+        "commerce"
+      ],
+      "cadence": "daily",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which stockouts create the most commercial risk?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/merch-stockout-priority",
+        "cta_url": "https://my.shop-mcp.app/playbooks/merch-stockout-priority?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Stockout Priority List play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "merch-product-data-quality",
+      "title": "Product Data Quality",
+      "summary": "Product Data Quality helps ecommerce operators answer: Which product data gaps are hurting sales, feed quality, or search?",
+      "short_title": "Product Data Quality",
+      "path": "playbooks/merchandising/merch-product-data-quality.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/merchandising/merch-product-data-quality.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/merchandising/merch-product-data-quality.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/merch-product-data-quality?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "merchandising",
+      "primary_persona_label": "Merchandising Manager",
+      "personas": [
+        "merchandising"
+      ],
+      "persona_labels": [
+        "Merchandising Manager"
+      ],
+      "category": "merchandising-feed",
+      "category_label": "Merchandising and feed",
+      "platforms": [
+        "commerce",
+        "google-merchant-center"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which product data gaps are hurting sales, feed quality, or search?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Merchant Center product status, disapprovals, price, availability, and feed diagnostics.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/merch-product-data-quality",
+        "cta_url": "https://my.shop-mcp.app/playbooks/merch-product-data-quality?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "google-merchant-center"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Product Data Quality play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "seo-quick-wins",
+      "title": "SEO Quick Wins",
+      "summary": "SEO Quick Wins helps ecommerce operators answer: Which organic search wins are close enough to act on now?",
+      "short_title": "SEO Quick Wins",
+      "path": "playbooks/seo/seo-quick-wins.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/seo/seo-quick-wins.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/seo/seo-quick-wins.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/seo-quick-wins?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "seo",
+      "primary_persona_label": "SEO / Content Lead",
+      "personas": [
+        "seo"
+      ],
+      "persona_labels": [
+        "SEO / Content Lead"
+      ],
+      "category": "seo-demand-capture",
+      "category_label": "SEO and demand capture",
+      "platforms": [
+        "google-search-console"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which organic search wins are close enough to act on now?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Search Console query, page, click, impression, CTR, and position evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/seo-quick-wins",
+        "cta_url": "https://my.shop-mcp.app/playbooks/seo-quick-wins?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "google-search-console"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the SEO Quick Wins play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "seo-content-decay",
+      "title": "SEO Content Decay Watch",
+      "summary": "SEO Content Decay Watch helps ecommerce operators answer: Which pages are losing demand and are worth refreshing?",
+      "short_title": "SEO Content Decay",
+      "path": "playbooks/seo/seo-content-decay.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/seo/seo-content-decay.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/seo/seo-content-decay.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/seo-content-decay?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "seo",
+      "primary_persona_label": "SEO / Content Lead",
+      "personas": [
+        "seo",
+        "marketing"
+      ],
+      "persona_labels": [
+        "SEO / Content Lead",
+        "Head of Marketing"
+      ],
+      "category": "seo-demand-capture",
+      "category_label": "SEO and demand capture",
+      "platforms": [
+        "google-search-console",
+        "google-analytics-4"
+      ],
+      "cadence": "weekly",
+      "difficulty": "intermediate",
+      "manual_time_minutes": {
+        "min": 45,
+        "max": 90
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": true,
+      "shopmcp_ready": true,
+      "operating_question": "Which pages are losing demand and are worth refreshing?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Search Console query, page, click, impression, CTR, and position evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/seo-content-decay",
+        "cta_url": "https://my.shop-mcp.app/playbooks/seo-content-decay?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "google-search-console",
+          "google-analytics-4"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the SEO Content Decay Watch play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "ops-dispute-evidence",
+      "title": "Stripe Dispute Evidence Pack",
+      "summary": "Stripe Dispute Evidence Pack helps ecommerce operators answer: What evidence is needed to respond to this dispute safely?",
+      "short_title": "Stripe Dispute Evidence Pack",
+      "path": "playbooks/operations/ops-dispute-evidence.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/operations/ops-dispute-evidence.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/operations/ops-dispute-evidence.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/ops-dispute-evidence?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "operations",
+      "primary_persona_label": "Ops / Dispatch Lead",
+      "personas": [
+        "operations"
+      ],
+      "persona_labels": [
+        "Ops / Dispatch Lead"
+      ],
+      "category": "ops-risk",
+      "category_label": "Ops and risk",
+      "platforms": [
+        "stripe",
+        "commerce"
+      ],
+      "cadence": "triggered",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "What evidence is needed to respond to this dispute safely?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Stripe payment, charge, payout, invoice, dispute, or subscription evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/ops-dispute-evidence",
+        "cta_url": "https://my.shop-mcp.app/playbooks/ops-dispute-evidence?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "stripe",
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Stripe Dispute Evidence Pack play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "agency-retention-intelligence-packet",
+      "title": "Retention Intelligence Packet",
+      "summary": "Retention Intelligence Packet helps ecommerce operators answer: What should the agency tell this client about retention risk and next actions?",
+      "short_title": "Retention Intelligence",
+      "path": "playbooks/agency/agency-retention-intelligence-packet.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/agency/agency-retention-intelligence-packet.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/agency/agency-retention-intelligence-packet.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/agency-retention-intelligence-packet?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "agency",
+      "primary_persona_label": "Agency AM / COO",
+      "personas": [
+        "agency",
+        "retention"
+      ],
+      "persona_labels": [
+        "Agency AM / COO",
+        "Retention / Email Lead"
+      ],
+      "category": "agency-portfolio",
+      "category_label": "Agency portfolio",
+      "platforms": [
+        "commerce",
+        "klaviyo",
+        "attentive"
+      ],
+      "cadence": "weekly",
+      "difficulty": "intermediate",
+      "manual_time_minutes": {
+        "min": 45,
+        "max": 90
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "client-action-packet",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": true,
+      "shopmcp_ready": true,
+      "operating_question": "What should the agency tell this client about retention risk and next actions?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Attentive subscriber, journey, event, and deliverability readiness evidence where connected.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/agency-retention-intelligence-packet",
+        "cta_url": "https://my.shop-mcp.app/playbooks/agency-retention-intelligence-packet?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "klaviyo",
+          "attentive"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Retention Intelligence Packet play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "founder-yoy-pulse",
+      "title": "Year-over-Year Pulse",
+      "summary": "Year-over-Year Pulse helps ecommerce operators answer: What is materially different versus the same period last year?",
+      "short_title": "Year-over-Year Pulse",
+      "path": "playbooks/founder/founder-yoy-pulse.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/founder/founder-yoy-pulse.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/founder/founder-yoy-pulse.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/founder-yoy-pulse?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "founder",
+      "primary_persona_label": "Founder / CEO",
+      "personas": [
+        "founder"
+      ],
+      "persona_labels": [
+        "Founder / CEO"
+      ],
+      "category": "trading-profit",
+      "category_label": "Trading and profit",
+      "platforms": [
+        "commerce"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "What is materially different versus the same period last year?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/founder-yoy-pulse",
+        "cta_url": "https://my.shop-mcp.app/playbooks/founder-yoy-pulse?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Year-over-Year Pulse play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "commerce-profit-readiness-audit",
+      "title": "Profit Readiness Audit",
+      "summary": "Profit Readiness Audit helps ecommerce operators answer: Do we have enough cost evidence to answer profit questions safely?",
+      "short_title": "Profit Readiness",
+      "path": "playbooks/founder/commerce-profit-readiness-audit.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/founder/commerce-profit-readiness-audit.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/founder/commerce-profit-readiness-audit.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/commerce-profit-readiness-audit?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "founder",
+      "primary_persona_label": "Founder / CEO",
+      "personas": [
+        "founder"
+      ],
+      "persona_labels": [
+        "Founder / CEO"
+      ],
+      "category": "trading-profit",
+      "category_label": "Trading and profit",
+      "platforms": [
+        "commerce"
+      ],
+      "cadence": "monthly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Do we have enough cost evidence to answer profit questions safely?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/commerce-profit-readiness-audit",
+        "cta_url": "https://my.shop-mcp.app/playbooks/commerce-profit-readiness-audit?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Profit Readiness Audit play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "founder-promo-profit-doctor",
+      "title": "Promo Profit Doctor",
+      "summary": "Promo Profit Doctor helps ecommerce operators answer: Which promotions look good on revenue but weak on profit?",
+      "short_title": "Promo Profit Doctor",
+      "path": "playbooks/founder/founder-promo-profit-doctor.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/founder/founder-promo-profit-doctor.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/founder/founder-promo-profit-doctor.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/founder-promo-profit-doctor?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "founder",
+      "primary_persona_label": "Founder / CEO",
+      "personas": [
+        "founder",
+        "ecommerce",
+        "marketing"
+      ],
+      "persona_labels": [
+        "Founder / CEO",
+        "Head of Ecommerce",
+        "Head of Marketing"
+      ],
+      "category": "trading-profit",
+      "category_label": "Trading and profit",
+      "platforms": [
+        "commerce"
+      ],
+      "cadence": "monthly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which promotions look good on revenue but weak on profit?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/founder-promo-profit-doctor",
+        "cta_url": "https://my.shop-mcp.app/playbooks/founder-promo-profit-doctor?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Promo Profit Doctor play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "ecom-pdp-improvement-list",
+      "title": "PDP Improvement List",
+      "summary": "PDP Improvement List helps ecommerce operators answer: Which product pages should be improved first?",
+      "short_title": "PDP Improvement",
+      "path": "playbooks/ecommerce/ecom-pdp-improvement-list.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/ecommerce/ecom-pdp-improvement-list.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/ecommerce/ecom-pdp-improvement-list.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/ecom-pdp-improvement-list?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "ecommerce",
+      "primary_persona_label": "Head of Ecommerce",
+      "personas": [
+        "ecommerce",
+        "merchandising"
+      ],
+      "persona_labels": [
+        "Head of Ecommerce",
+        "Merchandising Manager"
+      ],
+      "category": "onsite-cro",
+      "category_label": "Onsite CRO",
+      "platforms": [
+        "commerce",
+        "google-analytics-4"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which product pages should be improved first?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/ecom-pdp-improvement-list",
+        "cta_url": "https://my.shop-mcp.app/playbooks/ecom-pdp-improvement-list?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "google-analytics-4"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the PDP Improvement List play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "ecom-stockout-impact",
+      "title": "Stockout Lost-Revenue Impact",
+      "summary": "Stockout Lost-Revenue Impact helps ecommerce operators answer: Which stockouts are costing the most demand or revenue?",
+      "short_title": "Stockout Lost-Revenue Impact",
+      "path": "playbooks/ecommerce/ecom-stockout-impact.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/ecommerce/ecom-stockout-impact.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/ecommerce/ecom-stockout-impact.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/ecom-stockout-impact?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "ecommerce",
+      "primary_persona_label": "Head of Ecommerce",
+      "personas": [
+        "ecommerce",
+        "merchandising",
+        "operations"
+      ],
+      "persona_labels": [
+        "Head of Ecommerce",
+        "Merchandising Manager",
+        "Ops / Dispatch Lead"
+      ],
+      "category": "merchandising-feed",
+      "category_label": "Merchandising and feed",
+      "platforms": [
+        "commerce",
+        "google-analytics-4"
+      ],
+      "cadence": "daily",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which stockouts are costing the most demand or revenue?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/ecom-stockout-impact",
+        "cta_url": "https://my.shop-mcp.app/playbooks/ecom-stockout-impact?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "google-analytics-4"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Stockout Lost-Revenue Impact play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "ecom-ad-message-match",
+      "title": "Ad-to-Landing-Page Message Match Audit",
+      "summary": "Ad-to-Landing-Page Message Match Audit helps ecommerce operators answer: Where does ad promise fail to match landing-page reality?",
+      "short_title": "Ad-to-Landing-Page Message Match",
+      "path": "playbooks/ecommerce/ecom-ad-message-match.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/ecommerce/ecom-ad-message-match.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/ecommerce/ecom-ad-message-match.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/ecom-ad-message-match?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "ecommerce",
+      "primary_persona_label": "Head of Ecommerce",
+      "personas": [
+        "ecommerce",
+        "marketing",
+        "performance"
+      ],
+      "persona_labels": [
+        "Head of Ecommerce",
+        "Head of Marketing",
+        "Performance Marketer"
+      ],
+      "category": "onsite-cro",
+      "category_label": "Onsite CRO",
+      "platforms": [
+        "meta-ads",
+        "google-ads",
+        "tiktok-ads",
+        "commerce",
+        "google-analytics-4"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Where does ad promise fail to match landing-page reality?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Tiktok Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/ecom-ad-message-match",
+        "cta_url": "https://my.shop-mcp.app/playbooks/ecom-ad-message-match?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "meta-ads",
+          "google-ads",
+          "tiktok-ads",
+          "commerce",
+          "google-analytics-4"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Ad-to-Landing-Page Message Match Audit play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "ecom-promo-effectiveness",
+      "title": "Promo Effectiveness",
+      "summary": "Promo Effectiveness helps ecommerce operators answer: Did the promotion improve customer quality, margin, or conversion?",
+      "short_title": "Promo Effectiveness",
+      "path": "playbooks/ecommerce/ecom-promo-effectiveness.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/ecommerce/ecom-promo-effectiveness.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/ecommerce/ecom-promo-effectiveness.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/ecom-promo-effectiveness?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "ecommerce",
+      "primary_persona_label": "Head of Ecommerce",
+      "personas": [
+        "ecommerce",
+        "marketing"
+      ],
+      "persona_labels": [
+        "Head of Ecommerce",
+        "Head of Marketing"
+      ],
+      "category": "trading-profit",
+      "category_label": "Trading and profit",
+      "platforms": [
+        "commerce"
+      ],
+      "cadence": "ad-hoc",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Did the promotion improve customer quality, margin, or conversion?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/ecom-promo-effectiveness",
+        "cta_url": "https://my.shop-mcp.app/playbooks/ecom-promo-effectiveness?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Promo Effectiveness play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "marketing-attribution-reconciliation",
+      "title": "Attribution Reconciliation",
+      "summary": "Attribution Reconciliation helps ecommerce operators answer: Which source of attribution is drifting from commerce truth?",
+      "short_title": "Attribution Reconciliation",
+      "path": "playbooks/marketing/marketing-attribution-reconciliation.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/marketing/marketing-attribution-reconciliation.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/marketing/marketing-attribution-reconciliation.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/marketing-attribution-reconciliation?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "marketing",
+      "primary_persona_label": "Head of Marketing",
+      "personas": [
+        "marketing"
+      ],
+      "persona_labels": [
+        "Head of Marketing"
+      ],
+      "category": "tracking-data-quality",
+      "category_label": "Tracking and data quality",
+      "platforms": [
+        "commerce",
+        "google-analytics-4"
+      ],
+      "cadence": "monthly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which source of attribution is drifting from commerce truth?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/marketing-attribution-reconciliation",
+        "cta_url": "https://my.shop-mcp.app/playbooks/marketing-attribution-reconciliation?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "google-analytics-4"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Attribution Reconciliation play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "marketing-brand-cannibalisation",
+      "title": "Brand Cannibalisation Audit",
+      "summary": "Brand Cannibalisation Audit helps ecommerce operators answer: Are paid campaigns buying demand that organic search would have captured?",
+      "short_title": "Brand Cannibalisation",
+      "path": "playbooks/marketing/marketing-brand-cannibalisation.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/marketing/marketing-brand-cannibalisation.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/marketing/marketing-brand-cannibalisation.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/marketing-brand-cannibalisation?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "marketing",
+      "primary_persona_label": "Head of Marketing",
+      "personas": [
+        "marketing",
+        "performance"
+      ],
+      "persona_labels": [
+        "Head of Marketing",
+        "Performance Marketer"
+      ],
+      "category": "acquisition-efficiency",
+      "category_label": "Acquisition efficiency",
+      "platforms": [
+        "google-ads",
+        "google-search-console"
+      ],
+      "cadence": "monthly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Are paid campaigns buying demand that organic search would have captured?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Search Console query, page, click, impression, CTR, and position evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/marketing-brand-cannibalisation",
+        "cta_url": "https://my.shop-mcp.app/playbooks/marketing-brand-cannibalisation?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "google-ads",
+          "google-search-console"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Brand Cannibalisation Audit play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "marketing-marginal-budget-allocator",
+      "title": "Marginal Budget Allocator",
+      "summary": "Marginal Budget Allocator helps ecommerce operators answer: Where should the next marginal dollar go?",
+      "short_title": "Marginal Budget Allocator",
+      "path": "playbooks/marketing/marketing-marginal-budget-allocator.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/marketing/marketing-marginal-budget-allocator.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/marketing/marketing-marginal-budget-allocator.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/marketing-marginal-budget-allocator?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "marketing",
+      "primary_persona_label": "Head of Marketing",
+      "personas": [
+        "marketing",
+        "founder",
+        "performance"
+      ],
+      "persona_labels": [
+        "Head of Marketing",
+        "Founder / CEO",
+        "Performance Marketer"
+      ],
+      "category": "acquisition-efficiency",
+      "category_label": "Acquisition efficiency",
+      "platforms": [
+        "commerce",
+        "meta-ads",
+        "google-ads",
+        "tiktok-ads"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Where should the next marginal dollar go?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Tiktok Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/marketing-marginal-budget-allocator",
+        "cta_url": "https://my.shop-mcp.app/playbooks/marketing-marginal-budget-allocator?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "meta-ads",
+          "google-ads",
+          "tiktok-ads"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Marginal Budget Allocator play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "marketing-competitor-demand-brief",
+      "title": "Competitor Demand Brief",
+      "summary": "Competitor Demand Brief helps ecommerce operators answer: Which competitor demand signals deserve a response?",
+      "short_title": "Competitor Demand Brief",
+      "path": "playbooks/marketing/marketing-competitor-demand-brief.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/marketing/marketing-competitor-demand-brief.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/marketing/marketing-competitor-demand-brief.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/marketing-competitor-demand-brief?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "marketing",
+      "primary_persona_label": "Head of Marketing",
+      "personas": [
+        "marketing",
+        "seo",
+        "performance"
+      ],
+      "persona_labels": [
+        "Head of Marketing",
+        "SEO / Content Lead",
+        "Performance Marketer"
+      ],
+      "category": "seo-demand-capture",
+      "category_label": "SEO and demand capture",
+      "platforms": [
+        "dataforseo",
+        "google-search-console"
+      ],
+      "cadence": "monthly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which competitor demand signals deserve a response?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "SERP, keyword, competitor, page, or structured-data evidence from DataForSEO.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Search Console query, page, click, impression, CTR, and position evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/marketing-competitor-demand-brief",
+        "cta_url": "https://my.shop-mcp.app/playbooks/marketing-competitor-demand-brief?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "dataforseo",
+          "google-search-console"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Competitor Demand Brief play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "perf-cpa-root-cause",
+      "title": "CPA Spike Root Cause Explainer",
+      "summary": "CPA Spike Root Cause Explainer helps ecommerce operators answer: Why did CPA spike and what should be checked first?",
+      "short_title": "CPA Spike Root Cause Explainer",
+      "path": "playbooks/performance/perf-cpa-root-cause.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/performance/perf-cpa-root-cause.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/performance/perf-cpa-root-cause.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/perf-cpa-root-cause?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "performance",
+      "primary_persona_label": "Performance Marketer",
+      "personas": [
+        "performance",
+        "marketing"
+      ],
+      "persona_labels": [
+        "Performance Marketer",
+        "Head of Marketing"
+      ],
+      "category": "acquisition-efficiency",
+      "category_label": "Acquisition efficiency",
+      "platforms": [
+        "commerce",
+        "meta-ads",
+        "google-ads",
+        "tiktok-ads"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Why did CPA spike and what should be checked first?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Tiktok Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/perf-cpa-root-cause",
+        "cta_url": "https://my.shop-mcp.app/playbooks/perf-cpa-root-cause?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "meta-ads",
+          "google-ads",
+          "tiktok-ads"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the CPA Spike Root Cause Explainer play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "perf-shopping-feed-watch",
+      "title": "Shopping Feed Watch",
+      "summary": "Shopping Feed Watch helps ecommerce operators answer: Which shopping feed issues are hurting paid performance?",
+      "short_title": "Shopping Feed",
+      "path": "playbooks/performance/perf-shopping-feed-watch.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/performance/perf-shopping-feed-watch.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/performance/perf-shopping-feed-watch.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/perf-shopping-feed-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "performance",
+      "primary_persona_label": "Performance Marketer",
+      "personas": [
+        "performance",
+        "merchandising"
+      ],
+      "persona_labels": [
+        "Performance Marketer",
+        "Merchandising Manager"
+      ],
+      "category": "merchandising-feed",
+      "category_label": "Merchandising and feed",
+      "platforms": [
+        "google-merchant-center",
+        "commerce"
+      ],
+      "cadence": "daily",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which shopping feed issues are hurting paid performance?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Merchant Center product status, disapprovals, price, availability, and feed diagnostics.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/perf-shopping-feed-watch",
+        "cta_url": "https://my.shop-mcp.app/playbooks/perf-shopping-feed-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "google-merchant-center",
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Shopping Feed Watch play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "perf-pmax-deep-dive",
+      "title": "Performance Max Deep Dive",
+      "summary": "Performance Max Deep Dive helps ecommerce operators answer: Is Performance Max scaling profitably or hiding waste?",
+      "short_title": "Performance Max Deep Dive",
+      "path": "playbooks/performance/perf-pmax-deep-dive.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/performance/perf-pmax-deep-dive.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/performance/perf-pmax-deep-dive.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/perf-pmax-deep-dive?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "performance",
+      "primary_persona_label": "Performance Marketer",
+      "personas": [
+        "performance"
+      ],
+      "persona_labels": [
+        "Performance Marketer"
+      ],
+      "category": "acquisition-efficiency",
+      "category_label": "Acquisition efficiency",
+      "platforms": [
+        "google-ads",
+        "google-merchant-center"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Is Performance Max scaling profitably or hiding waste?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Merchant Center product status, disapprovals, price, availability, and feed diagnostics.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/perf-pmax-deep-dive",
+        "cta_url": "https://my.shop-mcp.app/playbooks/perf-pmax-deep-dive?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "google-ads",
+          "google-merchant-center"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Performance Max Deep Dive play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "email-deliverability-watch",
+      "title": "Email Deliverability Watch",
+      "summary": "Email Deliverability Watch helps ecommerce operators answer: Is deliverability safe enough to keep sending?",
+      "short_title": "Email Deliverability",
+      "path": "playbooks/retention/email-deliverability-watch.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/retention/email-deliverability-watch.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/retention/email-deliverability-watch.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/email-deliverability-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "retention",
+      "primary_persona_label": "Retention / Email Lead",
+      "personas": [
+        "retention"
+      ],
+      "persona_labels": [
+        "Retention / Email Lead"
+      ],
+      "category": "retention-ltv",
+      "category_label": "Retention and LTV",
+      "platforms": [
+        "klaviyo"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Is deliverability safe enough to keep sending?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/email-deliverability-watch",
+        "cta_url": "https://my.shop-mcp.app/playbooks/email-deliverability-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "klaviyo"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Email Deliverability Watch play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "email-abandoned-cart-recovery-doctor",
+      "title": "Abandoned Cart Recovery Doctor",
+      "summary": "Abandoned Cart Recovery Doctor helps ecommerce operators answer: Is abandoned-cart recovery leaving money behind?",
+      "short_title": "Abandoned Cart Recovery Doctor",
+      "path": "playbooks/retention/email-abandoned-cart-recovery-doctor.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/retention/email-abandoned-cart-recovery-doctor.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/retention/email-abandoned-cart-recovery-doctor.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/email-abandoned-cart-recovery-doctor?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "retention",
+      "primary_persona_label": "Retention / Email Lead",
+      "personas": [
+        "retention",
+        "ecommerce"
+      ],
+      "persona_labels": [
+        "Retention / Email Lead",
+        "Head of Ecommerce"
+      ],
+      "category": "retention-ltv",
+      "category_label": "Retention and LTV",
+      "platforms": [
+        "klaviyo",
+        "commerce"
+      ],
+      "cadence": "monthly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Is abandoned-cart recovery leaving money behind?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/email-abandoned-cart-recovery-doctor",
+        "cta_url": "https://my.shop-mcp.app/playbooks/email-abandoned-cart-recovery-doctor?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "klaviyo",
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Abandoned Cart Recovery Doctor play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "email-vip-watch",
+      "title": "VIP Cohort Watch",
+      "summary": "VIP Cohort Watch helps ecommerce operators answer: Are VIP customers becoming less active or less valuable?",
+      "short_title": "VIP Cohort",
+      "path": "playbooks/retention/email-vip-watch.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/retention/email-vip-watch.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/retention/email-vip-watch.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/email-vip-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "retention",
+      "primary_persona_label": "Retention / Email Lead",
+      "personas": [
+        "retention",
+        "founder"
+      ],
+      "persona_labels": [
+        "Retention / Email Lead",
+        "Founder / CEO"
+      ],
+      "category": "retention-ltv",
+      "category_label": "Retention and LTV",
+      "platforms": [
+        "commerce",
+        "klaviyo"
+      ],
+      "cadence": "monthly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Are VIP customers becoming less active or less valuable?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/email-vip-watch",
+        "cta_url": "https://my.shop-mcp.app/playbooks/email-vip-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "klaviyo"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the VIP Cohort Watch play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "email-winback-builder",
+      "title": "Winback Builder",
+      "summary": "Winback Builder helps ecommerce operators answer: Which dormant customers are worth trying to win back?",
+      "short_title": "Winback Builder",
+      "path": "playbooks/retention/email-winback-builder.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/retention/email-winback-builder.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/retention/email-winback-builder.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/email-winback-builder?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "retention",
+      "primary_persona_label": "Retention / Email Lead",
+      "personas": [
+        "retention"
+      ],
+      "persona_labels": [
+        "Retention / Email Lead"
+      ],
+      "category": "retention-ltv",
+      "category_label": "Retention and LTV",
+      "platforms": [
+        "commerce",
+        "klaviyo"
+      ],
+      "cadence": "monthly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which dormant customers are worth trying to win back?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/email-winback-builder",
+        "cta_url": "https://my.shop-mcp.app/playbooks/email-winback-builder?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "klaviyo"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Winback Builder play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "email-replenishment-timing",
+      "title": "Replenishment Timing",
+      "summary": "Replenishment Timing helps ecommerce operators answer: When should replenishment messages be sent by product or category?",
+      "short_title": "Replenishment Timing",
+      "path": "playbooks/retention/email-replenishment-timing.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/retention/email-replenishment-timing.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/retention/email-replenishment-timing.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/email-replenishment-timing?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "retention",
+      "primary_persona_label": "Retention / Email Lead",
+      "personas": [
+        "retention",
+        "merchandising"
+      ],
+      "persona_labels": [
+        "Retention / Email Lead",
+        "Merchandising Manager"
+      ],
+      "category": "retention-ltv",
+      "category_label": "Retention and LTV",
+      "platforms": [
+        "commerce",
+        "klaviyo"
+      ],
+      "cadence": "monthly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "When should replenishment messages be sent by product or category?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/email-replenishment-timing",
+        "cta_url": "https://my.shop-mcp.app/playbooks/email-replenishment-timing?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "klaviyo"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Replenishment Timing play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "merch-dead-stock-watch",
+      "title": "Dead Stock Watch",
+      "summary": "Dead Stock Watch helps ecommerce operators answer: Which products are tying up cash without enough demand?",
+      "short_title": "Dead Stock",
+      "path": "playbooks/merchandising/merch-dead-stock-watch.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/merchandising/merch-dead-stock-watch.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/merchandising/merch-dead-stock-watch.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/merch-dead-stock-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "merchandising",
+      "primary_persona_label": "Merchandising Manager",
+      "personas": [
+        "merchandising",
+        "founder",
+        "operations"
+      ],
+      "persona_labels": [
+        "Merchandising Manager",
+        "Founder / CEO",
+        "Ops / Dispatch Lead"
+      ],
+      "category": "merchandising-feed",
+      "category_label": "Merchandising and feed",
+      "platforms": [
+        "commerce"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which products are tying up cash without enough demand?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/merch-dead-stock-watch",
+        "cta_url": "https://my.shop-mcp.app/playbooks/merch-dead-stock-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Dead Stock Watch play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "merch-least-profitable-products",
+      "title": "Least Profitable Products",
+      "summary": "Least Profitable Products helps ecommerce operators answer: Which products create the weakest known profit?",
+      "short_title": "Least Profitable Products",
+      "path": "playbooks/merchandising/merch-least-profitable-products.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/merchandising/merch-least-profitable-products.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/merchandising/merch-least-profitable-products.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/merch-least-profitable-products?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "merchandising",
+      "primary_persona_label": "Merchandising Manager",
+      "personas": [
+        "merchandising",
+        "founder",
+        "marketing"
+      ],
+      "persona_labels": [
+        "Merchandising Manager",
+        "Founder / CEO",
+        "Head of Marketing"
+      ],
+      "category": "merchandising-feed",
+      "category_label": "Merchandising and feed",
+      "platforms": [
+        "commerce"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which products create the weakest known profit?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/merch-least-profitable-products",
+        "cta_url": "https://my.shop-mcp.app/playbooks/merch-least-profitable-products?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Least Profitable Products play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "seo-cannibalisation-audit",
+      "title": "SEO Cannibalisation Audit",
+      "summary": "SEO Cannibalisation Audit helps ecommerce operators answer: Which pages compete with each other for the same search demand?",
+      "short_title": "SEO Cannibalisation",
+      "path": "playbooks/seo/seo-cannibalisation-audit.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/seo/seo-cannibalisation-audit.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/seo/seo-cannibalisation-audit.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/seo-cannibalisation-audit?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "seo",
+      "primary_persona_label": "SEO / Content Lead",
+      "personas": [
+        "seo"
+      ],
+      "persona_labels": [
+        "SEO / Content Lead"
+      ],
+      "category": "seo-demand-capture",
+      "category_label": "SEO and demand capture",
+      "platforms": [
+        "google-search-console"
+      ],
+      "cadence": "monthly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which pages compete with each other for the same search demand?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Search Console query, page, click, impression, CTR, and position evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/seo-cannibalisation-audit",
+        "cta_url": "https://my.shop-mcp.app/playbooks/seo-cannibalisation-audit?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "google-search-console"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the SEO Cannibalisation Audit play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "seo-schema-rich-result-readiness",
+      "title": "Schema and Rich Result Readiness",
+      "summary": "Schema and Rich Result Readiness helps ecommerce operators answer: Which structured-data gaps block ecommerce search trust?",
+      "short_title": "Schema and Rich Result Readiness",
+      "path": "playbooks/seo/seo-schema-rich-result-readiness.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/seo/seo-schema-rich-result-readiness.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/seo/seo-schema-rich-result-readiness.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/seo-schema-rich-result-readiness?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "seo",
+      "primary_persona_label": "SEO / Content Lead",
+      "personas": [
+        "seo",
+        "ecommerce",
+        "marketing"
+      ],
+      "persona_labels": [
+        "SEO / Content Lead",
+        "Head of Ecommerce",
+        "Head of Marketing"
+      ],
+      "category": "seo-demand-capture",
+      "category_label": "SEO and demand capture",
+      "platforms": [
+        "dataforseo",
+        "commerce"
+      ],
+      "cadence": "monthly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which structured-data gaps block ecommerce search trust?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "SERP, keyword, competitor, page, or structured-data evidence from DataForSEO.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/seo-schema-rich-result-readiness",
+        "cta_url": "https://my.shop-mcp.app/playbooks/seo-schema-rich-result-readiness?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "dataforseo",
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Schema and Rich Result Readiness play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "ops-daily-standup",
+      "title": "Ops Daily Standup",
+      "summary": "Ops Daily Standup helps ecommerce operators answer: What order, fulfilment, refund, or exception queue needs action today?",
+      "short_title": "Ops Daily Standup",
+      "path": "playbooks/operations/ops-daily-standup.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/operations/ops-daily-standup.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/operations/ops-daily-standup.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/ops-daily-standup?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "operations",
+      "primary_persona_label": "Ops / Dispatch Lead",
+      "personas": [
+        "operations"
+      ],
+      "persona_labels": [
+        "Ops / Dispatch Lead"
+      ],
+      "category": "ops-risk",
+      "category_label": "Ops and risk",
+      "platforms": [
+        "commerce"
+      ],
+      "cadence": "daily",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "diagnose-and-rank",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "What order, fulfilment, refund, or exception queue needs action today?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/ops-daily-standup",
+        "cta_url": "https://my.shop-mcp.app/playbooks/ops-daily-standup?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Ops Daily Standup play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "agency-client-health-score",
+      "title": "Agency Client Health Score",
+      "summary": "Agency Client Health Score helps ecommerce operators answer: Which client needs intervention before the next meeting?",
+      "short_title": "Agency Client Health Score",
+      "path": "playbooks/agency/agency-client-health-score.md",
+      "github_url": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks/blob/main/playbooks/agency/agency-client-health-score.md",
+      "raw_url": "https://raw.githubusercontent.com/perceptiv-digital/ecommerce-operator-playbooks/main/playbooks/agency/agency-client-health-score.md",
+      "cta_url": "https://my.shop-mcp.app/playbooks/agency-client-health-score?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+      "primary_persona": "agency",
+      "primary_persona_label": "Agency AM / COO",
+      "personas": [
+        "agency"
+      ],
+      "persona_labels": [
+        "Agency AM / COO"
+      ],
+      "category": "agency-portfolio",
+      "category_label": "Agency portfolio",
+      "platforms": [
+        "commerce",
+        "meta-ads",
+        "google-ads",
+        "klaviyo"
+      ],
+      "cadence": "weekly",
+      "difficulty": "standard",
+      "manual_time_minutes": {
+        "min": 30,
+        "max": 75
+      },
+      "shopmcp_time_minutes": {
+        "min": 3,
+        "max": 8
+      },
+      "decision_type": "client-action-packet",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question": "Which client needs intervention before the next meeting?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "optional_evidence": [
+        {
+          "source": "operator-context",
+          "label": "Promotions, stock notes, launch dates, known tracking incidents, and target metrics.",
+          "freshness": "current"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/agency-client-health-score",
+        "cta_url": "https://my.shop-mcp.app/playbooks/agency-client-health-score?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os",
+        "required_connections": [
+          "commerce",
+          "meta-ads",
+          "google-ads",
+          "klaviyo"
+        ],
+        "optional_connections": [],
+        "first_run_read_only": true,
+        "prompt": "Run the Agency Client Health Score play for the last 30 days. Keep it read-only."
+      }
+    }
+  ]
+}

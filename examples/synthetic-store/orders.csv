@@ -1,0 +1,4 @@
+order_id,date,source,revenue,cogs,new_customer
+1001,2026-06-01,google_ads,180,91,true
+1002,2026-06-01,email,96,42,false
+1003,2026-06-02,meta_ads,142,88,true

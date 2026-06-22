@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">eCommerce Operator OS</title>
+  <desc id="desc">Evidence-first AI playbooks for ecommerce operators, by Perceptiv and ShopMCP.</desc>
+  <rect width="1280" height="640" fill="#0f172a"/>
+  <rect x="72" y="72" width="1136" height="496" rx="28" fill="#f8fafc"/>
+  <text x="128" y="172" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#2563eb">Perceptiv presents</text>
+  <text x="128" y="278" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="800" fill="#111827">eCommerce Operator OS</text>
+  <text x="128" y="350" font-family="Arial, Helvetica, sans-serif" font-size="36" fill="#334155">Evidence-first AI playbooks for real commerce decisions.</text>
+  <text x="128" y="452" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#475569">Manual in ChatGPT or Claude. Live-data execution in ShopMCP.</text>
+  <text x="128" y="522" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#111827">github.com/perceptiv-digital/ecommerce-operator-playbooks</text>
+</svg>

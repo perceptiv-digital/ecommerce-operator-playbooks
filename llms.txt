@@ -1,0 +1,10 @@
+# eCommerce Operator OS
+
+Evidence-first AI playbooks for ecommerce operators.
+
+Start with:
+
+- README.md
+- TOP_25_PLAYBOOKS.md
+- PLAYBOOK_STANDARD.md
+- indexes/manifest.json
