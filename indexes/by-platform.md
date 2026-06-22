@@ -11,7 +11,15 @@
 | Play | Persona | Category | Platforms | Cadence |
 |---|---|---|---|---|
 | [Agency Client Health Score](../playbooks/agency/agency-client-health-score.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo | weekly |
+| [New-Client Onboarding Audit](../playbooks/agency/agency-new-client-audit.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo, google-merchant-center | ad-hoc |
+| [Portfolio Efficiency Watch](../playbooks/agency/agency-portfolio-mer-watch.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, tiktok-ads | weekly |
+| [Client QBR Builder](../playbooks/agency/agency-qbr-builder.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | ad-hoc |
 | [Retention Intelligence Packet](../playbooks/agency/agency-retention-intelligence-packet.md) | Agency AM / COO | Agency portfolio | commerce, klaviyo, attentive | weekly |
+| [Roster Anomaly Radar](../playbooks/agency/agency-roster-anomaly-watch.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo | daily |
+| [Roster Wasted-Spend Rollup](../playbooks/agency/agency-roster-wasted-spend.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, tiktok-ads | weekly |
+| [Retainer Scope-Creep Watch](../playbooks/agency/agency-scope-creep-watch.md) | Agency AM / COO | Agency portfolio | commerce | monthly |
+| [Client Tracking Setup Audit](../playbooks/agency/agency-tracking-setup-audit.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | ad-hoc |
+| [Client Upsell Radar](../playbooks/agency/agency-upsell-radar.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo, google-search-console | monthly |
 | [Commerce Product Visibility Audit](../playbooks/ecommerce/commerce-product-visibility-audit.md) | Head of Ecommerce | Merchandising and feed | commerce, google-merchant-center, google-search-console, dataforseo | ad-hoc |
 | [Ad-to-Landing-Page Message Match Audit](../playbooks/ecommerce/ecom-ad-message-match.md) | Head of Ecommerce | Onsite CRO | meta-ads, google-ads, tiktok-ads, commerce, google-analytics-4 | weekly |
 | [Checkout Health Watch](../playbooks/ecommerce/ecom-checkout-health.md) | Head of Ecommerce | Onsite CRO | commerce, google-analytics-4 | weekly |
@@ -64,6 +72,13 @@
 | Play | Persona | Category | Platforms | Cadence |
 |---|---|---|---|---|
 | [Agency Client Health Score](../playbooks/agency/agency-client-health-score.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo | weekly |
+| [New-Client Onboarding Audit](../playbooks/agency/agency-new-client-audit.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo, google-merchant-center | ad-hoc |
+| [Portfolio Efficiency Watch](../playbooks/agency/agency-portfolio-mer-watch.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, tiktok-ads | weekly |
+| [Client QBR Builder](../playbooks/agency/agency-qbr-builder.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | ad-hoc |
+| [Roster Anomaly Radar](../playbooks/agency/agency-roster-anomaly-watch.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo | daily |
+| [Roster Wasted-Spend Rollup](../playbooks/agency/agency-roster-wasted-spend.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, tiktok-ads | weekly |
+| [Client Tracking Setup Audit](../playbooks/agency/agency-tracking-setup-audit.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | ad-hoc |
+| [Client Upsell Radar](../playbooks/agency/agency-upsell-radar.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo, google-search-console | monthly |
 | [Ad-to-Landing-Page Message Match Audit](../playbooks/ecommerce/ecom-ad-message-match.md) | Head of Ecommerce | Onsite CRO | meta-ads, google-ads, tiktok-ads, commerce, google-analytics-4 | weekly |
 | [Tracking Sanity Check](../playbooks/ecommerce/ecom-tracking-sanity.md) | Head of Ecommerce | Tracking and data quality | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | weekly |
 | [Contribution Profit by Channel](../playbooks/founder/commerce-contribution-profit-by-channel.md) | Founder / CEO | Trading and profit | commerce, google-analytics-4, meta-ads, google-ads, tiktok-ads | weekly |
@@ -82,6 +97,9 @@
 
 | Play | Persona | Category | Platforms | Cadence |
 |---|---|---|---|---|
+| [New-Client Onboarding Audit](../playbooks/agency/agency-new-client-audit.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo, google-merchant-center | ad-hoc |
+| [Client QBR Builder](../playbooks/agency/agency-qbr-builder.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | ad-hoc |
+| [Client Tracking Setup Audit](../playbooks/agency/agency-tracking-setup-audit.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | ad-hoc |
 | [Ad-to-Landing-Page Message Match Audit](../playbooks/ecommerce/ecom-ad-message-match.md) | Head of Ecommerce | Onsite CRO | meta-ads, google-ads, tiktok-ads, commerce, google-analytics-4 | weekly |
 | [Checkout Health Watch](../playbooks/ecommerce/ecom-checkout-health.md) | Head of Ecommerce | Onsite CRO | commerce, google-analytics-4 | weekly |
 | [Funnel Leak Finder](../playbooks/ecommerce/ecom-funnel-leak-finder.md) | Head of Ecommerce | Onsite CRO | commerce, google-analytics-4 | weekly |
@@ -99,6 +117,7 @@
 
 | Play | Persona | Category | Platforms | Cadence |
 |---|---|---|---|---|
+| [New-Client Onboarding Audit](../playbooks/agency/agency-new-client-audit.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo, google-merchant-center | ad-hoc |
 | [Commerce Product Visibility Audit](../playbooks/ecommerce/commerce-product-visibility-audit.md) | Head of Ecommerce | Merchandising and feed | commerce, google-merchant-center, google-search-console, dataforseo | ad-hoc |
 | [GMC Feed Audit](../playbooks/merchandising/merch-gmc-feed-audit.md) | Merchandising Manager | Merchandising and feed | google-merchant-center, commerce | weekly |
 | [Product Data Quality](../playbooks/merchandising/merch-product-data-quality.md) | Merchandising Manager | Merchandising and feed | commerce, google-merchant-center | weekly |
@@ -109,6 +128,7 @@
 
 | Play | Persona | Category | Platforms | Cadence |
 |---|---|---|---|---|
+| [Client Upsell Radar](../playbooks/agency/agency-upsell-radar.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo, google-search-console | monthly |
 | [Commerce Product Visibility Audit](../playbooks/ecommerce/commerce-product-visibility-audit.md) | Head of Ecommerce | Merchandising and feed | commerce, google-merchant-center, google-search-console, dataforseo | ad-hoc |
 | [Brand Cannibalisation Audit](../playbooks/marketing/marketing-brand-cannibalisation.md) | Head of Marketing | Acquisition efficiency | google-ads, google-search-console | monthly |
 | [Competitor Demand Brief](../playbooks/marketing/marketing-competitor-demand-brief.md) | Head of Marketing | SEO and demand capture | dataforseo, google-search-console | monthly |
@@ -121,7 +141,12 @@
 | Play | Persona | Category | Platforms | Cadence |
 |---|---|---|---|---|
 | [Agency Client Health Score](../playbooks/agency/agency-client-health-score.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo | weekly |
+| [New-Client Onboarding Audit](../playbooks/agency/agency-new-client-audit.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo, google-merchant-center | ad-hoc |
+| [Client QBR Builder](../playbooks/agency/agency-qbr-builder.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | ad-hoc |
 | [Retention Intelligence Packet](../playbooks/agency/agency-retention-intelligence-packet.md) | Agency AM / COO | Agency portfolio | commerce, klaviyo, attentive | weekly |
+| [Roster Anomaly Radar](../playbooks/agency/agency-roster-anomaly-watch.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo | daily |
+| [Client Tracking Setup Audit](../playbooks/agency/agency-tracking-setup-audit.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | ad-hoc |
+| [Client Upsell Radar](../playbooks/agency/agency-upsell-radar.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo, google-search-console | monthly |
 | [Tracking Sanity Check](../playbooks/ecommerce/ecom-tracking-sanity.md) | Head of Ecommerce | Tracking and data quality | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | weekly |
 | [Abandoned Cart Recovery Doctor](../playbooks/retention/email-abandoned-cart-recovery-doctor.md) | Retention / Email Lead | Retention and LTV | klaviyo, commerce | monthly |
 | [Email Deliverability Watch](../playbooks/retention/email-deliverability-watch.md) | Retention / Email Lead | Retention and LTV | klaviyo | weekly |
@@ -136,6 +161,13 @@
 | Play | Persona | Category | Platforms | Cadence |
 |---|---|---|---|---|
 | [Agency Client Health Score](../playbooks/agency/agency-client-health-score.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo | weekly |
+| [New-Client Onboarding Audit](../playbooks/agency/agency-new-client-audit.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo, google-merchant-center | ad-hoc |
+| [Portfolio Efficiency Watch](../playbooks/agency/agency-portfolio-mer-watch.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, tiktok-ads | weekly |
+| [Client QBR Builder](../playbooks/agency/agency-qbr-builder.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | ad-hoc |
+| [Roster Anomaly Radar](../playbooks/agency/agency-roster-anomaly-watch.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo | daily |
+| [Roster Wasted-Spend Rollup](../playbooks/agency/agency-roster-wasted-spend.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, tiktok-ads | weekly |
+| [Client Tracking Setup Audit](../playbooks/agency/agency-tracking-setup-audit.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | ad-hoc |
+| [Client Upsell Radar](../playbooks/agency/agency-upsell-radar.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo, google-search-console | monthly |
 | [Ad-to-Landing-Page Message Match Audit](../playbooks/ecommerce/ecom-ad-message-match.md) | Head of Ecommerce | Onsite CRO | meta-ads, google-ads, tiktok-ads, commerce, google-analytics-4 | weekly |
 | [Tracking Sanity Check](../playbooks/ecommerce/ecom-tracking-sanity.md) | Head of Ecommerce | Tracking and data quality | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | weekly |
 | [Contribution Profit by Channel](../playbooks/founder/commerce-contribution-profit-by-channel.md) | Founder / CEO | Trading and profit | commerce, google-analytics-4, meta-ads, google-ads, tiktok-ads | weekly |
@@ -158,6 +190,8 @@
 
 | Play | Persona | Category | Platforms | Cadence |
 |---|---|---|---|---|
+| [Portfolio Efficiency Watch](../playbooks/agency/agency-portfolio-mer-watch.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, tiktok-ads | weekly |
+| [Roster Wasted-Spend Rollup](../playbooks/agency/agency-roster-wasted-spend.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, tiktok-ads | weekly |
 | [Ad-to-Landing-Page Message Match Audit](../playbooks/ecommerce/ecom-ad-message-match.md) | Head of Ecommerce | Onsite CRO | meta-ads, google-ads, tiktok-ads, commerce, google-analytics-4 | weekly |
 | [Contribution Profit by Channel](../playbooks/founder/commerce-contribution-profit-by-channel.md) | Founder / CEO | Trading and profit | commerce, google-analytics-4, meta-ads, google-ads, tiktok-ads | weekly |
 | [Blended MER Watch](../playbooks/marketing/marketing-blended-mer-watch.md) | Head of Marketing | Acquisition efficiency | commerce, meta-ads, google-ads, tiktok-ads | weekly |

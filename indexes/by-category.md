@@ -93,4 +93,12 @@
 | Play | Persona | Category | Platforms | Cadence |
 |---|---|---|---|---|
 | [Agency Client Health Score](../playbooks/agency/agency-client-health-score.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo | weekly |
+| [New-Client Onboarding Audit](../playbooks/agency/agency-new-client-audit.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo, google-merchant-center | ad-hoc |
+| [Portfolio Efficiency Watch](../playbooks/agency/agency-portfolio-mer-watch.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, tiktok-ads | weekly |
+| [Client QBR Builder](../playbooks/agency/agency-qbr-builder.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | ad-hoc |
 | [Retention Intelligence Packet](../playbooks/agency/agency-retention-intelligence-packet.md) | Agency AM / COO | Agency portfolio | commerce, klaviyo, attentive | weekly |
+| [Roster Anomaly Radar](../playbooks/agency/agency-roster-anomaly-watch.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo | daily |
+| [Roster Wasted-Spend Rollup](../playbooks/agency/agency-roster-wasted-spend.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, tiktok-ads | weekly |
+| [Retainer Scope-Creep Watch](../playbooks/agency/agency-scope-creep-watch.md) | Agency AM / COO | Agency portfolio | commerce | monthly |
+| [Client Tracking Setup Audit](../playbooks/agency/agency-tracking-setup-audit.md) | Agency AM / COO | Agency portfolio | commerce, google-analytics-4, meta-ads, google-ads, klaviyo | ad-hoc |
+| [Client Upsell Radar](../playbooks/agency/agency-upsell-radar.md) | Agency AM / COO | Agency portfolio | commerce, meta-ads, google-ads, klaviyo, google-search-console | monthly |

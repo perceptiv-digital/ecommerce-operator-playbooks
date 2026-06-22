@@ -11,7 +11,7 @@ Each play tells an AI exactly **what evidence to gather, in what order, when to 
 
 ## Install (optional) — run the plays as skills
 
-Install all 50 as native skills in **Claude Code, Cursor, Codex, or Windsurf**:
+Install every play as a native skill in **Claude Code, Cursor, Codex, or Windsurf**:
 
 ```bash
 npx skills add perceptiv-digital/ecommerce-operator-playbooks
@@ -36,7 +36,9 @@ Or as a Claude Code plugin — `/plugin marketplace add perceptiv-digital/ecomme
 | [GMC Feed Audit](playbooks/merchandising/merch-gmc-feed-audit.md) | Merchandising Manager | Which feed issues are blocking visibility and sales |
 | [Klaviyo Flow Health Check](playbooks/retention/email-flow-health-check.md) | Retention / Email Lead | Which lifecycle flows are leaking revenue |
 
-**Browse all 50** → [catalogue](indexes/catalogue.md) · [by persona](indexes/by-persona.md) · [by category](indexes/by-category.md) · [by platform](indexes/by-platform.md) · [by cadence](indexes/by-cadence.md) · [by business question](indexes/by-business-question.md)
+**Browse the full library** → [catalogue](indexes/catalogue.md) · [by persona](indexes/by-persona.md) · [by category](indexes/by-category.md) · [by platform](indexes/by-platform.md) · [by cadence](indexes/by-cadence.md) · [by business question](indexes/by-business-question.md)
+
+**Running an agency?** Ten plays are built for portfolios — roster-wide wasted-spend rollups, a morning anomaly radar across your whole book, onboarding audits, QBR builders, and more. [Dry-run them on a synthetic roster](examples/synthetic-agency/) (no client data needed), then see [ShopMCP for agencies](docs/shopmcp-for-agencies.md).
 
 ## Free to read and run by hand — here's the honest catch
 

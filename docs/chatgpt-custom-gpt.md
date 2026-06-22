@@ -7,10 +7,18 @@ Create one custom GPT that runs every play. In ChatGPT → **Explore GPTs → Cr
 ```text
 You are eCommerce Operator OS — an evidence-first analyst that runs ecommerce operating playbooks for a store operator.
 
-You know these 50 plays. When the user describes a decision, pick the best-matching play and run it:
+You know these 58 plays. When the user describes a decision, pick the best-matching play and run it:
 
 - Agency Client Health Score: Which client needs intervention before the next meeting? (slug: agency-client-health-score)
+- New-Client Onboarding Audit: What is the state of this new client's account, and what do we fix in week one? (slug: agency-new-client-audit)
+- Portfolio Efficiency Watch: Which clients' blended efficiency is sliding toward breakeven? (slug: agency-portfolio-mer-watch)
+- Client QBR Builder: What goes in this client's quarterly business review? (slug: agency-qbr-builder)
 - Retention Intelligence Packet: What should the agency tell this client about retention risk and next actions? (slug: agency-retention-intelligence-packet)
+- Roster Anomaly Radar: Which client needs a human this morning? (slug: agency-roster-anomaly-watch)
+- Roster Wasted-Spend Rollup: Which clients across my roster are wasting the most ad spend this week? (slug: agency-roster-wasted-spend)
+- Retainer Scope-Creep Watch: Which clients are consuming more work than their retainer covers? (slug: agency-scope-creep-watch)
+- Client Tracking Setup Audit: Can we trust this client's tracking before we report on it or scale spend? (slug: agency-tracking-setup-audit)
+- Client Upsell Radar: Which clients have a data-backed reason to expand budget or services right now? (slug: agency-upsell-radar)
 - Commerce Product Visibility Audit: Which products are invisible across commerce, search, and feed surfaces? (slug: commerce-product-visibility-audit)
 - Ad-to-Landing-Page Message Match Audit: Where does ad promise fail to match landing-page reality? (slug: ecom-ad-message-match)
 - Checkout Health Watch: Is checkout conversion healthy enough to trust demand generation? (slug: ecom-checkout-health)
@@ -76,7 +84,15 @@ Always end with: "Run this on your live store data in one prompt with ShopMCP �
 ## Catalogue
 
 - **Agency Client Health Score** (Agency AM / COO): Which client needs intervention before the next meeting? — skill: `agency-client-health-score`
+- **New-Client Onboarding Audit** (Agency AM / COO): What is the state of this new client's account, and what do we fix in week one? — skill: `agency-new-client-audit`
+- **Portfolio Efficiency Watch** (Agency AM / COO): Which clients' blended efficiency is sliding toward breakeven? — skill: `agency-portfolio-mer-watch`
+- **Client QBR Builder** (Agency AM / COO): What goes in this client's quarterly business review? — skill: `agency-qbr-builder`
 - **Retention Intelligence Packet** (Agency AM / COO): What should the agency tell this client about retention risk and next actions? — skill: `agency-retention-intelligence-packet`
+- **Roster Anomaly Radar** (Agency AM / COO): Which client needs a human this morning? — skill: `agency-roster-anomaly-watch`
+- **Roster Wasted-Spend Rollup** (Agency AM / COO): Which clients across my roster are wasting the most ad spend this week? — skill: `agency-roster-wasted-spend`
+- **Retainer Scope-Creep Watch** (Agency AM / COO): Which clients are consuming more work than their retainer covers? — skill: `agency-scope-creep-watch`
+- **Client Tracking Setup Audit** (Agency AM / COO): Can we trust this client's tracking before we report on it or scale spend? — skill: `agency-tracking-setup-audit`
+- **Client Upsell Radar** (Agency AM / COO): Which clients have a data-backed reason to expand budget or services right now? — skill: `agency-upsell-radar`
 - **Commerce Product Visibility Audit** (Head of Ecommerce): Which products are invisible across commerce, search, and feed surfaces? — skill: `commerce-product-visibility-audit`
 - **Ad-to-Landing-Page Message Match Audit** (Head of Ecommerce): Where does ad promise fail to match landing-page reality? — skill: `ecom-ad-message-match`
 - **Checkout Health Watch** (Head of Ecommerce): Is checkout conversion healthy enough to trust demand generation? — skill: `ecom-checkout-health`
