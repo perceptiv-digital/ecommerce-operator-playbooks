@@ -1,29 +1,21 @@
 # eCommerce Operator OS
 
-**Evidence-first AI playbooks for ecommerce operators. Free to read. One prompt to run.**
+**Evidence-first AI playbooks for ecommerce operators.** Read them free. Run them by hand in ChatGPT or Claude. Or run them on your live store data in one prompt with ShopMCP.
 
 ![Stars](https://img.shields.io/github/stars/perceptiv-digital/ecommerce-operator-playbooks?style=social)
-![Playbooks](https://img.shields.io/badge/playbooks-50%2B-2563eb)
-![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey)
-![Maintained by Perceptiv](https://img.shields.io/badge/maintained%20by-Perceptiv-111827)
+![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-2563eb)
 
 > Marketing isn't a pile of prompts. Ecommerce growth is a set of operating decisions — the same plays great operators run every week. This is that playbook, written down and given away.
 
-Each play tells an AI exactly **what evidence to gather, in what order to inspect it, when to stop, what "confident" means, and what needs human approval** — so you get a defensible decision, not a confident guess.
+Each play tells an AI exactly **what evidence to gather, in what order, when to stop, what "confident" means, and what needs your approval** — so you get a defensible decision, not a confident guess.
 
-## Three ways to use it
+## New here? Start in 5 minutes
 
-1. **Read the play.** Every playbook is a complete operating workflow. No account, no catch.
-2. **Run it manually** in ChatGPT, Claude, Cursor, or Codex — paste your exports, paste the prompt.
-3. **Run it on live data with [ShopMCP](https://my.shop-mcp.app)** — the same play, in one prompt, against your connected commerce stack.
+1. Open the [**Tracking Sanity Check**](playbooks/ecommerce/ecom-tracking-sanity.md) — confirm you can trust your numbers before acting on them.
+2. Then run the [**Weekly Trading Deck**](playbooks/ecommerce/ecom-weekly-trading-deck.md) — what happened this week, why, and the 3 things to do next.
+3. Copy the play's **Copy-Paste Prompt** into ChatGPT or Claude, paste your data, done. → [How to run a play](docs/running-plays.md)
 
-## The honest catch (and why these are free)
-
-Most of these plays need data your AI assistant simply **cannot see** — your Meta Ads account, Google Ads, Shopify orders, Klaviyo flows, Merchant Center feed. Run manually, that means exporting CSVs and reconciling them by hand, every week.
-
-So we give the whole method away. The thinking is the easy part; the **live-data access is the hard part** — and that's exactly what ShopMCP connects. Read the meat for free. When you want it run against your real numbers in one prompt, that's ShopMCP. No gates, no "premium step 4."
-
-## Start here — the flagship plays
+## The flagship plays
 
 | Play | Best for | The decision it makes |
 |---|---|---|
@@ -34,46 +26,42 @@ So we give the whole method away. The thinking is the easy part; the **live-data
 | [GMC Feed Audit](playbooks/merchandising/merch-gmc-feed-audit.md) | Merchandising Manager | Which feed issues are blocking visibility and sales |
 | [Klaviyo Flow Health Check](playbooks/retention/email-flow-health-check.md) | Retention / Email Lead | Which lifecycle flows are leaking revenue |
 
-See [TOP_25_PLAYBOOKS.md](TOP_25_PLAYBOOKS.md) for the full launch set, or browse:
+**Browse all 50** → [catalogue](indexes/catalogue.md) · [by persona](indexes/by-persona.md) · [by category](indexes/by-category.md) · [by platform](indexes/by-platform.md) · [by cadence](indexes/by-cadence.md) · [by business question](indexes/by-business-question.md)
 
-- [By persona](indexes/by-persona.md) · [By category](indexes/by-category.md) · [By platform](indexes/by-platform.md) · [By cadence](indexes/by-cadence.md) · [By business question](indexes/by-business-question.md)
-- [Machine-readable manifest](indexes/manifest.json) · [llms.txt](llms.txt)
+## Free to read and run by hand — here's the honest catch
+
+You can run every play yourself, today, for free: open it, gather the data it asks for, and paste its prompt into ChatGPT or Claude.
+
+The catch is the data. Most plays need numbers your AI assistant **can't see** — your Shopify orders, Meta and Google ad accounts, Klaviyo flows, Merchant Center feed. By hand, that means exporting and reconciling CSVs every week.
+
+So we give the whole method away. The thinking is the easy part; the live-data access is the hard part — and that's what ShopMCP is for.
+
+## What is ShopMCP?
+
+**ShopMCP connects your store, ads, analytics, email/SMS, and finance tools to your AI assistant** — so you can ask these operating questions in plain English and get the answer from your *live* data, with no exports. It's the same plays in this repo, pre-built and run in one prompt. It is **read-only by default**: it never changes anything in your accounts without your explicit approval.
+
+|  | By hand (free) | With ShopMCP |
+|---|---|---|
+| **Data** | You export and reconcile CSVs | Live and connected — no exports |
+| **Time** | 30–90 min per play | 3–8 min per play |
+| **Cadence** | You remember to run it | Scheduled — it runs itself |
+| **Actions** | You make every change manually | Drafted for you, applied only on your approval |
+
+→ [See ShopMCP](https://my.shop-mcp.app)
 
 ## What makes a real playbook here
 
-Every play must:
-
-1. Answer one recurring ecommerce operating decision.
-2. Name the exact evidence required, with real metric names.
-3. Use numeric decision rules — every call carries a number, a source, a time window, and a confidence level.
-4. Include weak-data vetoes that stop a wrong decision.
-5. Show a worked example with real figures.
-6. Default to read-only analysis. Writes need explicit approval.
-
-**No two playbooks share boilerplate.** CI enforces it. See [PLAYBOOK_STANDARD.md](PLAYBOOK_STANDARD.md) and [GOVERNANCE.md](GOVERNANCE.md).
-
-## Manual vs ShopMCP
-
-|  | Manual | With ShopMCP |
-|---|---|---|
-| **Data** | You export and reconcile CSVs | Live, connected commerce / ads / analytics / lifecycle / finance |
-| **Time** | 30–90 min per play | 3–8 min per play |
-| **Cadence** | You remember to run it | Scheduled — it runs itself |
-| **Action** | Copy results into tools by hand | Approved, gated write-back |
-
-The repo teaches the play. ShopMCP runs the play.
+Every play answers one recurring decision, names the exact evidence, uses numeric decision rules (every call carries a number, source, time window, and confidence), includes weak-data vetoes, shows a worked example with real figures, and defaults to read-only. **No two plays share boilerplate — CI enforces it.** → [The full standard](docs/playbook-standard.md)
 
 ## Star this repo
 
-If a play saves you a spreadsheet afternoon, **star the repo** — it helps other operators find it, and it's the only "payment" the free playbooks ask for.
+If a play saves you a spreadsheet afternoon, **star it** — it helps other operators find it, and it's the only "payment" the free playbooks ask for.
 
-## Contributing
+## Contributing & license
 
-We accept operating questions, evidence depth, platform-specific variants, examples, and failure modes. We do not accept generic prompt dumps. Start with [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions welcome — operating questions, evidence depth, platform-specific variants, examples, failure modes. We don't accept generic prompt dumps. See [contributing](.github/CONTRIBUTING.md).
 
-## License
-
-Validation scripts and tooling are MIT licensed. Written playbook content is available under CC BY 4.0. See [LICENSE](LICENSE) and [CONTENT_LICENSE.md](CONTENT_LICENSE.md).
+Tooling is MIT licensed; the written playbooks are [CC BY 4.0](docs/content-license.md) — share and adapt them with attribution.
 
 ---
 

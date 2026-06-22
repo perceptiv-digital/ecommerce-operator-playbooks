@@ -1,10 +1,10 @@
 # eCommerce Operator OS
 
-Evidence-first AI playbooks for ecommerce operators.
+Evidence-first AI playbooks for ecommerce operators. Free to read, one prompt to run.
 
 Start with:
 
 - README.md
-- TOP_25_PLAYBOOKS.md
-- PLAYBOOK_STANDARD.md
+- indexes/catalogue.md
+- docs/playbook-standard.md
 - indexes/manifest.json

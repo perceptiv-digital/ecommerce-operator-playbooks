@@ -2,7 +2,7 @@
 
 A playbook is not a prompt. A playbook is an operating workflow for one specific ecommerce decision — deep enough that a senior operator recognises their own judgement in it.
 
-The reference implementation is [playbooks/performance/perf-wasted-spend-killer.md](playbooks/performance/perf-wasted-spend-killer.md). Match its depth.
+The reference implementation is [perf-wasted-spend-killer.md](../playbooks/performance/perf-wasted-spend-killer.md). Match its depth.
 
 ## Required anatomy
 
@@ -22,7 +22,7 @@ The reference implementation is [playbooks/performance/perf-wasted-spend-killer.
 
 ## Hard rules
 
-- **No shared boilerplate.** Two playbooks must never share Decision Rules, Veto Rules, or a Worked Example. CI fails the build if two flagship plays share an identical worked example.
+- **No shared boilerplate.** Two playbooks must never share Decision Rules, Veto Rules, or a Worked Example. CI deep-checks every play and fails the build if any two share an identical worked example.
 - **Give away the full method.** The moat is live-data access (integrations), not the words. A playbook must be 100% useful to read and run manually, with no ShopMCP account.
 - **Read-only by default.** Any write-like action needs an explicit approval step and a supported preview/apply path.
 - **Numbers or it didn't happen.** Thresholds, examples, and outputs carry real figures, sources, and time windows.

@@ -22,8 +22,8 @@ We accept operating questions, sharper evidence checklists, platform-specific de
 
 ## How to add or improve a playbook
 
-1. Read [PLAYBOOK_STANDARD.md](PLAYBOOK_STANDARD.md) and the reference play: [playbooks/performance/perf-wasted-spend-killer.md](playbooks/performance/perf-wasted-spend-killer.md).
-2. Start from [templates/playbook-template.md](templates/playbook-template.md), or run `npm run bootstrap` to scaffold a stub for a new slug — it will **not** overwrite existing files.
+1. Read [the playbook standard](../docs/playbook-standard.md) and the reference play: [perf-wasted-spend-killer.md](../playbooks/performance/perf-wasted-spend-killer.md).
+2. Start from [the playbook template](../docs/templates/playbook-template.md). Run `npm run bootstrap` to rebuild the indexes after adding a play.
 3. Write real depth. Match the reference play's standard.
-4. Run `npm run validate` — flagship plays are deep-checked and must be unique.
+4. Run `npm run validate` — every play is deep-checked and must have a unique worked example.
 5. Open a PR using the template.
