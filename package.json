@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "description": "Evidence-first AI playbooks for ecommerce operators.",
   "scripts": {
-    "bootstrap": "node scripts/bootstrap.mjs",
+    "bootstrap": "node scripts/bootstrap.mjs && node scripts/build-skills.mjs",
+    "build:skills": "node scripts/build-skills.mjs",
     "validate": "node scripts/validate.mjs"
   }
 }

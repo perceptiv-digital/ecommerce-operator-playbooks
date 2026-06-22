@@ -9,6 +9,16 @@
 
 Each play tells an AI exactly **what evidence to gather, in what order, when to stop, what "confident" means, and what needs your approval** — so you get a defensible decision, not a confident guess.
 
+## Install (optional) — run the plays as skills
+
+Install all 50 as native skills in **Claude Code, Cursor, Codex, or Windsurf**:
+
+```bash
+npx skills add perceptiv-digital/ecommerce-operator-playbooks
+```
+
+Or as a Claude Code plugin — `/plugin marketplace add perceptiv-digital/ecommerce-operator-playbooks` then `/plugin install ecommerce-operator-os`. For ChatGPT, see [the custom GPT setup](docs/chatgpt-custom-gpt.md). Prefer copy-paste? Every play also works by hand — just read on.
+
 ## New here? Start in 5 minutes
 
 1. Open the [**Tracking Sanity Check**](playbooks/ecommerce/ecom-tracking-sanity.md) — confirm you can trust your numbers before acting on them.

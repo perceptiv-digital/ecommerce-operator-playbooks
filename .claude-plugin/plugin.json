@@ -1,0 +1,13 @@
+{
+  "name": "ecommerce-operator-os",
+  "description": "50 evidence-first ecommerce operating playbooks as installable skills — paid efficiency, profit, retention, merchandising, SEO, tracking, and agency rollups.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Perceptiv",
+    "url": "https://perceptiv.digital"
+  },
+  "homepage": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks",
+  "repository": "https://github.com/perceptiv-digital/ecommerce-operator-playbooks",
+  "license": "MIT",
+  "skills": "./skills"
+}
