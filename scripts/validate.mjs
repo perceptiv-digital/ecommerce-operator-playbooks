@@ -24,8 +24,10 @@ const required = [
   "shopmcp",
 ];
 
-const baseSections = [
+// Every play must carry the full operating-playbook anatomy. A playbook is not a prompt.
+const requiredSections = [
   "## Operating Question",
+  "## Why You Can't Just Ask ChatGPT This",
   "## Who Should Run It",
   "## When To Run It",
   "## Required Evidence",
@@ -35,15 +37,12 @@ const baseSections = [
   "## Decision Rules",
   "## Veto Rules",
   "## Output Contract",
+  "## Worked Example",
   "## Common Failure Modes",
   "## Run This Play With Live Data",
 ];
 
-// Flagship plays are the launch set. They must be genuinely deep, not boilerplate.
-const flagshipSections = ["## Why You Can't Just Ask ChatGPT This", "## Worked Example"];
-
 const errors = [];
-const warnings = [];
 
 if (manifest.playbook_count !== manifest.playbooks.length) {
   errors.push("manifest playbook_count does not match playbooks length");
@@ -67,8 +66,7 @@ function bodyOf(text) {
   return parts.length >= 3 ? parts.slice(2).join("---") : text;
 }
 
-const workedExamples = new Map(); // normalized worked example -> [slugs] (flagship anti-boilerplate gate)
-const goodExamples = new Map(); // normalized legacy example -> count (boilerplate warning)
+const workedExamples = new Map(); // normalized worked example -> [slugs] (anti-boilerplate gate)
 
 for (const play of manifest.playbooks) {
   for (const field of required) {
@@ -96,15 +94,8 @@ for (const play of manifest.playbooks) {
   }
   const text = fs.readFileSync(file, "utf8");
 
-  for (const section of baseSections) {
+  for (const section of requiredSections) {
     if (!text.includes(section)) errors.push(`${play.slug} missing section ${section}`);
-  }
-
-  // Every play needs a concrete example — new deep style or legacy style.
-  const hasWorked = text.includes("## Worked Example");
-  const hasGood = text.includes("## Good Output Example");
-  if (!hasWorked && !hasGood) {
-    errors.push(`${play.slug} missing a worked/good example section`);
   }
 
   const ctaCount = (text.match(/^## Run This Play With Live Data$/gm) || []).length;
@@ -117,44 +108,31 @@ for (const play of manifest.playbooks) {
     errors.push(`${play.slug} decision rules must require numbers and evidence`);
   }
 
-  if (play.flagship) {
-    for (const section of flagshipSections) {
-      if (!text.includes(section)) {
-        errors.push(`FLAGSHIP ${play.slug} missing required deep section ${section}`);
-      }
-    }
-    const body = bodyOf(text);
-    if (body.length < 2500) {
-      errors.push(`FLAGSHIP ${play.slug} body too thin (${body.length} chars) — flagship plays must be deep`);
-    }
-    const digits = (body.match(/\d/g) || []).length;
-    if (digits < 20) {
-      errors.push(`FLAGSHIP ${play.slug} has too few concrete numbers (${digits}) — flagship plays must be numeric`);
-    }
-    const we = normalize(sectionBody(text, "## Worked Example"));
-    if (we) {
-      if (!workedExamples.has(we)) workedExamples.set(we, []);
-      workedExamples.get(we).push(play.slug);
-    }
+  // Depth gates: a real playbook is substantial and numeric, not a stub.
+  const body = bodyOf(text);
+  if (body.length < 2500) {
+    errors.push(`${play.slug} body too thin (${body.length} chars) — playbooks must be deep`);
+  }
+  const digits = (body.match(/\d/g) || []).length;
+  if (digits < 20) {
+    errors.push(`${play.slug} has too few concrete numbers (${digits}) — playbooks must be numeric`);
   }
 
-  if (hasGood) {
-    const ge = normalize(sectionBody(text, "## Good Output Example"));
-    goodExamples.set(ge, (goodExamples.get(ge) || 0) + 1);
+  // Anti-boilerplate: no banned generated example, and unique worked examples.
+  if (/21 percent decline/.test(text)) {
+    errors.push(`${play.slug} still contains the generated boilerplate example`);
+  }
+  const we = normalize(sectionBody(text, "## Worked Example"));
+  if (we) {
+    if (!workedExamples.has(we)) workedExamples.set(we, []);
+    workedExamples.get(we).push(play.slug);
   }
 }
 
-// Hard gate: no two flagship plays may share an identical worked example.
+// Hard gate: no two plays may share an identical worked example.
 for (const [, slugs] of workedExamples) {
   if (slugs.length > 1) {
-    errors.push(`Flagship playbooks share an identical worked example (boilerplate): ${slugs.join(", ")}`);
-  }
-}
-
-// Warn: remaining boilerplate among non-flagship plays (debt to be rewritten).
-for (const [, count] of goodExamples) {
-  if (count > 1) {
-    warnings.push(`${count} playbooks still share an identical "Good Output Example" block — boilerplate to be rewritten.`);
+    errors.push(`Playbooks share an identical worked example (boilerplate): ${slugs.join(", ")}`);
   }
 }
 
@@ -164,12 +142,8 @@ for (const play of manifest.playbooks) {
   slugs.add(play.slug);
 }
 
-if (warnings.length) {
-  console.warn(`WARNINGS:\n${warnings.join("\n")}`);
-}
 if (errors.length) {
   console.error(`ERRORS:\n${errors.join("\n")}`);
   process.exit(1);
 }
-const flagshipCount = manifest.playbooks.filter((p) => p.flagship).length;
-console.log(`Validated ${manifest.playbooks.length} playbooks (${flagshipCount} flagship deep-checked)`);
+console.log(`Validated ${manifest.playbooks.length} playbooks — all deep-checked, unique worked examples`);

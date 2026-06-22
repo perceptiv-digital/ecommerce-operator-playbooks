@@ -31,102 +31,159 @@ status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 
 ## Operating Question
 
-Where is the buying journey leaking revenue?
+**Where is the buying journey leaking the most revenue right now — and which single step, on which device and source, should I fix first?**
 
-This play helps head of ecommerce make a defensible ecommerce operating decision. It is not a generic prompt. It is a repeatable workflow that forces evidence, thresholds, and vetoes before action.
+Every store has a funnel: sessions → product views → add-to-cart → checkout started → purchase. Revenue leaks out at every transition, but they don't leak evenly, and the step with the *worst rate* is rarely the step that's *costing the most money*. This play maps the step-by-step conversion of your funnel, measures each transition's drop-off against benchmarks **and** against itself across device and source, then isolates the **single weakest step by lost revenue** — step drop × traffic × AOV — so you fix the leak that moves the P&L, not the one that looks ugliest in a chart.
+
+## Why You Can't Just Ask ChatGPT This
+
+A plain AI assistant cannot see your GA4 property or your Shopify/Woo/BigCommerce orders, so it can't build the funnel — it can only describe one. To run this manually you have to:
+
+1. Pull the GA4 funnel exploration (or the `purchase`/`begin_checkout`/`add_to_cart`/`view_item` event counts) for the window, **segmented by device category and session source/medium** — not just the blended total.
+2. Reconcile GA4's `purchase` count against the real order count in your commerce platform, because GA4 under- or over-counts depending on consent mode, ad-blockers, and duplicate events.
+3. Attach a real AOV per segment from commerce, because the lost-revenue math is meaningless without it.
+4. Convert four step transitions into four drop-off rates, compare each to a benchmark *and* to the other device/source, and rank by dollars — by hand, every week.
+
+**The thinking in this playbook is free. The data access is the hard part — and that is exactly what ShopMCP connects.** If your AI assistant has no live line into GA4 and your store, that wall is where manual runs stop. The last section shows the one-prompt version.
 
 ## Who Should Run It
 
-- Primary owner: Head of Ecommerce
-- Also useful for: Head of Ecommerce
-- Best used when the owner needs a decision, not just a report.
+- **Primary owner:** Head of Ecommerce
+- **Also useful for:** CRO / Onsite Lead (owns the fix), Web/Dev Lead (mobile checkout, page speed), Founder/CEO (where is the store bleeding?).
+- Run it **before** you brief a CRO sprint, commission a checkout change, or argue for dev time — so the brief points at the dollar-ranked leak, not a hunch.
 
 ## When To Run It
 
-- Cadence: weekly
-- Run it when the owner needs to decide: where is the onsite experience leaking commercial value?
-- Use it before changing budgets, creative, product data, lifecycle flows, stock priorities, or client commentary.
+- **Cadence:** weekly — Monday, on the prior 7 full days, with the equal prior period for comparison.
+- **Triggers:** a sitewide conversion-rate dip, a checkout or theme deploy, a new payment method or shipping change, a mobile-traffic surge from paid social, or a quarter where sessions are up but revenue is flat.
+- **Pre-requisite:** confirm the funnel events still fire. A renamed or double-firing event mimics a leak perfectly — verify tracking **before** trusting any step drop (see Veto Rules).
 
 ## Required Evidence
 
-- Commerce orders, products, customers, inventory, or discounts as required by the question.
-- GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.
+- **GA4 funnel counts** — `sessions` (or `session_start`), `view_item`, `add_to_cart`, `begin_checkout`, and `purchase`, for the window and the prior equal period, **split by device category (mobile / desktop / tablet) and by session source/medium**.
+- **Commerce orders** — the actual order count and **AOV** for the same window, ideally split new vs. returning, to anchor the lost-revenue math and to reconcile against GA4's `purchase`.
+- **Step benchmarks** — your own trailing 8–12 week baseline per step (the best benchmark) or category norms as a fallback: roughly view→cart 8–12%, cart→checkout 45–65%, checkout→purchase 60–75% on desktop (mobile typically 10–20 points lower at the final step).
+- **Traffic per segment** — sessions by device and source, so a low rate on a tiny segment doesn't outrank a small drop on a huge one.
 
 ## Optional Evidence
 
-- Recent operator notes, launch dates, promotion calendar, merchandising changes, stock constraints, and known tracking incidents.
-- Target CPA, MER, ROAS, contribution margin, payback, or revenue goal where relevant.
+- **Page speed / Core Web Vitals** by device — a mobile LCP over ~4s quietly suppresses cart and checkout starts.
+- **Checkout configuration** — when express wallets (Shop Pay, Apple Pay), guest checkout, or a shipping-cost-at-checkout surprise changed.
+- **Promo calendar & merchandising changes** — a sitewide promo lifts view→cart but can depress checkout→purchase if the discount fails to apply.
+- **Stock / availability** — out-of-stock variants inflate `view_item` while starving `add_to_cart`.
+- **Known tracking incidents** — consent-banner changes, a GTM republish, or a SDK upgrade that moved an event.
+
+## The Decision Logic (run in this order)
+
+1. **Verify the funnel before you read it.** Reconcile GA4 `purchase` against real commerce orders for the window. If they diverge by more than ~10%, or any step count is implausible (e.g. `add_to_cart` > `view_item`), set the funnel to **FIX** and stop — a broken event mimics a leak.
+2. **Compute every step rate.** Four transitions: view→cart, cart→checkout, checkout→purchase, plus session→view as a top-of-funnel read. Do it blended first, just to orient.
+3. **Segment immediately — never trust the blended funnel.** Re-compute each step split by **device** and by **source/medium**. The blended number hides the leak: a healthy desktop step can mask a collapsing mobile one.
+4. **Quantify lost revenue per step, per segment.** For each step in each segment: `lost revenue ≈ (benchmark rate − actual rate) × upstream traffic at that step × segment AOV`. This is the ranking metric — **not** the lowest percentage.
+5. **Isolate the single weakest step by dollars.** The leak is the one transition × segment combination with the largest recoverable revenue. A 38% step on a high-traffic, high-AOV mobile segment beats a 25% step on a thin desktop tail.
+6. **Separate top-of-funnel intent from a true leak.** A low session→view or view→cart rate on a cold paid-social source is intent, not a broken page (see Veto Rules). Down-funnel steps (checkout→purchase) are where intent is already proven and a low rate is almost always a real leak.
+7. **Apply the vetoes**, then assign status + owner + recheck date, and write the smallest testable fix for the one leak.
 
 ## Manual Workflow
 
-1. Define the decision window and write the operating question: "Where is the buying journey leaking revenue?"
-2. Gather the required evidence before asking the AI to recommend action.
-3. Ask the AI to separate confirmed facts, estimates, and unavailable evidence.
-4. Segment the funnel, isolate the weakest step or surface, check device and landing-page evidence, then recommend the smallest measurable fix.
-5. Apply the veto rules before accepting any recommendation.
-6. Turn the result into an action packet with owner, timing, evidence, and next check date.
+1. Pull GA4 funnel counts for the last 7 days and the prior 7, split by device and source/medium; pull commerce orders + AOV for the same window.
+2. Reconcile GA4 `purchase` vs. real orders. If drift exceeds ~10% or counts are impossible, mark FIX and stop.
+3. Compute the four step rates blended, then re-compute per device and per source.
+4. For every step × segment, compute lost revenue = (benchmark − actual) × upstream traffic × AOV.
+5. Rank by lost revenue; circle the single largest leak and note its device/source.
+6. Paste the prompt below with your funnel table and AOVs.
+7. Pressure-test the leak against the veto list (intent? tracking? promo? stock?), then write one smallest-measurable fix with an owner and a recheck date.
 
 ## Copy-Paste Prompt
 
 ```text
-You are helping me run the "Funnel Leak Finder" ecommerce operating play.
+You are my ecommerce analyst running the "Funnel Leak Finder" play.
 
-Operating question:
-Where is the buying journey leaking revenue?
+GOAL: find the single funnel step that is leaking the most REVENUE (not the lowest rate),
+isolate the device and source it happens on, and propose the one smallest measurable fix.
 
-Use the evidence I provide. Do not invent missing data. Separate exact, estimated, partial, and unavailable evidence. Apply KILL, REFRESH, WATCH, KEEP, or FIX only when the evidence supports it. If the data is too weak, say what is blocked and what evidence is needed.
+FUNNEL: sessions -> view_item -> add_to_cart -> begin_checkout -> purchase.
 
-Return:
-1. Executive answer
-2. Evidence table
-3. Decision table with status
-4. Vetoes or caveats
-5. Recommended next actions with owner and timing
+I will paste: GA4 step counts (blended AND split by device and source/medium), my real
+commerce order count and AOV per segment, and step benchmarks (my baseline if I have it).
+Some data may be missing.
+
+RULES:
+- Verify first: reconcile GA4 purchases against my real orders. If they diverge >10%, or
+  any step count is impossible (e.g. add_to_cart > view_item), mark the funnel FIX and stop.
+- Never rank by lowest step rate. Rank by lost revenue:
+  (benchmark rate - actual rate) x upstream traffic at that step x segment AOV.
+- Always segment by device AND source. A healthy blended step can hide a collapsing mobile
+  one. Report the worst step per segment, then the single worst overall by dollars.
+- Distinguish top-of-funnel intent from a leak: a low view/cart rate on a cold paid-social
+  source is intent, not a broken page. A low checkout->purchase rate is almost always a leak.
+- Every row must carry: a number, source, time window, and confidence level.
+- Separate exact / estimated / partial / unavailable evidence. Do not invent missing data.
+
+RETURN:
+1. A 3-sentence executive read naming the one leak and the recoverable revenue.
+2. A funnel table: Step | Segment | Sessions/Traffic | Rate | Benchmark | Lost rev (est) | Status.
+3. The single weakest step by dollars, with the device/source it lives on.
+4. One smallest-measurable fix, its owner, and what evidence would confirm it worked.
+5. Vetoes/caveats and any evidence blocked from a safe call.
 ```
 
 ## Decision Rules
 
-- Use `FIX` when required evidence is missing, inconsistent, or too weak to support a commercial decision.
-- Use `KILL` only when downside is clear, the sample is large enough, and no veto protects the item.
-- Use `REFRESH` when performance is decaying but the asset, product, flow, or page still has a credible reason to improve.
-- Use `WATCH` when the signal is directional or early.
-- Use `KEEP` when performance is inside the target band and no risk signal is present.
+- **FIX** — GA4↔commerce purchase drift > ~10%, an impossible step count, or a known tracking incident in the window. You cannot diagnose a leak through a broken funnel.
+- **KILL** — retire a checkout/onsite element (an interstitial, a forced-account gate, a broken express-wallet button) when its step shows a clear, large dollar drop, the sample is ≥ ~500 sessions at that step, and no veto protects it.
+- **REFRESH** — the step is decaying but the page/offer is still viable: rework the shipping-cost reveal, the mobile form, the cart-to-checkout CTA. Most funnel fixes land here.
+- **WATCH** — the drop is directional, the segment is under ~300 sessions at the step, or the window is polluted by a promo or stockout.
+- **KEEP** — the step is inside its benchmark band for that device/source and no risk signal is present.
 - Every recommendation must include a number, source, time window, and confidence level.
 
 ## Veto Rules
 
-- Do not claim causality from a single platform metric.
-- Do not recommend budget shifts if tracking drift makes attribution unsafe.
-- Do not recommend scaling a product with low stock, feed disapproval, or missing price/availability evidence.
-- Do not make profit claims without cost coverage or a clear partial-profit label.
-- Do not recommend writes, pauses, refunds, customer messages, or catalog changes without explicit approval.
+- Do **not** call the lowest-rate step the leak — rank by lost revenue (rate gap × traffic × AOV), because a thin segment with an ugly rate can cost less than a small drop on a huge one.
+- Do **not** read a blended funnel as the answer — always segment by device and source before naming a leak.
+- Do **not** trust a step drop until tracking is verified — a renamed, missing, or double-firing event mimics a leak exactly; reconcile GA4 against real orders first.
+- Do **not** treat a low top-of-funnel rate (session→view, view→cart) on a cold source as a leak — top-of-funnel intent differs by source, and a paid-social cold audience is *expected* to convert lower than branded search.
+- Do **not** make recoverable-revenue claims without a real AOV and traffic count behind the math.
+- Do **not** ship a checkout change, theme edit, or event-tracking fix without an explicit human approval step.
 
 ## Output Contract
 
-A leak diagnosis, ranked opportunities, evidence links, and a read-only experiment brief.
+A funnel ranked by **lost revenue per step and segment**, not by lowest rate:
 
-Minimum table columns:
+| Step | Segment | Traffic | Rate | Benchmark | Lost rev (est) | Status | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|
+| Checkout started → Purchase | Mobile / Paid social | 6,400 | 38% | 70% | $— | REFRESH | Web + CRO | 7 days |
 
-| Item | Evidence | Status | Why | Owner | Timing |
-|---|---|---|---|---|---|
-| Example row | Source + number + window | WATCH | Directional signal only | Operator | Recheck in 7 days |
+## Worked Example
 
-## Good Output Example
+> **Executive read:** Add-to-cart and cart→checkout are healthy everywhere, so the funnel "looks fine" blended at 2.1%. The leak is one step on one device: **checkout started → purchase converts 38% on mobile vs 71% on desktop**, and because mobile carries the most checkout starts at a $74 AOV, that gap is leaking roughly **$58k/quarter**. The mobile drop points at a payment/shipping-cost step — closing half the gap recovers ~$29k/quarter, so fix mobile checkout first, before any top-of-funnel work.
 
-> Status: WATCH. The issue is real enough to monitor, but not strong enough to change yet. The strongest evidence is a 21 percent decline over the last 14 days, but the comparison window includes a promotion and stock was below normal for three days. Recheck after a clean 7-day window.
+| Step | Segment | Traffic | Rate | Benchmark | Lost rev (est, 90d) | Status |
+|---|---|---|---|---|---|---|
+| Add-to-cart → Checkout started | Mobile | 9,800 | 58% | 55% | $0 (above benchmark) | KEEP |
+| Add-to-cart → Checkout started | Desktop | 5,100 | 61% | 55% | $0 (above benchmark) | KEEP |
+| Checkout started → Purchase | Desktop | 3,100 | 71% | 70% | ~$0 | KEEP |
+| **Checkout started → Purchase** | **Mobile** | **5,680** | **38%** | **70%** | **~$58,200** | **REFRESH** |
+| View item → Add-to-cart | Mobile / Paid social | 41,000 | 6.2% | 9% | ~$12,400 | WATCH |
+| Purchase reconciliation | All | — | GA4 +6% vs orders | <10% | n/a | KEEP (tracking OK) |
+
+Note how the answer *inverts* the blended view: the worst-looking percentage (6.2% view→cart on cold paid social) is mostly **intent**, downgraded to WATCH, while the real leak is the mobile checkout→purchase step — a smaller-looking gap that costs 4–5× more in dollars because it sits on proven-intent, high-traffic, paying sessions.
 
 ## Common Failure Modes
 
-- Treating a platform-reported metric as commerce truth.
-- Skipping the evidence checklist and asking for a recommendation too early.
-- Forgetting stock, margin, attribution, or promotion context.
-- Accepting an AI answer that does not show its numbers.
+- Ranking by lowest step rate and chasing a thin segment while the real dollar leak sits elsewhere.
+- Reading the blended funnel and missing a leak that lives entirely on mobile or one source.
+- Trusting a step drop that's actually a renamed or double-firing GA4 event.
+- Treating cold paid-social's low top-of-funnel rate as a broken page instead of normal intent.
+- Quoting "recoverable revenue" with no AOV or traffic behind the number.
+- Briefing a homepage redesign when the money is leaking at mobile checkout.
 
 ## Run This Play With Live Data
 
-Manual version: gather the evidence above and paste the prompt into your AI assistant.
+**Manual version:** export the GA4 funnel split by device and source, reconcile purchases against real orders, attach per-segment AOV, compute four drop-off rates per segment, and rank by dollars — every single week.
 
-ShopMCP version: ask the same question with ShopMCP connected. ShopMCP routes to the matching live playbook, pulls connected evidence where available, applies evidence gates, and returns an operator-ready brief. ShopMCP does not make writes from this public playbook without explicit approval and a supported preview/apply path.
+**ShopMCP version:** connect GA4 and your store once. Ask the question; ShopMCP pulls the live funnel counts and real commerce orders, runs the tracking reconciliation, segments every step by device and source, computes lost revenue per step, and returns the dollar-ranked leak with its device/source and a smallest-measurable fix. It stays **read-only** until you explicitly approve a checkout or tracking change.
+
+> No GA4 or store connection inside your AI assistant? That's the wall every manual run hits. ShopMCP *is* the connection — and the same playbook then runs in one prompt instead of one GA4-exploration-afternoon.
 
 Example ShopMCP prompt:
 
@@ -140,7 +197,8 @@ https://my.shop-mcp.app/playbooks/ecom-funnel-leak-finder?utm_source=github&utm_
 
 What ShopMCP removes:
 
-- Manual exports and stale CSVs.
-- Copy-pasting across commerce, ads, analytics, lifecycle, and finance tools.
-- Guessing which evidence is safe enough to use.
-- Rebuilding the same operating workflow every week.
+- Manual GA4 funnel explorations and stale CSVs.
+- Copy-pasting between GA4, your store's orders, and a spreadsheet to attach AOV.
+- Re-segmenting every step by device and source by hand.
+- Guessing whether a step drop is a real leak or a tracking artifact.
+- Rebuilding the same lost-revenue ranking every week.

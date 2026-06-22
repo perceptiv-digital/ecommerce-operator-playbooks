@@ -31,102 +31,156 @@ status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 
 ## Operating Question
 
-Which shopping feed issues are hurting paid performance?
+**Which shopping feed issues are actively costing me paid Shopping/PMax revenue right now — ranked by ad spend and revenue at risk, not by issue count?**
 
-This play helps performance marketer make a defensible ecommerce operating decision. It is not a generic prompt. It is a repeatable workflow that forces evidence, thresholds, and vetoes before action.
+This is the daily paid-side feed triage, not a merchandising trust audit. The question is narrow on purpose: of everything Merchant Center is flagging this morning, *which flags are turning off ads on products I actually spend money on?* A disapproval on a $1,500/week Shopping hero is a five-alarm fire — the ads are dark and the revenue clock is running. A disapproval on a dead SKU you haven't bid on in months is noise. This play ranks strictly by **spend and revenue at risk**, so the first row is always the most expensive bleed, and most of the Merchant Center issue list gets correctly ignored.
+
+## Why You Can't Just Ask ChatGPT This
+
+A plain AI assistant cannot see your Merchant Center diagnostics, your Google Ads spend by product, or your live storefront prices. To answer this manually you have to stitch together three systems that don't talk to each other:
+
+1. **Merchant Center** — the Products / Needs attention view for disapproved and "limited" items, plus the specific issue code (invalid GTIN, image crawl failure, price mismatch, policy strike).
+2. **Google Ads** — last 7–30 day spend, impressions, and revenue **at the item-ID / product level** (Shopping reports → Products, or the Performance Max product report), so you can tell a $1.5k/week hero from a $0/week zombie.
+3. **Your storefront** — the *live* price and availability for each flagged item, because half of all "limited" suppressions are a feed value disagreeing with the store after a price change or a sellout.
+
+The diagnosis is the easy part. The brutal part is the join: matching a Merchant Center item ID to its Google Ads spend to its real store price, every morning, before the disapproval has cost you a full day of revenue. **The thinking here is free; the cross-system join is the work — and that is exactly what ShopMCP wires together.** The last section shows the one-prompt version.
 
 ## Who Should Run It
 
-- Primary owner: Performance Marketer
-- Also useful for: Performance Marketer, Merchandising Manager
-- Best used when the owner needs a decision, not just a report.
+- **Primary owner:** Performance Marketer (the person whose Shopping/PMax budget is bleeding).
+- **Also useful for:** Merchandising / Catalog Manager (owns the source-of-truth product data the fix lands in), Head of Ecommerce (revenue-at-risk visibility).
+- Run it **before** the daily standup or budget check, so a disapproved hero is escalated within hours, not discovered at the weekly review when three days of revenue are already gone.
 
 ## When To Run It
 
-- Cadence: daily
-- Run it when the owner needs to decide: which products are invisible, risky, overstocked, or underperforming?
-- Use it before changing budgets, creative, product data, lifecycle flows, stock priorities, or client commentary.
+- **Cadence:** daily — first thing, ideally right after the overnight Merchant Center refresh (feeds typically re-fetch and re-evaluate every 24h, so morning is when last night's breakage surfaces).
+- **Triggers:** a price change or promo push went live yesterday; a feed-app or app-sync update shipped; Shopping/PMax impressions or spend dropped overnight with no bid change; a Merchant Center account-level warning email landed.
+- **Pre-requisite:** confirm the feed actually re-fetched in the last 24h. Judging "disapprovals" against a feed that failed to crawl two nights ago tells you about stale data, not today's reality.
 
 ## Required Evidence
 
-- Google Merchant Center product status, disapprovals, price, availability, and feed diagnostics.
-- Commerce orders, products, customers, inventory, or discounts as required by the question.
+- **Merchant Center — item status** for every product: approved / disapproved / "limited", the **specific issue code** (e.g. invalid GTIN, image too small / crawl failed, mismatched price, mismatched availability, landing-page mismatch, policy violation), and the destination (Shopping ads vs free listings).
+- **Google Ads — product-level spend** for the trailing 7 and 30 days: cost, impressions, clicks, conversions, conversion value **by item ID**. This is the ranking key. Without it you cannot separate an emergency from noise.
+- **Storefront — live price and availability** for each flagged item, pulled fresh from the store (not the feed), to adjudicate every price/availability mismatch.
+- **Impression / impression-share trend** per top-spend product over the last 7 days, to catch heroes that quietly lost visibility overnight without a hard disapproval.
 
 ## Optional Evidence
 
-- Recent operator notes, launch dates, promotion calendar, merchandising changes, stock constraints, and known tracking incidents.
-- Target CPA, MER, ROAS, contribution margin, payback, or revenue goal where relevant.
+- **Competitor price benchmarks** (Merchant Center price competitiveness / best-sellers reports) — to tell a feed error apart from losing the auction on price.
+- **Feed-rule / supplemental-feed change log and app-sync timestamps** — to pin "what broke" to a specific deploy.
+- **Promo calendar** — a sale price live on the store but not yet in the feed is the single most common mismatch cause.
+- **Contribution margin** per hero SKU — so revenue-at-risk can be expressed as profit-at-risk when you escalate.
+
+## The Decision Logic (run in this order)
+
+1. **Confirm the feed is fresh.** Check the last successful fetch/crawl timestamp. If the feed hasn't re-evaluated in >24h, the disapproval list is stale → treat the whole run as **FIX** (fix the sync) before judging individual SKUs.
+2. **Rank by spend, not by issue count.** Sort every flagged item by trailing-7-day Google Ads spend, descending. The top of this list is your entire job; the long tail of zero-spend flags is noise and gets a single **WATCH**-or-ignore line.
+3. **Triage the spent-on disapprovals.** For each flagged item with real spend: is it hard-**disapproved** (ads dark, $/day bleeding) or **"limited"** (ads throttled, partial visibility)? Disapproved + high spend = emergency. Quantify lost revenue/day = recent daily revenue from that item before the flag.
+4. **Adjudicate the price/availability mismatches.** For every "mismatch" suppression, compare **feed value vs live store value**. Identify the source of truth — store, primary feed, or feed app — *before* anyone bulk-edits. A wrong bulk edit to the wrong layer doubles the outage.
+5. **Separate feed errors from auction losses.** A top-spend product that lost impressions but has **no disapproval and no mismatch** is probably an auction/price problem (competitor undercut, bid/budget), not a feed defect. Route it out of this play and into bid/price review — do not "fix the feed" for an auction loss.
+6. **Apply the vetoes**, then assign status + owner + recheck date keyed to the refresh cycle (not to your impatience).
 
 ## Manual Workflow
 
-1. Define the decision window and write the operating question: "Which shopping feed issues are hurting paid performance?"
-2. Gather the required evidence before asking the AI to recommend action.
-3. Ask the AI to separate confirmed facts, estimates, and unavailable evidence.
-4. Join product, feed, inventory, sales, and search evidence. Prioritize products where action is both possible and commercially useful.
-5. Apply the veto rules before accepting any recommendation.
-6. Turn the result into an action packet with owner, timing, evidence, and next check date.
+1. Open Merchant Center → Products → Needs attention. Note the last successful fetch timestamp first.
+2. Export the disapproved + "limited" item list with issue codes.
+3. In Google Ads, pull the product-level report (cost, impressions, conv. value by item ID) for the last 7 and 30 days.
+4. Join the two on item ID and **sort by 7-day spend, descending**. Drop everything with zero trailing spend to the bottom.
+5. For the top spent-on flags, open each product on the live store and compare price/availability against the feed value to adjudicate mismatches.
+6. Estimate lost revenue/day for each disapproved hero from its pre-flag daily revenue.
+7. Paste the prompt below with your joined table, then pressure-test against the vetoes and assign owner + recheck date.
 
 ## Copy-Paste Prompt
 
 ```text
-You are helping me run the "Shopping Feed Watch" ecommerce operating play.
+You are my paid-Shopping feed analyst running the "Shopping Feed Watch" play.
 
-Operating question:
-Which shopping feed issues are hurting paid performance?
+GOAL: tell me which Merchant Center feed issues are actively costing me Shopping/PMax
+revenue right now, ranked by ad spend and revenue at risk — NOT by issue count. Most
+flagged items will be zero-spend noise; surface the few that are bleeding money.
 
-Use the evidence I provide. Do not invent missing data. Separate exact, estimated, partial, and unavailable evidence. Apply KILL, REFRESH, WATCH, KEEP, or FIX only when the evidence supports it. If the data is too weak, say what is blocked and what evidence is needed.
+I will paste: a Merchant Center disapproved/"limited" list with issue codes, Google Ads
+product-level spend/impressions/conversion value by item ID (7d and 30d), and live store
+price/availability for flagged items. Some data may be missing.
 
-Return:
-1. Executive answer
-2. Evidence table
-3. Decision table with status
-4. Vetoes or caveats
-5. Recommended next actions with owner and timing
+RULES:
+- Rank strictly by trailing-7-day ad spend and revenue at risk. A disapproved $1,500/week
+  hero is an emergency; a disapproved zero-spend SKU is noise — say so and move on.
+- First check feed freshness. If the feed has not re-fetched in >24h, the disapproval list
+  is stale: mark the run FIX (fix the sync) before judging individual SKUs.
+- For each spent-on disapproval, classify as hard-disapproved (ads dark) vs "limited" (ads
+  throttled) and estimate lost revenue/day from its pre-flag daily revenue.
+- For every price/availability mismatch, compare feed value vs LIVE STORE value and name the
+  likely source of truth (store / primary feed / feed app) before any bulk edit.
+- If a top-spend product lost impressions but has NO disapproval and NO mismatch, flag it as
+  a likely auction/price loss, not a feed error — route it out of this play.
+- Recovery takes 1-3 crawl/refresh cycles. Do not re-judge a just-fixed item as still broken.
+- Every row must carry: a number, source, time window, and confidence level.
+- Separate exact / estimated / partial / unavailable evidence. Do not invent missing data.
+
+RETURN:
+1. A 3-sentence executive read leading with total revenue/day at risk.
+2. A ranked table: Item (ID) | 7d spend | Issue + code | Ads state | Est. lost rev/day |
+   Source of truth | Status | Owner | Recheck.
+3. Vetoes/caveats that downgraded any recommendation.
+4. What evidence is blocked and what you'd need to confirm a FIX vs an auction loss.
 ```
 
 ## Decision Rules
 
-- Use `FIX` when required evidence is missing, inconsistent, or too weak to support a commercial decision.
-- Use `KILL` only when downside is clear, the sample is large enough, and no veto protects the item.
-- Use `REFRESH` when performance is decaying but the asset, product, flow, or page still has a credible reason to improve.
-- Use `WATCH` when the signal is directional or early.
-- Use `KEEP` when performance is inside the target band and no risk signal is present.
-- Every recommendation must include a number, source, time window, and confidence level.
+- **FIX** — a spent-on product is disapproved or "limited" by a feed/data defect (invalid GTIN, image crawl fail, price/availability mismatch, landing-page mismatch, policy strike), the fix is in *your* data, and recovery is worth the bleed. Also FIX the whole run if the feed itself failed to re-fetch in >24h.
+- **KILL** — only when the product itself should not be advertised (genuinely discontinued / permanently out of stock); pull it from the feed rather than chasing the disapproval. Never KILL a temporarily-broken hero.
+- **REFRESH** — a still-serving product is decaying (slipping impression share, rising CPCs) for a fixable data reason — thin title/attributes, stale image, missing GTIN that's *warning* not yet disapproving — where improving the feed entry is credible.
+- **WATCH** — directional or early: a low-spend flag, a "limited" item with trivial spend, or a just-submitted fix still inside its crawl/refresh window. Never the resting state for a high-spend disapproval.
+- **KEEP** — approved, serving, inside its target spend/return band, no risk signal.
+- Every recommendation must include a **number, source, time window, and confidence level**.
 
 ## Veto Rules
 
-- Do not claim causality from a single platform metric.
-- Do not recommend budget shifts if tracking drift makes attribution unsafe.
-- Do not recommend scaling a product with low stock, feed disapproval, or missing price/availability evidence.
-- Do not make profit claims without cost coverage or a clear partial-profit label.
-- Do not recommend writes, pauses, refunds, customer messages, or catalog changes without explicit approval.
+- **A disapproved zero-spend SKU is noise, not an emergency.** Do not let issue count drive priority over spend-at-risk; a long disapproval list with no spend behind it is not a fire.
+- **Don't re-judge a just-fixed item too soon.** Fixes take 1–3 crawl/refresh cycles to clear; a still-"disapproved" status one hour after the edit means *not yet re-crawled*, not *failed fix*.
+- **Confirm the source of truth before any bulk edit.** Store vs primary feed vs feed app — editing the wrong layer (or the feed when the store is canonical) re-breaks it on the next sync.
+- **Impression loss is not automatically a feed error.** It can be auction or competitor-price pressure; don't "fix the feed" for an item that has no disapproval and no mismatch.
+- **Don't claim a revenue-at-risk number without product-level spend.** Account-blended spend cannot tell a hero from a zombie.
+- **No bulk price/availability writes, feed-rule edits, or item removals without explicit human approval.**
 
 ## Output Contract
 
-A SKU or product table with FIX / REFRESH / WATCH / KEEP decisions and evidence per row.
+A product table ranked by **ad spend / revenue at risk**, not by issue count:
 
-Minimum table columns:
+| Item (ID) | 7d spend | Issue + code | Ads state | Est. lost rev/day | Source of truth | Status | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|
+| Trail Runner GTX (SKU-4471) | $1,500 | Invalid GTIN | Disapproved (dark) | ~$640 | Store catalog | **FIX** | Perf + Catalog | Next crawl |
 
-| Item | Evidence | Status | Why | Owner | Timing |
-|---|---|---|---|---|---|
-| Example row | Source + number + window | WATCH | Directional signal only | Operator | Recheck in 7 days |
+## Worked Example
 
-## Good Output Example
+> **Executive read:** About $810/day of Shopping revenue is at risk this morning, concentrated in one item. The Trail Runner GTX hero ($1,500/week spend) went fully disapproved overnight on an invalid GTIN after a catalog edit — ads are dark and it's bleeding ~$640/day, so it's the only true emergency. A yesterday price-drop promo also left 12 SKUs "limited" on a feed-vs-store price mismatch (feed still shows the old price), and a separate bestseller lost impression share with no feed flag at all — that one is a competitor price cut, not our problem to fix in the feed.
 
-> Status: WATCH. The issue is real enough to monitor, but not strong enough to change yet. The strongest evidence is a 21 percent decline over the last 14 days, but the comparison window includes a promotion and stock was below normal for three days. Recheck after a clean 7-day window.
+| Item (ID) | 7d spend | Issue + code | Ads state | Est. lost rev/day | Source of truth | Status | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|
+| Trail Runner GTX (SKU-4471) | $1,500 | Invalid GTIN (after catalog edit) | Disapproved — dark | ~$640 | Store catalog | **FIX** | Perf + Catalog | Next crawl (~24h) |
+| Spring Sale cohort (12 SKUs) | $1,180 | Price mismatch: feed $89 vs store $69 | "Limited" — throttled | ~$150 | Store (promo is canonical) | **FIX** | Catalog | After re-fetch |
+| Merino Base Layer (SKU-2210) | $720 | None — impr. share −34% / 7d | Serving | ~$0 (auction) | n/a | **WATCH** | Perf (bid/price) | 3 days |
+| Last-season Parka (SKU-0093) | $0 | Disapproved — out of stock | Dark | $0 | Store | **KILL** (drop from feed) | Catalog | When restocked |
+| Canvas Tote (SKU-3320) | $4 | Missing GTIN (warning) | Serving | ~$0 | Feed | **REFRESH** | Catalog | 14 days |
+
+Note how the ranking inverts the Merchant Center view: the account shows 15 flagged items, but only the top two carry real money. The disapproved Parka (zero spend) and the missing-GTIN Tote ($4 spend) are at the bottom where they belong, and the bestseller's impression drop is explicitly routed *out* of the feed-fix lane because nothing in the feed is wrong.
 
 ## Common Failure Modes
 
-- Treating a platform-reported metric as commerce truth.
-- Skipping the evidence checklist and asking for a recommendation too early.
-- Forgetting stock, margin, attribution, or promotion context.
-- Accepting an AI answer that does not show its numbers.
+- Working the Merchant Center list top-to-bottom by issue severity instead of by spend — fixing zero-revenue disapprovals while a $1.5k/week hero stays dark.
+- Bulk-editing the feed to "correct" a mismatch when the **store** was the source of truth, re-breaking every item on the next sync.
+- Re-flagging a just-fixed SKU as still broken because you checked before the next crawl cycle ran.
+- Treating an impression-share drop with no disapproval as a feed defect when it's a competitor price cut or a budget/bid issue.
+- Quoting a "revenue at risk" figure off account-blended spend, with no product-level number behind it.
 
 ## Run This Play With Live Data
 
-Manual version: gather the evidence above and paste the prompt into your AI assistant.
+**Manual version:** export the Merchant Center disapproval list, pull the Google Ads product-level spend report, open each flagged hero on the live store to adjudicate the price, join it all on item ID, and re-rank by spend — every morning before the disapproval costs you another day.
 
-ShopMCP version: ask the same question with ShopMCP connected. ShopMCP routes to the matching live playbook, pulls connected evidence where available, applies evidence gates, and returns an operator-ready brief. ShopMCP does not make writes from this public playbook without explicit approval and a supported preview/apply path.
+**ShopMCP version:** connect Merchant Center, Google Ads, and your store once. Ask the question; ShopMCP pulls live item-status diagnostics, item-level spend and revenue, and the real store price together, ranks the flags by spend-at-risk, adjudicates each mismatch against the canonical source, and returns the FIX / KILL / REFRESH / WATCH / KEEP table with lost revenue/day. It stays **read-only** until you explicitly approve a feed edit or item change.
+
+> No Merchant Center, Google Ads, or store connection inside your AI assistant? That's the wall every manual run hits — you can diagnose a disapproval, but you can't see which item bleeds $640/day until you've joined three systems by hand. ShopMCP *is* that join, and the same playbook runs in one prompt instead of a morning of exports.
 
 Example ShopMCP prompt:
 
@@ -140,7 +194,7 @@ https://my.shop-mcp.app/playbooks/perf-shopping-feed-watch?utm_source=github&utm
 
 What ShopMCP removes:
 
-- Manual exports and stale CSVs.
-- Copy-pasting across commerce, ads, analytics, lifecycle, and finance tools.
-- Guessing which evidence is safe enough to use.
-- Rebuilding the same operating workflow every week.
+- Manual Merchant Center and Google Ads exports re-pulled every morning.
+- The item-ID join across feed diagnostics, ad spend, and live store price.
+- Guessing whether a flag is an emergency or zero-spend noise.
+- Editing the wrong data layer because the source of truth was never confirmed.

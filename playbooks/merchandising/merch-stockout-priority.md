@@ -31,101 +31,163 @@ status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 
 ## Operating Question
 
-Which stockouts create the most commercial risk?
+**Which at-risk SKUs do I reorder or expedite *today* — before they sell through — ranked by the commercial damage of letting them go dark?**
 
-This play helps merchandising manager make a defensible ecommerce operating decision. It is not a generic prompt. It is a repeatable workflow that forces evidence, thresholds, and vetoes before action.
+This is a **prevention** play, not a post-mortem. A separate play measures the dollars you already lost to items that are out of stock right now; this one runs *upstream* of that, while there are still units on the shelf. Every morning some of your sellable inventory is on a collision course: a fast mover whose days-of-cover has dropped below its supplier lead time will run out before any replenishment can land, and no amount of measuring the gap afterward buys those sales back. The job here is to rank the few SKUs where ordering today prevents a stockout, weight them by how much money the gap would cost, and flag the ones with live ad spend pointed at them — because running out mid-campaign burns acquisition budget on a Sold Out button. The output is a dollar-ranked **reorder/expedite priority list**, not a stock report.
+
+## Why You Can't Just Ask ChatGPT This
+
+A bare AI assistant can do the days-of-cover arithmetic, but it cannot see your live inventory, your sell-through, your supplier lead times, or which products your ads are currently driving traffic to. To run this for real you have to:
+
+1. Pull the **current on-hand / sellable quantity** per SKU and variant from Shopify/Woo/BigCommerce — the *numerator* of days-of-cover.
+2. Compute a **recent daily sell rate** per SKU from order history over a clean window — the *denominator* — and decide whether that rate is stable enough to trust.
+3. Attach **supplier lead time and MOQ** per SKU from your purchasing records or a buying sheet (ad platforms and your store don't hold this; it usually lives in a spreadsheet or your ops tool).
+4. Bolt on **contribution margin per unit**, because a SKU that runs dry isn't equally painful at 15% margin and 65% margin.
+5. Cross-check **active ad spend by destination product**, so you catch winners you're paying to send shoppers toward right as they're about to sell out.
+
+**The forecasting logic is free; the five live joins are the work — and that is exactly what ShopMCP wires together.** If your assistant has no live line into your store, your buying data, and your ad accounts, that missing connection is where every manual run stalls. The last section shows the one-prompt version.
 
 ## Who Should Run It
 
-- Primary owner: Merchandising Manager
-- Also useful for: Merchandising Manager, Ops / Dispatch Lead
-- Best used when the owner needs a decision, not just a report.
+- **Primary owner:** Merchandising Manager
+- **Also useful for:** Inventory / Demand Planner (sizes the PO), Ops / Dispatch Lead (decides air-freight vs. sea on an expedite), Performance Marketer (pauses or redirects spend pointed at a SKU about to go dark)
+- Run it **before** the daily replenishment check or the weekly buy meeting, so the order list is dollar-ranked by stockout risk, not buyer gut feel.
 
 ## When To Run It
 
-- Cadence: daily
-- Run it when the owner needs to decide: which products are invisible, risky, overstocked, or underperforming?
-- Use it before changing budgets, creative, product data, lifecycle flows, stock priorities, or client commentary.
+- **Cadence:** daily — replenishment is a flow problem; a hero SKU that crosses below its lead-time threshold on Monday and gets noticed on Friday has already lost four days off the reorder clock.
+- **Triggers:** a velocity spike draining cover faster than planned, a supplier lead-time extension, a peak-season ramp, a campaign about to scale spend behind a thin-stock SKU, or a buy meeting that needs a priority order.
+- **Pre-requisite:** confirm the **inventory feed is fresh** (synced within the last few hours) and that on-hand means truly *sellable* (not held, allocated, or in-transit-but-uncounted). A stale or misread quantity poisons every days-of-cover number downstream.
 
 ## Required Evidence
 
-- Commerce orders, products, customers, inventory, or discounts as required by the question.
+- **Commerce inventory** — current on-hand / sellable quantity per SKU and variant. This is the numerator of days-of-cover.
+- **Commerce order history** — units sold per SKU over a **clean recent window** (typically the trailing 14–28 days), used to derive a daily sell rate. Exclude any days the SKU was already out of stock so the rate reflects real demand, not the gap.
+- **Supplier lead time per SKU** — calendar days from placing a PO to receiving sellable stock. This is the threshold days-of-cover is measured against.
+- **Safety buffer / reorder point policy** — the extra days of cover you keep on top of lead time to absorb demand variance and inbound delays.
+- **Contribution margin per unit** — selling price minus COGS minus variable fulfilment, per SKU or a category default. Used to weight which at-risk SKUs matter most.
 
 ## Optional Evidence
 
-- Recent operator notes, launch dates, promotion calendar, merchandising changes, stock constraints, and known tracking incidents.
-- Target CPA, MER, ROAS, contribution margin, payback, or revenue goal where relevant.
+- **MOQ and case-pack constraints** — the minimum you can actually order, which can make a "tiny reorder" impossible or force over-ordering.
+- **Active ad spend by destination product** — campaigns/ad sets currently routing paid traffic to a SKU approaching stockout (running out mid-flight wastes that spend).
+- **Inbound POs already in transit** — quantity and ETA, so you don't double-order something already on the water.
+- **Demand shape** — seasonality, promo calendar, and day-of-week pattern, so a weekend velocity spike isn't read as a permanent run-rate.
+- **Planned discontinuation / end-of-life flags** — a SKU you're sunsetting should *not* be reordered no matter how fast it's selling.
+
+## The Decision Logic (run in this order)
+
+1. **Confirm the inventory is real.** Feed fresh, quantity truly sellable, no held/allocated units inflating it. If on-hand is stale or ambiguous, mark the SKU **FIX** and stop — never schedule a reorder off a number you don't trust.
+2. **Compute days-of-cover.** `days of cover = on-hand units ÷ recent daily sell rate`. Qualify the sell rate first: if demand is erratic, spiky, or seasonal, widen the window (e.g. 28→56 days), use a conservative rate, and drop the confidence level — a single viral weekend is not a run-rate.
+3. **Compare cover to the runway.** A SKU is **urgent** when `days of cover < supplier lead time + safety buffer` — it will sell out before a normal PO can land. A SKU inside its reorder window (cover above the threshold but approaching it) is a routine PO, not an expedite.
+4. **Weight by commercial value.** Rank the urgent set by `daily sell rate × contribution margin/unit` — the contribution-per-day you bleed once it goes dark. A fast, high-margin hero outranks a fast, thin-margin commodity even at the same days-of-cover.
+5. **Overlay active acquisition.** Flag any urgent SKU with live ad spend pointed at it. Running out mid-campaign means you keep paying for clicks into a Sold Out page — that escalates the SKU and, separately, demands a spend decision (pause or redirect) independent of the reorder.
+6. **Choose the action, then apply the vetoes.** Cover far below the runway on a valuable SKU → **expedite** (air-freight / rush PO). Inside the reorder window → standard PO. Then check MOQ, cash, discontinuation, and demand-confidence vetoes before committing, and attach owner + recheck.
 
 ## Manual Workflow
 
-1. Define the decision window and write the operating question: "Which stockouts create the most commercial risk?"
-2. Gather the required evidence before asking the AI to recommend action.
-3. Ask the AI to separate confirmed facts, estimates, and unavailable evidence.
-4. Join product, feed, inventory, sales, and search evidence. Prioritize products where action is both possible and commercially useful.
-5. Apply the veto rules before accepting any recommendation.
-6. Turn the result into an action packet with owner, timing, evidence, and next check date.
+1. Export the current inventory snapshot; pull on-hand / sellable quantity per SKU and variant, and confirm the feed is fresh.
+2. Pull order history and compute each SKU's recent daily sell rate over a clean window, with any out-of-stock days excluded from the denominator.
+3. Compute `days of cover = on-hand ÷ daily sell rate` per SKU.
+4. Join supplier lead time, safety buffer, MOQ, margin per unit, in-transit POs, and active ad spend by destination product onto each row.
+5. Flag every SKU where `days of cover < lead time + safety buffer`; rank that set by `sell rate × margin/unit`.
+6. Paste the prompt below with your table; pressure-test each reorder/expedite against the vetoes; convert survivors into an action packet with owner, order quantity, and recheck date.
 
 ## Copy-Paste Prompt
 
 ```text
-You are helping me run the "Stockout Priority List" ecommerce operating play.
+You are my inventory and merchandising analyst running the "Stockout Priority List" play.
 
-Operating question:
-Which stockouts create the most commercial risk?
+GOAL: rank my at-risk SKUs by how urgently I should REORDER or EXPEDITE them BEFORE they
+sell through, weighted by the contribution profit at risk if they go dark. This is
+prevention, not a post-stockout loss report.
 
-Use the evidence I provide. Do not invent missing data. Separate exact, estimated, partial, and unavailable evidence. Apply KILL, REFRESH, WATCH, KEEP, or FIX only when the evidence supports it. If the data is too weak, say what is blocked and what evidence is needed.
+I will paste: current on-hand quantity per SKU/variant, a recent daily sell rate (units/day,
+with any out-of-stock days excluded), supplier lead time, my safety-buffer policy,
+contribution margin per unit, MOQ/case-pack, in-transit POs with ETAs, and which SKUs have
+active ad spend pointed at them. Some fields may be missing.
 
-Return:
-1. Executive answer
-2. Evidence table
-3. Decision table with status
-4. Vetoes or caveats
-5. Recommended next actions with owner and timing
+RULES:
+- Days of cover = on-hand units / recent daily sell rate. A SKU is URGENT when
+  days of cover < supplier lead time + safety buffer (it sells out before a normal PO lands).
+- Rank the urgent set by daily sell rate x contribution margin/unit (contribution bled per day
+  out of stock), not by units, not by raw days of cover.
+- For erratic / spiky / seasonal demand, widen the window, use a conservative sell rate, and
+  lower the confidence level. Do not treat one viral weekend as a run-rate.
+- Flag any urgent SKU with active ad spend pointed at it: running out mid-campaign wastes that
+  spend, and is a separate pause/redirect decision from the reorder.
+- Respect MOQ and lead-time reality: if the minimum order or rush option doesn't fit, say so.
+- Do NOT recommend reordering a SKU flagged for discontinuation/end-of-life.
+- Do NOT over-order into excess cash tied up in stock just to feel safe; size to demand + buffer.
+- If the on-hand number is stale or ambiguous, mark FIX and do not schedule a reorder on it.
+- Every row must carry: a number, source, time window, and confidence level.
+- Separate exact / estimated / partial / unavailable evidence. Do not invent missing data.
+
+RETURN:
+1. A 3-sentence executive read (how many SKUs need action today + the top expedite).
+2. A ranked table: SKU | On-hand | Sell rate/day | Days of cover | Lead time + buffer |
+   Margin/unit | Contribution/day at risk | Active ad spend? | Action | Owner | Recheck.
+3. Vetoes/caveats that downgraded any row.
+4. What evidence is blocked and what would upgrade a WATCH/FIX to a confident reorder.
 ```
 
 ## Decision Rules
 
-- Use `FIX` when required evidence is missing, inconsistent, or too weak to support a commercial decision.
-- Use `KILL` only when downside is clear, the sample is large enough, and no veto protects the item.
-- Use `REFRESH` when performance is decaying but the asset, product, flow, or page still has a credible reason to improve.
-- Use `WATCH` when the signal is directional or early.
-- Use `KEEP` when performance is inside the target band and no risk signal is present.
+- **REFRESH (expedite now)** — days of cover is well below `lead time + safety buffer` on a high-value SKU (strong sell rate × margin), so a standard PO can't land in time → air-freight, rush order, or substitute. Active ad spend pointed at it raises the priority further.
+- **KEEP (standard PO)** — the SKU is inside its reorder window: cover is approaching the threshold but a normal-lead-time PO placed now still lands before stockout. Order at the normal quantity; no expedite premium needed.
+- **WATCH** — directional only: demand is erratic, spiky, or seasonal so days-of-cover isn't trustworthy yet, the SKU is low-velocity, or an in-transit PO may already cover the gap. Widen the window and recheck.
+- **KILL** — a SKU flagged for planned discontinuation or end-of-life: do not reorder however fast it's selling; let it run down and reallocate the shelf and budget.
+- **FIX** — the on-hand number is stale/ambiguous, the sell rate can't be cleaned, or lead-time/MOQ data is missing, so no safe reorder size can be set.
 - Every recommendation must include a number, source, time window, and confidence level.
 
 ## Veto Rules
 
-- Do not claim causality from a single platform metric.
-- Do not recommend budget shifts if tracking drift makes attribution unsafe.
-- Do not recommend scaling a product with low stock, feed disapproval, or missing price/availability evidence.
-- Do not make profit claims without cost coverage or a clear partial-profit label.
-- Do not recommend writes, pauses, refunds, customer messages, or catalog changes without explicit approval.
+- Do **not** trust days-of-cover built on an erratic or seasonal sell rate — widen the window and lower confidence before acting.
+- Do **not** ignore MOQ and case-pack: a reorder you can't actually place at the supplier's minimum isn't an action.
+- Do **not** over-order to feel safe — excess stock ties up cash and creates the dead-stock problem you'll be writing down next quarter.
+- Do **not** reorder a SKU flagged for discontinuation, no matter how short its cover.
+- Do **not** double-order a SKU that already has an inbound PO landing before the cover runs out.
+- Do **not** place a PO, expedite a shipment, or pause/redirect ad spend without explicit human approval.
 
 ## Output Contract
 
-A SKU or product table with FIX / REFRESH / WATCH / KEEP decisions and evidence per row.
+A SKU-level table ranked by **contribution-per-day at risk**, with a reorder/expedite action and evidence per row:
 
-Minimum table columns:
+| SKU | On-hand | Sell rate/day | Days of cover | Lead time + buffer | Margin/unit | Contribution/day at risk | Active ad spend? | Action | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Example variant | 45 | 15/day | 3.0 | 14 + 3 | $22 | $330 | Yes | REFRESH (expedite) | Merch + Ops | 24h |
 
-| Item | Evidence | Status | Why | Owner | Timing |
-|---|---|---|---|---|---|
-| Example row | Source + number + window | WATCH | Directional signal only | Operator | Recheck in 7 days |
+## Worked Example
 
-## Good Output Example
+> **Executive read:** Two SKUs need action today; one is a true emergency. The *Aurora Diffuser — White* has only **3 days of cover** against a 14-day lead time while selling 15/day at $22 margin (~$330 of contribution bled per day out of stock) and an active prospecting campaign is still driving traffic to it — air-freight a bridge order and pause or redirect that spend. The *Glow Serum 30ml* is inside its reorder window and just needs a normal PO; the slow-moving *Travel Candle Tin* and the discontinued *Linen Spray* are noise and should not consume a rush order.
 
-> Status: WATCH. The issue is real enough to monitor, but not strong enough to change yet. The strongest evidence is a 21 percent decline over the last 14 days, but the comparison window includes a promotion and stock was below normal for three days. Recheck after a clean 7-day window.
+| SKU | On-hand | Sell rate/day | Days of cover | Lead time + buffer | Margin/unit | Contribution/day at risk | Active ad spend? | Action | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Aurora Diffuser — White | 45 | 15/day | 3.0 | 14 + 3 | $22 | **$330** | Yes (prospecting) | **REFRESH (expedite)** | Merch + Ops | 24h |
+| Aurora Diffuser — White (ad set) | — | — | — | — | — | — | Yes | **FIX** (pause/redirect spend) | Perf | Now |
+| Glow Serum 30ml | 280 | 18/day | 15.6 | 10 + 4 | $9 | $162 | No | **KEEP** (standard PO) | Merch | 48h |
+| Travel Candle Tin | 6 | 0.3/day | 20.0 | 21 + 5 | $4 | $1.20 | No | **WATCH** | Merch | 7 days |
+| Linen Spray 100ml (EOL) | 12 | 4/day | 3.0 | 14 + 3 | $7 | $28 | No | **KILL** (do not reorder) | Merch | n/a |
+
+Note how ranking by **contribution-per-day at risk** sorts the panic correctly: the candle tin has only 6 units left but at 0.3/day it has 20 days of cover and ~$1/day at stake — ignore it. The Linen Spray has the *same* 3-day cover as the diffuser, but it's end-of-life, so the right move is to let it run dry, not rush a PO. Only the diffuser combines a sub-lead-time cover, real velocity, healthy margin, and live ad spend — which is why it's the one SKU worth an air-freight premium today, with its ad set as a separate immediate FIX.
 
 ## Common Failure Modes
 
-- Treating a platform-reported metric as commerce truth.
-- Skipping the evidence checklist and asking for a recommendation too early.
-- Forgetting stock, margin, attribution, or promotion context.
-- Accepting an AI answer that does not show its numbers.
+- Ranking by raw days-of-cover or units-on-hand instead of contribution-per-day at risk, so a slow long-tail SKU with 6 units jumps the queue ahead of a fast hero.
+- Building days-of-cover on a sell rate that includes a one-off viral weekend, so a temporary spike triggers a permanent over-order.
+- Forgetting to subtract days already out of stock from the sell-rate window, deflating the very velocity you're forecasting from.
+- Ignoring an inbound PO already in transit and double-ordering a SKU that was about to be covered.
+- Expediting a SKU you've flagged for discontinuation because it briefly looks urgent.
+- Over-ordering "to be safe," converting a stockout risk into a dead-stock write-down a quarter later.
+- Treating MOQ as optional and recommending a reorder the supplier won't actually fulfil at that quantity.
 
 ## Run This Play With Live Data
 
-Manual version: gather the evidence above and paste the prompt into your AI assistant.
+**Manual version:** export the inventory snapshot, rebuild a clean sell rate per SKU, divide for days-of-cover, join lead times, safety buffers, MOQ, margin, in-transit POs, and active ad spend — every morning, before another day burns off the reorder clock.
 
-ShopMCP version: ask the same question with ShopMCP connected. ShopMCP routes to the matching live playbook, pulls connected evidence where available, applies evidence gates, and returns an operator-ready brief. ShopMCP does not make writes from this public playbook without explicit approval and a supported preview/apply path.
+**ShopMCP version:** connect your store and ad accounts once. Ask the question; ShopMCP reads the live on-hand quantity, reconstructs each SKU's recent daily sell rate, computes days-of-cover against your lead time and safety buffer, weights the at-risk set by contribution-per-day, and flags the SKUs with active spend pointed at them — returning the ranked reorder/expedite priority list. It stays **read-only** until you explicitly approve a PO, an expedite, or an ad-spend change.
+
+> No store or ad-account connection inside your AI assistant? That's the wall every manual run hits. ShopMCP *is* the connection — the same playbook then runs in one prompt instead of a spreadsheet-and-buying-sheet morning.
 
 Example ShopMCP prompt:
 
@@ -139,7 +201,7 @@ https://my.shop-mcp.app/playbooks/merch-stockout-priority?utm_source=github&utm_
 
 What ShopMCP removes:
 
-- Manual exports and stale CSVs.
-- Copy-pasting across commerce, ads, analytics, lifecycle, and finance tools.
-- Guessing which evidence is safe enough to use.
-- Rebuilding the same operating workflow every week.
+- Manual inventory exports and stale on-hand snapshots.
+- Rebuilding a clean daily sell rate per SKU and dividing for days-of-cover by hand.
+- Copy-pasting between your store, your buying sheet, and your ad accounts to find the winners about to run dry.
+- Re-deriving lead-time vs. cover thresholds for every SKU, every morning.
