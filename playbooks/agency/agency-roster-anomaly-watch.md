@@ -22,7 +22,7 @@ flagship: false
 shopmcp_ready: true
 default_mode: "read-only"
 approved_writes_supported: false
-shopmcp_run_url: "https://my.shop-mcp.app/playbooks/agency-roster-anomaly-watch"
+shopmcp_run_url: "https://shop-mcp.app"
 shopmcp_prompt: "Run the Roster Anomaly Radar play for yesterday vs baseline. Keep it read-only."
 status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---

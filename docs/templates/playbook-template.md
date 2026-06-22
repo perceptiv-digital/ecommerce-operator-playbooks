@@ -22,7 +22,7 @@ flagship: false
 shopmcp_ready: true
 default_mode: "read-only"
 approved_writes_supported: false
-shopmcp_run_url: "https://my.shop-mcp.app/playbooks/example-playbook"
+shopmcp_run_url: "https://shop-mcp.app"
 shopmcp_prompt: "Run the Example Playbook play for the last 30 days. Keep it read-only."
 status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---

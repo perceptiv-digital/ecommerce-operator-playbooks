@@ -22,7 +22,7 @@ flagship: false
 shopmcp_ready: true
 default_mode: "read-only"
 approved_writes_supported: false
-shopmcp_run_url: "https://my.shop-mcp.app/playbooks/seo-quick-wins"
+shopmcp_run_url: "https://shop-mcp.app"
 shopmcp_prompt: "Run the SEO Quick Wins play for the last 30 days. Keep it read-only."
 status_vocab: ["WIN", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---

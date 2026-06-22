@@ -22,7 +22,7 @@ flagship: false
 shopmcp_ready: true
 default_mode: "read-only"
 approved_writes_supported: false
-shopmcp_run_url: "https://my.shop-mcp.app/playbooks/agency-qbr-builder"
+shopmcp_run_url: "https://shop-mcp.app"
 shopmcp_prompt: "Run the Client QBR Builder play for the last quarter. Keep it read-only."
 status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---

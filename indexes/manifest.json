@@ -1,7 +1,7 @@
 {
   "name": "eCommerce Operator OS",
   "repo": "perceptiv-digital/ecommerce-operator-playbooks",
-  "generated_at": "2026-06-22T23:35:34.643Z",
+  "generated_at": "2026-06-22T23:47:55.891Z",
   "playbook_count": 58,
   "playbooks": [
     {
@@ -60,7 +60,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/agency-client-health-score",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "meta-ads",
@@ -141,7 +141,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/agency-new-client-audit",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-analytics-4",
@@ -212,7 +212,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/agency-portfolio-mer-watch",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "meta-ads",
@@ -287,7 +287,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/agency-qbr-builder",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-analytics-4",
@@ -351,7 +351,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/agency-retention-intelligence-packet",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "klaviyo",
@@ -417,7 +417,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/agency-roster-anomaly-watch",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "meta-ads",
@@ -486,7 +486,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/agency-roster-wasted-spend",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "meta-ads",
@@ -535,7 +535,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/agency-scope-creep-watch",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce"
         ],
@@ -607,7 +607,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/agency-tracking-setup-audit",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-analytics-4",
@@ -683,7 +683,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/agency-upsell-radar",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "meta-ads",
@@ -757,7 +757,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/commerce-product-visibility-audit",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-merchant-center",
@@ -834,7 +834,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/ecom-ad-message-match",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "meta-ads",
           "google-ads",
@@ -892,7 +892,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/ecom-checkout-health",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-analytics-4"
@@ -945,7 +945,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/ecom-funnel-leak-finder",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-analytics-4"
@@ -1000,7 +1000,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/ecom-pdp-improvement-list",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-analytics-4"
@@ -1049,7 +1049,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/ecom-promo-effectiveness",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce"
         ],
@@ -1105,7 +1105,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/ecom-stockout-impact",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-analytics-4"
@@ -1180,7 +1180,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/ecom-tracking-sanity",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-analytics-4",
@@ -1238,7 +1238,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/ecom-weekly-trading-deck",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-analytics-4"
@@ -1313,7 +1313,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/commerce-contribution-profit-by-channel",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-analytics-4",
@@ -1363,7 +1363,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/commerce-profit-readiness-audit",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce"
         ],
@@ -1415,7 +1415,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/founder-anomaly-watch",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-analytics-4"
@@ -1468,7 +1468,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/founder-cash-runway-snapshot",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "stripe",
           "commerce"
@@ -1515,7 +1515,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/founder-pace-to-target",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce"
         ],
@@ -1565,7 +1565,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/founder-promo-postmortem",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce"
         ],
@@ -1615,7 +1615,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/founder-promo-profit-doctor",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce"
         ],
@@ -1661,7 +1661,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/founder-yoy-pulse",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce"
         ],
@@ -1713,7 +1713,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/marketing-attribution-reconciliation",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-analytics-4"
@@ -1780,7 +1780,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/marketing-blended-mer-watch",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "meta-ads",
@@ -1837,7 +1837,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/marketing-brand-cannibalisation",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "google-ads",
           "google-search-console"
@@ -1912,7 +1912,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/marketing-cac-by-channel",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-analytics-4",
@@ -1972,7 +1972,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/marketing-competitor-demand-brief",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "dataforseo",
           "google-search-console"
@@ -2041,7 +2041,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/marketing-marginal-budget-allocator",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "meta-ads",
@@ -2094,7 +2094,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/merch-dead-stock-watch",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce"
         ],
@@ -2148,7 +2148,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/merch-gmc-feed-audit",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "google-merchant-center",
           "commerce"
@@ -2199,7 +2199,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/merch-least-profitable-products",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce"
         ],
@@ -2251,7 +2251,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/merch-product-data-quality",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "google-merchant-center"
@@ -2300,7 +2300,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/merch-stockout-priority",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce"
         ],
@@ -2346,7 +2346,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/ops-daily-standup",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce"
         ],
@@ -2398,7 +2398,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/ops-dispute-evidence",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "stripe",
           "commerce"
@@ -2465,7 +2465,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/perf-cpa-root-cause",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "meta-ads",
@@ -2528,7 +2528,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/perf-creative-fatigue-list",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "meta-ads",
           "tiktok-ads",
@@ -2576,7 +2576,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/perf-google-search-term-audit",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "google-ads"
         ],
@@ -2634,7 +2634,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/perf-morning-dashboard",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "meta-ads",
           "google-ads",
@@ -2688,7 +2688,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/perf-pmax-deep-dive",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "google-ads",
           "google-merchant-center"
@@ -2743,7 +2743,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/perf-shopping-feed-watch",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "google-merchant-center",
           "commerce"
@@ -2810,7 +2810,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/perf-wasted-spend-killer",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "meta-ads",
           "google-ads",
@@ -2867,7 +2867,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/email-abandoned-cart-recovery-doctor",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "klaviyo",
           "commerce"
@@ -2914,7 +2914,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/email-deliverability-watch",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "klaviyo"
         ],
@@ -2966,7 +2966,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/email-flow-health-check",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "klaviyo",
           "commerce"
@@ -3021,7 +3021,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/email-monday-recap",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "klaviyo",
           "commerce"
@@ -3076,7 +3076,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/email-replenishment-timing",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "klaviyo"
@@ -3131,7 +3131,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/email-vip-watch",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "klaviyo"
@@ -3184,7 +3184,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/email-winback-builder",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "commerce",
           "klaviyo"
@@ -3231,7 +3231,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/seo-cannibalisation-audit",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "google-search-console"
         ],
@@ -3285,7 +3285,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/seo-content-decay",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "google-search-console",
           "google-analytics-4"
@@ -3332,7 +3332,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/seo-quick-wins",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "google-search-console"
         ],
@@ -3388,7 +3388,7 @@
       ],
       "shopmcp": {
         "ready": true,
-        "run_url": "https://my.shop-mcp.app/playbooks/seo-schema-rich-result-readiness",
+        "run_url": "https://shop-mcp.app",
         "required_connections": [
           "dataforseo",
           "commerce"
