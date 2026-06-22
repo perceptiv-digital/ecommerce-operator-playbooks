@@ -31,105 +31,158 @@ status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 
 ## Operating Question
 
-Where does ad promise fail to match landing-page reality?
+**Where does the promise in my top-spend ads fail to match what the landing page actually shows — and is that mismatch measurably costing me orders?**
 
-This play helps head of ecommerce make a defensible ecommerce operating decision. It is not a generic prompt. It is a repeatable workflow that forces evidence, thresholds, and vetoes before action.
+A high-performing ad and a high-converting landing page are two halves of one machine. When the ad promises "20% off your first order" and the page loads at full price, when the creative stars a single hero product but the click lands on a 200-SKU collection, or when the hook is built for a cold scroll-stopper audience but the page assumes warm intent — the visitor's expectation breaks in the first three seconds and they bounce. This play takes your **top-spend ads**, compares the ad's hook, offer, price, claim, and featured product against the **actual page they point to**, then correlates each mismatch with that ad's **bounce rate and CVR**. The output is a ranked list of **message-match leaks**, each tagged **KILL / REFRESH / WATCH / KEEP / FIX**.
+
+## Why You Can't Just Ask ChatGPT This
+
+A plain AI assistant can critique ad copy you paste in, but it cannot see the three things this audit actually needs side by side: what your **live ads** currently say, where their **destination URLs** resolve right now, and how the **traffic from each ad** behaves once it lands. To do this manually you have to:
+
+1. Pull your top ads by spend from Meta / Google / TikTok, including the **exact creative text and the final destination URL** (not the display URL — the real one after redirects and UTMs).
+2. Open every one of those landing pages **today** and record what they actually show: live price, live offer, the hero product, headline, hero image.
+3. Pull **GA4 landing-page behaviour segmented by the ad's UTM / campaign** — bounce rate, CVR, and AOV for that specific traffic, not a blended site average.
+4. Join all three by ad, because the leak only becomes visible when the promise and the page and the behaviour sit in the same row.
+
+**The judgment in this playbook is free. The data access is the wall** — your assistant has no live line into your ad accounts, your storefront's current pricing, or your GA4 property. That join is exactly what ShopMCP closes; the final section shows the one-prompt version.
 
 ## Who Should Run It
 
-- Primary owner: Head of Ecommerce
-- Also useful for: Head of Ecommerce, Head of Marketing, Performance Marketer
-- Best used when the owner needs a decision, not just a report.
+- **Primary owner:** Head of Ecommerce — owns the onsite experience and the conversion of paid traffic.
+- **Also useful for:** Performance Marketer (owns the ad copy and the destination URL), Web/CRO lead (owns the page fix).
+- Run it **before** you blame the creative or scale the budget — a tired-looking ad is often a perfectly good ad pointed at the wrong page.
 
 ## When To Run It
 
-- Cadence: weekly
-- Run it when the owner needs to decide: where is the onsite experience leaking commercial value?
-- Use it before changing budgets, creative, product data, lifecycle flows, stock priorities, or client commentary.
+- **Cadence:** weekly — pair it with your paid review so the top-spend list is current.
+- **Triggers:** a new creative or promo goes live (offers expire on the page but not in the ad), a top ad's CVR drops while its CTR holds, a landing-page or theme deploy, or a price/PDP change that the ad copy now contradicts.
+- **Pre-requisite:** confirm UTM tagging is intact. If you can't segment GA4 by the ad's campaign, the bounce/CVR half of this audit is blind — run a Tracking Sanity Check first.
 
 ## Required Evidence
 
-- Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.
-- Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.
-- Tiktok Ads spend, conversion, campaign, ad group, creative, and performance evidence.
-- Commerce orders, products, customers, inventory, or discounts as required by the question.
-- GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.
+- **Top-spend ads (Meta / Google / TikTok)** — for the top ~10–15 ads by spend over the last 14–30 days: the **live creative** (hook, headline, primary text, offer, any price or claim shown), the **featured product**, and the **final destination URL**.
+- **The live landing pages** — for each destination URL, what the page shows **right now**: headline, hero product, **live price**, **live offer/promo state**, and whether the URL lands on a PDP, collection, or homepage.
+- **GA4 by ad/campaign** — **bounce rate, sessions, CVR, and AOV** for each ad's traffic, segmented by UTM/campaign and ideally split by device.
+- **Commerce (Shopify/Woo/BigCommerce/etc.)** — current price and availability for each featured product, to confirm the page (not the ad) is telling the truth.
+- **Benchmark** — your blended **message-matched CVR** (the CVR of ads whose page does match), so each leak can be sized against a real baseline rather than a guess.
 
 ## Optional Evidence
 
-- Recent operator notes, launch dates, promotion calendar, merchandising changes, stock constraints, and known tracking incidents.
-- Target CPA, MER, ROAS, contribution margin, payback, or revenue goal where relevant.
+- **Promo calendar** — start/end dates for every active offer, so you can tell an "expired-on-page" leak from a genuine creative problem.
+- **Stockouts / availability log** — a featured product going out of stock produces the same bounce signature as a message mismatch; you need to rule it out.
+- **Creative + page deploy dates** — to tell a brand-new ad still in learning from a mature ad with a real leak.
+- **Audience/intent of each ad** — cold prospecting vs. warm retargeting, since a high bounce on cold top-of-funnel traffic is expected, not a defect.
+
+## The Decision Logic (run in this order)
+
+1. **Rank by spend, then cut the noise.** Sort ads by spend. Drop any ad with **under ~300 clicks** or under ~7 days live — too little traffic to read a bounce/CVR difference. These go to WATCH, never KILL.
+2. **Resolve the real destination.** Follow each ad's final URL through redirects and UTMs to the page that actually loads. A surprising share of "mismatches" are just an ad pointing at an old URL that now 301s to the wrong place.
+3. **Score the four match dimensions** for each surviving ad against its live page:
+   - **Offer** — does the discount/promo in the ad exist on the page at the same value, right now?
+   - **Price** — does any price shown in the creative match the live PDP price?
+   - **Product** — does the page lead with the same hero product the ad features, or dump the visitor on a generic collection/homepage?
+   - **Tone/intent** — does the page's headline and audience assumption match the ad's hook and the audience it targets?
+4. **Correlate, don't assume.** For each mismatch, compare that ad's **bounce rate and CVR** against your **message-matched benchmark**. A mismatch with no behavioural gap is cosmetic; a mismatch with a real CVR gap is a leak worth sizing.
+5. **Size the leak in orders/revenue.** `(benchmark CVR − this ad's CVR) × this ad's sessions × AOV` = revenue the mismatch is plausibly costing. Rank leaks by this number, not by how wrong they look.
+6. **Apply the vetoes** (stockout, promo timing, cold-intent, small sample), then assign status + owner + recheck date.
 
 ## Manual Workflow
 
-1. Define the decision window and write the operating question: "Where does ad promise fail to match landing-page reality?"
-2. Gather the required evidence before asking the AI to recommend action.
-3. Ask the AI to separate confirmed facts, estimates, and unavailable evidence.
-4. Segment the funnel, isolate the weakest step or surface, check device and landing-page evidence, then recommend the smallest measurable fix.
-5. Apply the veto rules before accepting any recommendation.
-6. Turn the result into an action packet with owner, timing, evidence, and next check date.
+1. Export the top ~10–15 ads by spend per platform for the last 14–30 days, with creative text and **final** destination URL.
+2. Open each destination URL in a clean/incognito session and log: page type (PDP/collection/home), live price, live offer state, hero product, headline.
+3. Pull GA4 bounce rate, sessions, CVR, and AOV for each ad's UTM/campaign; compute your message-matched CVR benchmark from the ads that pass all four dimensions.
+4. Score each ad on offer / price / product / tone, then join the score to its behavioural gap.
+5. Compute the revenue-at-risk for each leak and rank.
+6. Paste the prompt below with your joined table; pressure-test every KILL/FIX against the veto list; convert survivors into an action packet with owner and recheck date.
 
 ## Copy-Paste Prompt
 
 ```text
-You are helping me run the "Ad-to-Landing-Page Message Match Audit" ecommerce operating play.
+You are my ecommerce conversion analyst running the "Ad-to-Landing-Page Message Match Audit".
 
-Operating question:
-Where does ad promise fail to match landing-page reality?
+GOAL: find where my top-spend ads promise something the landing page doesn't deliver, and
+size each mismatch by the orders it is plausibly costing — ranked by revenue at risk, not by
+how wrong the copy looks.
 
-Use the evidence I provide. Do not invent missing data. Separate exact, estimated, partial, and unavailable evidence. Apply KILL, REFRESH, WATCH, KEEP, or FIX only when the evidence supports it. If the data is too weak, say what is blocked and what evidence is needed.
+I will paste, per ad: the live creative (hook, offer, price, claim, featured product), the
+final landing-page URL and what that page shows RIGHT NOW (page type, live price, live offer,
+hero product, headline), and GA4 for that ad's traffic (sessions, bounce rate, CVR, AOV). I
+will also give my message-matched CVR benchmark. Some fields may be missing.
 
-Return:
-1. Executive answer
-2. Evidence table
-3. Decision table with status
-4. Vetoes or caveats
-5. Recommended next actions with owner and timing
+RULES:
+- Score each ad on four dimensions vs its live page: OFFER, PRICE, PRODUCT, TONE/INTENT.
+- A mismatch only counts as a leak if the ad's bounce/CVR is materially worse than my
+  message-matched benchmark. Cosmetic mismatch with no behavioural gap = note it, don't act.
+- Size each leak: (benchmark CVR - this ad's CVR) x sessions x AOV. Rank by that number.
+- Correlation is not proof: never recommend rebuilding a page without proposing a test first.
+- Drop ads under ~300 clicks or under 7 days live to WATCH (too small to read).
+- A stockout, an expired promo on the page, or cold top-of-funnel intent can mimic a
+  message-match leak — flag these as alternative explanations before blaming the page.
+- Every row must carry: a number, source, time window, and confidence level.
+- Separate exact / estimated / partial / unavailable evidence. Do not invent missing data.
+
+RETURN:
+1. A 3-sentence executive read.
+2. A ranked table: Ad | Spend | Destination (page type) | Mismatch (offer/price/product/tone) |
+   Bounce vs benchmark | CVR vs benchmark | Revenue at risk | Status | Owner | Recheck.
+3. The single highest-confidence test to run first, with its hypothesis and success metric.
+4. Vetoes/caveats that downgraded any row, and what evidence would upgrade a WATCH/FIX.
 ```
 
 ## Decision Rules
 
-- Use `FIX` when required evidence is missing, inconsistent, or too weak to support a commercial decision.
-- Use `KILL` only when downside is clear, the sample is large enough, and no veto protects the item.
-- Use `REFRESH` when performance is decaying but the asset, product, flow, or page still has a credible reason to improve.
-- Use `WATCH` when the signal is directional or early.
-- Use `KEEP` when performance is inside the target band and no risk signal is present.
-- Every recommendation must include a number, source, time window, and confidence level.
+- **KILL** — a mature, high-traffic ad (≥300 clicks, ≥7 days) pointing at a page that contradicts its core promise (e.g. dead offer, wrong price, homepage dump) **and** carrying a CVR materially below benchmark, where fixing the destination is not faster than retiring the ad.
+- **FIX** — the destination itself is broken or contradictory: expired promo still advertised, price mismatch, 301 to the wrong page, or a featured product that's out of stock. The fix is on the page/URL, not the creative.
+- **REFRESH** — the page is roughly on-message but the hook/tone/hero has drifted from the ad; the audience and offer are still viable, so re-point the URL or align the page headline before judging the creative.
+- **WATCH** — directional only: sample under ~300 clicks, under 7 days live, or the window is polluted by a stockout or promo edge.
+- **KEEP** — all four dimensions match and CVR sits inside the benchmark band.
+- Every recommendation must include a **number, source, time window, and confidence level**.
 
 ## Veto Rules
 
-- Do not claim causality from a single platform metric.
-- Do not recommend budget shifts if tracking drift makes attribution unsafe.
-- Do not recommend scaling a product with low stock, feed disapproval, or missing price/availability evidence.
-- Do not make profit claims without cost coverage or a clear partial-profit label.
-- Do not recommend writes, pauses, refunds, customer messages, or catalog changes without explicit approval.
+- Do **not** treat a CVR gap as proof of a message-match problem — correlation is not causation; require a test before any page rebuild.
+- Do **not** act on an ad below the ~300-click / 7-day floor; small-sample bounce and CVR are noise.
+- Do **not** blame the page when a **stockout or seasonal demand swing** can produce the same bounce/CVR signature — rule those out first.
+- Do **not** flag high bounce as a defect on **cold top-of-funnel intent** ads; a research-mode scroller behaves differently from warm retargeting.
+- Do **not** recommend re-pointing a URL, editing a page, or pausing an ad without an explicit human approval step.
 
 ## Output Contract
 
-A leak diagnosis, ranked opportunities, evidence links, and a read-only experiment brief.
+A ranked message-match leak list with a behavioural gap and a sized revenue impact per row, plus the first test to run.
 
-Minimum table columns:
+| Ad | Spend (14d) | Destination (page type) | Mismatch | Bounce vs benchmark | CVR vs benchmark | Revenue at risk | Status | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|---|
+| Hero Serum – Broad | $3,400 | Homepage (not PDP) | Product: lands on home, ad features one SKU | +29 pts | 1.1% vs 3.0% | ~$6.2k/mo | FIX | Web + Perf | 7 days |
 
-| Item | Evidence | Status | Why | Owner | Timing |
-|---|---|---|---|---|---|
-| Example row | Source + number + window | WATCH | Directional signal only | Operator | Recheck in 7 days |
+## Worked Example
 
-## Good Output Example
+> **Executive read:** Two message-match leaks explain most of the wasted paid traffic this period. The top Meta ad ("The Hero Serum, 38% of you reorder it") spends $3,400 but its destination URL points at the **homepage**, not the serum PDP — that traffic converts at **1.1% vs the 3.0% message-matched benchmark**, a 1.9-point gap worth roughly **$6.2k/month** and the clear first fix. A second ad still runs "Save 25% this weekend" while the promo **expired on the landing page Monday**, so the page shows full price — a same-day FIX, not a creative problem.
 
-> Status: WATCH. The issue is real enough to monitor, but not strong enough to change yet. The strongest evidence is a 21 percent decline over the last 14 days, but the comparison window includes a promotion and stock was below normal for three days. Recheck after a clean 7-day window.
+| Ad | Spend (14d) | Destination (page type) | Mismatch | Bounce vs benchmark | CVR vs benchmark | Revenue at risk | Status | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|---|
+| Hero Serum – Broad | Meta | $3,400 | Homepage (not PDP) | Product: ad features 1 SKU, lands on home | +29 pts (71% vs 42%) | 1.1% vs 3.0% | ~$6.2k/mo | **FIX** | Web + Perf | 7 days |
+| Weekend 25% Off | Meta | $1,870 | PDP, full price | Offer: promo expired on page, live in ad | +18 pts | 1.6% vs 3.0% | ~$3.1k/mo | **FIX** | Perf | Today |
+| Whitepaper Hook – Cold | TikTok | $1,240 | Collection page | Tone: research-mode hook, cold intent | +22 pts | 0.7% vs 3.0% | not sized | **WATCH** | Perf | 7 days |
+| Bestseller Bundle – RT | Google | $2,050 | Bundle PDP | None — all four dimensions match | −4 pts | 3.4% vs 3.0% | n/a | **KEEP** | Perf | 14 days |
+| New Launch – Broad | Meta | $610 | New PDP | Product matches; 4 days live, 180 clicks | n/a | n/a (small) | not sized | **WATCH** | Perf | 7 days |
+
+The audit inverts the obvious read: the homepage-dump ad isn't a "bad creative," it's a great creative pointed at the wrong page, and the TikTok ad's ugly 0.7% CVR is **not** a leak to fix — it's cold top-of-funnel traffic vetoed out of the KILL pile.
 
 ## Common Failure Modes
 
-- Treating a platform-reported metric as commerce truth.
-- Skipping the evidence checklist and asking for a recommendation too early.
-- Forgetting stock, margin, attribution, or promotion context.
-- Accepting an AI answer that does not show its numbers.
+- Auditing the **display URL** instead of the final destination, so you never see the 301 that breaks the match.
+- Comparing each ad's CVR to the **blended site average** instead of the message-matched benchmark, which hides the real gap.
+- Calling a CVR gap "proof" and rebuilding a page with no test — when a stockout or a seasonal dip caused the same signature.
+- Flagging a cold prospecting ad's high bounce as a defect.
+- Checking the live offer once and assuming it stays true — promos expire on the page mid-flight while the ad keeps promising them.
 
 ## Run This Play With Live Data
 
-Manual version: gather the evidence above and paste the prompt into your AI assistant.
+**Manual version:** export the top ads, open every destination URL by hand, transcribe live price and offer, pull GA4 per UTM, and join all three sources into one table — every week, while promos and prices keep moving underneath you.
 
-ShopMCP version: ask the same question with ShopMCP connected. ShopMCP routes to the matching live playbook, pulls connected evidence where available, applies evidence gates, and returns an operator-ready brief. ShopMCP does not make writes from this public playbook without explicit approval and a supported preview/apply path.
+**ShopMCP version:** connect Meta, Google, TikTok, GA4, and your store once. Ask the question; ShopMCP pulls your top-spend ads with their **live creative and final URLs**, fetches what each destination page **currently shows** (price, offer, hero product, page type), reads **GA4 bounce/CVR by that ad's traffic**, computes your message-matched benchmark, sizes each leak in revenue, and returns the ranked **FIX/REFRESH/WATCH/KEEP** table with the first test to run. It stays **read-only** until you approve a URL change, page edit, or pause.
+
+> No live line into your ad accounts, your storefront's current pricing, and your GA4 property at the same time? That's the wall every manual run hits — the leak only appears when promise, page, and behaviour sit in one row. ShopMCP *is* that join, so the audit runs in one prompt instead of an afternoon of tab-switching.
 
 Example ShopMCP prompt:
 
@@ -143,7 +196,7 @@ https://my.shop-mcp.app/playbooks/ecom-ad-message-match?utm_source=github&utm_me
 
 What ShopMCP removes:
 
-- Manual exports and stale CSVs.
-- Copy-pasting across commerce, ads, analytics, lifecycle, and finance tools.
-- Guessing which evidence is safe enough to use.
-- Rebuilding the same operating workflow every week.
+- Hand-opening every destination URL and transcribing live price and offer state.
+- Reconciling display URLs, redirects, and UTMs to find where traffic actually lands.
+- Segmenting GA4 by each ad's campaign and joining it to creative and page.
+- Rebuilding the same promise-vs-page-vs-behaviour join every week.

@@ -31,102 +31,160 @@ status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 
 ## Operating Question
 
-What changed enough to explain the revenue anomaly?
+**Revenue just moved hard against the baseline — what actually changed, and is it even real before I react?**
 
-This play helps founder / ceo make a defensible ecommerce operating decision. It is not a generic prompt. It is a repeatable workflow that forces evidence, thresholds, and vetoes before action.
+A day or week breaks abnormally from the rolling baseline (a spike or a drop beyond roughly **2 standard deviations of the trailing 28-day daily revenue**, or **>20% versus the trailing 14-day average**), and the instinct is to celebrate or panic immediately. Both are usually wrong. This play forces a cold sequence: first decide whether the anomaly is **REAL or a tracking artefact**, then decompose the move into **Traffic × Conversion Rate × AOV**, then find the single channel / device / geo / product / new-vs-returning slice that **concentrates the variance** — and rank candidate explanations by how much of the swing each one accounts for. The output is a defensible attribution of the move, not a vibe.
+
+## Why You Can't Just Ask ChatGPT This
+
+A plain AI assistant has no line into your Shopify order ledger or your GA4 property, so it cannot tell a real demand swing from a double-fired pixel. To do this manually under pressure you have to:
+
+1. Pull **commerce orders** for the anomaly day and the trailing baseline, net of cancellations, test orders, and the one $14,000 wholesale order that skews everything.
+2. Pull **GA4 sessions, conversion rate, and revenue** for the same exact window, by channel / device / geo / landing page.
+3. **Reconcile the two**, because GA4 last-click revenue and Shopify booked revenue rarely agree — and the gap is itself a clue (a tracking break shows up as one source moving and the other not).
+4. Decompose the move and rank slices by share of variance — fast, while the Slack thread is already on fire.
+
+**The decomposition logic in this playbook is free. The live, reconciled access to commerce + GA4 is the hard part — and that is exactly what ShopMCP connects.** With no live data line, a manual run stalls at step 2. The last section shows the one-prompt version.
 
 ## Who Should Run It
 
-- Primary owner: Founder / CEO
-- Also useful for: Founder / CEO
-- Best used when the owner needs a decision, not just a report.
+- **Primary owner:** Founder / CEO — the person being asked "why is revenue down today?" in the standup.
+- **Also useful for:** Head of Ecommerce / Trading Manager (channel decomposition), Performance lead (if the swing traces to paid), Ops (if it traces to stock or fulfilment).
+- Run it the moment someone reacts to a number — to replace "revenue is down, pause everything" with "here is the slice that moved and the confidence level."
 
 ## When To Run It
 
-- Cadence: triggered
-- Run it when the owner needs to decide: are we making the right commercial decision?
-- Use it before changing budgets, creative, product data, lifecycle flows, stock priorities, or client commentary.
+- **Cadence:** triggered — fired by an alert or by a human noticing an abnormal day/week, not on a calendar.
+- **Triggers:** daily revenue beyond ~2 SD of the trailing 28-day mean; revenue >20% above or below the trailing 14-day average; a sudden order-count cliff; a spike that looks "too good." 
+- **Pre-requisite:** confirm the alert window is **closed** (settled orders, not a half-finished day) before you trust the delta. Comparing a partial day against full days manufactures a fake anomaly every time.
 
 ## Required Evidence
 
-- Commerce orders, products, customers, inventory, or discounts as required by the question.
-- GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.
+- **Commerce (Shopify / Woo / BigCommerce / etc.)** — net revenue, order count, AOV, and units for the anomaly window **and** the trailing baseline (14- and 28-day), net of cancellations / test orders / refunds. Split by **channel/UTM source, device, geo, product, and new-vs-returning customer**.
+- **GA4** — sessions, engaged sessions, ecommerce conversion rate, and purchase revenue for the same exact windows, broken down by **default channel grouping, device category, country, and landing page**.
+- **Baseline definition** — the trailing-average and standard-deviation numbers the anomaly was flagged against, so "abnormal" is a stated threshold, not a feeling.
 
-## Optional Evidence
+## Optional Evidence (changes the answer when present)
 
-- Recent operator notes, launch dates, promotion calendar, merchandising changes, stock constraints, and known tracking incidents.
-- Target CPA, MER, ROAS, contribution margin, payback, or revenue goal where relevant.
+- **Promo / discount calendar** — a live or just-ended promo explains most "anomalies" and borrows demand from the next window.
+- **Known incidents** — site outage, checkout error, payment-gateway downtime, app/pixel deploy, or a CDN blip during the window.
+- **Bot / referral-spam context** — a sudden session flood from one source/geo with ~0% conversion is traffic noise, not demand.
+- **External demand drivers** — a TikTok / press / influencer mention, a competitor stockout, weather, or a public holiday shifting the baseline.
+- **Stock state** — a hero SKU back in stock (spike) or sold out (drop) during the window.
+
+## The Decision Logic (run in this order)
+
+1. **Validate the window first.** Confirm the anomaly day/week is fully settled and compared against equal, complete periods. A partial day vs. full days is an artefact → **FIX** the comparison before anything else.
+2. **REAL or artefact?** Reconcile commerce orders against GA4 purchases for the window. If they diverge sharply (e.g. GA4 revenue jumps but Shopify orders are flat, or order count doubles with no session lift), suspect **double-fired purchases, a bot/referral-spam session flood, or a tracking/outage break** → **FIX**, do not act on the number. Only a move that shows up in *both* commerce and analytics is real.
+3. **Decompose into Traffic × CVR × AOV.** Revenue = Sessions × CVR × AOV. Compute each factor's change vs. baseline and attribute the revenue delta across the three. Name which factor moved — most anomalies are a one-factor story.
+4. **Find the concentrating slice.** Within the factor that moved, drill by channel / device / geo / product / new-vs-returning and rank slices by **share of the total variance**. Decide: is the move **concentrated** (one slice owns most of it) or **broad** (spread evenly — a sign of tracking or a sitewide event)?
+5. **Rank candidate explanations by variance explained.** List each plausible cause with the percentage of the swing it accounts for. The winner is the smallest set of causes that explains most of the move.
+6. **Apply the vetoes**, then assign status + owner + recheck window. One day is a signal, not a trend.
 
 ## Manual Workflow
 
-1. Define the decision window and write the operating question: "What changed enough to explain the revenue anomaly?"
-2. Gather the required evidence before asking the AI to recommend action.
-3. Ask the AI to separate confirmed facts, estimates, and unavailable evidence.
-4. Start with commerce truth, separate revenue from profit, check the date window, then explain the movement in plain operator language.
-5. Apply the veto rules before accepting any recommendation.
-6. Turn the result into an action packet with owner, timing, evidence, and next check date.
+1. State the anomaly precisely: metric, direction, size, window, and the baseline/threshold it broke (e.g. "+38% DoD revenue, 2.4 SD above trailing 28-day mean").
+2. Pull commerce and GA4 for the anomaly window and the trailing 14/28-day baseline, with the breakdowns above. Net out cancellations and test orders.
+3. Reconcile commerce vs. GA4 for the window — this is the REAL-or-artefact gate. If they disagree materially, mark **FIX** and investigate tracking before decomposing.
+4. Build the **Traffic × CVR × AOV** decomposition; identify the moving factor.
+5. Drill the moving factor by slice; rank slices by share of variance and label the move concentrated or broad.
+6. Paste the prompt below with your tables. Pressure-test against the veto list, then write the action packet with owner, recheck window, and confidence level.
 
 ## Copy-Paste Prompt
 
 ```text
-You are helping me run the "Revenue Anomaly Watch" ecommerce operating play.
+You are my ecommerce trading analyst running the "Revenue Anomaly Watch" play.
 
-Operating question:
-What changed enough to explain the revenue anomaly?
+SITUATION: revenue broke abnormally from baseline and people want to react. Before anyone
+acts, tell me what actually changed and whether it is even real.
 
-Use the evidence I provide. Do not invent missing data. Separate exact, estimated, partial, and unavailable evidence. Apply KILL, REFRESH, WATCH, KEEP, or FIX only when the evidence supports it. If the data is too weak, say what is blocked and what evidence is needed.
+I will paste: the anomaly statement (metric, direction, size, window, baseline/threshold),
+commerce orders/AOV/units for the anomaly window and the trailing 14/28-day baseline split
+by channel/device/geo/product/new-vs-returning, and GA4 sessions/CVR/revenue for the same
+windows and splits. Some data may be missing.
 
-Return:
-1. Executive answer
-2. Evidence table
-3. Decision table with status
-4. Vetoes or caveats
-5. Recommended next actions with owner and timing
+RUN IN THIS ORDER:
+1. Validate the window: is the anomaly period fully settled and compared against equal,
+   complete periods? If not, mark FIX and stop.
+2. REAL or artefact: reconcile commerce orders vs GA4 purchases for the window. If they
+   diverge sharply (double-fired purchases, bot/referral-spam session flood, outage,
+   tracking break), mark FIX and do NOT attribute the move to demand.
+3. Decompose: Revenue = Sessions x CVR x AOV. Attribute the revenue delta across the three
+   factors and name the one that moved.
+4. Concentrate: within the moving factor, rank channel/device/geo/product/new-vs-returning
+   slices by share of variance. State whether the move is concentrated or broad.
+5. Rank candidate explanations by % of the swing each accounts for. Smallest set that
+   explains most of the move wins.
+
+RULES:
+- A move is only REAL if it appears in BOTH commerce and analytics.
+- One day is not a trend. Flag anything resting on a single day as directional.
+- Every row carries a number, its source, the time window, and a confidence level.
+- Separate exact / estimated / partial / unavailable evidence. Do not invent missing data.
+
+RETURN:
+1. A 3-sentence executive read: real or artefact, the moving factor, the concentrating slice.
+2. A decomposition table: Factor | Baseline | Anomaly window | Change | Share of revenue delta.
+3. A ranked explanations table: Explanation | Variance explained | Evidence | Status | Owner | Recheck.
+4. Vetoes/caveats that downgraded any conclusion.
+5. What evidence is blocked and what you'd need to confirm the cause.
 ```
 
 ## Decision Rules
 
-- Use `FIX` when required evidence is missing, inconsistent, or too weak to support a commercial decision.
-- Use `KILL` only when downside is clear, the sample is large enough, and no veto protects the item.
-- Use `REFRESH` when performance is decaying but the asset, product, flow, or page still has a credible reason to improve.
-- Use `WATCH` when the signal is directional or early.
-- Use `KEEP` when performance is inside the target band and no risk signal is present.
-- Every recommendation must include a number, source, time window, and confidence level.
+- **FIX** — the window is unsettled or mismatched, or commerce and GA4 diverge enough that the move can't be trusted as real (double-fire, bot flood, outage, tracking break). Resolve before attributing anything.
+- **KILL** — only for a confirmed, sustained negative driver where the cause is clear, it shows in both data sources, and no veto protects it (e.g. a checkout step that's been silently failing for days). Never kill on one day.
+- **REFRESH** — the anomaly traces to a fixable, decaying asset (a fatigued top-of-funnel source, a landing page whose CVR cratered) that still has a credible path back.
+- **WATCH** — the move is real but rests on a single day, a small slice, or a still-open trend; monitor across a clean window before acting.
+- **KEEP** — a real, healthy spike (or an explained, benign dip) where the right move is to protect what's working, not to intervene.
+- Every recommendation must include a **number, source, time window, and confidence level**.
 
 ## Veto Rules
 
-- Do not claim causality from a single platform metric.
-- Do not recommend budget shifts if tracking drift makes attribution unsafe.
-- Do not recommend scaling a product with low stock, feed disapproval, or missing price/availability evidence.
-- Do not make profit claims without cost coverage or a clear partial-profit label.
-- Do not recommend writes, pauses, refunds, customer messages, or catalog changes without explicit approval.
+- Do **not** celebrate or panic before the REAL-or-artefact gate clears — rule out double-fired purchases and bot traffic first.
+- Do **not** call one day a trend. A single anomalous day is a signal to investigate, never a mandate to act.
+- Do **not** attribute the move to strategy when a **promo, discount, or just-ended sale** explains most of it (and remember it borrows demand from the next window).
+- Do **not** ignore a **site outage, checkout error, or payment-gateway incident** during the window — an "organic drop" is often a broken funnel.
+- Do **not** claim a real demand swing from a single source — it must appear in both commerce and analytics.
+- Do **not** recommend writes, budget shifts, refunds, customer messages, or catalog changes without explicit human approval.
 
 ## Output Contract
 
-A short trading read, a metric table, the main driver, the confidence level, and the next action.
+A 3-sentence trading read, a Traffic × CVR × AOV decomposition, and a ranked explanations table — each explanation carrying its share of the variance, evidence, status, and recheck window.
 
-Minimum table columns:
-
-| Item | Evidence | Status | Why | Owner | Timing |
+| Explanation | Variance explained | Evidence | Status | Owner | Recheck |
 |---|---|---|---|---|---|
-| Example row | Source + number + window | WATCH | Directional signal only | Operator | Recheck in 7 days |
+| Example row | 0% | Source + number + window | WATCH | Founder | After a clean 7-day window |
 
-## Good Output Example
+## Worked Example
 
-> Status: WATCH. The issue is real enough to monitor, but not strong enough to change yet. The strongest evidence is a 21 percent decline over the last 14 days, but the comparison window includes a promotion and stock was below normal for three days. Recheck after a clean 7-day window.
+> **Executive read:** Yesterday's revenue spike (**+38% DoD, 2.4 SD above the trailing 28-day mean**) is REAL — it shows in both Shopify orders and GA4 purchases. It is **concentrated, not broad**: ~91% of the lift is a traffic surge to one product (the "Trail Flask 750ml") from a single viral TikTok, with CVR and AOV essentially flat. This is a demand event to protect and restock against, not a sitewide trend — so hold pricing, check Trail Flask stock cover, and recheck after the TikTok traffic decays.
+
+| Explanation | Variance explained | Evidence | Status | Owner | Recheck |
+|---|---|---|---|---|---|
+| Traffic surge to Trail Flask 750ml from one viral TikTok | **~91%** | Sessions +41% (GA4, yesterday); TikTok/social referral +5,900 sessions to one PDP; orders confirmed in Shopify | **KEEP** | Founder + Ops | 3 days |
+| AOV drift (slightly lower — single-item TikTok carts) | ~6% | AOV $58 → $55 (Shopify, yesterday vs 28d) | **WATCH** | Founder | 3 days |
+| Sitewide CVR | ~0% | CVR 2.1% → 2.1% (GA4, yesterday vs 28d) — flat, rules out broad cause | **KEEP** | Founder | 7 days |
+| Returning-customer email pop (minor, coincidental) | ~3% | Email channel +$640 (GA4); flow sent same morning | **WATCH** | Lifecycle | 7 days |
+
+Contrast with the **false-alarm pattern** this play exists to catch: an alert fires on "+62% revenue" that exists *only* in GA4 while Shopify order count is flat — a checkout pixel started double-firing after a deploy. That is **FIX**, not a win. Same shape on the alert, opposite truth: one is a concentrated real demand event, the other is a tracking artefact, and only the commerce↔GA4 reconciliation tells them apart.
 
 ## Common Failure Modes
 
-- Treating a platform-reported metric as commerce truth.
-- Skipping the evidence checklist and asking for a recommendation too early.
-- Forgetting stock, margin, attribution, or promotion context.
-- Accepting an AI answer that does not show its numbers.
+- Celebrating a spike that lives only in GA4 (double-fired pixel) or panicking over a drop that's just a bot flood.
+- Comparing a half-finished day against complete days and inventing an anomaly.
+- Treating one anomalous day as a trend and changing strategy on it.
+- Missing the promo or outage that explains 80% of the move.
+- Reading the blended number and never finding the single slice that concentrates the variance.
+- Accepting an AI answer that doesn't show its decomposition or its numbers.
 
 ## Run This Play With Live Data
 
-Manual version: gather the evidence above and paste the prompt into your AI assistant.
+**Manual version:** export Shopify orders and GA4 for the anomaly window and the trailing baseline, net out cancellations and test orders, reconcile the two sources by hand, decompose Traffic × CVR × AOV, and rank slices by variance — all while the question is already being asked in Slack.
 
-ShopMCP version: ask the same question with ShopMCP connected. ShopMCP routes to the matching live playbook, pulls connected evidence where available, applies evidence gates, and returns an operator-ready brief. ShopMCP does not make writes from this public playbook without explicit approval and a supported preview/apply path.
+**ShopMCP version:** connect your store and GA4 once. Ask the question; ShopMCP pulls live commerce orders and GA4 for the anomaly and baseline windows, runs the REAL-or-artefact reconciliation, computes the Traffic × CVR × AOV decomposition, finds the slice that concentrates the variance, and returns the ranked explanations table — in minutes, not a tab-juggling scramble. It stays **read-only** until you explicitly approve any action.
+
+> No Shopify or GA4 connection inside your AI assistant? That's the wall every manual run hits. ShopMCP *is* the connection — and the same playbook then runs in one prompt instead of a frantic spreadsheet session mid-fire.
 
 Example ShopMCP prompt:
 
@@ -140,7 +198,7 @@ https://my.shop-mcp.app/playbooks/founder-anomaly-watch?utm_source=github&utm_me
 
 What ShopMCP removes:
 
-- Manual exports and stale CSVs.
-- Copy-pasting across commerce, ads, analytics, lifecycle, and finance tools.
-- Guessing which evidence is safe enough to use.
-- Rebuilding the same operating workflow every week.
+- Manual Shopify and GA4 exports under time pressure.
+- Reconciling commerce orders against GA4 purchases by hand to spot a tracking artefact.
+- Rebuilding the Traffic × CVR × AOV decomposition and the variance ranking every time.
+- Guessing whether a one-day move is real, concentrated, and worth reacting to.

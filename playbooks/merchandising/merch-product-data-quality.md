@@ -31,102 +31,162 @@ status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 
 ## Operating Question
 
-Which product data gaps are hurting sales, feed quality, or search?
+**Which product data gaps are actually costing me sales, Shopping reach, or organic visibility right now — ranked by revenue at stake, not by how many fields are blank?**
 
-This play helps merchandising manager make a defensible ecommerce operating decision. It is not a generic prompt. It is a repeatable workflow that forces evidence, thresholds, and vetoes before action.
+Every catalog has thousands of empty cells. Most of them do not matter. A blank `material` attribute on a discontinued SKU with zero sessions is noise; a missing GTIN on a hero product that should be ranking in Shopping is a leak. This play audits catalog completeness **where it touches money** — titles, descriptions, images, variant data, GTIN/brand/MPN feed identifiers, category-specific attributes, and review coverage — then correlates each gap with the symptom it causes (low Merchant Center impressions, weak organic visibility, below-average conversion) and ranks the fix list by **traffic × gap impact**, never by raw count of empty fields.
+
+## Why You Can't Just Ask ChatGPT This
+
+A plain AI assistant cannot see your product catalog, your Merchant Center feed diagnostics, or your store analytics. To run this manually you have to:
+
+1. Export your full product/variant table from the store (every SKU, with title length, description, image count, variant options, and the metafields that map to feed attributes).
+2. Pull the **Merchant Center feed diagnostics**: which items are disapproved, which carry warnings (missing GTIN, missing brand, image-too-small, price mismatch), and which are simply not impressing.
+3. Join in **traffic and conversion per PDP** so you know which gaps sit on high-value pages versus dead SKUs.
+4. Reconcile the same product across three identity systems — store product ID, feed `id`, and GA4/Search Console page path — because they rarely share a key.
+
+**The thinking in this playbook is free. The data join across catalog, feed, and analytics is the hard part — and that is exactly what ShopMCP connects.** If your AI assistant has no live line into your store, Merchant Center, and analytics, that wall is where manual runs stall. Hold that thought; the last section shows the one-prompt version.
 
 ## Who Should Run It
 
-- Primary owner: Merchandising Manager
-- Also useful for: Merchandising Manager
-- Best used when the owner needs a decision, not just a report.
+- **Primary owner:** Merchandising Manager (catalog and feed quality).
+- **Also useful for:** Ecommerce Manager (where is reach leaking?), SEO lead (thin PDP content), Paid Search lead (why are products being suppressed in Shopping?).
+- Run it **before** a new-collection push, a Shopping/PMax scale-up, or any "why isn't this product selling?" escalation — the answer is often a data gap, not a demand problem.
 
 ## When To Run It
 
-- Cadence: weekly
-- Run it when the owner needs to decide: which products are invisible, risky, overstocked, or underperforming?
-- Use it before changing budgets, creative, product data, lifecycle flows, stock priorities, or client commentary.
+- **Cadence:** weekly — early in the week, after the weekend's traffic and orders have settled so per-PDP conversion is stable.
+- **Triggers:** a batch of new SKUs just went live, Merchant Center disapproval count jumped, Shopping impressions dropped without a bid change, a hero product is getting sessions but not converting, or a category page looks thin in search.
+- **Pre-requisite:** confirm the feed actually synced in the last 24h. Auditing a stale feed snapshot will flag "fixed" items as still broken and waste a fix cycle.
 
 ## Required Evidence
 
-- Commerce orders, products, customers, inventory, or discounts as required by the question.
-- Google Merchant Center product status, disapprovals, price, availability, and feed diagnostics.
+- **Commerce catalog (Shopify/Woo/BigCommerce/etc.)** — full product and variant export with, per SKU: title (and character length), description (word count / presence), image count, variant option completeness (size/colour/etc.), and the metafields that feed GTIN, brand, MPN, condition, and Google product category.
+- **Google Merchant Center** — per-item product status (active / disapproved / pending), the specific **warning and error codes** (missing GTIN, missing brand/MPN, `image_link` issues, price/availability mismatch), and impressions/clicks per item or item group.
+- **Traffic & conversion per PDP** — sessions and conversion rate per product page, last 28 days, plus the site-wide average CVR as a baseline to flag "below-average converters."
+- **Organic visibility** — Search Console impressions/clicks/position for product URLs, or at minimum which PDPs get organic traffic at all.
 
 ## Optional Evidence
 
-- Recent operator notes, launch dates, promotion calendar, merchandising changes, stock constraints, and known tracking incidents.
-- Target CPA, MER, ROAS, contribution margin, payback, or revenue goal where relevant.
+- **Category attribute requirements** — which attributes Google actually requires for *this* product type (apparel needs size/colour/gender/age group; many hardgoods do not). Prevents chasing attributes that are genuinely optional.
+- **Review counts & average rating per product** — zero-review hero SKUs convert below their potential and lose star eligibility in Shopping.
+- **Margin or revenue per product** — lets you re-rank ties by contribution, not just traffic.
+- **Recent catalog edits / bulk-import dates** — a gap created by yesterday's import may already be queued for re-sync; don't double-fix.
+- **Stock status** — a perfect data fix on an out-of-stock SKU yields nothing until it's back in stock.
+
+## The Decision Logic (run in this order)
+
+1. **Confirm the feed is fresh.** If the last successful Merchant Center sync is older than ~24h, set the whole run to **FIX** (sync first) and stop — every downstream gap reading is suspect.
+2. **Triage by symptom, not by field.** Classify each gap into the cost it creates: (a) **feed-blocking** — disapproval or a warning that suppresses Shopping eligibility (missing GTIN/brand/MPN, price mismatch); (b) **discovery** — thin/keyword-poor title or description, missing organic-relevant attributes, hurting GMC and organic ranking; (c) **conversion** — single/low-quality image, missing variant data, zero reviews, hurting on-page CVR.
+3. **Overlay traffic.** Pull sessions (or GMC impressions) onto every gap. A gap with traffic is a leak; a gap with ~zero traffic and zero impressions is noise → **WATCH** at most.
+4. **Score impact = traffic × gap severity.** A feed-blocking gap on a high-impression SKU outranks ten cosmetic gaps on the long tail. Rank the fix list by this score, descending.
+5. **Sanity-check the symptom matches the gap.** Before blaming data, confirm direction: low Shopping impressions *and* a feed warning on the same SKU = real. Low impressions with a clean feed = a bid/competition problem, not a data problem → don't queue a data fix.
+6. **Apply the vetoes**, then assign status + owner + recheck date. Batch the **FIX** queue by gap type (all missing-GTIN together, all single-image together) so one operator pass clears many SKUs.
 
 ## Manual Workflow
 
-1. Define the decision window and write the operating question: "Which product data gaps are hurting sales, feed quality, or search?"
-2. Gather the required evidence before asking the AI to recommend action.
-3. Ask the AI to separate confirmed facts, estimates, and unavailable evidence.
-4. Join product, feed, inventory, sales, and search evidence. Prioritize products where action is both possible and commercially useful.
-5. Apply the veto rules before accepting any recommendation.
-6. Turn the result into an action packet with owner, timing, evidence, and next check date.
+1. Export the catalog/variant table and the Merchant Center diagnostics for the same day; confirm the feed synced within 24h.
+2. Compute the gap flags per SKU: title length under threshold, description missing/thin, image count low, variant fields incomplete, GTIN/brand/MPN absent, required category attributes missing, review count zero.
+3. Join sessions + per-PDP CVR + GMC impressions onto each SKU so every gap carries a traffic number.
+4. Drop gaps on dead SKUs (no sessions, no impressions, not a planned hero) to the bottom — they are noise.
+5. Paste the prompt below with your joined table.
+6. Pressure-test the ranked list against the veto list (especially: is this attribute actually required for the category? would the title edit risk keyword-stuffing?), then convert survivors into a batched action packet with owner and recheck date.
 
 ## Copy-Paste Prompt
 
 ```text
-You are helping me run the "Product Data Quality" ecommerce operating play.
+You are my merchandising/catalog analyst running the "Product Data Quality" play.
 
-Operating question:
-Which product data gaps are hurting sales, feed quality, or search?
+GOAL: rank the product data gaps that are actually costing sales, Shopping reach, or
+organic visibility — by revenue at stake (traffic x gap impact), NOT by count of empty
+fields.
 
-Use the evidence I provide. Do not invent missing data. Separate exact, estimated, partial, and unavailable evidence. Apply KILL, REFRESH, WATCH, KEEP, or FIX only when the evidence supports it. If the data is too weak, say what is blocked and what evidence is needed.
+I will paste: a catalog/variant table with completeness flags (title length, description,
+image count, variant data, GTIN/brand/MPN, category attributes, review count), Merchant
+Center feed diagnostics (disapprovals + warning codes + per-item impressions), and per-PDP
+sessions + conversion rate. Some data may be missing.
 
-Return:
-1. Executive answer
-2. Evidence table
-3. Decision table with status
-4. Vetoes or caveats
-5. Recommended next actions with owner and timing
+RULES:
+- Feed-freshness gate first: if the feed sync is older than ~24h, mark FIX (sync first)
+  and stop. Stale diagnostics are unreliable.
+- Triage every gap into feed-blocking (suppresses Shopping eligibility), discovery (hurts
+  GMC/organic ranking), or conversion (hurts on-page CVR).
+- Overlay traffic on every gap. A gap with zero sessions AND zero impressions is noise,
+  not a fix.
+- Score = traffic x gap severity. Rank descending. A feed-blocking gap on a high-impression
+  SKU beats cosmetic gaps on the long tail.
+- Confirm the symptom matches the gap. Low Shopping impressions with a CLEAN feed is a
+  bid/competition problem, not a data problem - do not queue a data fix for it.
+- Do not recommend keyword-stuffing titles; flag any title fix that risks it.
+- Respect category-optional attributes: only flag an attribute as a gap if it's required
+  or commercially relevant for that product type.
+- Every row must carry: a number, source, time window, and confidence level.
+- Separate exact / estimated / partial / unavailable evidence. Do not invent missing data.
+
+RETURN:
+1. A 3-sentence executive read.
+2. A ranked table: SKU/Product | Gap type | The gap | Sessions (28d) | GMC impressions |
+   CVR vs site avg | Impact score | Status | Owner | Recheck.
+3. Vetoes/caveats that downgraded any recommendation.
+4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```
 
 ## Decision Rules
 
-- Use `FIX` when required evidence is missing, inconsistent, or too weak to support a commercial decision.
-- Use `KILL` only when downside is clear, the sample is large enough, and no veto protects the item.
-- Use `REFRESH` when performance is decaying but the asset, product, flow, or page still has a credible reason to improve.
-- Use `WATCH` when the signal is directional or early.
-- Use `KEEP` when performance is inside the target band and no risk signal is present.
-- Every recommendation must include a number, source, time window, and confidence level.
+- **FIX** — a feed-blocking gap (disapproval, missing GTIN/brand/MPN, price/availability mismatch) on a SKU with real impressions or sessions, **or** a stale/un-synced feed that makes the whole audit unreliable. The fix is a known, bounded catalog edit.
+- **REFRESH** — discovery or conversion gap on a trafficked PDP that is underperforming but still commercially viable: a sub-50-character or keyword-poor title, a thin description, a single low-quality image, or a zero-review hero SKU. The product deserves better data, not removal.
+- **WATCH** — the gap is real but the SKU has near-zero traffic and impressions, or the symptom is directional only (e.g. impressions dipped but the feed is clean, suggesting bids/competition). Re-check after a clean window before spending an operator hour.
+- **KEEP** — data is complete enough for the category, the SKU converts at or above site-average, and the feed is clean. No action.
+- Every recommendation carries a number, source, time window, and confidence level.
 
 ## Veto Rules
 
-- Do not claim causality from a single platform metric.
-- Do not recommend budget shifts if tracking drift makes attribution unsafe.
-- Do not recommend scaling a product with low stock, feed disapproval, or missing price/availability evidence.
-- Do not make profit claims without cost coverage or a clear partial-profit label.
-- Do not recommend writes, pauses, refunds, customer messages, or catalog changes without explicit approval.
+- Data completeness is **not** an end in itself — never rank or act by raw count of empty fields. Prioritise by traffic/revenue at stake.
+- A gap on a dead SKU (no sessions, no impressions, not a planned hero) is **noise** — do not queue it as a fix.
+- Some attributes are genuinely **optional by category** — do not flag a missing apparel attribute (size/gender/age group) on a hardgood, or invent requirements Google does not enforce for that product type.
+- Do **not** keyword-stuff titles to "fix" a short one — it hurts CVR and can trip a feed misrepresentation/policy flag. Add real, specific terms (brand, type, key attribute), not repetition.
+- Do **not** treat low Shopping impressions on a clean-feed SKU as a data problem — that is a bid/competition issue and a data fix won't move it.
+- Do **not** spend a fix cycle on a stale feed snapshot — re-sync and re-read first.
+- Do **not** make catalog writes, bulk title/attribute edits, or feed re-submissions without explicit human approval.
 
 ## Output Contract
 
-A SKU or product table with FIX / REFRESH / WATCH / KEEP decisions and evidence per row.
+A ranked SKU/product table, ordered by **impact score (traffic × gap severity)**, not by gap count:
 
-Minimum table columns:
+| SKU / Product | Gap type | The gap | Sessions (28d) | GMC impressions | CVR vs site avg | Impact score | Status | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|---|
+| SKU-1042 / Trail Runner | feed-blocking | Missing GTIN | 1,860 | suppressed | n/a | High | **FIX** | Merch | 2 days |
 
-| Item | Evidence | Status | Why | Owner | Timing |
-|---|---|---|---|---|---|
-| Example row | Source + number + window | WATCH | Directional signal only | Operator | Recheck in 7 days |
+## Worked Example
 
-## Good Output Example
+> **Executive read:** Of 4,300 active SKUs, the catalog shows ~610 with at least one data gap — but only a fraction sit on traffic. The money is in three buckets: 140 SKUs missing GTIN are throwing Merchant Center warnings and dragging down Shopping reach on otherwise live products; 60 high-traffic PDPs ship with a single image and convert below site average; 30 carry sub-50-character titles. Fix the revenue-bearing ones first — the remaining ~380 gaps sit on near-zero-traffic SKUs and are noise this week.
 
-> Status: WATCH. The issue is real enough to monitor, but not strong enough to change yet. The strongest evidence is a 21 percent decline over the last 14 days, but the comparison window includes a promotion and stock was below normal for three days. Recheck after a clean 7-day window.
+| SKU / Product | Gap type | The gap | Sessions (28d) | GMC impressions | CVR vs site avg | Impact score | Status | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|---|
+| 140 SKUs (GTIN cohort) | feed-blocking | Missing GTIN → GMC warnings, reduced Shopping serving | 22,400 (cohort) | partially suppressed | n/a | **Highest** | **FIX** | Merch + Feed | 2 days |
+| 60 PDPs (image cohort) | conversion | Single image on high-traffic PDPs | 41,000 (cohort) | healthy | **−1.4 pts** | High | **REFRESH** | Merch + Creative | 7 days |
+| 30 PDPs (title cohort) | discovery | Title under 50 chars, keyword-poor | 9,300 (cohort) | moderate | −0.3 pts | Medium | **REFRESH** | Merch + SEO | 7 days |
+| Hero "Summit Jacket" | conversion | Zero reviews on a top-50 traffic SKU | 3,100 | healthy | −0.9 pts | Medium | **REFRESH** | Lifecycle (review request) | 14 days |
+| "Alpine Tent v1" (EOL) | feed-blocking | Missing brand + MPN | 18 | ~0 | n/a | **Noise** | **WATCH** | — | Park |
+| "Wool Beanie" | discovery | Impressions down 12%, feed clean | 470 | down 12% | flat | Low | **WATCH** | Paid Search | 14 days |
+
+Note how the ranking *inverts* the raw count: the GTIN cohort isn't the biggest by empty-field count, but it suppresses live, trafficked products in Shopping, so it leads. The EOL tent has two missing identifiers yet ranks as noise — 18 sessions don't justify the fix. And the wool beanie's impression dip is **not** a data gap (clean feed), so no catalog edit is queued.
 
 ## Common Failure Modes
 
-- Treating a platform-reported metric as commerce truth.
-- Skipping the evidence checklist and asking for a recommendation too early.
-- Forgetting stock, margin, attribution, or promotion context.
-- Accepting an AI answer that does not show its numbers.
+- Sorting the fix list by number of empty fields instead of by traffic/revenue at stake.
+- "Fixing" a short title by stuffing keywords — tanking CVR and risking a feed policy flag.
+- Flagging category-optional attributes as gaps and burning hours on fields Google never required.
+- Auditing a stale feed snapshot and re-fixing items that already re-synced.
+- Blaming the catalog for low Shopping impressions when the feed is clean and the real cause is bids or competition.
+- Pouring effort into perfect data on dead or out-of-stock SKUs.
 
 ## Run This Play With Live Data
 
-Manual version: gather the evidence above and paste the prompt into your AI assistant.
+**Manual version:** export the catalog, pull Merchant Center diagnostics, join in per-PDP sessions and Search Console, reconcile three different product-identity keys, then score and rank — every single week.
 
-ShopMCP version: ask the same question with ShopMCP connected. ShopMCP routes to the matching live playbook, pulls connected evidence where available, applies evidence gates, and returns an operator-ready brief. ShopMCP does not make writes from this public playbook without explicit approval and a supported preview/apply path.
+**ShopMCP version:** connect your store, Merchant Center, and analytics once. Ask the question; ShopMCP pulls the live catalog, the current feed diagnostics, and per-PDP traffic/conversion, runs the freshness gate, triages each gap into feed-blocking / discovery / conversion, scores by traffic × severity, and returns the ranked FIX/REFRESH/WATCH/KEEP table. It stays **read-only** until you explicitly approve a catalog edit or feed re-submission.
+
+> No store, Merchant Center, or analytics connection inside your AI assistant? That's the wall every manual run hits. ShopMCP *is* the connection — and the same playbook then runs in one prompt instead of a multi-export spreadsheet join.
 
 Example ShopMCP prompt:
 
@@ -140,7 +200,8 @@ https://my.shop-mcp.app/playbooks/merch-product-data-quality?utm_source=github&u
 
 What ShopMCP removes:
 
-- Manual exports and stale CSVs.
-- Copy-pasting across commerce, ads, analytics, lifecycle, and finance tools.
-- Guessing which evidence is safe enough to use.
-- Rebuilding the same operating workflow every week.
+- Manual catalog and feed-diagnostic exports.
+- Reconciling store product IDs, feed `id`, and GA4/Search Console paths by hand.
+- Copy-pasting across your store, Merchant Center, and analytics every week.
+- Guessing which gaps sit on traffic and which are noise.
+- Rebuilding the same traffic × gap-severity scoring every week.

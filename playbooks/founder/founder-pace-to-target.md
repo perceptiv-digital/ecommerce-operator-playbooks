@@ -31,101 +31,154 @@ status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 
 ## Operating Question
 
-Are we on pace to hit the target, and what must change today?
+**Are we on pace to hit this month's revenue target, and what is the single thing we must change today to close the gap?**
 
-This play helps founder / ceo make a defensible ecommerce operating decision. It is not a generic prompt. It is a repeatable workflow that forces evidence, thresholds, and vetoes before action.
+Every morning the founder asks a version of "are we OK?" and gets a useless answer: a raw month-to-date (MTD) number with no sense of whether it's ahead or behind where it *should* be by this date. The trap is the naive linear split — dividing the monthly target by the number of days and comparing. That's wrong, because demand isn't flat: weekends, paydays, and promo days carry far more revenue than a dead Tuesday mid-month. This play compares MTD revenue against a **seasonality-adjusted pace target**, computes the **required run-rate for the days remaining**, decomposes any gap into its three levers — **traffic, conversion rate, AOV** — and ends with one call: **push, hold, or it's fine.**
+
+## Why You Can't Just Ask ChatGPT This
+
+A plain AI assistant cannot see your Shopify/Woo/BigCommerce orders, your sessions, or last year's daily revenue curve. To run this manually you have to:
+
+1. Pull MTD revenue and yesterday's revenue from your commerce platform.
+2. Rebuild a **seasonality-adjusted pace curve** — last year's same-month daily shape, or a trailing weekday index — so the comparison isn't a flat line.
+3. Pull sessions and order count for the same window to compute conversion rate and AOV, then split today's gap across those three levers.
+4. Cross-check the promo calendar and any tracking incidents before you trust the shortfall.
+
+**The thinking in this playbook is free. The data access is the hard part — and that is exactly what ShopMCP connects.** Without a live line into your store, a manual run stalls at step 2: nobody rebuilds the daily seasonality curve by hand at 8am. Hold that thought; the last section shows the one-prompt version.
 
 ## Who Should Run It
 
-- Primary owner: Founder / CEO
-- Also useful for: Founder / CEO
-- Best used when the owner needs a decision, not just a report.
+- **Primary owner:** Founder / CEO
+- **Also useful for:** Head of Ecommerce / GM (owns the daily trading call), Performance lead (executes the "push")
+- Run it as the **first thing each morning**, before standup, so the day's spend and promo decisions start from a pace read, not a vibe.
 
 ## When To Run It
 
-- Cadence: daily
-- Run it when the owner needs to decide: are we making the right commercial decision?
-- Use it before changing budgets, creative, product data, lifecycle flows, stock priorities, or client commentary.
+- **Cadence:** daily — early, on the previous day's settled orders.
+- **Triggers:** the morning trading check; the day after a promo launches or ends; any day MTD swings hard against the pace line; the final week of the month when the required run-rate gets steep.
+- **Pre-requisite:** confirm yesterday's orders have fully settled and tracking is clean. A pending-order lag or a broken pixel will fake a shortfall — never declare "behind" on top of unsettled data.
 
 ## Required Evidence
 
-- Commerce orders, products, customers, inventory, or discounts as required by the question.
+- **Commerce — MTD actuals:** revenue month-to-date, order count, and sessions for the same MTD window (Shopify/Woo/BigCommerce). Net revenue after refunds and cancellations, not gross.
+- **Commerce — yesterday:** revenue, orders, sessions, and AOV for the most recent settled day.
+- **The monthly target:** the revenue goal for the current month, and how it was set (run-rate, board number, or stretch).
+- **Seasonality shape:** last year's same-month **daily** revenue curve, or — if you don't have clean YoY — a trailing **weekday index** (avg revenue per weekday over the last 8–12 weeks). This is what turns a flat split into a real pace target.
+- **Days remaining:** calendar days left in the month, flagged by weekday and any known peak days.
 
 ## Optional Evidence
 
-- Recent operator notes, launch dates, promotion calendar, merchandising changes, stock constraints, and known tracking incidents.
-- Target CPA, MER, ROAS, contribution margin, payback, or revenue goal where relevant.
+- **Promo calendar** — a live or imminent promo window inflates or front-loads pace; a finished promo leaves a demand hangover.
+- **Paydays / known peaks** — end-of-month and mid-month paydays, paycheck cycles, payday-adjacent weekends.
+- **Channel mix / planned spend** — whether tomorrow's paid budget is already booked, so "push" is realistic.
+- **Stock cover on hero SKUs** — you can't push into a stockout.
+- **Last year's promo timing** — so the YoY pace curve isn't distorted by a promo that ran on different dates.
+
+## The Decision Logic (run in this order)
+
+1. **Check tracking and settlement first.** If yesterday's orders are still settling, the pixel is drifting, or sessions look implausible, mark the read **FIX** and stop — do not declare a shortfall on dirty data.
+2. **Build the seasonality-adjusted pace target, not a linear one.** Distribute the monthly target across days using last year's daily shape (or the weekday index), so each day carries its real weight. The expected MTD line is the cumulative sum to today's date.
+3. **Compute the gap.** Gap ($) = MTD actual − seasonality-adjusted MTD pace target. State it as dollars ahead/behind and as a percentage of the pace target.
+4. **Compute the required run-rate.** Required $/day for the rest of the month = (monthly target − MTD actual) ÷ days remaining, then re-weight by the remaining days' seasonality. Compare it to your recent realized $/day. If the required rate is wildly above what you've ever run, the target — not the day — is the problem.
+5. **Decompose the gap into levers.** Revenue = Sessions × Conversion Rate × AOV. Compare each factor's MTD value against the pace assumption to find the **binding lever**: is the gap a traffic problem, a conversion problem, or an AOV problem? Only one usually dominates.
+6. **Make the call.** PUSH (add spend/promo against the binding lever), HOLD (gap is inside noise or a promo distorts the window), or IT'S FINE (ahead of pace). Attach the specific move to the binding lever, never a generic "spend more."
 
 ## Manual Workflow
 
-1. Define the decision window and write the operating question: "Are we on pace to hit the target, and what must change today?"
-2. Gather the required evidence before asking the AI to recommend action.
-3. Ask the AI to separate confirmed facts, estimates, and unavailable evidence.
-4. Start with commerce truth, separate revenue from profit, check the date window, then explain the movement in plain operator language.
-5. Apply the veto rules before accepting any recommendation.
-6. Turn the result into an action packet with owner, timing, evidence, and next check date.
+1. Pull MTD revenue, orders, and sessions, plus yesterday's same metrics, from your commerce platform.
+2. Build the pace target: take last year's same-month daily revenue curve (or your trailing weekday index), scale it so the month sums to this year's target, and cumulate to today. That's your seasonality-adjusted MTD pace line.
+3. Subtract to get the gap in dollars and percent; compute the required $/day for the days remaining, weighted by their seasonality.
+4. Split the gap across traffic × conversion rate × AOV to find the binding lever.
+5. Overlay the promo calendar, paydays, and stock cover to catch distortions.
+6. Paste the prompt below with your numbers, pressure-test the call against the vetoes, then write the one-line action with an owner and a recheck time.
 
 ## Copy-Paste Prompt
 
 ```text
-You are helping me run the "Pace to Target" ecommerce operating play.
+You are my ecommerce trading analyst running the "Pace to Target" play.
 
-Operating question:
-Are we on pace to hit the target, and what must change today?
+GOAL: tell me if we are on pace to hit this month's revenue target against a
+SEASONALITY-ADJUSTED pace line (not a flat daily split), and name the single move
+to make today.
 
-Use the evidence I provide. Do not invent missing data. Separate exact, estimated, partial, and unavailable evidence. Apply KILL, REFRESH, WATCH, KEEP, or FIX only when the evidence supports it. If the data is too weak, say what is blocked and what evidence is needed.
+I will paste: this month's revenue target, MTD revenue / orders / sessions, yesterday's
+revenue / orders / sessions / AOV, last year's same-month daily revenue curve (or my
+trailing weekday index), days remaining, and my promo calendar. Some data may be missing.
 
-Return:
-1. Executive answer
-2. Evidence table
-3. Decision table with status
-4. Vetoes or caveats
-5. Recommended next actions with owner and timing
+RULES:
+- Build a seasonality-adjusted pace target by distributing the monthly target across days
+  using the daily shape I gave you. Never use a naive target / days-in-month linear split.
+- Report the gap as dollars and as a percent of the pace target to date.
+- Compute the required $/day for the remaining days, re-weighted by their seasonality, and
+  compare it to my recent realized $/day. Flag if the target itself is unrealistic.
+- Decompose the gap into Sessions x Conversion Rate x AOV and name the ONE binding lever.
+- Do not declare a shortfall if a promo window distorts the window, stock was constrained,
+  yesterday's orders are still settling, or tracking is drifting — mark FIX or HOLD instead.
+- Every row must carry: a number, source, time window, and confidence level.
+- Separate exact / estimated / partial / unavailable evidence. Do not invent missing data.
+
+RETURN:
+1. A 3-sentence executive read ending in PUSH / HOLD / IT'S FINE.
+2. A table: MTD actual | Pace target to date | $ ahead/behind | Required $/day to close |
+   Binding lever | Recommended move | Confidence.
+3. The lever decomposition (traffic / CVR / AOV) showing which one is binding.
+4. Vetoes/caveats that downgraded the call, and what evidence would upgrade it.
 ```
 
 ## Decision Rules
 
-- Use `FIX` when required evidence is missing, inconsistent, or too weak to support a commercial decision.
-- Use `KILL` only when downside is clear, the sample is large enough, and no veto protects the item.
-- Use `REFRESH` when performance is decaying but the asset, product, flow, or page still has a credible reason to improve.
-- Use `WATCH` when the signal is directional or early.
-- Use `KEEP` when performance is inside the target band and no risk signal is present.
+- **PUSH** — MTD is behind the seasonality-adjusted pace by more than day-to-day noise (roughly >5% of pace), the required $/day is achievable, the binding lever is identified, and no veto applies. The move targets the binding lever specifically.
+- **HOLD** — the gap is inside normal daily variance, the window is distorted by a promo or stockout, or it's too early in the month for the pace line to be stable. Watch, don't act.
+- **IT'S FINE / KEEP** — MTD is at or ahead of the seasonality-adjusted pace and no risk signal is present.
+- **REFRESH** — pace is slipping because a specific lever is decaying (e.g. CVR drifting down on a tired landing experience) but the underlying demand is still there.
+- **FIX** — yesterday's orders are unsettled, tracking is drifting, or the seasonality baseline is missing; the pace read can't be trusted yet.
 - Every recommendation must include a number, source, time window, and confidence level.
 
 ## Veto Rules
 
-- Do not claim causality from a single platform metric.
-- Do not recommend budget shifts if tracking drift makes attribution unsafe.
-- Do not recommend scaling a product with low stock, feed disapproval, or missing price/availability evidence.
-- Do not make profit claims without cost coverage or a clear partial-profit label.
-- Do not recommend writes, pauses, refunds, customer messages, or catalog changes without explicit approval.
+- Do **not** extrapolate the month from a handful of low-traffic days — early-month and mid-week troughs are not a trend.
+- Do **not** compare against a naive linear target; bake in known seasonality (paydays, weekends, holidays) or the read is wrong by construction.
+- Do **not** declare "behind" when a promo window is inflating, front-loading, or hung-over the pace — a promo distorts pace in both directions.
+- Do **not** call a shortfall before yesterday's orders have settled or while tracking is drifting — check tracking first.
+- Do **not** prescribe "push" into a hero-SKU stockout or when tomorrow's spend can't actually be deployed.
+- Do **not** authorize the spend increase, promo, or budget shift itself without an explicit human approval step.
 
 ## Output Contract
 
-A short trading read, a metric table, the main driver, the confidence level, and the next action.
+A one-line trading read ending in the call, then a pace table:
 
-Minimum table columns:
+| MTD actual | Pace target to date | $ ahead/behind | Required $/day to close | Binding lever | Recommended move | Confidence |
+|---|---|---|---|---|---|---|
+| $312,400 | $330,000 | −$17,600 (−5.3%) | $14,900/day (28d realized: $12,100) | Conversion rate | Push retargeting + fix PDP load on hero SKU | Med |
 
-| Item | Evidence | Status | Why | Owner | Timing |
-|---|---|---|---|---|---|
-| Example row | Source + number + window | WATCH | Directional signal only | Operator | Recheck in 7 days |
+## Worked Example
 
-## Good Output Example
+> **Executive read (PUSH):** We're $17,600 behind the seasonality-adjusted pace through day 20 — a 5.3% gap, not a crisis, but the required run-rate to hit the month is $14,900/day versus the $12,100 we've actually been running, so the gap won't close on autopilot. The binding lever is conversion rate (1.7% MTD vs the 2.1% the pace assumes); traffic and AOV are both on plan. Push retargeting spend at the warm audience today and ship the PDP load-time fix on the hero SKU — do not raise the top-of-funnel budget, since traffic isn't the problem.
 
-> Status: WATCH. The issue is real enough to monitor, but not strong enough to change yet. The strongest evidence is a 21 percent decline over the last 14 days, but the comparison window includes a promotion and stock was below normal for three days. Recheck after a clean 7-day window.
+| Factor | MTD actual | Pace assumption | Read |
+|---|---|---|---|
+| Sessions | 184,000 | 180,500 | On plan (+1.9%) |
+| Conversion rate | 1.70% | 2.10% | **Binding lever** (−19%) |
+| AOV | $99.80 | $98.50 | On plan (+1.3%) |
+| MTD revenue | $312,400 | $330,000 | −$17,600 (−5.3%) behind pace |
+
+The naive linear target through day 20 of a 31-day month would have read $354,000 and screamed "12% behind, panic" — the seasonality curve corrects that to a manageable 5.3%, because the month's heavy payday weekend still sits in the remaining 11 days.
 
 ## Common Failure Modes
 
-- Treating a platform-reported metric as commerce truth.
-- Skipping the evidence checklist and asking for a recommendation too early.
-- Forgetting stock, margin, attribution, or promotion context.
-- Accepting an AI answer that does not show its numbers.
+- Comparing MTD against a flat target/days split and either panicking or relaxing for no reason.
+- Extrapolating the whole month off three slow mid-week days.
+- Missing that a promo borrowed demand forward, so "ahead of pace" is really a future hole.
+- Declaring a shortfall before yesterday's orders settled or while the pixel was drifting.
+- Prescribing "spend more" without naming which lever — traffic, CVR, or AOV — is actually binding.
 
 ## Run This Play With Live Data
 
-Manual version: gather the evidence above and paste the prompt into your AI assistant.
+**Manual version:** pull MTD and yesterday's metrics, rebuild last year's daily seasonality curve, scale it to this month's target, subtract, compute the required run-rate, and split the gap across three levers — every morning, before coffee.
 
-ShopMCP version: ask the same question with ShopMCP connected. ShopMCP routes to the matching live playbook, pulls connected evidence where available, applies evidence gates, and returns an operator-ready brief. ShopMCP does not make writes from this public playbook without explicit approval and a supported preview/apply path.
+**ShopMCP version:** connect your store once. Ask the question; ShopMCP pulls live MTD and daily revenue, builds the seasonality-adjusted pace line from your own history, computes the gap and the required run-rate, runs the traffic × CVR × AOV decomposition, and returns the pace table with the PUSH / HOLD / IT'S FINE call. It stays **read-only** until you explicitly approve a spend or promo change.
+
+> No store connection inside your AI assistant? That's the wall every manual run hits — nobody rebuilds a daily seasonality curve by hand at 8am. ShopMCP *is* the connection, and the same playbook then runs in one prompt instead of a morning spreadsheet.
 
 Example ShopMCP prompt:
 
@@ -139,7 +192,7 @@ https://my.shop-mcp.app/playbooks/founder-pace-to-target?utm_source=github&utm_m
 
 What ShopMCP removes:
 
-- Manual exports and stale CSVs.
-- Copy-pasting across commerce, ads, analytics, lifecycle, and finance tools.
-- Guessing which evidence is safe enough to use.
-- Rebuilding the same operating workflow every week.
+- Manual MTD exports and stale morning CSVs.
+- Rebuilding the seasonality-adjusted pace curve by hand every day.
+- Splitting the gap across traffic, conversion, and AOV in a spreadsheet.
+- Guessing whether a promo window or unsettled orders are faking the shortfall.

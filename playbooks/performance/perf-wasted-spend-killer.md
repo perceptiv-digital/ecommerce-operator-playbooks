@@ -31,104 +31,157 @@ status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 
 ## Operating Question
 
-Which spend should be killed, refreshed, watched, or kept?
+**Which paid spend should I kill, refresh, watch, or keep this week — with enough evidence to defend the call to a CFO?**
 
-This play helps performance marketer make a defensible ecommerce operating decision. It is not a generic prompt. It is a repeatable workflow that forces evidence, thresholds, and vetoes before action.
+Every week, paid budgets quietly leak into campaigns that look alive inside the ad platform but produce no profitable orders. The ad platform is the worst possible judge of this: it over-counts its own conversions, never sees your margin, and never knows you were out of stock. This play forces a defensible **KILL / REFRESH / WATCH / KEEP / FIX** call on each unit of spend, ranked by *contribution profit at risk* — not by spend, and not by platform ROAS.
+
+## Why You Can't Just Ask ChatGPT This
+
+A plain AI assistant cannot see your Meta Ads Manager, your Google Ads account, or your Shopify orders. To run this manually you have to:
+
+1. Export 3–5 CSVs every week (Meta by ad, Google by campaign **and** the Search Terms report, TikTok, Shopify orders with COGS).
+2. Align the date windows so they actually compare.
+3. Reconcile platform-*claimed* conversions against *real* orders, because Meta and Google both double-count.
+4. Bolt on margin, because no ad platform knows your COGS.
+
+**The thinking in this playbook is free. The data access is the hard part — and that is exactly what ShopMCP connects.** If your AI assistant has no live line into Meta/Google/Shopify, that wall is where manual runs stop. Hold that thought; the last section shows the one-prompt version.
 
 ## Who Should Run It
 
-- Primary owner: Performance Marketer
-- Also useful for: Performance Marketer, Head of Marketing
-- Best used when the owner needs a decision, not just a report.
+- **Primary owner:** Performance Marketer
+- **Also useful for:** Head of Marketing (budget reallocation), Founder/CEO (where is money leaking?)
+- Run it **before** your weekly budget review, or whenever blended MER moves more than ~10% week over week.
 
 ## When To Run It
 
-- Cadence: weekly
-- Run it when the owner needs to decide: which spend, creative, or channel decision needs action?
-- Use it before changing budgets, creative, product data, lifecycle flows, stock priorities, or client commentary.
+- **Cadence:** weekly — Monday, after the weekend's spend and orders have settled.
+- **Triggers:** blended MER drop, a CPA spike, a new campaign maturing past learning, an upcoming budget decision.
+- **Pre-requisite:** run a **Tracking Sanity Check** first. Never kill spend on top of drifting attribution — you'll kill the wrong thing.
 
 ## Required Evidence
 
-- Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.
-- Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.
-- Tiktok Ads spend, conversion, campaign, ad group, creative, and performance evidence.
-- Commerce orders, products, customers, inventory, or discounts as required by the question.
+- **Meta Ads** — spend, purchases, purchase value, CPA, ROAS, frequency, CPM, CTR, CVR, at **campaign and ad-set/ad level**, last 14–30 days plus the prior equal period.
+- **Google Ads** — spend, conversions, conversion value, split by **type (Search / Shopping / Performance Max)**; the **Search Terms report**; **Impression Share lost to budget vs. lost to rank**.
+- **TikTok Ads** — spend, CPA, ROAS. Treat as **directional only** — longer, messier attribution and a weaker signal at low volume.
+- **Commerce (Shopify/Woo/BigCommerce/etc.)** — actual orders by source/UTM, new vs. returning split, AOV, and **COGS / contribution margin** per product or blended.
+- **Targets** — your target CPA, MER, or ROAS, and a contribution-margin floor.
 
-## Optional Evidence
+## Optional Evidence (changes the answer when present)
 
-- Recent operator notes, launch dates, promotion calendar, merchandising changes, stock constraints, and known tracking incidents.
-- Target CPA, MER, ROAS, contribution margin, payback, or revenue goal where relevant.
+- **Stock cover** for top products — never scale a winner into a stockout.
+- **Promo calendar** — a promo window inflates ROAS and borrows future demand.
+- **Learning-phase status / recent edits** — a budget or creative edit resets learning.
+- **Creative launch dates** — to tell genuine fatigue apart from an immature ad.
+
+## The Decision Logic (run in this exact order)
+
+1. **Gate on trust.** If platform-claimed conversions and commerce orders diverge by more than ~15% for a channel, set that channel to **FIX** and stop there. Fix tracking before touching budget.
+2. **Protect immaturity.** Anything still in learning (Meta: under ~50 conversions in 7 days) is too early to judge → **WATCH**, never KILL.
+3. **Find the zero-return leaks.** Spend ≥ 1.5× your target CPA over ≥14 days, **0 commerce-attributed orders**, and ≥ ~300 clicks (enough traffic that you'd expect at least one order) → **KILL** candidate.
+4. **Decompose the decayers.** For anything over target CPA, break the move into **CPM × CTR × CVR × AOV**:
+   - CTR falling at flat CPM → **creative fatigue** → REFRESH.
+   - CVR or AOV collapsing → **landing-page / offer / stock** problem → FIX or REFRESH, *not* "kill the campaign."
+   - CPM spiking at stable CTR → **auction/audience** pressure → WATCH or narrow.
+5. **Overlay margin.** Re-rank by **contribution lost**, not spend. 2.0 ROAS on a 70%-margin product is healthy; 2.0 ROAS on a 25%-margin product is underwater. **Platform ROAS is not profit.**
+6. **Apply the vetoes**, then assign status + owner + recheck date.
 
 ## Manual Workflow
 
-1. Define the decision window and write the operating question: "Which spend should be killed, refreshed, watched, or kept?"
-2. Gather the required evidence before asking the AI to recommend action.
-3. Ask the AI to separate confirmed facts, estimates, and unavailable evidence.
-4. Pull spend and outcome evidence, protect learning-phase campaigns, compare against targets, then rank action by commercial impact.
-5. Apply the veto rules before accepting any recommendation.
-6. Turn the result into an action packet with owner, timing, evidence, and next check date.
+1. Pull the exports above for the last 14 days and the prior 14 (use 30/30 for low-volume accounts).
+2. Reconcile platform conversions vs. commerce orders per channel. If drift exceeds the gate, mark FIX and stop on that channel.
+3. Tag each spend unit's maturity (learning vs. mature).
+4. Build the **leak list** (rule 3) and the **decay list** (rule 4); overlay margin (rule 5).
+5. Paste the prompt below with your tables.
+6. Pressure-test every KILL against the veto list, then convert the survivors into an action packet with owner and recheck date.
 
 ## Copy-Paste Prompt
 
 ```text
-You are helping me run the "Wasted Spend Killer" ecommerce operating play.
+You are my performance-marketing analyst running the "Wasted Spend Killer" play.
 
-Operating question:
-Which spend should be killed, refreshed, watched, or kept?
+GOAL: decide which spend to KILL, REFRESH, WATCH, KEEP, or FIX this week, ranked by
+contribution profit at risk — not by spend, and not by platform ROAS.
 
-Use the evidence I provide. Do not invent missing data. Separate exact, estimated, partial, and unavailable evidence. Apply KILL, REFRESH, WATCH, KEEP, or FIX only when the evidence supports it. If the data is too weak, say what is blocked and what evidence is needed.
+I will paste: Meta/Google/TikTok spend tables, my commerce orders by source, COGS or
+contribution margin, and my targets. Some data may be missing.
 
-Return:
-1. Executive answer
-2. Evidence table
-3. Decision table with status
-4. Vetoes or caveats
-5. Recommended next actions with owner and timing
+RULES:
+- Trust gate first: if platform-claimed conversions and my commerce orders diverge >15%
+  for a channel, mark that channel FIX and exclude it from KILL decisions.
+- Protect learning-phase and small samples (<~300 clicks): WATCH, never KILL.
+- KILL only when: >=14 days, spend >= 1.5x target CPA, 0 commerce orders, >=300 clicks,
+  not in learning, and no stock/promo veto applies.
+- For over-target campaigns, decompose the move into CPM x CTR x CVR x AOV and name the
+  driver. CTR drop at flat CPM = fatigue (REFRESH). CVR/AOV drop = landing/offer/stock.
+- Re-rank everything by contribution lost using my real margin. State platform ROAS and
+  real margin-adjusted ROAS separately.
+- Every row must carry: a number, its source, the time window, and a confidence level.
+- Separate exact / estimated / partial / unavailable evidence. Do not invent missing data.
+
+RETURN:
+1. A 3-sentence executive read.
+2. A ranked table: Spend unit | Platform | Spend (14d) | Orders (commerce) | CPA vs target |
+   Real ROAS @ margin | Driver | Status | Owner | Recheck.
+3. Vetoes/caveats that downgraded any recommendation.
+4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```
 
-## Decision Rules
+## Decision Rules (with numbers)
 
-- Use `FIX` when required evidence is missing, inconsistent, or too weak to support a commercial decision.
-- Use `KILL` only when downside is clear, the sample is large enough, and no veto protects the item.
-- Use `REFRESH` when performance is decaying but the asset, product, flow, or page still has a credible reason to improve.
-- Use `WATCH` when the signal is directional or early.
-- Use `KEEP` when performance is inside the target band and no risk signal is present.
-- Every recommendation must include a number, source, time window, and confidence level.
+- **KILL** — ≥14 days, spend ≥ 1.5× target CPA, 0 commerce-attributed orders, ≥300 clicks, not in learning, no stock/promo veto.
+- **REFRESH** — over target CPA driven by CTR decline at stable CPM (fatigue), or CVR drop traced to creative/landing mismatch, where the audience/offer is still viable.
+- **WATCH** — directional only: in learning, sample under ~300 clicks or under ~1× target-CPA of spend, or the window is polluted by promo/stockout.
+- **KEEP** — inside the target CPA/MER band **and** contribution-positive at real margin.
+- **FIX** — tracking drift, missing COGS, or a feed/stock block prevents a safe call.
+- Every recommendation carries a number, source, time window, and confidence level.
 
 ## Veto Rules
 
-- Do not claim causality from a single platform metric.
-- Do not recommend budget shifts if tracking drift makes attribution unsafe.
-- Do not recommend scaling a product with low stock, feed disapproval, or missing price/availability evidence.
-- Do not make profit claims without cost coverage or a clear partial-profit label.
-- Do not recommend writes, pauses, refunds, customer messages, or catalog changes without explicit approval.
+- Do **not** KILL on platform ROAS alone — require commerce-side orders and real margin.
+- Do **not** KILL learning-phase or sub-300-click campaigns.
+- Do **not** KILL or scale during or immediately after a promo window (inflated and borrowed demand).
+- Do **not** scale a winner into less than your minimum days of stock cover.
+- Do **not** act on a channel that failed the tracking gate.
+- Do **not** pause, shift budget, or edit anything without an explicit human approval step.
 
 ## Output Contract
 
-A ranked KILL / REFRESH / WATCH / KEEP table with evidence, owner, and measurement window.
+A table ranked by **contribution at risk**, not spend:
 
-Minimum table columns:
+| Spend unit | Platform | Spend (14d) | Orders (commerce) | CPA vs target | Real ROAS @ margin | Driver | Status | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|---|
+| Prospecting – Broad | Meta | $4,120 | 6 | +210% | 0.8 | CVR collapse, LP mismatch | REFRESH | Perf + Web | 7 days |
 
-| Item | Evidence | Status | Why | Owner | Timing |
-|---|---|---|---|---|---|
-| Example row | Source + number + window | WATCH | Directional signal only | Operator | Recheck in 7 days |
+## Worked Example (real numbers)
 
-## Good Output Example
+> **Executive read:** $11.4k of last-14-day spend is at risk. One Meta campaign ($1,240, zero orders) is a clean KILL; the bigger problem is a prospecting campaign that looks "fine" at 1.9 platform ROAS but is underwater at 28% margin. Google Shopping is over target only because of a tracking gap — fix before judging.
 
-> Status: WATCH. The issue is real enough to monitor, but not strong enough to change yet. The strongest evidence is a 21 percent decline over the last 14 days, but the comparison window includes a promotion and stock was below normal for three days. Recheck after a clean 7-day window.
+| Spend unit | Platform | Spend (14d) | Orders (commerce) | CPA vs target | Real ROAS @ margin | Driver | Status | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|---|
+| Retargeting – Catch-all | Meta | $1,240 | 0 | n/a (0 orders) | 0.0 | 312 clicks, no orders, mature | **KILL** | Perf | Today |
+| Prospecting – Broad | Meta | $4,120 | 31 | +18% | 1.9 platform / **0.9 @ 28%** | Margin-negative; CVR slipping | **REFRESH** | Perf + Web | 7 days |
+| Brand – Search | Google | $980 | 96 | −40% | 6.2 @ 60% | Within band, profitable | **KEEP** | Perf | 14 days |
+| Shopping – All products | Google | $3,300 | 41 (GA4 says 58) | +60% | unsafe | GA4↔Shopify drift 29% | **FIX** | Perf + Analytics | Now |
+| TopFunnel – New creative | TikTok | $1,150 | 4 | +35% | 1.3 | In learning, 7 days old | **WATCH** | Perf | 7 days |
+| PMax – Catch-all | Google | $640 | 12 | +5% | 2.1 @ 45% | Blended; can't see channel split | **WATCH** | Perf | 14 days |
+
+Note how the answer *inverts* the platform view: Meta's "best" campaign by ROAS (Prospecting, 1.9) is the real loser at margin, and the over-target Shopping campaign is a tracking artifact, not a spend problem.
 
 ## Common Failure Modes
 
-- Treating a platform-reported metric as commerce truth.
-- Skipping the evidence checklist and asking for a recommendation too early.
-- Forgetting stock, margin, attribution, or promotion context.
-- Accepting an AI answer that does not show its numbers.
+- Killing on platform ROAS while real margin says the opposite.
+- Killing a learning-phase campaign and resetting the algorithm.
+- Treating a PMax/Shopping blended number as if it were channel-clean.
+- Calling a promo-window spike a "win" when it just pulled demand forward.
+- Acting while GA4, Meta, and Shopify orders disagree.
 
 ## Run This Play With Live Data
 
-Manual version: gather the evidence above and paste the prompt into your AI assistant.
+**Manual version:** export five CSVs, align the windows, reconcile platform conversions against real orders, bolt on margin — every single week.
 
-ShopMCP version: ask the same question with ShopMCP connected. ShopMCP routes to the matching live playbook, pulls connected evidence where available, applies evidence gates, and returns an operator-ready brief. ShopMCP does not make writes from this public playbook without explicit approval and a supported preview/apply path.
+**ShopMCP version:** connect Meta, Google, TikTok, and your store once. Ask the question; ShopMCP pulls live spend, real commerce orders, and margin, runs the tracking gate and the CPM×CTR×CVR×AOV decomposition, and returns the ranked KILL/REFRESH/WATCH/KEEP table. It stays **read-only** until you explicitly approve a pause or budget change.
+
+> No Meta, Google, or Shopify connection inside your AI assistant? That's the wall every manual run hits. ShopMCP *is* the connection — and the same playbook then runs in one prompt instead of one spreadsheet-afternoon.
 
 Example ShopMCP prompt:
 
@@ -143,6 +196,6 @@ https://my.shop-mcp.app/playbooks/perf-wasted-spend-killer?utm_source=github&utm
 What ShopMCP removes:
 
 - Manual exports and stale CSVs.
-- Copy-pasting across commerce, ads, analytics, lifecycle, and finance tools.
-- Guessing which evidence is safe enough to use.
-- Rebuilding the same operating workflow every week.
+- Copy-pasting across Meta, Google, TikTok, analytics, and your store.
+- Guessing which evidence is safe enough to act on.
+- Rebuilding the same reconciliation every week.

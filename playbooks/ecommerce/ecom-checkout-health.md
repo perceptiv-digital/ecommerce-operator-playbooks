@@ -31,102 +31,161 @@ status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 
 ## Operating Question
 
-Is checkout conversion healthy enough to trust demand generation?
+**Is my checkout completing orders well enough that I can trust demand generation — or am I about to pour ad spend into a leaking funnel?**
 
-This play helps head of ecommerce make a defensible ecommerce operating decision. It is not a generic prompt. It is a repeatable workflow that forces evidence, thresholds, and vetoes before action.
+Checkout is the one step where you have already paid to acquire the visitor, already won the add-to-cart, and already survived the cart page. A break here destroys the most expensive traffic you own. The danger is that a broken checkout looks fine from the top: sessions are up, ad ROAS holds for a few days on cached attribution, and the blended completion rate barely moves because card payments mask a dead express-checkout button. This play measures one number — **checkout-started → purchase completion rate** — segmented by **device, payment method, and country**, against trend and benchmark, and forces a **KEEP / WATCH / FIX / REFRESH / KILL** call before anyone touches the acquisition budget.
+
+## Why You Can't Just Ask ChatGPT This
+
+A plain AI assistant cannot see your Shopify (or Woo / BigCommerce) checkout funnel or your GA4 `begin_checkout` → `purchase` events. To run this manually you have to:
+
+1. Pull the **checkout funnel** from your commerce platform — sessions that reached checkout, that hit the shipping step, that hit payment, and that completed — for the last 7–14 days plus the prior equal window.
+2. Pull the **same funnel from GA4** (`begin_checkout`, `add_shipping_info`, `add_payment_info`, `purchase`) so you can cross-check the platform against analytics and catch tracking drift.
+3. Break completion down by **device** (mobile vs. desktop), by **payment method** (card, Shop Pay / express wallets, PayPal, Apple/Google Pay, BNPL), and by **country**, because the blended number hides the break.
+4. Line that up against your **deploy log** — theme pushes, app installs/updates, checkout-extension changes — to connect a drop to a cause.
+
+**The thinking in this playbook is free. The data access is the hard part — and that is exactly what ShopMCP connects.** If your AI assistant has no live line into your store and GA4, that wall is where manual runs stop. Hold that thought; the last section shows the one-prompt version.
 
 ## Who Should Run It
 
-- Primary owner: Head of Ecommerce
-- Also useful for: Head of Ecommerce, Ops / Dispatch Lead
-- Best used when the owner needs a decision, not just a report.
+- **Primary owner:** Head of Ecommerce
+- **Also useful for:** Performance Marketer (don't scale into a leak), Web/Dev Lead (owns the theme and checkout apps), Ops Lead (payment-provider and shipping-config changes)
+- Run it **before** you sign off the week's acquisition budget, and immediately after any theme deploy, checkout-app install, or payment-provider change.
 
 ## When To Run It
 
-- Cadence: weekly
-- Run it when the owner needs to decide: where is the onsite experience leaking commercial value?
-- Use it before changing budgets, creative, product data, lifecycle flows, stock priorities, or client commentary.
+- **Cadence:** weekly — early in the week, after the weekend's checkout volume has settled into a stable sample.
+- **Triggers:** a Shopify/theme update or app install/update, a new checkout-extensibility or one-page-checkout migration, a payment-provider or shipping-rate change, a sudden GA4 `purchase`-vs-sessions divergence, or a CVR dip that ops can't explain from traffic mix.
+- **Pre-requisite:** confirm checkout and `purchase` tracking are firing **before** you trust any decline. A pixel or GA4 consent-mode change can fake a checkout collapse that never happened — see the first decision gate.
 
 ## Required Evidence
 
-- Commerce orders, products, customers, inventory, or discounts as required by the question.
-- GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.
+- **Commerce checkout funnel** — for the last 7–14 days and the prior equal window: `reached checkout`, `reached shipping step`, `reached payment step`, `completed`, expressed as step-to-step rates and as the headline **checkout-started → purchase** rate.
+- **Completion by segment** — the same completion rate split by **device** (mobile / desktop / tablet), **payment method** (card vs. each express wallet, PayPal, BNPL), and **top countries** by checkout volume.
+- **GA4 funnel** — `begin_checkout`, `add_shipping_info`, `add_payment_info`, `purchase` counts and step conversion, to validate the commerce numbers and surface tracking drift.
+- **Benchmark / target** — your own trailing 8-week baseline completion rate per segment, plus a sane floor (mobile checkout completion materially below your desktop rate, or any single payment method >15–20 points below your blended rate, is a flag).
 
-## Optional Evidence
+## Optional Evidence (changes the answer when present)
 
-- Recent operator notes, launch dates, promotion calendar, merchandising changes, stock constraints, and known tracking incidents.
-- Target CPA, MER, ROAS, contribution margin, payback, or revenue goal where relevant.
+- **Deploy / change log** — theme publishes, app installs and version bumps, checkout-extension edits, payment-method toggles, shipping-rate or tax-config changes, with timestamps to align against the drop.
+- **Checkout page-speed / Web Vitals** — LCP and interaction latency on the checkout and payment steps, especially on mobile.
+- **Shipping and tax surfacing** — when shipping cost first appears, threshold for free shipping, and whether duties/taxes are shown at the shipping step (the classic shipping-shock abandon point).
+- **Promo calendar** — discount-led and sale-period traffic abandons at checkout differently (more browsers, code-hunting, BNPL) and should be read on its own curve, not against full-price weeks.
+- **Error / session telemetry** — checkout console errors, declined-payment rates, or session-replay clips for the failing step.
+
+## The Decision Logic (run in this order)
+
+1. **Gate on tracking.** If the commerce funnel and GA4 disagree on completed orders by more than ~10%, or if a deploy touched the pixel/consent setup in the window, set the headline to **FIX** and validate tracking before reading any decline. A "checkout collapse" is a tracking artifact until proven otherwise.
+2. **Read the blended rate for direction only.** Note the checkout-started → purchase rate vs. the prior window and your 8-week baseline. A blended move is the smoke alarm, never the diagnosis — **do not** act on the blended number alone.
+3. **Segment immediately — this is where the break hides.** Split completion by device, payment method, and country. A healthy blended rate with one payment method or one device 15+ points below the rest is a **localized break**, not a demand problem.
+4. **Isolate the failing surface and bind it to a cause.** If one express wallet cratered, check the deploy log for a theme/app/checkout-extension change at that timestamp → **FIX** (broken express checkout). If completion sags at the *shipping* step, suspect shipping-cost shock or a new rate/threshold. If it sags at the *payment* step across all methods, suspect address/tax validation errors or checkout load time.
+5. **Quantify the loss.** Take the failing segment's checkout volume × (baseline rate − current rate) = **lost orders**, then × AOV = **revenue at risk**. This is the number that ranks the fix and justifies the engineering pull.
+6. **Apply the vetoes**, then assign status + owner + recheck date — and decide explicitly whether acquisition spend should hold until the leak is sealed.
 
 ## Manual Workflow
 
-1. Define the decision window and write the operating question: "Is checkout conversion healthy enough to trust demand generation?"
-2. Gather the required evidence before asking the AI to recommend action.
-3. Ask the AI to separate confirmed facts, estimates, and unavailable evidence.
-4. Segment the funnel, isolate the weakest step or surface, check device and landing-page evidence, then recommend the smallest measurable fix.
-5. Apply the veto rules before accepting any recommendation.
-6. Turn the result into an action packet with owner, timing, evidence, and next check date.
+1. Pull the commerce checkout funnel and the GA4 funnel for the last 7–14 days and the prior equal window.
+2. Run the tracking gate (step 1 above). If commerce and GA4 diverge or a pixel-touching deploy landed in the window, mark FIX and stop until tracking is confirmed.
+3. Compute the blended checkout-started → purchase rate and its move vs. baseline — for direction only.
+4. Segment completion by device, payment method, and country. Flag any segment 15+ points below the blended rate or below its own 8-week baseline.
+5. Align each failing segment against the deploy/change log to bind the drop to a cause (theme push, app update, payment toggle, shipping-rate change).
+6. Quantify lost orders and revenue at risk for each break (step 5 above).
+7. Paste the prompt below with your funnel and segment tables.
+8. Pressure-test every call against the veto list, then convert into an action packet with owner, recheck date, and an explicit hold/scale decision on acquisition spend.
 
 ## Copy-Paste Prompt
 
 ```text
-You are helping me run the "Checkout Health Watch" ecommerce operating play.
+You are my ecommerce checkout analyst running the "Checkout Health Watch" play.
 
-Operating question:
-Is checkout conversion healthy enough to trust demand generation?
+GOAL: decide whether checkout is healthy enough to trust demand generation, and locate
+any leak by segment, ranked by revenue at risk. Status vocab: KEEP / WATCH / FIX /
+REFRESH / KILL.
 
-Use the evidence I provide. Do not invent missing data. Separate exact, estimated, partial, and unavailable evidence. Apply KILL, REFRESH, WATCH, KEEP, or FIX only when the evidence supports it. If the data is too weak, say what is blocked and what evidence is needed.
+I will paste: my commerce checkout funnel (reached checkout / shipping / payment /
+completed) and GA4 funnel (begin_checkout / add_shipping_info / add_payment_info /
+purchase) for the last 7-14 days and the prior equal window; completion split by device,
+payment method, and country; my 8-week baseline; and a deploy/change log if I have one.
+Some data may be missing.
 
-Return:
-1. Executive answer
-2. Evidence table
-3. Decision table with status
-4. Vetoes or caveats
-5. Recommended next actions with owner and timing
+RULES:
+- Tracking gate first: if commerce and GA4 disagree on completed orders by >10%, or a
+  deploy touched the pixel/consent setup, mark the headline FIX and do not read the
+  decline until tracking is confirmed.
+- Treat the blended checkout->purchase rate as direction only. Never diagnose from the
+  blended number; always segment by device, payment method, and country first.
+- Flag any segment 15+ points below the blended rate or below its own baseline as a
+  localized break, and bind it to a cause from the deploy log when possible.
+- Quantify each break: failing-segment checkout volume x (baseline rate - current rate)
+  = lost orders; x AOV = revenue at risk. Rank by revenue at risk.
+- Read promo-window checkout behavior on its own curve, not against full-price weeks.
+- Every row must carry: a number, source, time window, and confidence level.
+- Separate exact / estimated / partial / unavailable evidence. Do not invent missing data.
+
+RETURN:
+1. A 3-sentence executive read, ending with a clear hold-or-scale call on acquisition spend.
+2. A segment table: Segment | Checkout->purchase rate | vs baseline | Lost orders |
+   Revenue at risk | Suspected cause | Status | Owner | Recheck.
+3. Vetoes/caveats that downgraded any recommendation.
+4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```
 
 ## Decision Rules
 
-- Use `FIX` when required evidence is missing, inconsistent, or too weak to support a commercial decision.
-- Use `KILL` only when downside is clear, the sample is large enough, and no veto protects the item.
-- Use `REFRESH` when performance is decaying but the asset, product, flow, or page still has a credible reason to improve.
-- Use `WATCH` when the signal is directional or early.
-- Use `KEEP` when performance is inside the target band and no risk signal is present.
-- Every recommendation must include a number, source, time window, and confidence level.
+- **KEEP** — checkout-started → purchase rate inside your baseline band across device, payment method, and country; no segment 15+ points below the blended rate; tracking clean.
+- **WATCH** — a directional dip, an early/small sample, or a segment soft-flagged but within noise; or the window is polluted by a promo and needs a clean re-read.
+- **FIX** — tracking drift between commerce and GA4, a pixel/consent change in the window, or missing segment data prevents a safe read; or a payment/checkout config is provably broken and the fix is engineering, not budget.
+- **REFRESH** — completion is decaying for a fixable on-surface reason that still converts (shipping-cost surfacing, a slow checkout step, a clumsy address/tax field) where the offer and audience are still viable.
+- **KILL** — reserved: retire a payment method or checkout app only when it is provably suppressing completion in its segment with a large sample and no veto protects it.
+- Every recommendation carries a number, source, time window, and confidence level.
 
 ## Veto Rules
 
-- Do not claim causality from a single platform metric.
-- Do not recommend budget shifts if tracking drift makes attribution unsafe.
-- Do not recommend scaling a product with low stock, feed disapproval, or missing price/availability evidence.
-- Do not make profit claims without cost coverage or a clear partial-profit label.
-- Do not recommend writes, pauses, refunds, customer messages, or catalog changes without explicit approval.
+- Do **not** scale acquisition spend while any high-volume checkout segment is leaking — sealing the checkout returns more than buying more leaking traffic.
+- Do **not** diagnose from the blended completion rate; a healthy blend routinely hides a dead payment method or a mobile-only break. Always segment by device **and** payment method first.
+- Do **not** trust a checkout decline before confirming the pixel and GA4 `purchase` event fired through the whole window — a tracking change fakes a collapse.
+- Do **not** read promo-period checkout abandons against full-price weeks; discount traffic abandons more and differently, and the comparison is invalid.
+- Do **not** claim causality from a single funnel step without binding it to a deploy/change-log event or a second source.
+- Do **not** push theme edits, toggle payment methods, change shipping rates, or message customers without an explicit human approval step.
 
 ## Output Contract
 
-A leak diagnosis, ranked opportunities, evidence links, and a read-only experiment brief.
+A ranked leak diagnosis by **revenue at risk**, with a hold-or-scale call on acquisition spend.
 
-Minimum table columns:
+| Segment | Checkout→purchase rate | vs baseline | Lost orders (window) | Revenue at risk | Suspected cause | Status | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|
+| Mobile · Apple Pay | 41% | −23 pts | 84 | $6,300 | Express checkout broke after theme push | **FIX** | Web/Dev | Today |
 
-| Item | Evidence | Status | Why | Owner | Timing |
-|---|---|---|---|---|---|
-| Example row | Source + number + window | WATCH | Directional signal only | Operator | Recheck in 7 days |
+## Worked Example
 
-## Good Output Example
+> **Executive read:** Blended checkout completion looks fine at 64% (vs. a 66% baseline), so the top-line says "trust the funnel" — but the blend is lying. Card completion is healthy at 70%, while Apple Pay / express checkout collapsed from 68% to 41% the same day a theme update shipped, costing an estimated 84 orders (~$6,300) in 9 days on mobile alone. **Hold the planned 20% acquisition budget increase until the express-checkout regression is fixed; we are funneling paid mobile traffic into a broken button.**
 
-> Status: WATCH. The issue is real enough to monitor, but not strong enough to change yet. The strongest evidence is a 21 percent decline over the last 14 days, but the comparison window includes a promotion and stock was below normal for three days. Recheck after a clean 7-day window.
+| Segment | Checkout→purchase rate | vs baseline | Lost orders (9d) | Revenue at risk | Suspected cause | Status | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|
+| Blended (all) | 64% | −2 pts | — | — | Masks segment break | **WATCH** | Ecom | 3 days |
+| Card (all devices) | 70% | +1 pt | 0 | $0 | Healthy | **KEEP** | Ecom | Weekly |
+| Apple Pay / express · Mobile | 41% | −27 pts | 84 | $6,300 | Express button broke after theme push (same-day) | **FIX** | Web/Dev | Today |
+| Shop Pay · Desktop | 67% | −1 pt | ~3 | $220 | Within noise | **KEEP** | Ecom | Weekly |
+| Card · Shipping step (DE) | 58% | −9 pts | 19 | $1,400 | Shipping cost first shown at shipping step | **REFRESH** | Ecom + Web | 7 days |
+| GA4 vs commerce `purchase` | 6% gap | — | — | — | Within tolerance, read is safe | **KEEP** | Analytics | Weekly |
+
+Note how the answer *inverts* the top-line view: the blended 64% reads as "healthy enough to scale," but the express-checkout break on mobile is a clean, quantified KILL-the-scale-decision until fixed — and the German shipping-step sag is a separate, smaller REFRESH.
 
 ## Common Failure Modes
 
-- Treating a platform-reported metric as commerce truth.
-- Skipping the evidence checklist and asking for a recommendation too early.
-- Forgetting stock, margin, attribution, or promotion context.
-- Accepting an AI answer that does not show its numbers.
+- Trusting the blended completion rate and missing a dead payment method or a mobile-only break underneath it.
+- Reading a checkout "collapse" that is really a pixel/consent or GA4 `purchase` tracking change after a deploy.
+- Scaling acquisition spend in the same week a checkout segment is leaking — buying more traffic for a broken button.
+- Comparing a promo week's abandon rate against full-price weeks and calling the difference a regression.
+- Naming a cause (shipping shock, express break) without binding it to a deploy/change-log timestamp or a second source.
 
 ## Run This Play With Live Data
 
-Manual version: gather the evidence above and paste the prompt into your AI assistant.
+**Manual version:** export the commerce checkout funnel and the GA4 funnel, align the windows, segment completion by device, payment method, and country by hand, then cross-reference your deploy log to bind each drop to a cause — every week, and again after every theme or app change.
 
-ShopMCP version: ask the same question with ShopMCP connected. ShopMCP routes to the matching live playbook, pulls connected evidence where available, applies evidence gates, and returns an operator-ready brief. ShopMCP does not make writes from this public playbook without explicit approval and a supported preview/apply path.
+**ShopMCP version:** connect your store and GA4 once. Ask the question; ShopMCP pulls the live checkout funnel and the GA4 events, runs the tracking gate, segments completion by device, payment method, and country, quantifies lost orders and revenue at risk per break, and returns the ranked KEEP/WATCH/FIX/REFRESH table with an explicit hold-or-scale call on spend. It stays **read-only** until you explicitly approve a change.
+
+> No store or GA4 connection inside your AI assistant? That's the wall every manual run hits. ShopMCP *is* the connection — and the same playbook then runs in one prompt instead of an afternoon of funnel exports and segment pivots.
 
 Example ShopMCP prompt:
 
@@ -140,7 +199,7 @@ https://my.shop-mcp.app/playbooks/ecom-checkout-health?utm_source=github&utm_med
 
 What ShopMCP removes:
 
-- Manual exports and stale CSVs.
-- Copy-pasting across commerce, ads, analytics, lifecycle, and finance tools.
-- Guessing which evidence is safe enough to use.
-- Rebuilding the same operating workflow every week.
+- Manual checkout-funnel and GA4 exports and stale CSVs.
+- Hand-segmenting completion by device, payment method, and country every week.
+- Cross-referencing the deploy log to bind a drop to a cause.
+- Rebuilding the same tracking-gate and revenue-at-risk math after every theme or app change.

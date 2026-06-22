@@ -160,8 +160,25 @@ function ensureDir(filePath) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
 }
 
+// Derived files are always regenerated. Everything else is authored content and is
+// never clobbered once it exists — bootstrap scaffolds new playbooks and rebuilds indexes,
+// it does not overwrite hand-written plays, the README, or the standards.
+const ALWAYS_REGENERATE = new Set([
+  "indexes/manifest.json",
+  "indexes/by-category.md",
+  "indexes/by-persona.md",
+  "indexes/by-platform.md",
+  "indexes/by-cadence.md",
+  "indexes/by-business-question.md",
+  "llms.txt",
+  "llms-full.txt",
+]);
+
 function write(file, content) {
   const target = path.join(root, file);
+  if (!ALWAYS_REGENERATE.has(file) && fs.existsSync(target)) {
+    return;
+  }
   ensureDir(target);
   fs.writeFileSync(target, `${content.trim()}\n`);
 }
