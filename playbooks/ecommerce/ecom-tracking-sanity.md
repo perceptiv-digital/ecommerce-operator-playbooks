@@ -75,6 +75,15 @@ A plain AI assistant has no line into your Shopify admin, your GA4 property, Met
 - **Subscription / recurring app** — does a recurring charge re-fire `purchase`? (a classic duplicate-transaction source).
 - **Promo / launch calendar** — a spike in one source during a launch can look like a break and isn't.
 
+## How To Pull This Evidence
+
+- **Commerce truth (Shopify order count)** — Admin → Orders, filter to **Paid** financial status, then exclude test orders, $0 orders, and cancelled/fully-refunded orders; set the date range in **store time zone**. Gotcha: Shopify's "Total orders" report includes cancelled and test orders — count the filtered list, not the headline number.
+- **GA4 purchases** — Reports → Monetization (or Explore) → `purchase` event count / `ecommerce purchases` for the identical window. Gotcha: pick one metric and stick to it — events vs. sessions-with-transactions vs. key-event count diverge, and consent-modelled purchases inflate the total.
+- **Meta claimed conversions** — Ads Manager → Purchases column, with the **attribution setting explicitly stated** (default 7-day-click / 1-day-view over-claims view-through orders the store never sees). Gotcha: change the attribution window in the column settings before reading, or you're comparing apples to a model.
+- **Google Ads claimed conversions** — Goals/Conversions → Conversions **per conversion action**, not the rolled-up total. Gotcha: a GA4-imported "Purchase" firing alongside a native pixel "Purchase" double-counts — list each action separately to catch it.
+- **Klaviyo attributed orders** — Analytics → attributed orders across flows + campaigns (default 5-day click / 1-day open). Gotcha: this is an overlapping subset of total orders, not an exclusive channel — never add it to the other sources as if it were.
+- Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Establish commerce truth first.** Lock the store's real paid-order count and revenue for the window with test/$0/cancelled/refunded orders excluded. Every drift % is measured against this number, never against another platform. Nothing else is "truth."
@@ -107,6 +116,11 @@ A plain AI assistant has no line into your Shopify admin, your GA4 property, Met
 You are my ecommerce analytics lead running the "Tracking Sanity Check" play — the
 trust gate that every other growth decision depends on.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the commerce
+order count (the store's real paid, non-test, non-cancelled order count used as the
+denominator/truth) is missing, STOP and return only (a) what's missing and (b) how to
+get it — never estimate it or proceed. Without commerce truth no drift can be computed.
+
 GOAL: reconcile each reporting source against COMMERCE TRUTH (the store's real paid,
 non-test orders) and tell me which numbers I can trust this week and which are blocked
 until repaired. This is mostly a FIX play. Do not help me make budget/attribution calls
@@ -136,8 +150,11 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read: can I trust the data this week, yes/no, and what's blocked.
-2. A reconciliation table: Source | Reported | Commerce truth | Drift % | Likely cause |
-   Confidence | Fix priority.
+2. A reconciliation table using EXACTLY this header:
+   | Source | Reported | Commerce truth | Drift % | Likely cause | Confidence | Fix priority |
+   |---|---|---|---|---|---|---|
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and
+   do not replace the table with prose.
 3. Broken-tracking notes per flagged source (real break vs expected modelled gap).
 4. An ORDERED repair sequence — biggest decision-blocking drift first — with owner and recheck.
 ```

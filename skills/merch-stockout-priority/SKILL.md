@@ -43,6 +43,12 @@ Optional, if available:
 ```text
 You are my inventory and merchandising analyst running the "Stockout Priority List" play.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If per-SKU on-hand units,
+recent daily sell rate, or supplier lead time is missing for a SKU, STOP and return only
+(a) what's missing and (b) how to get it — never estimate it or proceed. Days-of-cover vs. lead
+time is the entire play, so a guessed on-hand count, sell rate, or lead time silently fabricates
+the answer.
+
 GOAL: rank my at-risk SKUs by how urgently I should REORDER or EXPEDITE them BEFORE they
 sell through, weighted by the contribution profit at risk if they go dark. This is
 prevention, not a post-stockout loss report.
@@ -70,8 +76,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read (how many SKUs need action today + the top expedite).
-2. A ranked table: SKU | On-hand | Sell rate/day | Days of cover | Lead time + buffer |
-   Margin/unit | Contribution/day at risk | Active ad spend? | Action | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | SKU | On-hand | Sell rate/day | Days of cover | Lead time + buffer | Margin/unit | Contribution/day at risk | Active ad spend? | Action | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any row.
 4. What evidence is blocked and what would upgrade a WATCH/FIX to a confident reorder.
 ```

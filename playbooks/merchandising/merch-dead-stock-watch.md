@@ -76,6 +76,17 @@ A plain AI assistant has no line into your inventory system, your order history,
 - **Promotion calendar** — a recent promo borrows future demand; a planned one is a built-in clearance lever.
 - **Open purchase orders** — inbound units for a SKU already flagged dead is a double-down to stop now.
 
+## How To Pull This Evidence
+
+- **Inventory value (Shopify):** in Shopify admin go to Analytics → Reports → "ABC analysis by product" or the inventory reports, or export Products → Inventory; multiply on-hand by unit cost (the "Cost per item" field on each variant) to get inventory value per SKU.
+- **On-hand units (Shopify):** Products → Inventory shows "Available" per variant/location; export to CSV, and if you run multiple locations or a 3PL, reconcile the store "Available" against the warehouse physical count before trusting it.
+- **Sell-through / recent sell-rate (Shopify):** Analytics → Reports → "Sell-through rate" or "Sales by product variant SKU" over a trailing 60- and 90-day window; filter out refunded and cancelled lines so the unit count is net.
+- **Inventory age:** pull first-received or last-receipt date per SKU from your purchase-order / receiving history (Shopify's inventory adjustment history or your inventory app) so you can sort the dead list by how long cash has been stuck.
+- **Launch dates:** use each product's "Created" / first-published date (Products export includes it) to identify SKUs live under ~60 days that have no fair velocity yet.
+- **Seasonal / RTV gotcha:** Shopify won't tell you a SKU is a pre-season build or supplier-returnable — keep those off-platform (a seasonality tag/spreadsheet and your supplier RTV terms) and exclude or re-route those SKUs by hand, or you'll markdown stock that should have been held or returned.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Gate on stock truth.** If on-hand can't be reconciled (store-available ≠ warehouse-physical, or a recent count is missing), set the SKU to **FIX** and stop. Every downstream number depends on a trustworthy unit count.
@@ -113,6 +124,13 @@ unit cost, retail price, inventory age (days since first receipt), and where ava
 supplier-return terms, launch date, seasonality flag, and holding-cost rate. Some columns
 may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical inputs are
+per-SKU on-hand units, inventory value (on-hand x unit cost), and recent sell-rate (units sold
+over a trailing window) — these are what let you compute days-of-cover and cash tied up. Also
+confirm seasonal/new-launch SKUs are excluded. If any of per-SKU on-hand units, inventory
+value, or recent sell-rate is missing, STOP and return only (a) what's missing and (b) how to
+get it — never estimate it or proceed.
+
 RULES:
 - Stock-truth gate first: if on-hand is unreconciled or missing, mark the SKU FIX and
   exclude it from KILL decisions.
@@ -133,8 +151,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read (total cash at risk, top exit, biggest caveat).
-2. A ranked table: SKU | On-hand | Units 90d | Days of cover | Cash tied up | Age (days) |
-   Exit | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | SKU | On-hand | Units 90d | Days of cover | Cash tied up | Age (days) | Exit | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

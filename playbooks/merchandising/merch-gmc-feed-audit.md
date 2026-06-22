@@ -72,6 +72,15 @@ A plain AI assistant has no view into your Merchant Center account or your live 
 - **Shopping/PMax impression and click trend per SKU** — to confirm a disapproval actually cost traffic versus a SKU that never had demand.
 - **Required-attribute coverage for the vertical** — for apparel especially: `age_group`, `gender`, `color`, `size` are *required*, and missing them is a disapproval, not a warning.
 
+## How To Pull This Evidence
+
+- **GMC item status + issue export** — pull the processed `product_view` (status per reporting context) and the `itemLevelIssues` array via the Merchant API, or export from Merchant Center → *Products → All products* (per-SKU status) and *Diagnostics → Item issues* (issue code, severity, affected attribute, example items). The Diagnostics view groups by issue code; you still have to map each code back to the individual SKUs to weight by revenue.
+- **Feed-vs-store price/availability check** — this is the #1 silent disapproval and no export contains it. Take the `price`, `sale_price`, and `availability` your feed submits, then open the live product page for each affected SKU and read what a shopper sees right now. Any gap (expired sale still in the feed, store stockout the feed hasn't caught) is a `mismatched_price` / `mismatched_availability` waiting to disapprove. Watch for an expired `sale_price` window and theme/cache staleness on the store side.
+- **Shopify SKU revenue** — pull trailing 30–60d units and revenue per SKU/variant from Analytics → Reports (*Sales by product variant SKU*), the Admin/GraphQL Orders API, or an exported orders CSV summed by SKU. Join on the same SKU key the feed uses so each issue inherits a dollar figure.
+- **Crawl-cycle recovery gotcha** — a corrected attribute does not clear on save. Google needs **1–3 crawl/refresh cycles** (or a feed re-fetch) to re-process and recover the item, so the export you pull the same day still shows the old disapproval. Set rechecks a cycle out and don't read a stale status as a failed fix.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Account before item.** Check account-level issues first. A misrepresentation / policy / suspension strike can suppress the whole catalogue, so no item-level fix matters until it clears → **FIX**, route to whoever owns policy/legal, stop ranking items until resolved.
@@ -105,6 +114,12 @@ I will paste: Merchant Center account-level issues; a per-SKU table with status
 the live-store price and availability for affected SKUs; trailing 30-60d revenue/units per
 SKU; and which SKUs are in active Shopping/PMax. Some fields may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If GMC item-level
+status/issues joined to per-SKU trailing revenue is missing, STOP and return only (a) what's
+missing and (b) how to get it — never estimate it or proceed. Without per-SKU revenue you
+cannot rank by money at risk, and ranking by money (not issue count) is the entire point of
+this play; an issue-only list with no revenue join is not a ranking.
+
 RULES:
 - Account-level first: if there's a misrepresentation/policy/suspension issue, flag it as the
   top FIX and note that item-level fixes are blocked until it clears.
@@ -122,8 +137,11 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: SKU/Product | Issue (code) | Severity | Surfaces affected | 30d revenue at
-   risk | Root cause (source-of-truth layer) | Fix | Owner | Recheck.
+2. A ranked table using EXACTLY this header row and column set:
+   | SKU/Product | Issue (code) | Severity | Surfaces affected | 30d revenue at risk | Root cause | Fix | Owner | Recheck |
+   |---|---|---|---|---|---|---|---|---|
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose. (Root cause = the source-of-truth layer.)
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH to a FIX decision.
 ```

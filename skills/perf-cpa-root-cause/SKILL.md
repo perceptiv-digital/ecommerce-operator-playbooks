@@ -55,6 +55,13 @@ I will paste, per channel, for THIS period and the PRIOR equal period: CPA, CPM,
 platform-reported conversions, real commerce orders, site/checkout CVR, current stock,
 promo calendar, recent campaign edits, and my target CPA. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical inputs
+are the CPM, CTR, and CVR decomposition terms for BOTH periods AND the tracking check
+(platform-reported conversions vs. real commerce orders) plus site/checkout CVR — you
+cannot rule out a tracking break or a site leak without them, and you must not blame the
+ad before both are ruled out. If any critical input is missing, STOP and return only
+(a) what's missing and (b) how to get it — never estimate it or proceed.
+
 WALK THESE IN ORDER. Stop at the first that explains the move; name the term that moved:
 1. TRACKING break first: platform conversions down but commerce orders flat, or platform-
    vs-commerce drift past its normal baseline => FIX, do not touch budget/creative.
@@ -71,7 +78,10 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read naming the root-cause term and the first thing to check.
-2. A decomposition table: Channel | CPA delta | CPM delta | CTR delta | CVR delta | term that moved.
+2. A decomposition table using EXACTLY this header row:
+   | Channel | CPA Δ | CPM Δ | CTR Δ | CVR Δ | Term that moved |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose.
 3. A decision table: Item | Evidence (number, source, window, confidence) | Status | First check | Owner | Recheck.
 4. Vetoes/caveats that downgraded any call.
 5. What evidence is blocked and what would upgrade a WATCH/FIX to a decision.

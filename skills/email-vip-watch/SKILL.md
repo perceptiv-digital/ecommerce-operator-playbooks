@@ -49,6 +49,12 @@ contribution at risk, not by headcount and not by a single month's repeat rate.
 VIP DEFINITION (must be stable across periods): I will state it explicitly, e.g. "top 10%
 of customers by trailing-12-month net spend." Use exactly this; do not redefine it.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is a
+STABLE VIP definition — top-decile by trailing-12-month spend (or an equivalent RFM/predicted-LTV
+rule) applied identically across both periods — backed by a large-enough cohort, since small
+cohorts are noisy. If this stable VIP definition + sufficient cohort is missing, STOP and return
+only (a) what's missing and (b) how to get it — never estimate it or proceed.
+
 I will paste: cohort headcount; current vs prior 90-day repeat rate, median AOV, order
 frequency, and VIP share of total revenue; per-customer median interpurchase interval and
 days-since-last-order; Klaviyo 90-day engagement + deliverability; and COGS/margin. Some
@@ -71,10 +77,13 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A cohort-vitals table: Metric | Prior 90d | Current 90d | Delta | Confidence.
+2. A cohort-vitals table using exactly this header row:
+| Metric | Prior 90d | Current 90d | Delta | Status | Confidence |
 3. A named-slider table: Customer | T12M contribution | Own cadence | Days overdue | Status | Touch.
 4. Vetoes/caveats that downgraded any recommendation.
 5. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
+
+Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the table with prose.
 ```
 
 ## Decision rules

@@ -73,6 +73,14 @@ A plain AI assistant has no line into your Google Ads account, so it cannot see 
 - **Brand vs. non-brand campaign map** — which campaigns are *supposed* to capture brand demand, so leakage into generic is obvious.
 - **PMax / Shopping presence** — these channels hide most of their search terms; note the blind spot so you don't claim a clean account when half of it is opaque.
 
+## How To Pull This Evidence
+
+- **Google Ads → Search terms report export.** Open Google Ads → Campaigns → Insights & reports → **Search terms**. Add the columns most operators leave off — **Conversions**, **Conv. value**, **Cost/conv.** — and segment by **Campaign** and **Match type**. Set the date range to 30–90 days (use 90 for lower-volume accounts so terms clear the click floor), then **Download → CSV**.
+- **The date window / conversion-lag gotcha.** Pick a window wide enough that conversions have time to land. A term that looks dead at a 1-day attribution window may convert at 14 days, so a too-short window or a too-tight conversion window makes profitable research terms look like pure waste — know which window you're reading before you negate anything.
+- **The PMax / Shopping search-term blind spot.** PMax and Standard Shopping hide most of their search terms — the export will under-report the queries actually driving that spend. Treat any audit over an account with meaningful PMax/Shopping budget as partial, and say so rather than declaring the account clean.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Set the floors first.** Pick a minimum click threshold (e.g. ≥ 20 clicks, or ≥ 1× target CPA in spend) below which a term is **WATCH**, never KILL. A term with 4 clicks and 0 conversions is noise, not evidence.
@@ -106,6 +114,13 @@ I will paste: a Search Terms export with Term, Campaign, Match type, Cost, Click
 Conversions, Conv. value, Cost/conv.; plus my target CPA / target ROAS and AOV. Some
 columns may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+the Search Terms report with spend AND conversions per term over a window with enough clicks
+to judge it (don't negate on tiny samples — conversions may lag). If that critical input is
+missing, STOP and return only (a) what's missing and (b) how to get it (Google Ads →
+Campaigns → Insights & reports → Search terms, with Conversions and Conv. value columns added
+over a 30–90 day window) — never estimate it or proceed.
+
 RULES:
 - Set a floor: any term under 20 clicks OR under 1x my target CPA in spend is WATCH,
   never KILL. Too small a sample is not evidence.
@@ -125,7 +140,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read with total wasted spend identified.
-2. A ranked table: Term | Campaign | Match | Cost | Conv | Cost/conv vs target | Action | Wasted spend recovered | Confidence.
+2. A ranked table using exactly this header row:
+| Term | Campaign | Match | Cost (window) | Conv | Cost/conv vs target | Action | Spend recovered | Confidence |
+Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+table with prose.
 3. The negative-keyword list, grouped by match type and target campaign.
 4. Vetoes/caveats and what evidence (lag window, real orders, PMax terms) is blocked.
 ```

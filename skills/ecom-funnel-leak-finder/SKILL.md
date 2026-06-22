@@ -43,6 +43,12 @@ Optional, if available:
 ```text
 You are my ecommerce analyst running the "Funnel Leak Finder" play.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the full funnel step
+counts (sessions -> view_item -> add_to_cart -> begin_checkout -> purchase) segmented at least
+by device, plus confirmation that tracking isn't broken (GA4 purchases reconciled against real
+orders), is missing, STOP and return only (a) what's missing and (b) how to get it — never
+estimate it or proceed.
+
 GOAL: find the single funnel step that is leaking the most REVENUE (not the lowest rate),
 isolate the device and source it happens on, and propose the one smallest measurable fix.
 
@@ -66,7 +72,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read naming the one leak and the recoverable revenue.
-2. A funnel table: Step | Segment | Sessions/Traffic | Rate | Benchmark | Lost rev (est) | Status.
+2. A funnel table using exactly this header row:
+   | Step | Segment | Traffic | Rate | Benchmark | Lost rev (est) | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and do
+   not replace the table with prose.
 3. The single weakest step by dollars, with the device/source it lives on.
 4. One smallest-measurable fix, its owner, and what evidence would confirm it worked.
 5. Vetoes/caveats and any evidence blocked from a safe call.

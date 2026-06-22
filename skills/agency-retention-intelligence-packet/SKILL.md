@@ -55,6 +55,12 @@ deliverability (open trend / spam rate / unsub rate / domain auth), email & SMS 
 share, Attentive subscriber growth + opt-out rate, the client's category, and any
 promo/flow-change context. Some data will be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If this client's
+commerce + Klaviyo/Attentive retention data over a sufficient window (>=12 months of
+orders for cohorts, enough recipients/profiles to clear sample) is missing, STOP and
+return only (a) what's missing and (b) how to get it — never estimate it or alarm the
+client; flag it as blind.
+
 RULES:
 - Data-sufficiency gate FIRST. Cohorts need >=12 months and ~50+ customers each; flows need
   ~200+ recipients; segments under ~50 profiles are anecdote. Anything below sample is FIX
@@ -72,7 +78,10 @@ RULES:
 
 RETURN:
 1. A one-paragraph client-facing summary (the AM could read it aloud).
-2. A status table: Signal | Reading | Evidence | Confidence | Client-safe line | Next action.
+2. A status table using exactly this header row:
+   | Signal | Reading | Evidence | Confidence | Client-safe line | Next action |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose.
 3. The 2-3 signals worth raising in the meeting, and why each cleared the bar.
 4. What's being monitored quietly (and what would promote it to a "raise").
 5. The single recommended next play, with owner and timing.

@@ -73,6 +73,15 @@ A plain AI assistant cannot open your Shopify orders, your Meta and Google conve
 - **Promo / launch calendar** — a promo week compresses paths and shifts credit toward whichever channel sent the final click.
 - **Geo-holdout or last paid-channel-off test** — the only true incrementality check; if you have one, it outranks every modelled claim.
 
+## How To Pull This Evidence
+
+- **Shopify total orders by channel** — Analytics → Reports → "Sales by traffic source" (or Orders export filtered to paid, non-test, non-cancelled) for the exact window; this is your fixed denominator and your per-channel store-UTM split.
+- **GA4 last-click** — Reports → Acquisition → Traffic acquisition, set the attribution model to last-click and the conversion event to `purchase`, broken out by Default channel grouping for the identical dates.
+- **Meta / Google claimed conversions** — Meta Ads Manager (Purchases column, note the 7-day click / 1-day view setting) and Google Ads (Conversions by Search / Shopping / PMax, note the conversion window) for the same window.
+- **Window-mismatch gotcha** — each platform counts on a different click/view window (Meta 7-day click vs. Google's window vs. Klaviyo's 5-day), so pull every source over the *same calendar dates* and record each window before comparing, or you'll manufacture fake drift.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Lock the denominator.** Pull total commerce orders for the window. This single number is the truth every source is scored against. Do not proceed until it is confirmed against the Tracking Sanity Check.
@@ -105,6 +114,11 @@ I will paste: total commerce orders for the window (truth), per-channel commerce
 orders by store UTM, Meta/Google/Klaviyo claimed conversions, GA4 last-click
 purchases by channel, and each tool's attribution window. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If total
+commerce orders (the denominator/truth) is missing, STOP and return only (a) what's
+missing and (b) how to get it — never estimate it or proceed. Without it you cannot
+compute any source's over/under-credit ratio.
+
 RULES:
 - Treat commerce orders as the only denominator. Platform conversions are modelled
   and self-credited; they sum to MORE than total orders on purpose — that overlap is
@@ -122,8 +136,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read naming the most over- and most under-credited channel.
-2. A reconciliation table: Source | Channel | Claimed | Commerce orders | Credit ratio |
-   Over/Under | Trust-for | Confidence.
+2. A reconciliation table using exactly this header row:
+   | Source | Channel | Claimed conv. | Commerce orders | Credit ratio | Over/Under | Trust this source for | Confidence |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not
+   replace the table with prose.
 3. The over-claim/overlap rate and what it implies.
 4. A trust map + one blended split, plus vetoes that downgraded any call.
 ```

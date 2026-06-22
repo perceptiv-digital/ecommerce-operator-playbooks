@@ -79,6 +79,15 @@ To run it manually you must:
 - **Repeat-purchase / payback curve** — lets you judge a CAC above first-order margin against months-to-payback instead of rejecting it outright.
 - **Creative/launch dates** — to tell a genuinely expensive channel apart from one still in learning.
 
+## How To Pull This Evidence
+
+- **Shopify new-customer orders by source/UTM** — export orders for the window and filter to first-time buyers (`customer.orders_count = 1`, or "First-time" in the customer report); group by the landing-site source/`utm_source` + `utm_medium` on each order so new customers map to a channel, not just to total orders.
+- **Channel spend** — pull spend for the *matched* date window from each ad platform: Meta Ads (by campaign/objective), Google Ads (split Brand Search / non-brand Search / Shopping / PMax), and TikTok Ads. Align the date range and timezone across all three or the CAC math drifts.
+- **LTV / payback target** — get first-order contribution margin (AOV × margin % − fulfilment/discount), an LTV figure (or a defensible repeat-rate proxy), and your allowable payback window in months; derive the per-channel CAC target from these before judging any channel.
+- **Attribution-window gotcha** — note which model and lookback each source uses (last-click vs. data-driven, 7-day vs. 28-day). The ad platforms and GA4 will disagree, and a different window can swap the winning channel — record the window beside every number so the comparison is apples-to-apples.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Confirm the new-vs-returning split is real.** If the store can't reliably flag first-time customers, or GA4 source/medium is mostly `(direct)`/`(not set)`, you can't compute new-customer CAC → mark the affected channels **FIX** and stop there. Everything downstream depends on this.
@@ -116,6 +125,12 @@ I will paste: spend by channel; commerce orders tagged new vs returning with sou
 GA4 source/medium; platform CPA; and my targets (first-order contribution margin, LTV,
 allowable payback months). Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If NEW (first-time)
+customers per channel from my commerce new-vs-returning record — alongside channel spend —
+is missing (platform CPA is NOT a substitute), STOP and return only (a) what's missing and
+(b) how to get it — never estimate it or proceed. Without commerce new-vs-returning,
+new-customer CAC is wrong.
+
 RULES:
 - If new-vs-returning tagging or GA4 source/medium is unreliable, mark the affected
   channels FIX and exclude them from KILL/scale calls. Do not guess CAC.
@@ -131,8 +146,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: Channel | Spend | New customers | New-cust CAC | Platform CPA |
-   New-cust share | Target CAC | LTV/CAC or payback | Status | Owner | Recheck.
+2. A ranked table using EXACTLY this header row:
+   | Channel | Spend (30d) | New customers | New-cust CAC | Platform CPA | New-cust share | Target CAC | LTV/CAC or payback | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

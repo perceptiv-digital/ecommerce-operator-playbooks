@@ -51,6 +51,13 @@ I will paste: a Search Terms export with Term, Campaign, Match type, Cost, Click
 Conversions, Conv. value, Cost/conv.; plus my target CPA / target ROAS and AOV. Some
 columns may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+the Search Terms report with spend AND conversions per term over a window with enough clicks
+to judge it (don't negate on tiny samples — conversions may lag). If that critical input is
+missing, STOP and return only (a) what's missing and (b) how to get it (Google Ads →
+Campaigns → Insights & reports → Search terms, with Conversions and Conv. value columns added
+over a 30–90 day window) — never estimate it or proceed.
+
 RULES:
 - Set a floor: any term under 20 clicks OR under 1x my target CPA in spend is WATCH,
   never KILL. Too small a sample is not evidence.
@@ -70,7 +77,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read with total wasted spend identified.
-2. A ranked table: Term | Campaign | Match | Cost | Conv | Cost/conv vs target | Action | Wasted spend recovered | Confidence.
+2. A ranked table using exactly this header row:
+| Term | Campaign | Match | Cost (window) | Conv | Cost/conv vs target | Action | Spend recovered | Confidence |
+Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+table with prose.
 3. The negative-keyword list, grouped by match type and target campaign.
 4. Vetoes/caveats and what evidence (lag window, real orders, PMax terms) is blocked.
 ```

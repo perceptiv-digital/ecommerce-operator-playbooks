@@ -52,6 +52,11 @@ performance per flow, list growth (new subs, unsubs, complaints, suppressions),
 deliverability (spam-complaint rate, bounce rate), and total store revenue for the week.
 Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the campaign-vs-flow
+revenue split with placed-order rate per send (NOT opens — Apple MPP makes opens unreliable),
+or deliverability (spam-complaint rate, bounce rate) is missing, STOP and return only (a)
+what's missing and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Use clicks, placed-order rate, and revenue per recipient. IGNORE open rate entirely —
   Apple Mail Privacy Protection makes opens unreliable. Do not rank or diagnose on opens.
@@ -69,7 +74,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read (what changed and why it matters).
-2. A metrics table: Metric | Last week | Prior week | WoW | Source | Confidence.
+2. A metrics table using EXACTLY this header row:
+   | Metric | Last week | Prior week | WoW | Source | Confidence |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not
+   replace the table with prose.
 3. EXACTLY three prioritized actions: Action | Status | Why | Owner | Recheck.
 4. Vetoes/caveats that downgraded any read.
 5. What evidence is blocked and what you'd need to upgrade it.

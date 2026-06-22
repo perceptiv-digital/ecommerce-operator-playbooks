@@ -74,6 +74,15 @@ A plain AI assistant cannot see inside your Klaviyo account. It cannot tell you 
 - **Store AOV and contribution margin** — to convert revenue per recipient into recoverable *profit* and rank fixes properly.
 - **Flow last-edited date** — to tell a genuinely fatigued flow apart from one a teammate just changed.
 
+## How To Pull This Evidence
+
+- **Flow status (Live/Draft/Manual)** — Klaviyo left nav -> **Flows**. The status pill sits next to each flow name in the list; open the flow and check the toggle (Live vs. Draft/Manual) plus the trigger and flow/trigger filters in the trigger card. This is the silent-killer check — do it for all seven core flows first.
+- **Per-flow performance (recipients / click / placed-order / rev-per-recipient)** — open a flow -> **Analytics** tab, set the date range to the last 30 days. Read recipients, click rate, placed-order rate, and revenue per recipient at the flow level; drill into per-message analytics where a flow is below benchmark. Or pull the account-wide **Flow Performance** report (Analytics -> Reports / Flows) for all flows in one view.
+- **Deliverability (spam-complaint + bounce)** — **Analytics -> Deliverability** tab (or Account -> Deliverability). Record spam-complaint rate (keep under ~0.1%), bounce rate, and sending-domain / dedicated-IP reputation for the last 30 days. These gate everything — if they're red, every flow number below is suspect.
+- **MPP open-rate gotcha** — Apple Mail Privacy Protection pre-fetches images and inflates opens with machine opens, so Klaviyo's open rate is noise for any list with meaningful Apple Mail share. Never judge a flow on opens — lean on click rate and placed-order rate, which MPP does not touch.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Gate on deliverability first.** If account spam-complaint rate is over ~0.3% (3x the 0.1% ceiling), or bounce rate is elevated, or domain reputation is degraded -> the whole program is **FIX** and you stop judging individual flows. A deliverability problem upstream invalidates every flow-level read below it; great copy can't out-perform the spam folder.
@@ -109,6 +118,14 @@ trigger + filters, recipients (30d), click rate, placed-order rate, and revenue 
 recipient. I will also paste account deliverability: spam-complaint rate, bounce rate,
 domain reputation, and my Klaviyo conversion window. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If [critical input]
+is missing, STOP and return only (a) what's missing and (b) how to get it — never estimate
+it or proceed. Here [critical input] = each flow's Live/Draft/Manual status AND account
+deliverability (spam-complaint rate). A deliverability problem invalidates every flow read
+below it, and a Draft/Manual flow earns $0 — so without these two I cannot tell a broken
+flow from an underperforming one, and any ranking I produce would be fiction. Do not infer
+status from revenue or guess a complaint rate.
+
 RULES:
 - Deliverability gate first: if spam-complaint rate is over ~0.3%, bounce rate is elevated,
   or domain reputation is degraded, mark the whole program FIX and do not judge flows.
@@ -130,9 +147,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: Flow | Status | Recipients (30d) | Click % | Placed-order % |
-   Rev/recipient (vs type benchmark) | Driver | Status (KILL/REFRESH/WATCH/KEEP/FIX) |
-   Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Flow | Status | Recipients (30d) | Click % | Placed-order % | Rev/recipient | Issue | Action | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

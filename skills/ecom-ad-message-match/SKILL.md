@@ -55,6 +55,12 @@ final landing-page URL and what that page shows RIGHT NOW (page type, live price
 hero product, headline), and GA4 for that ad's traffic (sessions, bounce rate, CVR, AOV). I
 will also give my message-matched CVR benchmark. Some fields may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the top-spend ads'
+creative/offer AND their actual landing-page destination URLs plus that traffic's bounce/CVR
+is missing, STOP and return only (a) what's missing and (b) how to get it — never estimate it
+or proceed. Without the destination the page shows and how that traffic behaves, you cannot
+score a mismatch, so do not guess it.
+
 RULES:
 - Score each ad on four dimensions vs its live page: OFFER, PRICE, PRODUCT, TONE/INTENT.
 - A mismatch only counts as a leak if the ad's bounce/CVR is materially worse than my
@@ -69,8 +75,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: Ad | Spend | Destination (page type) | Mismatch (offer/price/product/tone) |
-   Bounce vs benchmark | CVR vs benchmark | Revenue at risk | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+| Ad | Spend (14d) | Destination (page type) | Mismatch | Bounce vs benchmark | CVR vs benchmark | Revenue at risk | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. The single highest-confidence test to run first, with its hypothesis and success metric.
 4. Vetoes/caveats that downgraded any row, and what evidence would upgrade a WATCH/FIX.
 ```

@@ -74,6 +74,15 @@ A plain AI assistant has no line into your order history, so it cannot compute t
 - **Klaviyo deliverability and list-health** for the sending segment — a perfectly timed message still fails if it lands in spam.
 - **Contribution margin per product** — to rank the opportunity by profit, not just top-line reorder revenue.
 
+## How To Pull This Evidence
+
+- **Shopify repeat-order history per product/category** — export line-item orders (Admin > Orders, or a Shopify report / the Admin API `orders` endpoint with line items) for the trailing 12 months, then group order lines by customer ID and product/variant ID to isolate customers who bought the same SKU two or more times. Roll SKUs up to category using the product type / collection field.
+- **Median days-between-reorder** — for each customer-SKU pair with ≥2 purchases, sort their orders by date and take the day gaps between consecutive same-SKU purchases; collect those gaps per SKU and take the median (plus the 25th/75th percentiles for IQR). Keep only SKUs that clear the repeat-buyer data gate.
+- **Existing Klaviyo replenishment flows** — in Klaviyo, list Flows and find any post-purchase / replenishment / "running low" flow; note its trigger filter (which products/categories it targets), its time delay, send volume, and revenue per recipient, so you can match each SKU to a flow or mark it as a gap.
+- **Subscription/one-time gotcha** — subscription (recurring) orders sit on a fulfillment clock, not a buying-intent clock, so blending them corrupts the interval and the messaging. Confirm subscription orders carry a tag/source you can filter on (Shopify Subscriptions, Recharge, Bold, etc.) and split them out before computing anything; if they aren't separable, that's a FIX, not a guess.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Gate on data sufficiency.** A product needs **≥30 customers with ≥2 purchases** of that SKU (≥50 is comfortable) before you trust its interval. Below that, mark **WATCH — thin data**, never set a trigger. Don't guess an interval from 4 reorders.
@@ -108,6 +117,11 @@ the 25th/75th percentiles, my Klaviyo flow inventory (which SKUs have a replenis
 and its current delay), AOV per SKU, and optionally contribution margin. Some data may be
 missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If enough
+repeat-purchase history per consumable product to compute a reliable median inter-purchase
+interval (>=30 distinct customers who bought the SKU >=2 times) is missing, STOP and return
+only (a) what's missing and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Data gate first: only set a trigger for a SKU with >=30 distinct customers who bought it
   >=2 times. Below that, mark WATCH - thin data, and do NOT invent an interval.
@@ -125,8 +139,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: Product/Category | Median interval | IQR | Repeat buyers | Trigger window |
-   Existing flow? | Est. monthly opportunity | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Product / Category | Median interval | IQR (25th–75th) | Repeat buyers | Trigger window | Existing flow? | Est. monthly opportunity | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH to a decision.
 ```

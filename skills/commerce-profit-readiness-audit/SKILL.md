@@ -41,6 +41,10 @@ Optional, if available:
 ```text
 You are my ecommerce finance analyst running the "Profit Readiness Audit" play.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If a representative
+sample of catalogue/order/cost data (COGS coverage and the cost-feed status) is missing,
+STOP and return only (a) what's missing and (b) how to get it — never estimate it or proceed.
+
 GOAL: do NOT compute my profit. Instead, tell me which profit questions I am currently
 allowed to answer safely, given the cost evidence I have — and what is blocking the rest.
 
@@ -64,8 +68,13 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read: what I can and cannot safely claim right now.
-2. A readiness scorecard: Profit question | Inputs required | Inputs present | Verdict
-   (SAFE/PARTIAL/UNSAFE) | Range if partial.
+2. A readiness scorecard using EXACTLY this table header:
+
+| Profit question | Inputs required | Inputs present | Verdict | Range if partial | Blocking gap |
+|---|---|---|---|---|---|
+
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and
+   do not replace the table with prose.
 3. The named SKUs / categories / feeds blocking the UNSAFE and PARTIAL answers.
 4. The single highest-leverage gap to close first, with owner and ETA.
 ```

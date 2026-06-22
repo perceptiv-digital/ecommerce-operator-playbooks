@@ -75,6 +75,15 @@ A plain AI assistant cannot see your Shopify revenue, your Meta/Google/TikTok sp
 - **New-customer CAC and 60/90-day LTV** — lets you judge whether an aMER below breakeven is still defensible on payback.
 - **Any non-ad spend you load into MER** (agency retainers, influencer flat fees) — decide once whether it's in or out, and stay consistent.
 
+## How To Pull This Evidence
+
+- **Total revenue (Shopify)** — Analytics → Reports → "Total sales" (or Finances summary), grouped by week. Use **net sales** (post-refund, post-discount), not gross or "gross sales." Gotcha: Shopify's default report is in the store's *timezone* and calendar day — lock it to your chosen week definition (e.g. Sun–Sat) and never let a rolling 7-day view drift in.
+- **Summed ad spend across platforms** — pull weekly spend separately from Meta Ads Manager, Google Ads, and TikTok Ads Manager on the *same* week boundaries, then add them. Gotcha: each platform defaults to its *own* timezone and attribution-window display; set every account to the same calendar week and pull **amount spent** (cost), not "purchase value" or ROAS-derived numbers.
+- **Contribution-margin %** — (net revenue − COGS − payment fees − shipping − pick/pack/fulfillment) ÷ net revenue. Gotcha: this is *not* gross margin — leaving out payment processing, shipping, and fulfillment inflates margin and pushes breakeven MER artificially low, making a losing trend look safe.
+- **New-customer revenue** — Shopify Analytics → "Customers" reports → "First-time vs returning customers" (or a customer-cohort report), split by week, to isolate the new-customer revenue that feeds aMER. Gotcha: Shopify's first-time/returning flag is account-based — guest checkouts and the same shopper using two emails can misclassify; treat the split as directional, and keep the *same* definition every week so the trend is comparable.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Lock the denominator and the window.** Confirm spend is *total* across all three platforms and revenue is *commerce-side total* for the identical week boundaries. A mismatched window (e.g. Meta on a rolling 7-day vs. Shopify on calendar week) silently fabricates a trend. If they can't be aligned → **FIX**.
@@ -110,6 +119,11 @@ I will paste a weekly table: total spend (Meta+Google+TikTok), total commerce re
 new vs returning revenue split, summed platform ROAS, contribution margin, and any
 promo weeks. Some fields may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If total revenue,
+total ad spend, or contribution-margin % is missing (these are the critical inputs that
+compute breakeven MER — MER without margin is meaningless), STOP and return only (a)
+what's missing and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Compute breakeven MER first. If I gave no margin, mark everything FIX — MER without a
   breakeven line is meaningless. Do not guess a margin.
@@ -125,8 +139,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read (direction, distance to breakeven, the real driver).
-2. A weekly trend table: Week | Spend | Revenue | Blended MER | Summed platform ROAS |
-   aMER | Returning share | Breakeven MER | Note.
+2. A weekly trend table using EXACTLY this header row, columns in this order:
+   | Week | Spend (all platforms) | Revenue (commerce) | Blended MER | Summed platform ROAS | aMER | Returning share | Breakeven MER | Note |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose.
 3. A status (KEEP/WATCH/REFRESH/KILL/FIX) on the efficiency trend, with the veto applied.
 4. What evidence is blocked and what you'd need to upgrade the call.
 ```

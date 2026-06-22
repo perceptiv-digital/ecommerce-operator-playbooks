@@ -49,6 +49,13 @@ I will paste: a Merchant Center disapproved/"limited" list with issue codes, Goo
 product-level spend/impressions/conversion value by item ID (7d and 30d), and live store
 price/availability for flagged items. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+GMC item status for the actively-advertised SKUs joined to their ad spend / revenue at risk
+(the spend-ranked join is what lets you prioritise by money, not issue count). If that
+critical input is missing, STOP and return only (a) what's missing and (b) how to get it —
+never estimate spend, revenue at risk, or which SKUs are actively advertised, and never
+proceed on issue count alone.
+
 RULES:
 - Rank strictly by trailing-7-day ad spend and revenue at risk. A disapproved $1,500/week
   hero is an emergency; a disapproved zero-spend SKU is noise — say so and move on.
@@ -66,8 +73,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read leading with total revenue/day at risk.
-2. A ranked table: Item (ID) | 7d spend | Issue + code | Ads state | Est. lost rev/day |
-   Source of truth | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Item (ID) | 7d spend | Issue + code | Ads state | Est. lost rev/day | Source of truth | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to confirm a FIX vs an auction loss.
 ```

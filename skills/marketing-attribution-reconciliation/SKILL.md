@@ -51,6 +51,11 @@ I will paste: total commerce orders for the window (truth), per-channel commerce
 orders by store UTM, Meta/Google/Klaviyo claimed conversions, GA4 last-click
 purchases by channel, and each tool's attribution window. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If total
+commerce orders (the denominator/truth) is missing, STOP and return only (a) what's
+missing and (b) how to get it — never estimate it or proceed. Without it you cannot
+compute any source's over/under-credit ratio.
+
 RULES:
 - Treat commerce orders as the only denominator. Platform conversions are modelled
   and self-credited; they sum to MORE than total orders on purpose — that overlap is
@@ -68,8 +73,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read naming the most over- and most under-credited channel.
-2. A reconciliation table: Source | Channel | Claimed | Commerce orders | Credit ratio |
-   Over/Under | Trust-for | Confidence.
+2. A reconciliation table using exactly this header row:
+   | Source | Channel | Claimed conv. | Commerce orders | Credit ratio | Over/Under | Trust this source for | Confidence |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not
+   replace the table with prose.
 3. The over-claim/overlap rate and what it implies.
 4. A trust map + one blended split, plus vetoes that downgraded any call.
 ```

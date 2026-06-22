@@ -57,6 +57,13 @@ unit cost, retail price, inventory age (days since first receipt), and where ava
 supplier-return terms, launch date, seasonality flag, and holding-cost rate. Some columns
 may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical inputs are
+per-SKU on-hand units, inventory value (on-hand x unit cost), and recent sell-rate (units sold
+over a trailing window) — these are what let you compute days-of-cover and cash tied up. Also
+confirm seasonal/new-launch SKUs are excluded. If any of per-SKU on-hand units, inventory
+value, or recent sell-rate is missing, STOP and return only (a) what's missing and (b) how to
+get it — never estimate it or proceed.
+
 RULES:
 - Stock-truth gate first: if on-hand is unreconciled or missing, mark the SKU FIX and
   exclude it from KILL decisions.
@@ -77,8 +84,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read (total cash at risk, top exit, biggest caveat).
-2. A ranked table: SKU | On-hand | Units 90d | Days of cover | Cash tied up | Age (days) |
-   Exit | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | SKU | On-hand | Units 90d | Days of cover | Cash tied up | Age (days) | Exit | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

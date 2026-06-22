@@ -73,6 +73,15 @@ A plain AI assistant cannot see your Shopify (or Woo/BigCommerce) orders or your
 - **Device split** (mobile vs desktop CVR) — the single fastest way to localize a checkout regression.
 - **Tracking health** — known consent-banner, GTM, or pixel incidents that would dent measured CVR without denting real demand.
 
+## How To Pull This Evidence
+
+- **Shopify WoW commerce** — Analytics → Reports → Sales over time for this week and last week (same days, same length); pull revenue, orders, and AOV, then segment by **new vs returning** customer. Gotcha: use **net sales** (refunds and test/draft orders stripped) — gross sales over-reads the number you'll defend in the room.
+- **GA4 sessions, CVR, channel** — Reports → Acquisition → Traffic acquisition, dimension **Default channel group**, for the matching window. Gotcha: build conversion rate from **`purchases` / `key events`**, not "sessions with transactions" — the legacy ecommerce-CVR metric attributes differently and won't match.
+- **GA4 device split** — same report, add **Device category** as a secondary dimension. A mobile-only CVR move with desktop flat is your fastest checkout-regression localizer.
+- **Top movers** — Shopify Reports → Sales by product (and by collection), sorted by revenue delta vs last week; keep the top 3–5 gainers and losers. Gotcha: a hero SKU that went to zero inventory mid-week shows as a revenue loss, not a CVR loss — cross-check stock before blaming the funnel.
+- **Like-for-like windows** — set both date ranges to whole, matched weeks (Mon–Sun vs Mon–Sun) and let GA4 finalize for 24–48h before reading. Gotcha: timezone and attribution differences mean GA4 sessions×CVR will not reconcile to Shopify revenue exactly — expect drift, don't chase it.
+- Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Establish the revenue move and its size.** Net revenue this week vs last week, as a number and a percent, commerce-side. Note the WoW *and* the baseline (YoY or target) gap. Until you know the magnitude you can't tell signal from noise (see Decision Rules).
@@ -99,6 +108,12 @@ A plain AI assistant cannot see your Shopify (or Woo/BigCommerce) orders or your
 ```text
 You are my ecommerce trading analyst running the "Weekly Trading Deck" play.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If commerce
+truth for the week (net revenue/orders/AOV/new-vs-returning) plus a
+confirmed-trustworthy CVR/sessions read is missing, STOP and return only (a) what's
+missing and (b) how to get it — never estimate it or proceed. Do not narrate a CVR
+drop on unverified tracking.
+
 GOAL: tell me what happened to revenue this week, isolate WHICH LEVER moved it
 (sessions vs conversion rate vs AOV), attribute it to a channel and to new-vs-returning,
 and hand me the THREE highest-priority actions with owners. Not a data dump.
@@ -124,7 +139,10 @@ RULES:
 
 RETURN:
 1. A 3-4 sentence executive trading read in plain operator language.
-2. The decomposition table: metric | this wk | last wk | WoW % | vs target/YoY | read.
+2. The decomposition table, using exactly this header row:
+   | Metric | This wk | Last wk | WoW | vs Target/YoY | Read |
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop
+   columns, and do not replace the table with prose.
 3. Lever verdict: TRAFFIC, CVR, or AOV problem (or "noise"), with the channel/cohort.
 4. Top movers up and down (product/collection, revenue delta, why).
 5. Exactly 3 prioritized actions, each with owner, timing, and what would change the call.

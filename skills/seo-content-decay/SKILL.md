@@ -54,6 +54,12 @@ prior period or YoY), a GSC Queries table for the decaying pages, and where avai
 GA4 organic sessions/conversions/revenue per landing page, plus the page type for each
 URL. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the GSC
+period-over-period clicks/impressions/position deltas per page (this period vs. prior
+period or YoY) are missing, STOP and return only (a) what's missing and (b) how to get
+it — never estimate it or proceed. Without that delta you cannot separate lost ranking
+from lost demand/seasonality, which is the entire job.
+
 RULES:
 - Scope gate first: if the drop looks sitewide across unrelated page types, call it an
   algorithm/technical event (FIX + escalate), not page-level decay, and say so.
@@ -71,8 +77,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: Page | Clicks delta | Impr delta | Avg pos delta | Cause |
-   Recoverable value | Action | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Page | Clicks Δ | Impr Δ | Avg pos Δ | Cause | Recoverable value | Action | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

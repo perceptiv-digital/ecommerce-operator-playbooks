@@ -51,6 +51,11 @@ Optional, if available:
 You are my ecommerce analytics lead running the "Tracking Sanity Check" play — the
 trust gate that every other growth decision depends on.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the commerce
+order count (the store's real paid, non-test, non-cancelled order count used as the
+denominator/truth) is missing, STOP and return only (a) what's missing and (b) how to
+get it — never estimate it or proceed. Without commerce truth no drift can be computed.
+
 GOAL: reconcile each reporting source against COMMERCE TRUTH (the store's real paid,
 non-test orders) and tell me which numbers I can trust this week and which are blocked
 until repaired. This is mostly a FIX play. Do not help me make budget/attribution calls
@@ -80,8 +85,11 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read: can I trust the data this week, yes/no, and what's blocked.
-2. A reconciliation table: Source | Reported | Commerce truth | Drift % | Likely cause |
-   Confidence | Fix priority.
+2. A reconciliation table using EXACTLY this header:
+   | Source | Reported | Commerce truth | Drift % | Likely cause | Confidence | Fix priority |
+   |---|---|---|---|---|---|---|
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and
+   do not replace the table with prose.
 3. Broken-tracking notes per flagged source (real break vs expected modelled gap).
 4. An ORDERED repair sequence — biggest decision-blocking drift first — with owner and recheck.
 ```

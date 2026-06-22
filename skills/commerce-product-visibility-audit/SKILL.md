@@ -51,6 +51,11 @@ GOAL: find which products are invisible across commerce, search, and feed surfac
 bucket each into a named failure mode, and rank the fix list by recoverable 30-day
 revenue — not by SKU count.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the per-product
+join inputs — GMC status + GSC impressions/position + commerce revenue — are missing (in
+particular GMC status, without which you cannot tell a disapproval from low demand), STOP
+and return only (a) what's missing and (b) how to get it — never estimate it or proceed.
+
 I will paste a joined product table with, per product: title, price, availability,
 30-day and prior-30 revenue, GMC status + disapproval reason + free-listing/Shopping
 eligibility, GSC page-level impressions/clicks/CTR/avg position (28d), and whether an
@@ -76,8 +81,11 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read led by total recoverable revenue at risk.
-2. A ranked table: SKU/Product | GMC status | GMC impr (30d) | GSC impr / avg pos |
-   Organic page? | 30d revenue | Bucket | Action | Owner | Recheck.
+2. A ranked table using EXACTLY this header row:
+   | SKU/Product | GMC status | GMC impr (30d) | GSC impr / avg pos | Organic page? | 30d revenue | Bucket | Action | Owner | Recheck |
+   |---|---|---|---|---|---|---|---|---|---|
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns,
+   and do not replace the table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

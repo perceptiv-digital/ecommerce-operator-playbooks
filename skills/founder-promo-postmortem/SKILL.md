@@ -54,6 +54,11 @@ revenue for the promo window, the 4 weeks before, and the 2-3 weeks after; same-
 last-year; new-vs-returning split; discount value given away; COGS; and refunds. Some
 data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If a clean pre-promo
+baseline (trailing 4-week run-rate and/or same-period-last-year) or per-unit margin/COGS to
+judge incrementality is missing, STOP and return only (a) what's missing and (b) how to get
+it -- never estimate it or proceed.
+
 RUN IN THIS ORDER:
 1. Build the counterfactual baseline (trailing 4-week run-rate AND same-period-last-year).
    If no credible baseline exists, return FIX -- do not score the promo.
@@ -73,7 +78,11 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read with the verdict.
-2. A table: Metric | Baseline | Promo window | Post-promo | Net incremental | Confidence.
+2. A table using exactly this header row:
+   | Metric | Baseline (run-rate / LY) | Promo window | Post-promo window | Net incremental | Confidence |
+   |---|---|---|---|---|---|
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and
+   do not replace the table with prose.
 3. The contribution-profit walk (gross uplift -> minus trough -> minus margin given away
    -> minus refunds -> net).
 4. Vetoes/caveats and what evidence would upgrade the confidence.

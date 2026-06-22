@@ -74,6 +74,17 @@ A plain AI assistant has no line into your store's order history or your Klaviyo
 - **Service incidents** — a delayed-shipment wave, a stockout on a hero SKU, or a recent price increase explains a cohort-wide chill better than "fatigue."
 - **Channel mix** — VIPs who shifted from DTC to a marketplace (Amazon) or retail aren't lost; they're just invisible to your store data.
 
+## How To Pull This Evidence
+
+- **Customer segments by LTV / RFM (Shopify + Klaviyo)** — In Shopify, use Customers → Segments (or Analytics → "Customers by total spent") to rank by lifetime spend and isolate the top decile; in Klaviyo, build a segment on "Historic Customer Lifetime Value" or a Predicted-CLV / RFM property. Export both and reconcile on email/customer ID so your VIP rule is identical across the two systems.
+- **Repeat rate** — In Shopify, Analytics → Reports → "Returning customer rate" (filter to the VIP segment and to each 90-day window); in Klaviyo, a "placed order ≥ 2 times" segment over the window. Pull both the current and prior 90 days so you have a trend, not a snapshot.
+- **Recency (days-since-last-order)** — In Klaviyo, segment on "what someone has done → Placed Order zero times in the last N days," or sort the Shopify customer export by last-order date. Compare each VIP's recency to *their own* median interpurchase interval, not a store-wide number.
+- **AOV trend** — In Shopify, Analytics → "Average order value" filtered to the VIP segment for current vs prior 90 days; confirm it against an order-line export so refunds/discounts are netted out. A flat AOV with a falling repeat rate is a frequency story, not a basket story.
+- **VIP revenue share** — Take VIP-segment net revenue ÷ total store net revenue for each window (Shopify Analytics sales reports, or an order export pivoted by the VIP flag). A shrinking share is the clearest cohort-cooling signal.
+- **Seasonality gotcha** — Considered and seasonal categories (mattresses, outerwear, gifting) have long natural gaps and holiday spikes, so a 90-day-vs-prior-90-day window can read a normal off-season as "lapse." Compare to the same window last year or lengthen the lookback before concluding the cohort is cooling.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Lock the cohort, then gate on join integrity.** Confirm the VIP definition matches last run. Then check that Shopify customers reconcile to Klaviyo profiles for the cohort. If more than ~10% of VIPs can't be matched (orphaned profiles, guest checkouts, ID mismatch), set **FIX** and stop — you can't read engagement against spend on a broken join.
@@ -104,6 +115,12 @@ contribution at risk, not by headcount and not by a single month's repeat rate.
 VIP DEFINITION (must be stable across periods): I will state it explicitly, e.g. "top 10%
 of customers by trailing-12-month net spend." Use exactly this; do not redefine it.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is a
+STABLE VIP definition — top-decile by trailing-12-month spend (or an equivalent RFM/predicted-LTV
+rule) applied identically across both periods — backed by a large-enough cohort, since small
+cohorts are noisy. If this stable VIP definition + sufficient cohort is missing, STOP and return
+only (a) what's missing and (b) how to get it — never estimate it or proceed.
+
 I will paste: cohort headcount; current vs prior 90-day repeat rate, median AOV, order
 frequency, and VIP share of total revenue; per-customer median interpurchase interval and
 days-since-last-order; Klaviyo 90-day engagement + deliverability; and COGS/margin. Some
@@ -126,10 +143,13 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A cohort-vitals table: Metric | Prior 90d | Current 90d | Delta | Confidence.
+2. A cohort-vitals table using exactly this header row:
+| Metric | Prior 90d | Current 90d | Delta | Status | Confidence |
 3. A named-slider table: Customer | T12M contribution | Own cadence | Days overdue | Status | Touch.
 4. Vetoes/caveats that downgraded any recommendation.
 5. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
+
+Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the table with prose.
 ```
 
 ## Decision Rules

@@ -74,6 +74,17 @@ A plain AI assistant cannot see your Shopify/Woo/BigCommerce orders, your sessio
 - **Stock cover on hero SKUs** — you can't push into a stockout.
 - **Last year's promo timing** — so the YoY pace curve isn't distorted by a promo that ran on different dates.
 
+## How To Pull This Evidence
+
+- **MTD + yesterday revenue (Shopify):** Analytics → Reports → "Sales over time", set the range to month-to-date and group by day. Gotcha: the Analytics dashboard tiles show *gross* and update in near-real-time, so yesterday's number keeps moving until orders settle — pull from the Sales *report* (net of refunds), not the home-screen tiles, and only after the day has closed.
+- **MTD + yesterday revenue (WooCommerce):** WooCommerce → Reports / Analytics → Orders, filtered to the current month. Gotcha: "processing" and "on-hold" orders inflate revenue; filter to completed/paid statuses or you'll book a shortfall that fills in once payments clear.
+- **MTD + yesterday revenue (BigCommerce):** Analytics → Insights / Orders, by day. Gotcha: BigCommerce counts revenue at order placement, so refunds and cancellations lag — reconcile against the Transactions/refunds view before trusting yesterday's net.
+- **Sessions for CVR (GA4):** Explore → free-form, Sessions by date for the same MTD window; CVR = orders ÷ sessions. Gotcha: GA4 "sessions" ≠ Shopify sessions and GA4 holds a 24–48h processing lag plus thresholding on low-volume days — use one source for sessions consistently, and never compute CVR off a not-yet-final day.
+- **Seasonality curve (last year's daily shape):** same commerce Sales report, range set to the same calendar month last year, grouped by day. Gotcha: if a promo ran on different dates last year, that day's spike will mis-shape the curve — note last year's promo timing and smooth or exclude those days before scaling.
+- **Days remaining + peak days:** the calendar, cross-checked against your promo calendar and payday dates. Gotcha: a single payday weekend can hold 15–25% of the month's revenue, so "behind on day 20" is often fine if that weekend is still ahead — never extrapolate before the heavy days land.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Check tracking and settlement first.** If yesterday's orders are still settling, the pixel is drifting, or sessions look implausible, mark the read **FIX** and stop — do not declare a shortfall on dirty data.
@@ -106,6 +117,10 @@ revenue / orders / sessions / AOV, last year's same-month daily revenue curve (o
 trailing weekday index), days remaining, and my promo calendar. Some data may be missing.
 
 RULES:
+- PRE-FLIGHT: First list which required inputs I provided vs. missing. If settled net commerce
+  revenue for the MTD window and yesterday (orders fully settled, after refunds/cancellations,
+  tracking confirmed clean) is missing, STOP and return only (a) what's missing and (b) how to
+  get it — never estimate it or proceed.
 - Build a seasonality-adjusted pace target by distributing the monthly target across days
   using the daily shape I gave you. Never use a naive target / days-in-month linear split.
 - Report the gap as dollars and as a percent of the pace target to date.
@@ -119,8 +134,11 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read ending in PUSH / HOLD / IT'S FINE.
-2. A table: MTD actual | Pace target to date | $ ahead/behind | Required $/day to close |
-   Binding lever | Recommended move | Confidence.
+2. A table using exactly this header row:
+   | MTD actual | Pace target to date | $ ahead/behind | Required $/day to close | Binding lever | Recommended move | Confidence |
+   |---|---|---|---|---|---|---|
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and do
+   not replace the table with prose.
 3. The lever decomposition (traffic / CVR / AOV) showing which one is binding.
 4. Vetoes/caveats that downgraded the call, and what evidence would upgrade it.
 ```

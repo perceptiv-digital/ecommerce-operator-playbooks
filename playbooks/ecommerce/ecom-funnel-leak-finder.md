@@ -73,6 +73,16 @@ A plain AI assistant cannot see your GA4 property or your Shopify/Woo/BigCommerc
 - **Stock / availability** — out-of-stock variants inflate `view_item` while starving `add_to_cart`.
 - **Known tracking incidents** — consent-banner changes, a GTM republish, or a SDK upgrade that moved an event.
 
+## How To Pull This Evidence
+
+- **GA4 funnel steps** — Explore → Funnel exploration; add steps in order `view_item` → `add_to_cart` → `begin_checkout` → `purchase`, set the date range to the window plus the prior equal period.
+- **Segment the funnel** — drop **Device category** and **Session source / medium** into the Breakdown (or as funnel segments); never read the blended total alone — that is where the leak hides.
+- **Top-of-funnel read** — add `sessions` (or `session_start`) as the entry step so you can compute session→view and spot intent vs. a real down-funnel leak.
+- **Shopify orders & AOV** — Analytics → Reports → Sales (or Finances summary) for real order count and AOV in the same window; split new vs. returning if available, to anchor the lost-revenue math per segment.
+- **Reconcile** — compare GA4 `purchase` count to the real Shopify order count; >~10% drift means a tracking artifact, not a leak.
+- **Gotchas** — GA4 default 2-day reporting lag and consent-mode/ad-blocker under-counting skew `purchase`; a renamed or double-firing event (e.g. `add_to_cart` > `view_item`) mimics a leak; tablet traffic is often too thin to rank — fold it in cautiously.
+- Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Verify the funnel before you read it.** Reconcile GA4 `purchase` against real commerce orders for the window. If they diverge by more than ~10%, or any step count is implausible (e.g. `add_to_cart` > `view_item`), set the funnel to **FIX** and stop — a broken event mimics a leak.
@@ -98,6 +108,12 @@ A plain AI assistant cannot see your GA4 property or your Shopify/Woo/BigCommerc
 ```text
 You are my ecommerce analyst running the "Funnel Leak Finder" play.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the full funnel step
+counts (sessions -> view_item -> add_to_cart -> begin_checkout -> purchase) segmented at least
+by device, plus confirmation that tracking isn't broken (GA4 purchases reconciled against real
+orders), is missing, STOP and return only (a) what's missing and (b) how to get it — never
+estimate it or proceed.
+
 GOAL: find the single funnel step that is leaking the most REVENUE (not the lowest rate),
 isolate the device and source it happens on, and propose the one smallest measurable fix.
 
@@ -121,7 +137,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read naming the one leak and the recoverable revenue.
-2. A funnel table: Step | Segment | Sessions/Traffic | Rate | Benchmark | Lost rev (est) | Status.
+2. A funnel table using exactly this header row:
+   | Step | Segment | Traffic | Rate | Benchmark | Lost rev (est) | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and do
+   not replace the table with prose.
 3. The single weakest step by dollars, with the device/source it lives on.
 4. One smallest-measurable fix, its owner, and what evidence would confirm it worked.
 5. Vetoes/caveats and any evidence blocked from a safe call.

@@ -73,6 +73,15 @@ A plain AI assistant cannot see your product catalog, your Merchant Center feed 
 - **Recent catalog edits / bulk-import dates** — a gap created by yesterday's import may already be queued for re-sync; don't double-fix.
 - **Stock status** — a perfect data fix on an out-of-stock SKU yields nothing until it's back in stock.
 
+## How To Pull This Evidence
+
+- **Shopify product export** — Admin → Products → Export → "All products" as CSV (or use the Bulk editor / Admin GraphQL `products` query). Pull, per SKU/variant: title, body/description (`body_html`), image count (`images`), variant options (size/colour/etc.), and the metafields mapped to GTIN (`barcode`), brand (`vendor` or a custom metafield), and Google product category. The CSV gives you completeness flags; the variant rows give you per-option coverage.
+- **GMC item attribute warnings** — Merchant Center → Products → Diagnostics (or the Content API `productstatuses` / `products` resource). Export per-item status (active / disapproved / pending) with the specific warning and error codes — `missing GTIN`, `missing brand/MPN`, `image_link` issues, `price`/`availability` mismatch — plus impressions and clicks per item so each warning carries reach.
+- **Per-SKU traffic/revenue** — GA4 (Reports → Monetization → Item, or the Data API: item-scoped `itemsViewed`, `itemRevenue`, `itemsPurchased`) for sessions/revenue per product, and Search Console (Performance → Pages, or the API) for organic impressions/clicks/position on PDP URLs. This is the join that lets you rank by money instead of empty-field count — and the keys (store product ID vs. feed `id` vs. GA4/GSC page path) rarely match, so reconcile on URL handle or SKU.
+- **Keyword-stuffing gotcha** — when you pull short or "keyword-poor" titles to flag, do not fix them by repeating terms. Stuffed titles depress CVR and can trip a Merchant Center misrepresentation/policy flag, turning a discovery gap into a feed-blocking one. Add real, specific terms (brand, type, key attribute); never repetition.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Confirm the feed is fresh.** If the last successful Merchant Center sync is older than ~24h, set the whole run to **FIX** (sync first) and stop — every downstream gap reading is suspect.
@@ -105,6 +114,12 @@ image count, variant data, GTIN/brand/MPN, category attributes, review count), M
 Center feed diagnostics (disapprovals + warning codes + per-item impressions), and per-PDP
 sessions + conversion rate. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+the catalog completeness fields joined to per-SKU traffic/revenue (sessions, GMC impressions,
+and revenue or CVR per SKU) — without that join you cannot prioritise by money instead of
+empty-field count. If that join is missing, STOP and return only (a) what's missing and
+(b) how to get it — never estimate it or proceed.
+
 RULES:
 - Feed-freshness gate first: if the feed sync is older than ~24h, mark FIX (sync first)
   and stop. Stale diagnostics are unreliable.
@@ -124,8 +139,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: SKU/Product | Gap type | The gap | Sessions (28d) | GMC impressions |
-   CVR vs site avg | Impact score | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | SKU / Product | Gap type | The gap | Sessions (28d) | GMC impressions | CVR vs site avg | Impact score | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

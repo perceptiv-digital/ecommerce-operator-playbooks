@@ -73,6 +73,18 @@ A plain AI assistant cannot see your Shopify (or Woo / BigCommerce) checkout fun
 - **Promo calendar** — discount-led and sale-period traffic abandons at checkout differently (more browsers, code-hunting, BNPL) and should be read on its own curve, not against full-price weeks.
 - **Error / session telemetry** — checkout console errors, declined-payment rates, or session-replay clips for the failing step.
 
+## How To Pull This Evidence
+
+- **Shopify:** Analytics → Reports → "Conversion over time" and the "Sessions converted" / checkout funnel report (Online Store Conversion) for reached-checkout → completed counts; or Analytics → Live/Custom reports filtered to the checkout funnel steps.
+- **GA4:** build a funnel exploration with `begin_checkout` → `add_shipping_info` → `add_payment_info` → `purchase`, then add **Device category** as the breakdown to get begin_checkout→purchase by device.
+- **Payment-method segmentation:** Shopify doesn't expose completion-by-payment-method in standard reports — derive it from Orders/checkout exports (payment gateway field) or a GA4 custom dimension on payment type; capture card vs. Shop Pay / Apple Pay / Google Pay / PayPal / BNPL separately so the express-wallet break is visible.
+- **Windows:** pull the last 7–14 days and the prior equal window on the *same* report so step definitions match; mismatched date ranges or report types are the most common false signal.
+- **Gotcha — blended hides the break:** never accept a single blended completion number; a dead express button can sit under a healthy card rate. Segment by device AND payment method before reading anything.
+- **Gotcha — tracking drift:** GA4 `purchase` undercounts vs. Shopify when consent mode, ad blockers, or a recent pixel/consent deploy are in play; reconcile the two before trusting a decline.
+- **Gotcha — checkout-extensibility:** new one-page checkout / checkout-extension events can rename or drop steps, breaking step-to-step continuity across the window.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Gate on tracking.** If the commerce funnel and GA4 disagree on completed orders by more than ~10%, or if a deploy touched the pixel/consent setup in the window, set the headline to **FIX** and validate tracking before reading any decline. A "checkout collapse" is a tracking artifact until proven otherwise.
@@ -108,6 +120,11 @@ purchase) for the last 7-14 days and the prior equal window; completion split by
 payment method, and country; my 8-week baseline; and a deploy/change log if I have one.
 Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If checkout-started->purchase
+counts segmented by device and payment method are missing (blended-only counts do not satisfy this
+- they hide the break), STOP and return only (a) what's missing and (b) how to get it - never
+estimate it or proceed.
+
 RULES:
 - Tracking gate first: if commerce and GA4 disagree on completed orders by >10%, or a
   deploy touched the pixel/consent setup, mark the headline FIX and do not read the
@@ -124,8 +141,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read, ending with a clear hold-or-scale call on acquisition spend.
-2. A segment table: Segment | Checkout->purchase rate | vs baseline | Lost orders |
-   Revenue at risk | Suspected cause | Status | Owner | Recheck.
+2. A segment table using exactly this header row:
+   | Segment | Checkout→purchase rate | vs baseline | Lost orders (window) | Revenue at risk | Suspected cause | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and do not
+   replace the table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

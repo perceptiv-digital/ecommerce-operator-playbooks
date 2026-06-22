@@ -74,6 +74,15 @@ A plain AI assistant cannot see your Stripe balance, your payout schedule, or yo
 - **Supplier payment terms** — Net-30 vs deposit-on-order changes whether a PO is an immediate cash hit or a scheduled one.
 - **Prior-period runway estimate** — last week's weeks-of-runway number, so you're tracking the *trend*, not just today's snapshot.
 
+## How To Pull This Evidence
+
+- **Available vs pending balance** — Stripe Dashboard → **Balance**. Gotcha: the headline figure blends the two; record **available** and **pending** as separate numbers, never the sum.
+- **Payout schedule + next payout + reserve** — Stripe → **Balance → Payouts** and **Settings → Payouts**. Gotcha: a rolling reserve or extended payout window silently shrinks spendable cash — confirm it before trusting "available."
+- **Gross / fees / refunds / disputes** — Stripe → **Payments** and **Disputes** (or **Reporting → exports**) for the last 28 days. Gotcha: refunds and chargebacks lag the sale by weeks, so trend 4 weeks, not one.
+- **Commerce orders, refunds, AOV** — Shopify **Analytics → Reports** (or Woo/BigCommerce equivalent), exported by day. Gotcha: store "net sales" excludes processor fees and post-period refunds, so it won't tie to Stripe gross exactly — reconcile, don't assume a match.
+- **Known outflows + open POs** — your payroll system, ad platform spend, and supplier/PO tracker or spreadsheet. Gotcha: open inventory POs live outside every dashboard and are the most-forgotten outflow — list each by due date.
+- Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Anchor on available, not pending, not revenue.** Start from Stripe **available** balance. This is the only number you can actually spend today. Pending is scheduled, not spendable; revenue is a story about the past.
@@ -96,6 +105,11 @@ A plain AI assistant cannot see your Stripe balance, your payout schedule, or yo
 
 ```text
 You are my fractional CFO running the "Cash and Payout Snapshot" play.
+
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If Stripe
+available-vs-pending balance or known outflows (payroll, open inventory POs, ad spend)
+are missing, STOP and return only (a) what's missing and (b) how to get it — never
+estimate it or proceed.
 
 GOAL: tell me what this week's cash, payout, refund, and sales evidence says about
 runway pressure — in spendable cash, not revenue. Estimate weeks of runway and flag
@@ -124,7 +138,11 @@ RULES:
 RETURN:
 1. A 3-sentence executive read: cash position, the one pressure signal that matters, runway.
 2. An evidence table: Signal | Number | Source | Window | Confidence.
-3. A decision table: Signal | Status | Why | Owner | Timing.
+3. A decision table using exactly this header row:
+   | Signal | Evidence | Status | Why | Owner | Timing |
+   |---|---|---|---|---|---|
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns,
+   and do not replace the table with prose.
 4. Vetoes/caveats that changed any call.
 5. What's blocked and what evidence would upgrade a WATCH/FIX to a decision.
 ```

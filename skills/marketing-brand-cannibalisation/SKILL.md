@@ -51,6 +51,12 @@ queries (spend, clicks, conversions, value), Search Console for the same queries
 (avg position, clicks, impressions, organic CTR), and auction insights per brand
 campaign (competitor domains + impression share). Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical
+input is brand-term paid spend/impressions AND organic brand ranking + competitor
+presence on those SERPs — without competitor presence you can't tell defensible from
+cannibalised. If that critical input is missing, STOP and return only (a) what's
+missing and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Defensible first: any brand term where a competitor holds meaningful impression
   share is plausibly incremental -> KEEP/defensive, never a KILL candidate. State the
@@ -67,7 +73,9 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read (estimated cannibalised spend range + the one defensible slice).
-2. A ranked table: Brand campaign/term | Brand spend (30d) | My organic position | Competitor on SERP? (impr share) | SERP layout | Est. cannibalised $ | Status | Owner | Holdout to confirm.
+2. A ranked table using exactly this header row:
+| Brand campaign / term | Brand spend (30d) | My organic position | Competitor on SERP? (impr share) | SERP layout | Est. cannibalised $ | Status | Owner | Holdout to confirm |
+Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the table with prose.
 3. Vetoes/caveats that protected any spend or downgraded any recommendation.
 4. The exact holdout test (geo or time) that would turn the top estimate into proof.
 ```

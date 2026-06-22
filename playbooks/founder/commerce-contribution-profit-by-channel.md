@@ -77,6 +77,16 @@ A plain AI assistant has no line into your store, your GA4, or your three ad acc
 - **Stock cover on hero SKUs** — so a "scale this channel" verdict doesn't collide with a stockout.
 - **Shipping-subsidy / free-shipping-threshold policy** — changes the fulfilment cost line materially by channel and AOV.
 
+## How To Pull This Evidence
+
+- **Commerce revenue + orders by channel** — Shopify Admin → Analytics → Reports → "Sales by traffic source/referrer" (or Woo/BigCommerce equivalent) for net revenue, orders, discounts, and returns by the window. Gotcha: this is your one true order count — anchor on it, not the ad platforms' summed purchases.
+- **COGS / cost coverage** — set **Cost per item** on each variant in Shopify (Products → variant → Cost per item), then read it via the "Profit" / "Cost of goods sold" report. Gotcha: **Shopify COGS isn't in standard order CSV exports** — if Cost per item is blank, COGS reads as $0 and every contribution number is fiction.
+- **Shipping/fulfilment + payment fees** — pull pick/pack and shipping cost per order from your 3PL/fulfilment export, and payment-processor fees from Shopify Payments → Payouts (or your gateway's fee report, ~2.4–2.9% + flat). Gotcha: these never appear in any ad platform's dashboard — you must add them by hand.
+- **GA4 channel revenue + new/returning** — GA4 → Reports → Acquisition → Traffic acquisition, dimensioned by **Default channel grouping** and source/medium, with the New/Returning dimension. Gotcha: GA4's last-click channel grouping won't reconcile to commerce — use it to expose last-click skew, not as order truth.
+- **Meta / Google / TikTok ad spend** — export spend, purchases, purchase value, and ROAS per channel: Meta Ads Manager (Export), Google Ads (split **Brand vs Non-brand/PMax/Shopping**), TikTok Ads Manager. Gotcha: each uses its own attribution window and over-credits itself — treat reported purchases as inflated, spend as the only hard number.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Anchor on order truth.** Start from commerce net revenue and the **one** real order count. Sum the three ad platforms' reported purchases — they will exceed your real orders. That gap is your over-attribution budget; do not spend contribution you can't see.
@@ -99,6 +109,11 @@ A plain AI assistant has no line into your store, your GA4, or your three ad acc
 
 ```text
 You are my ecommerce CFO-analyst running the "Contribution Profit by Channel" play.
+
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If per-unit costs
+(COGS/cost coverage) or commerce order truth (the one real order count by channel) is
+missing, STOP and return only (a) what's missing and (b) how to get it — never estimate it
+or proceed.
 
 GOAL: tell me which channels create real CONTRIBUTION PROFIT, not just revenue and not
 just platform ROAS, and give each channel a KILL / REFRESH / WATCH / KEEP / FIX verdict
@@ -128,8 +143,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read naming the real profit channels vs the revenue mirages.
-2. A ranked table: Channel | Revenue | Ad spend | COGS | Contribution $ | Contribution
-   margin % | New-customer % | Platform ROAS | Verdict.
+2. A ranked table using exactly this header row:
+   | Channel | Revenue | Ad spend | COGS | Contribution $ | Contribution margin % | New-customer % | Platform ROAS | Verdict |
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and
+   do not replace the table with prose.
 3. Which "winners" are harvesters, and which channel actually created that demand.
 4. Vetoes/caveats (partial-profit labels, attribution caveats, promo distortion) and what
    evidence would upgrade any WATCH/FIX into a confident KEEP/KILL.

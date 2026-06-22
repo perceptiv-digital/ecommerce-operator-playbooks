@@ -52,6 +52,11 @@ purchase) for the last 7-14 days and the prior equal window; completion split by
 payment method, and country; my 8-week baseline; and a deploy/change log if I have one.
 Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If checkout-started->purchase
+counts segmented by device and payment method are missing (blended-only counts do not satisfy this
+- they hide the break), STOP and return only (a) what's missing and (b) how to get it - never
+estimate it or proceed.
+
 RULES:
 - Tracking gate first: if commerce and GA4 disagree on completed orders by >10%, or a
   deploy touched the pixel/consent setup, mark the headline FIX and do not read the
@@ -68,8 +73,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read, ending with a clear hold-or-scale call on acquisition spend.
-2. A segment table: Segment | Checkout->purchase rate | vs baseline | Lost orders |
-   Revenue at risk | Suspected cause | Status | Owner | Recheck.
+2. A segment table using exactly this header row:
+   | Segment | Checkout→purchase rate | vs baseline | Lost orders (window) | Revenue at risk | Suspected cause | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and do not
+   replace the table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```
