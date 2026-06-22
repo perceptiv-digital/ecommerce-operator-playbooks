@@ -17,7 +17,7 @@ Reference the play file directly in-editor (`@playbooks/...`) or paste the promp
 
 ## ShopMCP — the live-data version
 
-The manual path asks you to export and reconcile data your assistant can't see. [ShopMCP](https://my.shop-mcp.app) connects your store, ads, analytics, lifecycle, and finance systems so the **same play runs in one prompt against your live data** — read-only by default, with any write gated behind your explicit approval.
+The manual path asks you to export and reconcile data your assistant can't see. [ShopMCP](https://shop-mcp.app) connects your store, ads, analytics, lifecycle, and finance systems so the **same play runs in one prompt against your live data** — read-only by default, with any write gated behind your explicit approval. It's free for 14 days, no credit card.
 
 ```text
 Run the [playbook title] play for the last 30 days. Keep it read-only.

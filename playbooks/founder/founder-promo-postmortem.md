@@ -216,15 +216,13 @@ Note how the answer *inverts* the dashboard: the headline +42% revenue is real, 
 
 > No store connection inside your AI assistant — no daily order history, no customer mix, no per-line margin? That's the wall every manual promo post-mortem hits. ShopMCP *is* that connection, and the same playbook runs in one prompt instead of a spreadsheet afternoon plus a calendar reminder.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Promo Post-Mortem play for the last 30 days. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/founder-promo-postmortem?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

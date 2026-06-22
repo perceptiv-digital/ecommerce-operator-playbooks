@@ -198,15 +198,13 @@ The naive linear target through day 20 of a 31-day month would have read $354,00
 
 > No store connection inside your AI assistant? That's the wall every manual run hits — nobody rebuilds a daily seasonality curve by hand at 8am. ShopMCP *is* the connection, and the same playbook then runs in one prompt instead of a morning spreadsheet.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Pace to Target play for the last 30 days. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/founder-pace-to-target?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

@@ -206,15 +206,13 @@ Note how the ranking *inverts* the platform view: Harborline's 2.4 platform ROAS
 
 > Running the single-store Wasted Spend Killer twelve times by hand is the wall every agency hits. ShopMCP *is* the connection to every client at once — and the same playbook then runs in one prompt instead of a Monday-morning spreadsheet marathon.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Roster Wasted-Spend Rollup play for the last 7 days. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/agency-roster-wasted-spend?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

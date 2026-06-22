@@ -225,15 +225,13 @@ The audit *inverts* the optimistic onboarding story: the account "looks like it'
 
 > No store, GA4, Meta, Google, or Klaviyo connection inside your AI assistant? That's the wall every onboarding audit hits — you cannot vouch for tracking you cannot read, least of all on an account you were handed yesterday. ShopMCP *is* the connection across all five, so the audit that decides whether you can report on a client runs in one prompt instead of a multi-tab access-chasing afternoon.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Client Tracking Setup Audit play. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/agency-tracking-setup-audit?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

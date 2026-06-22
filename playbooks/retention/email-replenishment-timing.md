@@ -206,15 +206,13 @@ Note how the answer is driven by *your* reorder clock, not a category default: t
 
 > No store or Klaviyo connection inside your AI assistant? That's the wall every manual run hits. ShopMCP *is* the connection — and the same playbook then runs in one prompt instead of a spreadsheet afternoon.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Replenishment Timing play for the last 30 days. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/email-replenishment-timing?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

@@ -218,15 +218,13 @@ Note how the answer *inverts* a naive units view: the scarf (140 units, deepest 
 
 > No store or inventory connection inside your AI assistant? That's the wall every manual dead-stock run hits — sell-through isn't in any single export, it has to be assembled. ShopMCP *is* that assembly, so the same playbook runs in one prompt instead of a spreadsheet afternoon.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Dead Stock Watch play for the last 30 days. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/merch-dead-stock-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

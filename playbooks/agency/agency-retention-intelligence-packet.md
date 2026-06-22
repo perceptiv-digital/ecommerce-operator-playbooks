@@ -221,16 +221,14 @@ Status table columns:
 
 > This is the agency multiplier: the manual version is one spreadsheet-evening *per client*, so a 15-account roster is your whole week. ShopMCP runs the identical play across **every connected client store** on demand, so you walk into every review with the same defensible packet — and spot the at-risk account before the client emails you. No live line into each client's commerce, Klaviyo, and Attentive is the wall every manual run hits. ShopMCP *is* that connection.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Retention Intelligence Packet play for this client over the last 90 days.
 Keep it read-only and write the summary client-safe — I'm taking it into their review.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/agency-retention-intelligence-packet?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

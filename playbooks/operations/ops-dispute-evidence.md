@@ -206,15 +206,13 @@ Note how the decision *ignores* outrage: the $22 "fraud" feels the most unjust, 
 
 > No live Stripe and store connection inside your AI assistant? That's the wall every manual dispute run hits — the evidence lives in four systems and the deadline is ticking. ShopMCP *is* that connection, so the same playbook runs in one prompt instead of a four-tab scramble.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Stripe Dispute Evidence Pack play for the last 30 days. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/ops-dispute-evidence?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

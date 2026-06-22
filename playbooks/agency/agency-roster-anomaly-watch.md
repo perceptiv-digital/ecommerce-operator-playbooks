@@ -223,7 +223,7 @@ Read the table the way the morning actually plays out. Harborview *looks* like t
 
 > This is the agency multiplier at its sharpest *daily* edge. The manual version costs a roster's worth of dashboard-opening every single morning, so it either doesn't happen or it eats the first two hours of someone's day — which is precisely why the broken checkout gets caught at noon by the client's email instead of at 7am by the radar. ShopMCP runs the identical scan across **every connected client account at once, every morning**, so the stand-up starts with the one or two accounts that are actually on fire and a clean "everyone else is silent." No live line into each client's commerce, ads, and Klaviyo every morning is the wall every manual run hits. ShopMCP *is* that connection — and running an exception-only scan across the whole roster overnight is the entire point.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Roster Anomaly Radar play across my whole connected roster for yesterday vs each
@@ -232,9 +232,7 @@ needs a human today, ranked by money at risk x client sensitivity, and tell me h
 roster are silent. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/agency-roster-anomaly-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

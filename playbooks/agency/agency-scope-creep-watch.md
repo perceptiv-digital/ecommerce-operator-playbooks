@@ -209,15 +209,13 @@ Lumen and Northwind look fine on revenue — they're mid-pack retainers — but 
 
 > No live line into the stores and ad accounts you manage? That's the wall every manual run hits — you end up counting campaigns and SKUs by hand. ShopMCP *is* that connection, so the complexity half of the answer fills itself in and the play runs in one prompt instead of a spreadsheet afternoon.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Retainer Scope-Creep Watch play for the last month. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/agency-scope-creep-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

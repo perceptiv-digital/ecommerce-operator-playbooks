@@ -208,15 +208,13 @@ The pattern: orders up + AOV down + discount share up + margin down + returning 
 
 > No Shopify, Woo, or BigCommerce connection inside your AI assistant? That's the wall every manual run hits. ShopMCP *is* the connection — and the same YoY decomposition then runs in one prompt instead of a Monday-morning spreadsheet session.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Year-over-Year Pulse play for the last 30 days. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/founder-yoy-pulse?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

@@ -202,15 +202,13 @@ The audit inverts the obvious read: the homepage-dump ad isn't a "bad creative,"
 
 > No live line into your ad accounts, your storefront's current pricing, and your GA4 property at the same time? That's the wall every manual run hits — the leak only appears when promise, page, and behaviour sit in one row. ShopMCP *is* that join, so the audit runs in one prompt instead of an afternoon of tab-switching.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Ad-to-Landing-Page Message Match Audit play for the last 30 days. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/ecom-ad-message-match?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

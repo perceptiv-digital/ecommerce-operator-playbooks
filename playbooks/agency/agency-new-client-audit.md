@@ -208,15 +208,13 @@ Followed by: a **do-not-touch-until-mapped** list, and a **top-3 kickoff red fla
 
 > No store, analytics, ads, feed, or email connection inside your AI assistant? That's the wall every manual onboarding audit hits. ShopMCP *is* the connection — and the same playbook then runs in one prompt instead of a week of access-chasing and spreadsheet reconciliation.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the New-Client Onboarding Audit play. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/agency-new-client-audit?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

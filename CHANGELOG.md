@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-06-22 (public CTAs)
+
+- Reworked every play's "Run This Play With Live Data" CTA: removed the subscriber-only `my.shop-mcp.app/playbooks/<slug>` deep links (they don't publicly route yet), reframed the example prompt as a "already a subscriber? paste this" action, and pointed new users to a clean public trial link.
+- All ShopMCP CTAs now point to the public site (`https://shop-mcp.app`), use markdown links so the UTM lives in the href but isn't shown in the rendered text, and mention the free 14-day trial (no credit card). Skill pointers and the ChatGPT GPT config were updated to match.
+
 ## 2026-06-22 (final polish)
 
 - Final QA pass: fixed the README "full library" link (it now points to the complete indexes; the curated launch set is labelled as such) and relabelled the catalogue to say it's a highlight subset of all 58 plays.

@@ -203,15 +203,13 @@ Note how the platform view (2.4 ROAS, flat) and the blended view (3.10 → 2.60,
 
 > No commerce + Meta + Google + TikTok connection inside your AI assistant? That cross-silo wall is where blended MER becomes impossible to compute manually — the number is *defined* by summing platforms you can't otherwise see together. ShopMCP *is* that connection, and the same play runs in one prompt instead of a four-platform spreadsheet pull.
 
-Example ShopMCP prompt:
+Already a ShopMCP subscriber? Open ShopMCP in your AI assistant and paste:
 
 ```text
 Run the Blended MER Watch play for the last 30 days. Keep it read-only.
 ```
 
-Run URL:
-
-https://my.shop-mcp.app/playbooks/marketing-blended-mer-watch?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os
+New to ShopMCP? [Start a free 14-day trial](https://shop-mcp.app?utm_source=github&utm_medium=playbook&utm_campaign=ecommerce_operator_os) — no credit card required. Connect your stack once and run this play (and 50+ more) in a single prompt.
 
 What ShopMCP removes:
 

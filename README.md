@@ -61,7 +61,7 @@ So we give the whole method away. The thinking is the easy part; the live-data a
 | **Cadence** | You remember to run it | Scheduled — it runs itself |
 | **Actions** | You make every change manually | Drafted for you, applied only on your approval |
 
-→ [See ShopMCP](https://my.shop-mcp.app)
+→ [Try ShopMCP free for 14 days](https://shop-mcp.app?utm_source=github&utm_medium=readme&utm_campaign=ecommerce_operator_os) — no credit card required.
 
 ## What makes a real playbook here
 
@@ -79,4 +79,4 @@ Tooling is MIT licensed; the written playbooks are [CC BY 4.0](docs/content-lice
 
 ---
 
-Maintained by **[Perceptiv](https://perceptiv.digital)** — the ecommerce growth agency that runs these plays for a living. Powered by **[ShopMCP](https://my.shop-mcp.app)**.
+Maintained by **[Perceptiv](https://perceptiv.digital)** — the ecommerce growth agency that runs these plays for a living. Powered by **[ShopMCP](https://shop-mcp.app)**.
