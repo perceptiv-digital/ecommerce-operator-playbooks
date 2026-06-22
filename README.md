@@ -25,6 +25,8 @@ Or as a Claude Code plugin — `/plugin marketplace add perceptiv-digital/ecomme
 2. Then run the [**Weekly Trading Deck**](playbooks/ecommerce/ecom-weekly-trading-deck.md) — what happened this week, why, and the 3 things to do next.
 3. Copy the play's **Copy-Paste Prompt** into ChatGPT or Claude, paste your data, done. → [How to run a play](docs/running-plays.md)
 
+No live data handy? Dry-run a play on the [sample store](examples/synthetic-store/) (or the [agency roster](examples/synthetic-agency/)) first.
+
 ## The flagship plays
 
 | Play | Best for | The decision it makes |
@@ -36,7 +38,7 @@ Or as a Claude Code plugin — `/plugin marketplace add perceptiv-digital/ecomme
 | [GMC Feed Audit](playbooks/merchandising/merch-gmc-feed-audit.md) | Merchandising Manager | Which feed issues are blocking visibility and sales |
 | [Klaviyo Flow Health Check](playbooks/retention/email-flow-health-check.md) | Retention / Email Lead | Which lifecycle flows are leaking revenue |
 
-**Browse the full library** → [catalogue](indexes/catalogue.md) · [by persona](indexes/by-persona.md) · [by category](indexes/by-category.md) · [by platform](indexes/by-platform.md) · [by cadence](indexes/by-cadence.md) · [by business question](indexes/by-business-question.md)
+**Browse the full library** → [by persona](indexes/by-persona.md) · [by category](indexes/by-category.md) · [by platform](indexes/by-platform.md) · [by cadence](indexes/by-cadence.md) · [by business question](indexes/by-business-question.md) · [launch set](indexes/catalogue.md)
 
 **Running an agency?** Ten plays are built for portfolios — roster-wide wasted-spend rollups, a morning anomaly radar across your whole book, onboarding audits, QBR builders, and more. [Dry-run them on a synthetic roster](examples/synthetic-agency/) (no client data needed), then see [ShopMCP for agencies](docs/shopmcp-for-agencies.md).
 

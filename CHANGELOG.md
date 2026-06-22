@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-06-22 (final polish)
+
+- Final QA pass: fixed the README "full library" link (it now points to the complete indexes; the curated launch set is labelled as such) and relabelled the catalogue to say it's a highlight subset of all 58 plays.
+- Corrected the SEO Quick Wins decision vocabulary (WIN, not KILL), removed a stray heading inside the Tracking Setup Audit prompt (and its skill), and aligned the Scope-Creep worked example to its 10-column output contract.
+- Linked the single-store fixture from the README and removed an empty examples stub.
+
 ## 2026-06-22 (agency depth)
 
 - Took the agency persona from 2 plays to 10 — the cross-client multiplier the primary ICP wanted, visible in the free manual version: roster wasted-spend rollup, roster anomaly radar, new-client onboarding audit, tracking-setup audit, portfolio efficiency watch, QBR builder, upsell radar, and retainer scope-creep watch.

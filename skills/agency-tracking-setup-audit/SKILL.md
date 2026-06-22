@@ -82,7 +82,6 @@ RULES:
 RETURN:
 1. A 2-3 sentence executive read: can we report on this client yet, yes/no, and what's frozen.
 2. A setup scorecard using EXACTLY this header:
-   ## Output Contract
    | Check | Status | Drift/issue | Risk | Fix | Owner |
    |---|---|---|---|---|---|
    Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and
