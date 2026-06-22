@@ -53,9 +53,9 @@ my blended cost rate, my target effective rate, and (optionally) account-complex
 signals (campaigns, SKUs, stores, platforms) and engagement age. Some data may be missing.
 
 RULES:
-- PRE-FLIGHT: First list which inputs I provided vs. missing. If logged hours per client
-  or the retainer fee is missing, STOP and ask for them — never judge engagement
-  profitability without effort data.
+- PRE-FLIGHT: First list which inputs I provided vs. missing. If logged hours or the
+  retainer fee is missing for a client, mark that client FIX and exclude it from the
+  ranking — never estimate hours from feel.
 - Effective rate = retainer / logged hours. Always cost it at my BLENDED cost rate, not a
   single person's rate, and state the hours behind every rate.
 - Flag a client only when its effective rate is below my target rate across the window.

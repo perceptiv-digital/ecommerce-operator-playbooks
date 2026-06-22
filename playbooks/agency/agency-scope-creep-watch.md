@@ -120,9 +120,9 @@ my blended cost rate, my target effective rate, and (optionally) account-complex
 signals (campaigns, SKUs, stores, platforms) and engagement age. Some data may be missing.
 
 RULES:
-- PRE-FLIGHT: First list which inputs I provided vs. missing. If logged hours per client
-  or the retainer fee is missing, STOP and ask for them — never judge engagement
-  profitability without effort data.
+- PRE-FLIGHT: First list which inputs I provided vs. missing. If logged hours or the
+  retainer fee is missing for a client, mark that client FIX and exclude it from the
+  ranking — never estimate hours from feel.
 - Effective rate = retainer / logged hours. Always cost it at my BLENDED cost rate, not a
   single person's rate, and state the hours behind every rate.
 - Flag a client only when its effective rate is below my target rate across the window.
@@ -180,14 +180,14 @@ A table ranked by **agency margin lost per month**, not by retainer size:
 
 Target effective rate: **$130/hr**. Blended cost rate: **$95/hr** (anything below this loses money).
 
-| Client | Retainer/mo | Hours/mo | Effective rate | vs target rate | Status | Action |
-|---|---|---|---|---|---|---|
-| Lumen Skincare | $4,500 | 96 | $47/hr | −64% | KILL | Offboard or 2x retainer at renewal |
-| Northwind Outdoors | $5,500 | 78 | $71/hr | −45% | REFRESH | Rescope: 3 stores, 2 platforms now |
-| Harbor & Co | $6,000 | 73 | $82/hr | −37% | WATCH | Launch month + referral source — recheck |
-| Birchwood Home | $7,200 | 52 | $138/hr | +6% | KEEP | Healthy — leave alone |
-| Vela Activewear | $9,000 | 41 | $220/hr | +69% | KEEP | Underloaded — capacity to upsell |
-| Crest Pet Co | $3,000 | — | — | — | FIX | Hours not logged to client — fix timesheets |
+| Client | Retainer/mo | Hours/mo | Effective rate | vs target rate | Complexity | Status | Action | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|---|
+| Lumen Skincare | $4,500 | 96 | $47/hr | −64% | 1 store, heavy creative | KILL | Offboard or 2x retainer at renewal | Owner + AD | renewal |
+| Northwind Outdoors | $5,500 | 78 | $71/hr | −45% | 3 stores, 2 platforms | REFRESH | Rescope at renewal | Owner + AD | 30 days |
+| Harbor & Co | $6,000 | 73 | $82/hr | −37% | launch month | WATCH | Recheck post-launch | AD | 30 days |
+| Birchwood Home | $7,200 | 52 | $138/hr | +6% | 1 store, simple | KEEP | Leave alone | AM | 90 days |
+| Vela Activewear | $9,000 | 41 | $220/hr | +69% | 1 store, underloaded | KEEP | Capacity to upsell | AM | 30 days |
+| Crest Pet Co | $3,000 | — | — | — | — | FIX | Fix timesheets | Ops | 7 days |
 
 Lumen and Northwind look fine on revenue — they're mid-pack retainers — but on effort they're the two leaking accounts: Lumen below cost, Northwind below target with real complexity to point at. Vela, the largest logo, is the opposite: it's *underloaded* at $220/hr, which is its own signal — there's room to deepen scope and grow the account rather than leave that margin on the table.
 

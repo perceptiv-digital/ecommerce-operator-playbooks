@@ -1,6 +1,6 @@
 # Playbook Catalogue — Launch Set
 
-The launch playbooks. Each is useful manually and maps to a ShopMCP live-data workflow. Browse the full library by [persona](by-persona.md), [category](by-category.md), [platform](by-platform.md), [cadence](by-cadence.md), or [business question](by-business-question.md).
+The 31 launch playbooks — a curated highlight set. The **full library of 58 plays** lives in the [persona](by-persona.md), [category](by-category.md), [platform](by-platform.md), [cadence](by-cadence.md), and [business question](by-business-question.md) indexes.
 
 | Play | Persona | Category | Platforms | Cadence |
 |---|---|---|---|---|
