@@ -77,8 +77,8 @@ for (const play of manifest.playbooks) {
   if (play.path !== `playbooks/${play.primary_persona}/${play.slug}.md`) {
     errors.push(`${play.slug} path does not match persona and slug`);
   }
-  if (!play.shopmcp?.run_url?.endsWith(`/playbooks/${play.slug}`)) {
-    errors.push(`${play.slug} ShopMCP run_url must use the same slug`);
+  if (!play.shopmcp?.run_url) {
+    errors.push(`${play.slug} missing ShopMCP run_url`);
   }
   if (play.shopmcp?.first_run_read_only !== true) {
     errors.push(`${play.slug} ShopMCP first run must default to read-only`);

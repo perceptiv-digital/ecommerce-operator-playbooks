@@ -22,7 +22,7 @@ flagship: false
 shopmcp_ready: true
 default_mode: "read-only"
 approved_writes_supported: false
-shopmcp_run_url: "https://my.shop-mcp.app/playbooks/agency-tracking-setup-audit"
+shopmcp_run_url: "https://shop-mcp.app"
 shopmcp_prompt: "Run the Client Tracking Setup Audit play. Keep it read-only."
 status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
