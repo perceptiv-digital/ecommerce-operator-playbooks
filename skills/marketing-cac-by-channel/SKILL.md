@@ -57,6 +57,12 @@ I will paste: spend by channel; commerce orders tagged new vs returning with sou
 GA4 source/medium; platform CPA; and my targets (first-order contribution margin, LTV,
 allowable payback months). Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If NEW (first-time)
+customers per channel from my commerce new-vs-returning record — alongside channel spend —
+is missing (platform CPA is NOT a substitute), STOP and return only (a) what's missing and
+(b) how to get it — never estimate it or proceed. Without commerce new-vs-returning,
+new-customer CAC is wrong.
+
 RULES:
 - If new-vs-returning tagging or GA4 source/medium is unreliable, mark the affected
   channels FIX and exclude them from KILL/scale calls. Do not guess CAC.
@@ -72,8 +78,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: Channel | Spend | New customers | New-cust CAC | Platform CPA |
-   New-cust share | Target CAC | LTV/CAC or payback | Status | Owner | Recheck.
+2. A ranked table using EXACTLY this header row:
+   | Channel | Spend (30d) | New customers | New-cust CAC | Platform CPA | New-cust share | Target CAC | LTV/CAC or payback | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

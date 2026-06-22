@@ -76,6 +76,17 @@ A plain AI assistant has no line into your Shopify, Woo, or BigCommerce orders, 
 - **Stock / availability** — out-of-stocks in either window that suppressed orders and distort the comparison.
 - **Channel and geo mix** — a shift into a lower-AOV channel or market explains an AOV drop without anything being "wrong."
 
+## How To Pull This Evidence
+
+- **Revenue & orders, both windows** — Shopify Analytics → Reports → "Sales over time" with the *Compare to previous year* toggle. Gotcha: Shopify's YoY compare slides by raw date, not weekday — force ISO-week alignment yourself or week 25 lands on a different Monday.
+- **Comparable window definition** — set the prior-year range by ISO week (or matched weekday position), never "today − 365 days." Gotcha: a one-day drift moves a weekend out of the window and silently swings orders 10–15%.
+- **AOV** — derive as net revenue ÷ orders for each window, not from the dashboard tile. Gotcha: Shopify's AOV tile is gross-of-refunds, so it disagrees with your net-revenue decomposition.
+- **New-vs-returning mix** — Shopify Analytics → "Customers over time" / "First-time vs returning customer sales." Gotcha: "returning" is store-lifetime, not in-window, so the rate looks healthier than true repeat behavior — read the YoY *direction*, not the absolute.
+- **Gross margin** — join order lines to COGS from your product cost field or inventory/3PL export. Gotcha: Shopify only stores "Cost per item" if you populated it; blank costs read as 100% margin and quietly inflate the number.
+- **Discount dependence** — discount dollars ÷ gross revenue per window, from the order export's Discount column. Gotcha: automatic/script discounts and free-shipping promos often sit outside the Discount field — reconcile against the Discounts report or you'll understate dependence.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Lock the comparable window.** Confirm this year vs. last year are the same calendar position with matched promo presence. If a promo landed in one window and not the other, you cannot compare them rationally → realign the window or mark the read **FIX** and stop.
@@ -108,6 +119,10 @@ I will paste two columns of data: THIS period and the comparable window LAST YEA
 net revenue, orders, AOV, new-vs-returning mix, gross margin %, and discount share of
 revenue. I will also note any promos, price changes, stockouts, or store-growth context.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If order-level
+commerce data for the same comparable calendar window last year is missing, STOP and
+return only (a) what's missing and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Confirm the two windows are the same calendar position with matched promo presence.
   If a promo or holiday landed in only one window, say the comparison is unsafe and stop.
@@ -122,7 +137,11 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive trading read.
-2. A YoY table: Metric | This period | Same window LY | YoY delta | Read.
+2. A YoY table using exactly this header row:
+   | Metric | This period | Same window LY | YoY delta | Read |
+   |---|---|---|---|---|
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns,
+   and do not replace the table with prose.
 3. The single most important pattern (healthy growth / discount-funded / margin
    compression / retention erosion / genuine softness) with the evidence behind it.
 4. Vetoes or caveats that downgrade confidence.

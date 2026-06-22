@@ -74,6 +74,17 @@ A plain AI assistant can't see the client's Shopify orders, their Klaviyo flows,
 - **Subscription / replenishment products** — change the entire baseline; a 55% repeat-rate is unremarkable for coffee, excellent for mattresses.
 - **Known deliverability incidents** — a domain reputation dip or a Klaviyo dedicated-IP warmup in progress.
 
+## How To Pull This Evidence
+
+- **Shopify repeat-rate & returning-customer revenue** — Shopify admin → Analytics → Reports → *Customers* (first-time vs. returning, repeat customer rate) and *Sales by customer type* for the returning-revenue share; cross-check against a raw orders export with customer IDs so the math is yours, not the dashboard's.
+- **Shopify cohorts** — Analytics → Reports → *Customer cohort analysis* for retention by acquisition month, or build 30/60/90-day decay yourself from the orders export (group by first-order month, count who reordered by day 30/60/90).
+- **Klaviyo flow health** — Analytics → *Flows* for per-flow live status and open/click/placed-order rate on the core lifecycle (Welcome, Browse/Site Abandon, Abandoned Cart, Post-Purchase, Winback); confirm each flow is actually *live and sending*, not just drafted.
+- **Klaviyo deliverability** — the *Deliverability* tab (or the email performance report) for open-rate trend, spam-complaint rate, unsub rate, and sending-domain authentication status.
+- **Klaviyo / Attentive list growth** — Klaviyo *Growth* / list-growth report for net new subscribers minus suppressions; Attentive → *Audience* / Reporting for subscriber growth, opt-out rate, and journey/automation performance plus SMS revenue share.
+- **Small-sample / client-safe gotcha** — every export above degrades when the window is thin: a cohort under ~50 customers, a flow under ~200 recipients, or a segment under ~50 profiles reads as anecdote, not signal. Note the sample beside every number, and never carry an under-sample figure — or a metric a platform isn't even connected to — into a client-facing line. Flag it blind instead.
+
+Or skip all of this — ShopMCP pulls it live across every client.
+
 ## The Decision Logic (run in this order)
 
 1. **Gate on data sufficiency first.** Before reading any trend, check sample and history. Cohorts need ≥12 months of orders and ≥~50 customers per cohort to be stable; a flow needs ≥~200 recipients in the window to judge its rate; a list segment under ~50 profiles is anecdote, not signal. Anything that fails the gate is **FIX** (data/access gap) and is reported as *"can't see this yet,"* never guessed.
@@ -111,6 +122,12 @@ deliverability (open trend / spam rate / unsub rate / domain auth), email & SMS 
 share, Attentive subscriber growth + opt-out rate, the client's category, and any
 promo/flow-change context. Some data will be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If this client's
+commerce + Klaviyo/Attentive retention data over a sufficient window (>=12 months of
+orders for cohorts, enough recipients/profiles to clear sample) is missing, STOP and
+return only (a) what's missing and (b) how to get it — never estimate it or alarm the
+client; flag it as blind.
+
 RULES:
 - Data-sufficiency gate FIRST. Cohorts need >=12 months and ~50+ customers each; flows need
   ~200+ recipients; segments under ~50 profiles are anecdote. Anything below sample is FIX
@@ -128,7 +145,10 @@ RULES:
 
 RETURN:
 1. A one-paragraph client-facing summary (the AM could read it aloud).
-2. A status table: Signal | Reading | Evidence | Confidence | Client-safe line | Next action.
+2. A status table using exactly this header row:
+   | Signal | Reading | Evidence | Confidence | Client-safe line | Next action |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose.
 3. The 2-3 signals worth raising in the meeting, and why each cleared the bar.
 4. What's being monitored quietly (and what would promote it to a "raise").
 5. The single recommended next play, with owner and timing.

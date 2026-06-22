@@ -74,6 +74,15 @@ A plain AI assistant has no view into your Klaviyo deliverability tab, your send
 - **Sunset-flow status** — is a 90/120-day-unengaged suppression flow live, or is dead weight still in the sendable audience?
 - **Seed-list / inbox-placement test results** — a Glock/GlockApps-style placement test tells you inbox vs. spam vs. missing per provider, which Klaviyo's open rate cannot.
 
+## How To Pull This Evidence
+
+- **Klaviyo Deliverability tab** (Analytics → Deliverability) — read the **spam-complaint rate** and **bounce rate** per send and over the trailing 7/30 days, plus the **sending reputation** indicator. Filter to campaign sends, not flows, when isolating a spike. *Gotcha:* Klaviyo only sees its own feedback-loop complaints, so its complaint number runs low — treat it as a floor, not the truth.
+- **Google Postmaster Tools** (postmaster.google.com) — read domain and IP **reputation** (High / Medium / Low / Bad) and the **spam-rate** trend for Gmail recipients. *Gotcha:* it only populates above ~100–200 Gmail sends/day, data lags 1–2 days, and it covers Gmail only — pair it with Yahoo's sender dashboard for the other half of the inbox.
+- **DMARC/SPF/DKIM check** — run `dig TXT yourdomain.com` and a DMARC/DKIM checker (e.g. MXToolbox or dmarcian), and confirm Klaviyo's domain settings show all three aligned plus the one-click List-Unsubscribe header. *Gotcha:* a record that *exists* isn't the same as one that *aligns* — SPF can pass while DKIM signs the wrong domain, so verify the `From:` domain matches.
+- **List-growth-vs-unsub** — compare net new subscribers against unsubscribes and spam-complaints for the window in Klaviyo's growth/list reports. *Gotcha:* a list that's growing on paper can still be rotting if unsubs and complaints are outrunning engaged net-new — segment by source to find the leak.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Authentication first — it gates everything.** If SPF, DKIM, DMARC, or one-click List-Unsubscribe is missing or misaligned, set the program to **FIX-AUTH** and treat all downstream metrics as unreliable. Broken auth means providers can't even verify you; no complaint-rate read is trustworthy until this passes.
@@ -105,6 +114,14 @@ I will paste: Klaviyo complaint rate and bounce rate (per send and 30-day, by pr
 if I have it), Google Postmaster domain/IP reputation, my SPF/DKIM/DMARC/one-click
 List-Unsubscribe status, and my campaign segment recency windows. Some data may be missing.
 
+Required inputs for this play are: spam-complaint rate, bounce rate, and authentication
+status (SPF/DKIM/DMARC). The spam-complaint rate is the critical input — without it you
+cannot judge whether it is safe to keep sending.
+
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the spam-complaint
+rate is missing, STOP and return only (a) what's missing and (b) how to get it — never
+estimate it or proceed.
+
 RULES:
 - Authentication gates everything. If SPF, DKIM, DMARC, or one-click List-Unsubscribe is
   missing or misaligned, return FIX-AUTH and treat complaint/open metrics as unreliable.
@@ -120,8 +137,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read: is it safe to keep sending, yes or no, and why.
-2. A table: Segment/Send | Complaint % | Bounce % | Auth status | Engagement window |
-   Status | Owner | Recheck.
+2. A table using exactly this header row:
+   | Segment / Send | Complaint % | Bounce % | Auth status | Engagement window | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. The single highest-priority fix and the warm-back-up plan if anything is paused.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a clear send/no-send.
 ```

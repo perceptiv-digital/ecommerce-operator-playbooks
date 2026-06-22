@@ -75,6 +75,16 @@ A bare AI assistant can reason about stockout math, but it cannot see your store
 - **Promo / launch calendar** — to avoid crediting (or blaming) the gap for a swing that a promotion actually caused.
 - **Seasonality / day-of-week shape** — so a Monday-vs-weekend sell-rate isn't read as a trend.
 
+## How To Pull This Evidence
+
+- **Shopify inventory snapshot** — Admin → Products → Inventory, or export the inventory CSV, to flag every variant at 0 or below its safety floor. *Gotcha:* the export shows current on-hand but not the timestamp each variant hit 0 — reconstruct the drop date from the inventory adjustment history (or a daily snapshot you've been keeping), because guessing it skews days-out-of-stock.
+- **Shopify sell-through / sales-by-variant report** — Analytics → Reports → "Sales by product variant SKU" over a trailing 28–56 day window gives units sold per SKU. *Gotcha:* you must exclude the OOS days from the denominator yourself; the canned report averages over the whole window and quietly deflates the very sell-rate you're trying to measure.
+- **Days out of stock** — derive it from the inventory adjustment log or your own daily snapshots, not from the order gap. *Gotcha:* "no orders" ≠ "out of stock" — a SKU can go quiet for demand reasons; only the inventory timeline tells you when sellable quantity actually hit 0.
+- **GA4 OOS PDP traffic** — GA4 → Reports → Pages and screens (or Explore), filter `page_path` to each dead product URL, pull sessions/day for the last 7–14 days. *Gotcha:* GA4's default 1–2 day processing lag and any consent-mode/sampling gaps undercount recent sessions — read it as a live-demand signal, not an exact count, and note the sampling.
+- **Margin** — selling price minus COGS minus variable fulfilment per SKU, from your cost sheet or Shopify's per-variant cost field (Inventory → Cost per item). *Gotcha:* Shopify's "cost per item" is often unset or stale and rarely includes pick/pack/ship — fall back to a category default and label it estimated rather than treating a blank as zero.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Confirm the gap is real.** Inventory feed fresh, quantity truly 0/below floor, and the drop timestamp is trustworthy. If inventory is stale or ambiguous, mark the SKU **FIX** and stop — don't estimate loss on a number you don't trust.
@@ -106,6 +116,11 @@ sell-rate per SKU (units/day, with OOS days already excluded), contribution marg
 GA4 PDP sessions/day on each dead page, incoming-PO ETA, back-in-stock signups, and
 sibling-variant stock. Some fields may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the per-SKU clean
+sell-rate (over a clean pre-stockout window with OOS days excluded), the days out of stock,
+or the contribution margin per unit is missing, STOP and return only (a) what's missing and
+(b) how to get it — never estimate it or proceed.
+
 RULES:
 - Lost units = clean sell-rate x days out of stock. Lost contribution = lost units x margin/unit.
   Rank by lost CONTRIBUTION, not units and not revenue.
@@ -123,8 +138,9 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read (total lost contribution + the top offender).
-2. A ranked table: SKU | Days OOS | Clean sell-rate | Lost units | Margin/unit | Lost contribution |
-   Live PDP sessions/day | Recoverable (sub/BIS) | Restock ETA | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | SKU | Days OOS | Clean sell-rate | Lost units | Margin/unit | Lost contribution | Live PDP sessions/day | Recoverable | Restock ETA | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the table with prose.
 3. Vetoes/caveats that downgraded any row.
 4. What evidence is blocked and what would upgrade a WATCH/FIX to a confident escalation.
 ```

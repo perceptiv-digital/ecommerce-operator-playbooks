@@ -73,6 +73,16 @@ A plain AI assistant has never seen your rendered HTML, your Search Console rich
 - **Pending PDP/theme changes** — an imminent template rebuild may make a one-off patch wasted work.
 - **Review-app coverage** — what share of products actually have reviews, so you don't mark up `aggregateRating` on products that legitimately have none.
 
+## How To Pull This Evidence
+
+- **Rendered structured data per template** — run each representative URL through Google's **Rich Results Test** and open **"View tested page" → "More info" → the rendered HTML/JSON-LD tab**, or use a JS-rendering crawler. This is the markup Googlebot actually executes — your critical input.
+- **View the rendered DOM, not view-source** — `Ctrl/Cmd+U` (view-source) shows the raw theme file *before* apps and tag managers inject or mutate schema. Inspect the live DOM instead (DevTools → Elements, or the Rich Results Test rendered output) so app-injected and app-stripped JSON-LD both show up.
+- **Search Console enhancement counts** — `GSC → Enhancements`, then each report (**Product snippets**, **Merchant listings**, **Breadcrumb**, **Review snippets**); read the valid / warning / error tallies and click into an error to see which property and example URLs are failing at scale.
+- **Required vs. recommended Product properties** — Google's "Product structured data" docs split these. **Required** for a merchant listing / product snippet: `name`, `image`, and `offers` with `price`, `priceCurrency`, `availability`. **Recommended** (eligible-but-weaker if absent): `gtin`/`mpn`, `brand`, `sku`, `aggregateRating`, `review`. Score required first — a missing recommended field never hard-blocks eligibility.
+- **Never mark up fake reviews (gotcha)** — only add `aggregateRating` / `review` for ratings genuinely shown on the page, and only the products that actually have them. Marking up undisplayed or invented reviews is a documented manual-action risk, not a shortcut to stars.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Gate on rendering and honesty.** If the markup isn't in the rendered DOM Googlebot executes, or the on-page content doesn't match the markup, set the template to **FIX** and stop — eligibility is impossible and mismatched markup is a manual-action risk. Nothing downstream matters until this passes.
@@ -106,6 +116,14 @@ inventory, Rich Results Test / Schema.org validator errors, my Search Console en
 counts (valid/warning/error), live URL count per template, and organic impressions/revenue
 where available. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+the actual RENDERED structured data on my key templates (Product/Breadcrumb/Offer/etc.) and
+what is missing or invalid in it -- schema must reflect real on-page data, never marked-up
+reviews, ratings, or prices I don't actually display. If that rendered markup is missing,
+STOP and return only (a) what's missing and (b) how to get it (render the page as Googlebot
+executes it and capture the post-JavaScript JSON-LD -- never view-source) -- never estimate
+it or proceed.
+
 RULES:
 - Render gate first: if markup isn't in the rendered DOM, or the markup does not match
   what is actually displayed on the page, mark the template FIX and exclude it from
@@ -124,8 +142,11 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: Template | Pages affected | Missing/invalid property | Rich result blocked |
-   GSC status | Organic value of affected URLs | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+| Template | Pages affected | Missing/invalid property | Rich result blocked | GSC status | Organic value of affected URLs | Status | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|
+Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+table with prose.
 3. Vetoes/caveats that downgraded any recommendation (especially honesty/render gates).
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

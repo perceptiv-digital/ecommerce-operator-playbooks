@@ -45,6 +45,11 @@ Optional, if available:
 ```text
 You are my ecommerce CFO-analyst running the "Contribution Profit by Channel" play.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If per-unit costs
+(COGS/cost coverage) or commerce order truth (the one real order count by channel) is
+missing, STOP and return only (a) what's missing and (b) how to get it — never estimate it
+or proceed.
+
 GOAL: tell me which channels create real CONTRIBUTION PROFIT, not just revenue and not
 just platform ROAS, and give each channel a KILL / REFRESH / WATCH / KEEP / FIX verdict
 ranked by contribution dollars created.
@@ -73,8 +78,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read naming the real profit channels vs the revenue mirages.
-2. A ranked table: Channel | Revenue | Ad spend | COGS | Contribution $ | Contribution
-   margin % | New-customer % | Platform ROAS | Verdict.
+2. A ranked table using exactly this header row:
+   | Channel | Revenue | Ad spend | COGS | Contribution $ | Contribution margin % | New-customer % | Platform ROAS | Verdict |
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and
+   do not replace the table with prose.
 3. Which "winners" are harvesters, and which channel actually created that demand.
 4. Vetoes/caveats (partial-profit labels, attribution caveats, promo distortion) and what
    evidence would upgrade any WATCH/FIX into a confident KEEP/KILL.

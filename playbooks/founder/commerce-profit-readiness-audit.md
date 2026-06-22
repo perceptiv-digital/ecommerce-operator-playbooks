@@ -73,6 +73,16 @@ A plain AI assistant will happily compute "profit" from whatever you paste — a
 - **Duties, FX, and inbound freight** for cross-border or imported goods — quietly large on landed cost.
 - **Subscription / transaction app fees, chargebacks, and gift-card breakage** — small individually, but they decide whether "net" is real net.
 
+## How To Pull This Evidence
+
+- **COGS coverage** — Shopify admin → Products → export CSV; the `Cost per item` column is your unit cost. Join it to an orders export (by SKU) so coverage is revenue-weighted, not just a SKU count. Gotcha: blank `Cost per item` reads as $0, not "unknown" — count blanks as uncosted, never as free.
+- **Shipping / fulfilment cost** — this is *charged* shipping (in Shopify order data), not *cost*. Real cost lives in your carrier/3PL invoice (ShipStation, Easyship, or the 3PL's monthly pick-pack bill). Gotcha: if you only have what the customer paid for shipping, you have revenue, not cost — mark the feed Missing.
+- **Payment fees** — Shopify Payments: Settings → Payments → payouts/transaction fees, or the Finance → Payouts export. Stripe/PayPal/Klarna each have their own fees export. Gotcha: a contracted rate card (e.g. 2.9% + 30¢) is an estimate, not actuals — label it Partial.
+- **Ad spend completeness** — pull spend from every channel that actually ran (Meta Ads Manager, Google Ads, TikTok, etc.), not just your hero channel. Gotcha: a channel that spent $0 this window is complete; a channel you *forgot to check* is a silent gap that poisons channel-net.
+- **Returns cost** — Shopify Analytics → Returns (or refunds export) gives refunded revenue; recovered COGS (goods back in sellable stock) usually isn't tracked anywhere and must be flagged as estimated.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Measure COGS coverage by revenue, not by SKU count.** "COGS on 90% of SKUs" can still be unsafe if the missing 10% are your bestsellers. Compute **% of revenue covered**. ≥95% revenue-covered → gross margin SAFE; 80–95% → PARTIAL (answer as a range); <80% → UNSAFE.
@@ -95,6 +105,10 @@ A plain AI assistant will happily compute "profit" from whatever you paste — a
 
 ```text
 You are my ecommerce finance analyst running the "Profit Readiness Audit" play.
+
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If a representative
+sample of catalogue/order/cost data (COGS coverage and the cost-feed status) is missing,
+STOP and return only (a) what's missing and (b) how to get it — never estimate it or proceed.
 
 GOAL: do NOT compute my profit. Instead, tell me which profit questions I am currently
 allowed to answer safely, given the cost evidence I have — and what is blocking the rest.
@@ -119,8 +133,13 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read: what I can and cannot safely claim right now.
-2. A readiness scorecard: Profit question | Inputs required | Inputs present | Verdict
-   (SAFE/PARTIAL/UNSAFE) | Range if partial.
+2. A readiness scorecard using EXACTLY this table header:
+
+| Profit question | Inputs required | Inputs present | Verdict | Range if partial | Blocking gap |
+|---|---|---|---|---|---|
+
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and
+   do not replace the table with prose.
 3. The named SKUs / categories / feeds blocking the UNSAFE and PARTIAL answers.
 4. The single highest-leverage gap to close first, with owner and ETA.
 ```

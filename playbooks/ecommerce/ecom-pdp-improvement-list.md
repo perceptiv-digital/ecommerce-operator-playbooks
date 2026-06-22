@@ -73,6 +73,16 @@ A plain AI assistant has no line into your store admin or GA4, so it can't see t
 - **On-site search and PDP exit/bounce rate** — corroborates where attention dies.
 - **Returns rate by product** — a fit/expectation gap that no PDP edit alone will close.
 
+## How To Pull This Evidence
+
+- **Shopify → Analytics → Reports → "Sessions by landing page"** for per-PDP sessions; pair with **"Conversion by landing page"** (or build a custom report) to get CVR per page. Gotcha: landing-page sessions undercount PDPs reached via collection/search, so a deep-linked PDP's true traffic is higher than the report shows.
+- **Shopify "Product analytics" / "Sessions converted to checkouts"** for add-to-cart rate per product. Gotcha: Shopify's product-level funnel keys on product, not URL — variant and `?variant=` PDPs collapse into one row.
+- **GA4 → Reports → Engagement → Landing page** (add `add_to_cart`, `view_item`, `purchase` as secondary metrics) when you need the micro-funnel GA4 splits cleaner than Shopify's. Gotcha: GA4 page paths carry locale prefixes and query strings — normalize them before joining to Shopify handles, or the VLOOKUP drops rows.
+- **Margin/COGS lives in the product/variant cost field** (Shopify "Cost per item"), not in any analytics report — export it from the catalog and join it in. Gotcha: a blank cost field silently zeroes contribution and corrupts the recoverable-revenue ranking; flag missing-cost rows rather than treating them as 100% margin.
+- **Reviews (count + rating) and image count** come from the catalog/review app export, per PDP. Gotcha: review apps store counts outside Shopify's product object, so they need a separate pull keyed on product handle.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Gate on tracking.** If GA4 purchases for the window diverge from store orders by more than ~20%, stop — set the whole list to **FIX** and repair events first. A wrong CVR denominator mis-ranks everything.
@@ -108,6 +118,11 @@ I will paste a per-PDP table: page, sessions (28d), add-to-cart rate, actual CVR
 benchmark CVR, AOV, margin %, review count, avg rating, image count, stock status by
 variant, and mobile LCP where available. Some fields may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If per-PDP sessions
+(traffic) + CVR (and margin) is missing, STOP and return only (a) what's missing and
+(b) how to get it -- never estimate it or proceed. Without per-PDP traffic you cannot
+compute recoverable revenue, and without margin you cannot rank by contribution.
+
 RULES:
 - Tracking gate first: if I tell you GA4 purchases and store orders diverge >20%, mark
   the whole list FIX and stop ranking.
@@ -128,8 +143,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read naming the single highest-recoverable PDP.
-2. A table ranked by recoverable revenue: PDP | Sessions (28d) | Actual CVR | Benchmark CVR
-   | Recoverable $ | Driver | Status | Owner | Recheck.
+2. A table ranked by recoverable revenue, using EXACTLY this header row:
+   | PDP | Sessions (28d) | Actual CVR | Benchmark CVR | Recoverable $ | Driver | Status | Owner | Recheck |
+   Use "--" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose.
 3. Vetoes/caveats that pulled or downgraded any page.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a fix decision.
 ```

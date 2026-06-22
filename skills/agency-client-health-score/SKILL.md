@@ -55,6 +55,12 @@ and a tracking-reconciliation figure (platform-claimed revenue vs store orders).
 give each client's targets, monthly order volume, account tier/MRR, and renewal date where
 I have them. Some data will be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+per-client multi-dimension data over a trend window - commerce trend, paid efficiency,
+retention/email health, and tracking integrity, read across multiple weeks (a one-week dip
+is not red). If that per-client multi-dimension trend data is missing for a client, mark
+them BLIND (not green) and say what's needed - never score a client green on missing data.
+
 RULES:
 - Judge every client against ITS OWN targets, never a blanket benchmark. A $40k/mo and a
   $480k/mo account are not scored on the same absolute numbers.
@@ -75,8 +81,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read naming the accounts that need the week's attention.
-2. A portfolio table ranked worst-first: Client | Tier/MRR | Commerce | Paid | Retention |
-   Tracking | Composite | RAG | One-line WHY | Owning AM | Recheck.
+2. A portfolio table ranked worst-first, using exactly this header row:
+   | Client | Tier / MRR | Commerce | Paid | Retention | Tracking | Composite | RAG | Why (one line) | Owning AM | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. The 2-3 accounts to intervene on, re-ranked by stakes + renewal proximity, each with the
    specific reason and the recommended first action.
 4. Which accounts are BLIND (data gap) and what's needed to score them honestly.

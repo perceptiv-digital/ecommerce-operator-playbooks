@@ -77,6 +77,16 @@ A plain AI assistant cannot see your Stripe dispute object, your carrier's deliv
 - **Repeat-customer / loyalty signal** — a long order history with matching AVS is strong context on `fraudulent`.
 - **3-D Secure / SCA authentication** — if the charge carried a liability shift, the bank often must eat a `fraudulent` claim; surface it immediately.
 
+## How To Pull This Evidence
+
+- **Stripe dispute reason code + deadline** — Stripe Dashboard → **Payments → Disputes** → open the dispute. The reason code sits at the top of the dispute; the submission deadline is the `evidence_details.due_by` timestamp. Copy both before touching anything else — they decide which evidence counts and how long you have.
+- **Shopify order / fulfilment / tracking** — Shopify admin → **Orders** → the matching order. Read the shipping address and billing address the customer entered, the fulfilment status, and the carrier tracking number; click through to the carrier (USPS/UPS/FedEx/DHL) for the delivery-confirmation scan and signature/POD.
+- **Customer comms** — pull the email, chat, or SMS thread from your support inbox (Gmail, Zendesk, Gorgias, etc.) where the buyer confirms receipt, use, or the purchase itself — the field that wins `product_unacceptable` and friendly-fraud cases.
+- **AVS / CVV** — open the original charge in Stripe (**Payments → the charge**) and read `address_line1_check`, `address_zip_check`, and `cvc_check`, plus the customer IP and card fingerprint — the core of any `fraudulent` defence.
+- **Never-fabricate gotcha:** copy these values exactly as the systems report them. Never alter, backdate, or "clean up" a scan time, an address, or an AVS result — fraudulent representment can cost you the whole Stripe account, not just the case. If a field is genuinely missing, mark it missing; do not estimate it.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Clock first.** Read `due_by`. If under 48 hours, drop everything and assemble now — a strong pack submitted late loses 100% of the time. Set the calendar reminder before you read another field.
@@ -109,6 +119,12 @@ result, customer IP, the shipping/billing addresses entered, prior order count, 
 tracking + delivery scan + signature if any, product photos/listing, the returns policy
 shown at checkout, and the support thread. Some fields may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the dispute reason
+code, the order/fulfilment record, or the submission deadline (due_by) is missing, STOP and
+return only (a) what's missing and (b) how to get it — never estimate it or proceed. The
+reason code dictates which evidence wins and a missed deadline is an automatic loss, so
+none of these three can be inferred.
+
 RULES:
 - Deadline gate first: surface due_by for every dispute. A late submission is an automatic
   loss — flag anything under 48 hours as URGENT.
@@ -127,8 +143,10 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read.
-2. A per-dispute table: Dispute | Reason code | Amount | Due in | Core evidence present |
-   Grade | Win prob | EV | Decision (FIGHT/ACCEPT) | Owner.
+2. A per-dispute table using exactly this header row:
+   | Dispute | Reason code | Amount | Due in | Core evidence present | Grade | Win prob | EV | Decision | Owner |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. The exact evidence list to attach for each FIGHT, in Stripe's field order.
 4. Vetoes/caveats and what missing field would change the call.
 ```

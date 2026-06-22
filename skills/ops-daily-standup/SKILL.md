@@ -54,6 +54,12 @@ method, region), my dispatch SLA per method, high-risk/held orders, failed/pendi
 payments, stuck shipments (no carrier scan), the refund/return queue, and OOS-blocked
 orders. Some lists may be empty or partial.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the open
+order/fulfilment/exception queues with ages and values (unfulfilled orders past their
+dispatch SLA, high-risk/held orders, and failed/pending payments — each with its order
+age and value) are missing, STOP and return only (a) what's missing and (b) how to get
+it — never estimate it or proceed. Without the ages and values you cannot prioritise.
+
 RULES:
 - Measure dispatch age in HOURS PAST EACH ORDER'S OWN SLA, not a flat threshold. Express,
   standard, and freight/pre-order have different promises — use the SLA I give you.
@@ -71,8 +77,10 @@ RULES:
 RETURN:
 1. A 2-3 sentence executive read: how big is today's queue and what's the single most
    urgent item.
-2. A ranked action queue table: Item | Type | Age vs SLA | Value | Customer impact |
-   Action | Owner | Approval? | Deadline.
+2. A ranked action queue table. Use exactly this header row:
+   | Item | Type | Age vs SLA | Value | Customer impact | Action | Owner | Approval? | Deadline |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose.
 3. The approval-required rows called out separately.
 4. What evidence is missing and which items can't be safely ranked until it lands.
 ```

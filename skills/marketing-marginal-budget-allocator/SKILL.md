@@ -57,6 +57,12 @@ I will paste, per channel: spend curve with CPA/ROAS trend as spend changed; Goo
 Search impression share lost to BUDGET vs lost to RANK; Meta frequency + audience size;
 TikTok response to its last budget change; and my contribution margin. Some may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical inputs
+are the scaling-headroom signals (Google Search impression-share-lost-to-BUDGET, Meta
+frequency/saturation) and a contribution-margin CPA ceiling — average ROAS alone is NOT
+marginal ROAS and cannot stand in for them. If any of those critical inputs is missing,
+STOP and return only (a) what's missing and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Gate first: if platform conversions and my commerce orders diverge, or margin is
   missing, mark that channel FIX and exclude it from add/cut calls. Do not guess headroom.
@@ -73,8 +79,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read naming where the next dollar goes and why.
-2. A ranked table: Channel | Spend (30d) | Avg ROAS/CPA | Marginal read | Headroom signal |
-   Frequency / IS-lost-budget | Call (Add/Hold/Test) | Owner | Recheck.
+2. A ranked table using EXACTLY this header row, copied verbatim:
+   | Channel | Spend (30d) | Avg ROAS/CPA | Marginal read | Headroom signal | Call | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a HOLD/FIX to a decision.
 ```

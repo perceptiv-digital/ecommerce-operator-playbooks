@@ -55,6 +55,11 @@ I will paste a weekly table: total spend (Meta+Google+TikTok), total commerce re
 new vs returning revenue split, summed platform ROAS, contribution margin, and any
 promo weeks. Some fields may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If total revenue,
+total ad spend, or contribution-margin % is missing (these are the critical inputs that
+compute breakeven MER — MER without margin is meaningless), STOP and return only (a)
+what's missing and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Compute breakeven MER first. If I gave no margin, mark everything FIX — MER without a
   breakeven line is meaningless. Do not guess a margin.
@@ -70,8 +75,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read (direction, distance to breakeven, the real driver).
-2. A weekly trend table: Week | Spend | Revenue | Blended MER | Summed platform ROAS |
-   aMER | Returning share | Breakeven MER | Note.
+2. A weekly trend table using EXACTLY this header row, columns in this order:
+   | Week | Spend (all platforms) | Revenue (commerce) | Blended MER | Summed platform ROAS | aMER | Returning share | Breakeven MER | Note |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose.
 3. A status (KEEP/WATCH/REFRESH/KILL/FIX) on the efficiency trend, with the veto applied.
 4. What evidence is blocked and what you'd need to upgrade the call.
 ```

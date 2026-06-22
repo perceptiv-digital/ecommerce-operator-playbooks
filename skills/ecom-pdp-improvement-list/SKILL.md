@@ -53,6 +53,11 @@ I will paste a per-PDP table: page, sessions (28d), add-to-cart rate, actual CVR
 benchmark CVR, AOV, margin %, review count, avg rating, image count, stock status by
 variant, and mobile LCP where available. Some fields may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If per-PDP sessions
+(traffic) + CVR (and margin) is missing, STOP and return only (a) what's missing and
+(b) how to get it -- never estimate it or proceed. Without per-PDP traffic you cannot
+compute recoverable revenue, and without margin you cannot rank by contribution.
+
 RULES:
 - Tracking gate first: if I tell you GA4 purchases and store orders diverge >20%, mark
   the whole list FIX and stop ranking.
@@ -73,8 +78,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read naming the single highest-recoverable PDP.
-2. A table ranked by recoverable revenue: PDP | Sessions (28d) | Actual CVR | Benchmark CVR
-   | Recoverable $ | Driver | Status | Owner | Recheck.
+2. A table ranked by recoverable revenue, using EXACTLY this header row:
+   | PDP | Sessions (28d) | Actual CVR | Benchmark CVR | Recoverable $ | Driver | Status | Owner | Recheck |
+   Use "--" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose.
 3. Vetoes/caveats that pulled or downgraded any page.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a fix decision.
 ```

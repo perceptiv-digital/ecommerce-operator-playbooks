@@ -54,6 +54,12 @@ I will paste, per account: spend vs. trailing-7-day average, CPA and ROAS vs. ta
 conversions, delivery/account status, any disapprovals or "limited by budget" flags, the
 account's reporting time zone, and any overnight edits / live promos. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+yesterday/overnight spend + conversions + target, broken out by account/campaign. If that
+critical input is missing, STOP and return only (a) what's missing and (b) how to get it —
+never estimate it or proceed. Platform conversions can lag and backfill for 24-72h; treat a
+lagging conversion count as a flag-don't-kill caveat, not a missing input — proceed and note it.
+
 RULES:
 - Reconcile time zones first. Treat any "overnight" gap that is really a reporting-cutoff
   difference as noise, not performance.
@@ -68,8 +74,11 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read: how many real items vs. how much was noise.
-2. A table of AT MOST the top 3-5 items, ranked by daily money at risk:
-   Item | Platform | Signal (number vs. baseline) | Window | Suspected cause | Status | Owner | Next step.
+2. A table of AT MOST the top 3-5 items, ranked by daily money at risk, using exactly this
+   header row:
+   | Item | Platform | Signal (vs. baseline) | Window | Suspected cause | Status | Owner | Next step |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. What you deliberately did NOT flag, and why (so I trust the quiet).
 4. Anything blocked by missing evidence and what would confirm the cause.
 ```

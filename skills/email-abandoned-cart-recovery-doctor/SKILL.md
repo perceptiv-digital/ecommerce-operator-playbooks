@@ -54,6 +54,13 @@ per-message analytics (recipients, open, click, placed-order rate, revenue), flo
 recovery rate and revenue per recipient, Shopify checkouts-started / orders / AOV /
 discount-code usage, and my benchmarks. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+confirmation that each recovery flow is firing on the correct trigger (e.g. Checkout Started
+vs the deprecated Started Checkout, and not Added to Cart) PLUS its recovery rate and
+revenue-per-recipient — a flow firing on a broken or wrong trigger earns nothing, so every
+downstream number is meaningless without it. If that critical input is missing, STOP and
+return only (a) what's missing and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Trigger gate first: if a flow's trigger metric is wrong (e.g. deprecated Started Checkout
   vs Checkout Started after Shopify checkout extensibility) or it has stopped firing, mark
@@ -72,8 +79,10 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read.
-2. A ranked table: Defect | Flow | Evidence (number+source+window) | Recoverable $/mo (est) |
-   Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Defect | Flow | Evidence (number + source + window) | Recoverable $/mo (est) | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation (esp. thin sample, attribution overlap,
    discount-margin risk).
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.

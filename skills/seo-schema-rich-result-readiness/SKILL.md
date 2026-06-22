@@ -51,6 +51,14 @@ inventory, Rich Results Test / Schema.org validator errors, my Search Console en
 counts (valid/warning/error), live URL count per template, and organic impressions/revenue
 where available. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+the actual RENDERED structured data on my key templates (Product/Breadcrumb/Offer/etc.) and
+what is missing or invalid in it -- schema must reflect real on-page data, never marked-up
+reviews, ratings, or prices I don't actually display. If that rendered markup is missing,
+STOP and return only (a) what's missing and (b) how to get it (render the page as Googlebot
+executes it and capture the post-JavaScript JSON-LD -- never view-source) -- never estimate
+it or proceed.
+
 RULES:
 - Render gate first: if markup isn't in the rendered DOM, or the markup does not match
   what is actually displayed on the page, mark the template FIX and exclude it from
@@ -69,8 +77,11 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: Template | Pages affected | Missing/invalid property | Rich result blocked |
-   GSC status | Organic value of affected URLs | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+| Template | Pages affected | Missing/invalid property | Rich result blocked | GSC status | Organic value of affected URLs | Status | Owner | Recheck |
+|---|---|---|---|---|---|---|---|---|
+Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+table with prose.
 3. Vetoes/caveats that downgraded any recommendation (especially honesty/render gates).
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

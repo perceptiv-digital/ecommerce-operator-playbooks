@@ -74,6 +74,15 @@ A plain AI assistant can reason about contribution margin in the abstract, but i
 - **Seasonality / clearance status** — end-of-season clearance compresses margin by design and must not be read as a structural failure.
 - **Competitor price band** — tells you whether a reprice is even feasible before you recommend one.
 
+## How To Pull This Evidence
+
+- **Per-SKU price and COGS (Shopify)** — list price comes from each variant; COGS lives in the variant's **Cost per item** field (Products → variant → Pricing → *Cost per item*). It's optional in Shopify and routinely left blank, so export the products CSV and check the `Cost per item` column for gaps before trusting any margin. No Cost per item = no real contribution for that SKU → **FIX**.
+- **Return rate per SKU** — Shopify's admin returns/refunds live at the *order* level, not rolled up per SKU. Pull refunded line items (Orders → filter Refunded, or the refunds export) and aggregate refunded units against net units sold per SKU yourself. Add the loaded cost of a return — return shipping + restock/refurb labour + the write-off rate on units you can't resell — since Shopify won't net any of that against margin.
+- **Payment fees** — Shopify Payments fees (e.g. 2.9% + $0.30, varies by plan/region) and any third-party gateway fees sit in **Settings → Payments** and on the payout/transaction export, not on the product record. Apply the per-transaction rate to realized price, and don't forget per-order pick/pack and attributable ad spend.
+- **Loss-leader / attach-rate gotcha** — none of the above tells you whether a contribution-negative SKU is *deliberately* subsidising a profitable basket. You can't read attach rate or AOV lift off a product or refund export; you have to join order-line co-occurrence (which SKUs ship in the same order) before you let any KILL through. Skip this join and you will delist a loss-leader that was carrying the cart.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Gate on cost coverage.** Any SKU with missing or stale COGS, or with returns not attributable to it, is **FIX** — label it *partial profit* and exclude it from KILL decisions. You cannot delist on a margin you can't compute.
@@ -109,6 +118,12 @@ I will paste: orders by SKU (net of returns), COGS per SKU, return rate and load
 return cost, payment/fulfillment/ad cost, and list vs realized price. Some data may
 be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical
+input is per-SKU price, COGS, and returns data - without COGS and returns coverage
+the contribution ranking is wrong. If that critical input is missing, STOP and return
+only (a) what's missing and (b) how to get it - never estimate it or proceed. If a
+non-critical input is missing, label the run "partial" and continue.
+
 RULES:
 - Cost-coverage gate first: any SKU with missing/stale COGS or non-attributable
   returns is FIX and labelled "partial profit" - never KILL it.
@@ -125,8 +140,10 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read.
-2. A ranked table: SKU | Net units (90d) | Gross margin % | Return rate | Real unit
-   contribution | Discount-dependent? | Basket role | Lever | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | SKU | Net units (90d) | Gross margin % | Return rate | Real unit contribution | Discount-dependent? | Basket role | Lever | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not
+   replace the table with prose.
 3. Vetoes/caveats that downgraded or exempted any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a FIX/WATCH to a decision.
 ```

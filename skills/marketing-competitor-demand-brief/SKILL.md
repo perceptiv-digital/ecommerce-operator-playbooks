@@ -45,6 +45,12 @@ GOAL: from a list of competitor SERP/keyword movements, decide which signals des
 response this month, ranked by recoverable commercial value — NOT by raw search volume,
 and NOT by how dramatic the competitor's move looks.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If real monthly search
+volume AND a commercial-intent label for each competitor signal — plus my own feasibility/
+authority footing (GSC position, DR) — is missing, STOP and return only (a) what's missing and
+(b) how to get it — never estimate it or proceed. Don't react to a vanity, low-intent, or
+single-blip competitor move; without real volume and intent you cannot tell demand from noise.
+
 I will paste two tables:
 (A) Competitor movement from DataForSEO: term, competitor, position change, monthly search
     volume, intent label, SERP features won.
@@ -68,8 +74,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read: the 2-3 signals worth funding and what to ignore.
-2. A ranked table: Signal | Competitor | Their move | Volume & intent | My GSC footing |
-   Feasibility | Response type | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Signal | Competitor | Their move | Volume & intent | My GSC footing | Feasibility | Response type | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. The "deliberately ignored" list with one-line reasons (this is the point of the play).
 4. What evidence is blocked and what you'd need to upgrade a WATCH to a build decision.
 ```

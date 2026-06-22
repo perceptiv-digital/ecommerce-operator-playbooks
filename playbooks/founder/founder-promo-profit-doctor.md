@@ -75,6 +75,16 @@ A plain AI assistant cannot see your Shopify discount report, your order-level C
 - **Inventory context** — a promo run to clear aged or overstocked SKUs can be "correctly" margin-thin and should be judged on sell-through, not contribution alone.
 - **Gift-card / store-credit issuance** — refunds taken as credit aren't a clean cash loss and shouldn't be double-counted.
 
+## How To Pull This Evidence
+
+- **Per-promo revenue, discount $, and units** — Shopify admin → Analytics → Reports → "Discounts" (or "Sales by discount"); set the date range to each promo's exact window and read orders, units, gross sales, and discount amount per code. Export to CSV.
+- **Automatic discounts and free-shipping promos** — these don't always surface in the code-level Discounts report; cross-check Reports → "Sales by discount" and pull absorbed shipping from the "Shipping" line or order export, since free-ship cost is funded discount too.
+- **Per-SKU COGS** — Shopify stores landed cost under each variant's "Cost per item"; export Products (or the Inventory cost report) and join on SKU. Gotcha: blank "Cost per item" reads as $0, silently inflating contribution — treat blanks as missing, not zero.
+- **Returns on discounted items** — Reports → "Returns" / refunds, filtered to the discounted order IDs from step one; pull units and refund value, and run it 2–4 weeks past promo end so the late-return tail is captured.
+- **New vs. returning split** — Shopify tags each order's customer as first-time or returning; segment the discounted orders on that flag to size how much discount went to loyal full-price buyers.
+- **Gotcha — windows and time zones** — match the report window to the promo's exact start/end datetime in the store's time zone; an off-by-a-day boundary pulls orders that never touched the promo.
+- Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Anchor on revenue, then ignore it.** List the promos ranked by gross revenue first — this is the misleading view everyone already has. You will overturn it; you need it on the page to show the inversion.
@@ -105,6 +115,10 @@ I will paste, per promotion: mechanic and depth, window, units, gross revenue, d
 discounted, per-SKU COGS (or coverage %), returns on discounted units, new-vs-returning
 split, and (if I have it) a full-price baseline for the same SKUs. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If per-SKU COGS / margin
+coverage on the discounted items is missing, STOP and return only (a) what's missing and (b) how
+to get it — never estimate it or proceed. Without it the contribution ranking is a guess.
+
 RULES:
 - Rank by contribution, never by revenue. Always show the revenue rank AND the contribution
   rank side by side so the inversion is visible.
@@ -121,8 +135,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read naming the revenue impostor and the real contribution winner.
-2. A ranked table: Promo | Mechanic | Revenue (rank) | Discount $ | Returns | New cust % |
-   Contribution $ (rank) | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Promo | Mechanic | Revenue (rank) | Discount $ | Returns $ | New cust % | Contribution $ (rank) | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and do not
+   replace the table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a FIX/WATCH to a decision.
 ```

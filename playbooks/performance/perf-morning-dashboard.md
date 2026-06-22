@@ -74,6 +74,17 @@ A plain AI assistant cannot see your Meta Ads Manager, your Google Ads account, 
 - **Stock / feed status** for hero products — a sudden conversion drop is often an out-of-stock or a feed disapproval, not a media problem.
 - **Yesterday's site / checkout incident notes** — a pixel deploy, a checkout outage, or a GA4 break shows up as "conversions → 0" with spend perfectly normal.
 
+## How To Pull This Evidence
+
+- **Meta daily export** — Ads Manager → Reports, or the "Export" button on the Campaigns/Ad-sets tab. Set the date preset to *Yesterday* (add *Last 7 days* in a second pull for the trailing baseline), group by day, and include Amount Spent, Purchases, Cost per Purchase, and Purchase ROAS. *Gotcha:* the default attribution window (7-day click / 1-day view) keeps re-attributing for ~72h, so this morning's export of yesterday will still move — pull it as provisional, not final.
+- **Google daily export** — Campaigns view → date range *Yesterday* → segment by *Day*, or download via Reports. Pull Cost, Conversions, Cost/conv, Conv. value/cost, segmented by campaign type (Search / Shopping / Performance Max). *Gotcha:* conversions import on a delay (offline/store + modeled conversions land hours-to-days late), so a fresh "yesterday" undercounts — Performance Max especially.
+- **TikTok daily export** — Ads Manager → Campaign tab → *Download* (or Reporting → custom report) for *Yesterday*, with Cost, Conversions, CPA, and ROAS. *Gotcha:* at low volume the numbers are directional only, and TikTok's reported conversions revise upward for 24-48h after the click.
+- **Disapprovals** — Meta: filter the Ads tab by Delivery = *Rejected* / *Has issues*, and check Account Quality for account-level flags. Google: Ads & assets → filter Status = *Disapproved*, and Products in Merchant Center for *Disapproved* / *Limited*. TikTok: Ad status column → *Rejected*. *Gotcha:* disapprovals don't always surface in the metrics export — you have to read the status column or quality page separately, or a dead channel reads as "spend stopped" with no reason given.
+- **Impression share lost to budget** — Google only, and it is **not** in the default columns: in the Campaigns view add *Search lost IS (budget)* and *Search lost abs. top IS (budget)* via the column picker, or include them in a custom report. *Gotcha:* Meta and TikTok have no true equivalent — read their *limited-by-budget* / delivery-capped delivery flag instead; don't expect a clean percentage.
+- **Time-zone reporting cutoffs** — confirm each account's reporting time zone (Meta: Account Settings; Google: account *Preferences → Time zone*, fixed at creation; TikTok: account settings) and remember the export's "yesterday" is *that account's* yesterday. *Gotcha:* three accounts on three time zones means three different "overnight" windows — reconcile them to your store's clock before comparing, or a clock offset reads as a performance gap.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Set the clock first.** Confirm each account's reporting time zone and pick one comparison window (yesterday full day vs. the prior matching day). If an account's "overnight" straddles its midnight differently from the others, note it — half of all morning false alarms are time-zone cutoffs, not performance.
@@ -109,6 +120,12 @@ I will paste, per account: spend vs. trailing-7-day average, CPA and ROAS vs. ta
 conversions, delivery/account status, any disapprovals or "limited by budget" flags, the
 account's reporting time zone, and any overnight edits / live promos. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+yesterday/overnight spend + conversions + target, broken out by account/campaign. If that
+critical input is missing, STOP and return only (a) what's missing and (b) how to get it —
+never estimate it or proceed. Platform conversions can lag and backfill for 24-72h; treat a
+lagging conversion count as a flag-don't-kill caveat, not a missing input — proceed and note it.
+
 RULES:
 - Reconcile time zones first. Treat any "overnight" gap that is really a reporting-cutoff
   difference as noise, not performance.
@@ -123,8 +140,11 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read: how many real items vs. how much was noise.
-2. A table of AT MOST the top 3-5 items, ranked by daily money at risk:
-   Item | Platform | Signal (number vs. baseline) | Window | Suspected cause | Status | Owner | Next step.
+2. A table of AT MOST the top 3-5 items, ranked by daily money at risk, using exactly this
+   header row:
+   | Item | Platform | Signal (vs. baseline) | Window | Suspected cause | Status | Owner | Next step |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. What you deliberately did NOT flag, and why (so I trust the quiet).
 4. Anything blocked by missing evidence and what would confirm the cause.
 ```

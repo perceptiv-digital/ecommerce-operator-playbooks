@@ -72,6 +72,16 @@ A plain AI assistant has no live line into competitor SERP movement or your own 
 - **Promo / seasonality calendar** — a competitor spike that's really a seasonal or campaign artifact, not durable demand.
 - **AI Overview / answer-engine presence** — whether the query now resolves inside an AI answer, which changes the click economics.
 
+## How To Pull This Evidence
+
+- **Competitor movement (DataForSEO / SERP):** pull each competitor's newly ranked keywords, ≥3-position gains, the keyword gap vs. your domain, and SERP features won over the trailing 30 days — DataForSEO Labs ranked-keywords and domain-intersection endpoints, or a live SERP scrape per term.
+- **Search volume:** attach real monthly search volume per surviving term from DataForSEO keyword data, and confirm a trend (not a one-month blip) before calling it demand.
+- **Your GSC footing:** export your Search Console query+page report (clicks, impressions, average position, CTR) for the trailing 28 days vs. the prior 28, so you know where you already rank and can move cheaply.
+- **DR / feasibility:** pull your Domain Rating against each competitor's, plus referring-domain counts on the ranking page, to sanity-check whether the SERP is winnable this quarter.
+- **Intent gotcha:** no export labels commercial intent for you — a high-volume term can be pure-informational and worthless. Read the live SERP (shopping pack, PLPs, "buy/best/vs" modifiers) to assign transactional / commercial / informational / navigational before you rank anything.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Scope the field.** Pull competitor movement for your 3–6 real competitors over the trailing 30 days. Drop anything that isn't a *new* rank, a *gained* position (≥3), or a *won* SERP feature — you're triaging change, not the whole keyword universe.
@@ -100,6 +110,12 @@ GOAL: from a list of competitor SERP/keyword movements, decide which signals des
 response this month, ranked by recoverable commercial value — NOT by raw search volume,
 and NOT by how dramatic the competitor's move looks.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If real monthly search
+volume AND a commercial-intent label for each competitor signal — plus my own feasibility/
+authority footing (GSC position, DR) — is missing, STOP and return only (a) what's missing and
+(b) how to get it — never estimate it or proceed. Don't react to a vanity, low-intent, or
+single-blip competitor move; without real volume and intent you cannot tell demand from noise.
+
 I will paste two tables:
 (A) Competitor movement from DataForSEO: term, competitor, position change, monthly search
     volume, intent label, SERP features won.
@@ -123,8 +139,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read: the 2-3 signals worth funding and what to ignore.
-2. A ranked table: Signal | Competitor | Their move | Volume & intent | My GSC footing |
-   Feasibility | Response type | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Signal | Competitor | Their move | Volume & intent | My GSC footing | Feasibility | Response type | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. The "deliberately ignored" list with one-line reasons (this is the point of the play).
 4. What evidence is blocked and what you'd need to upgrade a WATCH to a build decision.
 ```

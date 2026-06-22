@@ -59,6 +59,12 @@ I will paste a per-ad table (mostly Meta, some TikTok) with, per ad: 7-day spend
 frequency, link CTR now vs. its launch baseline, CPM trend, hook rate / hold (video),
 CPA trend, conversions to date, and launch/edit date. Some fields may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical
+inputs are per-ad frequency, link CTR now vs. the ad's OWN launch baseline, 7-day
+spend, and enough conversions/sample to clear the maturity gate (so learning-phase ads
+are never called fatigued). If any critical input is missing, STOP and return only
+(a) what's missing and (b) how to get it — never estimate it or proceed.
+
 DIAGNOSIS ORDER (stop at the first that fits, per ad):
 1. Maturity gate: if <~50 conversions OR launched/edited in last ~7 days -> WATCH (in
    learning). Never call it fatigued.
@@ -81,8 +87,10 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read (total spend on the REFRESH list; the single biggest leak).
-2. A ranked table: Ad | Spend (7d) | Frequency | CTR vs launch | CPM trend | Hook/hold |
-   CPA trend | Signal | Status (REFRESH/WATCH/KEEP/FIX) | Action.
+2. A ranked table using exactly this header row:
+   | Ad | Spend (7d) | Frequency | CTR vs launch | CPM trend | Hook/hold | CPA trend | Signal | Status | Action |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose. Status is one of REFRESH/WATCH/KEEP/FIX.
 3. Vetoes/caveats that downgraded any call.
 4. What evidence is blocked and what would upgrade a WATCH to a decision.
 ```

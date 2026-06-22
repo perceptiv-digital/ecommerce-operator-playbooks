@@ -75,6 +75,17 @@ A bare AI assistant can do the days-of-cover arithmetic, but it cannot see your 
 - **Demand shape** — seasonality, promo calendar, and day-of-week pattern, so a weekend velocity spike isn't read as a permanent run-rate.
 - **Planned discontinuation / end-of-life flags** — a SKU you're sunsetting should *not* be reordered no matter how fast it's selling.
 
+## How To Pull This Evidence
+
+- **Shopify inventory on-hand** — in Shopify admin, **Products → Inventory** (or **Inventory** report), export the CSV and read the *Available* column per variant location; this is sellable on-hand, not the *On hand* column that still counts committed/allocated units. Roll up across locations if you fulfil from more than one.
+- **Sell-through rate** — pull **Analytics → Reports → Sales by product variant** (or the orders export) for a clean trailing window, sum units sold per SKU, and divide by the number of *in-stock* days in that window. Exclude any day the variant was out of stock so the denominator reflects real demand, not the gap.
+- **Margin** — selling price minus landed COGS minus variable fulfilment per unit. Shopify stores cost in the variant **Cost per item** field (export it from the products CSV); if it's blank, pull COGS from your buying sheet or supplier invoices rather than guessing.
+- **Active ad spend per SKU** — in Meta Ads Manager / Google Ads, filter to live campaigns and read spend by the destination product URL or catalog item, then map that landing URL back to the SKU. Only count spend currently pointed at the SKU, not lifetime spend.
+- **Supplier lead time** — calendar days from placing a PO to receiving sellable stock; this lives in your purchasing tool or buying sheet, not in Shopify or the ad platforms. Use the supplier's quoted lead time plus your typical receiving lag, not a best case.
+- **Erratic-demand gotcha** — if a SKU's daily sales are spiky, seasonal, or driven by a one-off viral day, a short window will over- or under-state the run rate. Widen the window (e.g. 28→56 days), use a conservative rate, and lower the confidence level before trusting the days-of-cover number.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Confirm the inventory is real.** Feed fresh, quantity truly sellable, no held/allocated units inflating it. If on-hand is stale or ambiguous, mark the SKU **FIX** and stop — never schedule a reorder off a number you don't trust.
@@ -97,6 +108,12 @@ A bare AI assistant can do the days-of-cover arithmetic, but it cannot see your 
 
 ```text
 You are my inventory and merchandising analyst running the "Stockout Priority List" play.
+
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If per-SKU on-hand units,
+recent daily sell rate, or supplier lead time is missing for a SKU, STOP and return only
+(a) what's missing and (b) how to get it — never estimate it or proceed. Days-of-cover vs. lead
+time is the entire play, so a guessed on-hand count, sell rate, or lead time silently fabricates
+the answer.
 
 GOAL: rank my at-risk SKUs by how urgently I should REORDER or EXPEDITE them BEFORE they
 sell through, weighted by the contribution profit at risk if they go dark. This is
@@ -125,8 +142,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read (how many SKUs need action today + the top expedite).
-2. A ranked table: SKU | On-hand | Sell rate/day | Days of cover | Lead time + buffer |
-   Margin/unit | Contribution/day at risk | Active ad spend? | Action | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | SKU | On-hand | Sell rate/day | Days of cover | Lead time + buffer | Margin/unit | Contribution/day at risk | Active ad spend? | Action | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any row.
 4. What evidence is blocked and what would upgrade a WATCH/FIX to a confident reorder.
 ```

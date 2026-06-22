@@ -77,6 +77,21 @@ A plain AI assistant can reason about *how* to triage an ops queue, but it canno
 - **Promo / launch calendar** — explains a backlog spike and tells you whether it's transient or structural.
 - **SLA breach cost** — marketplace (Amazon/eBay) late-dispatch penalties or chargeback risk that should escalate an item's rank.
 
+## How To Pull This Evidence
+
+In Shopify Admin → **Orders**, build each exception lane from the order list filters and the order detail fields:
+
+- **Unfulfilled (past-SLA dispatch)** — filter `Fulfillment status: Unfulfilled` (and `Partially fulfilled`). Export or read the **Date** (created/placed-at) column to compute order age; combine with the shipping method to test each order against its own SLA.
+- **High-risk / held orders** — filter by **Fraud risk: High** (or sort the risk column), plus any orders sitting in a manual `On hold` state. Capture the risk reason and order total.
+- **Payment-pending / failed** — filter `Payment status: Pending`, `Unpaid`, `Payment error`, and `Partially paid`. These are the failed/declined/unauthorised payments on otherwise-open orders.
+- **OOS-blocked** — cross-reference open orders against **Products → Inventory** for any line at or below zero available; those orders are blocked on restock.
+- **Order age** — derive from the order's **Date** / created-at timestamp, not "days ago" — you need hours to measure against an hours-based SLA.
+- **Value** — read each order's **Total** for the value component of the rank score.
+
+**Gotcha — data-sync lag and phantom-stuck orders:** Shopify, your gateway, and your 3PL/WMS reconcile on different clocks. Mid-sync, an order can show as `Unfulfilled` or `Unpaid` when it has already shipped or cleared — a phantom-stuck flag. Confirm the day's sync has completed before trusting any "stuck" exception, and verify the live state before chasing or retrying.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Confirm the data is settled.** If today's order sync is mid-flight or the store/3PL reconciliation hasn't run, **stop** — every "stuck" flag is suspect. Verify sync completion first (this is the FIX-or-wait gate).
@@ -109,6 +124,12 @@ method, region), my dispatch SLA per method, high-risk/held orders, failed/pendi
 payments, stuck shipments (no carrier scan), the refund/return queue, and OOS-blocked
 orders. Some lists may be empty or partial.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the open
+order/fulfilment/exception queues with ages and values (unfulfilled orders past their
+dispatch SLA, high-risk/held orders, and failed/pending payments — each with its order
+age and value) are missing, STOP and return only (a) what's missing and (b) how to get
+it — never estimate it or proceed. Without the ages and values you cannot prioritise.
+
 RULES:
 - Measure dispatch age in HOURS PAST EACH ORDER'S OWN SLA, not a flat threshold. Express,
   standard, and freight/pre-order have different promises — use the SLA I give you.
@@ -126,8 +147,10 @@ RULES:
 RETURN:
 1. A 2-3 sentence executive read: how big is today's queue and what's the single most
    urgent item.
-2. A ranked action queue table: Item | Type | Age vs SLA | Value | Customer impact |
-   Action | Owner | Approval? | Deadline.
+2. A ranked action queue table. Use exactly this header row:
+   | Item | Type | Age vs SLA | Value | Customer impact | Action | Owner | Approval? | Deadline |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose.
 3. The approval-required rows called out separately.
 4. What evidence is missing and which items can't be safely ranked until it lands.
 ```

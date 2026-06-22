@@ -51,6 +51,10 @@ I will paste, per promotion: mechanic and depth, window, units, gross revenue, d
 discounted, per-SKU COGS (or coverage %), returns on discounted units, new-vs-returning
 split, and (if I have it) a full-price baseline for the same SKUs. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If per-SKU COGS / margin
+coverage on the discounted items is missing, STOP and return only (a) what's missing and (b) how
+to get it — never estimate it or proceed. Without it the contribution ranking is a guess.
+
 RULES:
 - Rank by contribution, never by revenue. Always show the revenue rank AND the contribution
   rank side by side so the inversion is visible.
@@ -67,8 +71,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read naming the revenue impostor and the real contribution winner.
-2. A ranked table: Promo | Mechanic | Revenue (rank) | Discount $ | Returns | New cust % |
-   Contribution $ (rank) | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Promo | Mechanic | Revenue (rank) | Discount $ | Returns $ | New cust % | Contribution $ (rank) | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and do not
+   replace the table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a FIX/WATCH to a decision.
 ```

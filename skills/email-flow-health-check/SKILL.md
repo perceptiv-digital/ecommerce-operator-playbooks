@@ -54,6 +54,14 @@ trigger + filters, recipients (30d), click rate, placed-order rate, and revenue 
 recipient. I will also paste account deliverability: spam-complaint rate, bounce rate,
 domain reputation, and my Klaviyo conversion window. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If [critical input]
+is missing, STOP and return only (a) what's missing and (b) how to get it — never estimate
+it or proceed. Here [critical input] = each flow's Live/Draft/Manual status AND account
+deliverability (spam-complaint rate). A deliverability problem invalidates every flow read
+below it, and a Draft/Manual flow earns $0 — so without these two I cannot tell a broken
+flow from an underperforming one, and any ranking I produce would be fiction. Do not infer
+status from revenue or guess a complaint rate.
+
 RULES:
 - Deliverability gate first: if spam-complaint rate is over ~0.3%, bounce rate is elevated,
   or domain reputation is degraded, mark the whole program FIX and do not judge flows.
@@ -75,9 +83,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: Flow | Status | Recipients (30d) | Click % | Placed-order % |
-   Rev/recipient (vs type benchmark) | Driver | Status (KILL/REFRESH/WATCH/KEEP/FIX) |
-   Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Flow | Status | Recipients (30d) | Click % | Placed-order % | Rev/recipient | Issue | Action | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

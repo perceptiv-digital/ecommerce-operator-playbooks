@@ -74,6 +74,15 @@ A plain AI assistant has no line into your Google Ads account or your Search Con
 - **Promo / launch calendar** — a sale or PR spike inflates brand demand and changes the paid-vs-organic split for that window.
 - **Affiliate / coupon-site activity** on brand terms — coupon affiliates bidding on your brand are a different leak with a different fix.
 
+## How To Pull This Evidence
+
+- **Google Ads — brand-campaign spend/impressions:** in Google Ads, open the brand campaign(s), pull the Search Terms report (Campaigns → the campaign → Search terms), set the date range to the last 30 days plus the prior 30, and export spend, impressions, clicks, conversions, and value per term. Filter to your brand keyword list.
+- **GSC — brand-query organic position:** in Search Console → Performance → Search results, filter Queries to your brand terms, enable Average position and CTR alongside clicks/impressions, match the same date window, and confirm you actually hold a true #1 (not a 1.4 averaged across a noisy tail).
+- **SERP competitor check:** for each top brand term, run a live SERP on mobile and desktop (incognito, your target geo) and record whether any competitor ad or coupon/marketplace listing appears above your organic result — this is what separates defensible from cannibalised. Cross-check against the Google Ads Auction Insights report for competitor impression share and overlap.
+- **Holdout-test gotcha:** incrementality is *estimated*, never measured, until you run a geo or time holdout (pause brand in one region/window and watch whether organic recaptures the clicks). Every cannibalised-spend figure above the holdout is a labelled estimate, not proof — design the holdout before you cut at scale.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Gate on tracking and rank confidence.** If brand conversions are drifting between Ads and GA4, or your GSC brand position is averaged across a noisy long tail (so you can't confirm a true #1), set the campaign to **FIX** and stop. You cannot size cannibalisation on an unstable organic baseline.
@@ -107,6 +116,12 @@ queries (spend, clicks, conversions, value), Search Console for the same queries
 (avg position, clicks, impressions, organic CTR), and auction insights per brand
 campaign (competitor domains + impression share). Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical
+input is brand-term paid spend/impressions AND organic brand ranking + competitor
+presence on those SERPs — without competitor presence you can't tell defensible from
+cannibalised. If that critical input is missing, STOP and return only (a) what's
+missing and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Defensible first: any brand term where a competitor holds meaningful impression
   share is plausibly incremental -> KEEP/defensive, never a KILL candidate. State the
@@ -123,7 +138,9 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read (estimated cannibalised spend range + the one defensible slice).
-2. A ranked table: Brand campaign/term | Brand spend (30d) | My organic position | Competitor on SERP? (impr share) | SERP layout | Est. cannibalised $ | Status | Owner | Holdout to confirm.
+2. A ranked table using exactly this header row:
+| Brand campaign / term | Brand spend (30d) | My organic position | Competitor on SERP? (impr share) | SERP layout | Est. cannibalised $ | Status | Owner | Holdout to confirm |
+Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the table with prose.
 3. Vetoes/caveats that protected any spend or downgraded any recommendation.
 4. The exact holdout test (geo or time) that would turn the top estimate into proof.
 ```

@@ -73,6 +73,16 @@ A plain AI assistant can critique ad copy you paste in, but it cannot see the th
 - **Creative + page deploy dates** — to tell a brand-new ad still in learning from a mature ad with a real leak.
 - **Audience/intent of each ad** — cold prospecting vs. warm retargeting, since a high bounce on cold top-of-funnel traffic is expected, not a defect.
 
+## How To Pull This Evidence
+
+- **Meta ad creative + destination URL** — Ads Manager → set the date range and sort by Amount Spent → add the **Link (Ad settings)** and creative columns, or export to CSV. The destination you want is the **Website URL** field on the ad, not the display link. Open Ad Preview to capture the live hook/offer/price/featured product as the scroller actually sees it.
+- **Google ad creative + destination URL** — Google Ads → Ads & assets, filtered to the campaigns with spend. For Search, the real destination is **Final URL** (not the display path); for PMax/Shopping, pull the asset group landing pages. Download the headlines/descriptions so the creative copy travels with the URL.
+- **TikTok ad creative + destination URL** — TikTok Ads Manager → Ads level, sorted by spend → export the **Destination/Landing page URL** plus the in-feed copy and CTA. Grab the actual video hook/offer on-screen, since the spoken or captioned promise often differs from the text field.
+- **GA4 landing-page bounce/CVR by campaign** — Explore → free-form, dimensions **Landing page + Session campaign** (or Session manual campaign), metrics **Sessions, Engagement rate, Conversions / Session key event rate, Average purchase revenue**. Bounce = 100% − engagement rate; segment by Device for the cold-vs-warm read.
+- **Gotchas** — follow each URL through redirects/UTMs to the page that actually loads (a display URL hides the 301); GA4 reports **engagement rate**, so invert it for bounce; match the GA4 campaign string to the ad's real UTM, not the platform's account name; pull the same date window on every source or the join lies.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Rank by spend, then cut the noise.** Sort ads by spend. Drop any ad with **under ~300 clicks** or under ~7 days live — too little traffic to read a bounce/CVR difference. These go to WATCH, never KILL.
@@ -109,6 +119,12 @@ final landing-page URL and what that page shows RIGHT NOW (page type, live price
 hero product, headline), and GA4 for that ad's traffic (sessions, bounce rate, CVR, AOV). I
 will also give my message-matched CVR benchmark. Some fields may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the top-spend ads'
+creative/offer AND their actual landing-page destination URLs plus that traffic's bounce/CVR
+is missing, STOP and return only (a) what's missing and (b) how to get it — never estimate it
+or proceed. Without the destination the page shows and how that traffic behaves, you cannot
+score a mismatch, so do not guess it.
+
 RULES:
 - Score each ad on four dimensions vs its live page: OFFER, PRICE, PRODUCT, TONE/INTENT.
 - A mismatch only counts as a leak if the ad's bounce/CVR is materially worse than my
@@ -123,8 +139,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: Ad | Spend | Destination (page type) | Mismatch (offer/price/product/tone) |
-   Bounce vs benchmark | CVR vs benchmark | Revenue at risk | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+| Ad | Spend (14d) | Destination (page type) | Mismatch | Bounce vs benchmark | CVR vs benchmark | Revenue at risk | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. The single highest-confidence test to run first, with its hypothesis and success metric.
 4. Vetoes/caveats that downgraded any row, and what evidence would upgrade a WATCH/FIX.
 ```

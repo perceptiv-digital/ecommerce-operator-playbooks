@@ -72,6 +72,15 @@ A plain AI assistant has no idea which of your URLs Google is showing for which 
 - **Commerce value per URL** — sessions → revenue, so you consolidate *toward* the page that actually converts, not just the one with more impressions.
 - **Publish / last-modified dates** — to tell a stale legacy post from the current canonical asset.
 
+## How To Pull This Evidence
+
+- **Per-query URL breakdown (the critical input):** in GSC **Performance → Search results**, add a **Query filter** for the head term, then open the **Pages** tab. Every URL listed there ranks for that one query — two or more above your impression floor is the cannibalisation signal. Repeat per head term, or export Queries and Pages and pivot URL × query.
+- **Position oscillation:** for each candidate URL, open its **page-level history** and read **average position week by week** on the shared query. Genuine cannibalisation shows Google swapping which URL it ranks; a flat single-URL line does not. A 28-day average flattens this — always go weekly.
+- **Impression split:** within one query, record what percent of the query's total impressions each URL captures (e.g. 41 / 34 / 25). An even split across non-winning positions is the fingerprint; one URL at 90%+ is noise, not a split.
+- **Different-intent gotcha:** before calling a split, eyeball the live SERP and the query wording. A how-to query and a buy query sharing words are *different demand* — two pages serving them is correct coverage, not cannibalisation, and merging them destroys reach.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Confirm it's the same intent, not just the same words.** Read the query and the live SERP. A "how to clean X" informational query and a "buy X" commercial query are *different demand* — two pages serving them is correct, not cannibalisation. If intent differs, status is **KEEP both** and stop. This is the most common false positive.
@@ -105,6 +114,12 @@ I will paste a GSC export: for each query, every URL with clicks, impressions, a
 position, CTR over 90 days, plus week-by-week position history where I have it. Some
 data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the GSC query->URL
+breakdown (each query showing which of my URLs rank/alternate for it, with per-URL
+impression share) is missing, STOP and return only (a) what's missing and (b) how to get it
+-- never estimate it or proceed. Without per-query URL breakdown you cannot detect
+cannibalisation: a query-only or page-only export hides which URLs split the same term.
+
 RULES:
 - Same words is not cannibalisation. If the live SERP / intent for the competing URLs
   differs (e.g. a how-to vs a buy page), mark KEEP BOTH and explain why.
@@ -122,8 +137,11 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A cluster table: Query | Competing URLs (impression share) | Position behaviour |
-   Canonical winner | Loser action | Status | Owner | Recheck.
+2. A cluster table using EXACTLY this header row:
+| Query | Competing URLs (impression share) | Position behaviour | Canonical winner | Loser action | Status | Owner | Recheck |
+|---|---|---|---|---|---|---|---|
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH to a decision.
 ```

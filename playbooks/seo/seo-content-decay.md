@@ -73,6 +73,14 @@ A plain AI assistant has no line into your Google Search Console or GA4, so it c
 - **Internal-link and backlink changes** to the page — lost internal links or lost referring domains are a common, fixable cause of a position drop.
 - **Cannibalisation map** — which other URLs on your own site also rank for the page's head query.
 
+## How To Pull This Evidence
+
+- **GSC period-over-period deltas (the critical input)** — in Search Console → Performance, open the **Pages** tab, set the date range to **Last 90 days** and toggle **Compare** to the **previous 90 days** (or, for any seasonal catalogue, the **same 90 days last year** / YoY). Enable the Clicks, Impressions, **and** Position checkboxes so the export carries the period-over-period change per page. Repeat on the **Queries** tab, filtered to each decaying page, to get the same clicks/impressions/position deltas at query level — that query view is what lets you separate lost ranking from lost demand. Export to Looker Studio or the API when you have more than ~1,000 rows.
+- **GA4 page value** — in GA4 → Reports → Engagement → **Landing page** (or Explore with the *Landing page* dimension), add a filter for **Session default channel group = Organic Search**, and pull **Sessions, Conversions/Purchases, and Revenue** for the *same* two windows. Joining this per URL is what turns "clicks lost" into "revenue at risk" and lets you rank by commercial value rather than raw traffic.
+- **Seasonality / SERP-layout gotcha** — a YoY (same-90-days-last-year) comparison is the only clean way to tell genuine decay from a seasonal trough; a previous-90-days window will flag every page coming out of peak as "decaying." Separately, when impressions and position both held but CTR fell, check the live SERP for an **AI Overview**, a lost featured snippet, or new ads/widgets before blaming the content — the page didn't get worse, the SERP got less clickable.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Gate on trust and scope.** First ask: is this a *page-level* loss or a *sitewide* one? If organic is down broadly across unrelated page types at once, this is an **algorithm or technical event** (core update, manual action, robots/noindex regression, migration), not content decay — mark **FIX**, escalate to a sitewide diagnosis, and stop. Page-by-page refreshes will not fix a sitewide cause.
@@ -109,6 +117,12 @@ prior period or YoY), a GSC Queries table for the decaying pages, and where avai
 GA4 organic sessions/conversions/revenue per landing page, plus the page type for each
 URL. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the GSC
+period-over-period clicks/impressions/position deltas per page (this period vs. prior
+period or YoY) are missing, STOP and return only (a) what's missing and (b) how to get
+it — never estimate it or proceed. Without that delta you cannot separate lost ranking
+from lost demand/seasonality, which is the entire job.
+
 RULES:
 - Scope gate first: if the drop looks sitewide across unrelated page types, call it an
   algorithm/technical event (FIX + escalate), not page-level decay, and say so.
@@ -126,8 +140,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: Page | Clicks delta | Impr delta | Avg pos delta | Cause |
-   Recoverable value | Action | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Page | Clicks Δ | Impr Δ | Avg pos Δ | Cause | Recoverable value | Action | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

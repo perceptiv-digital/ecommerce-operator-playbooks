@@ -51,6 +51,12 @@ GOAL: decide whether Performance Max is scaling NEW, PROFITABLE demand or coasti
 brand and padding ROAS with low-value Display/Gmail conversions. Output a defensible
 KILL / REFRESH / WATCH / KEEP / FIX call, judged on EX-BRAND, margin-adjusted economics.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the brand-vs-non-brand
+split (or the inputs to estimate it, plus the channel/placement breakdown) is missing, STOP and
+return only (a) what's missing and (b) how to get it — never estimate it or proceed. Without
+separating brand from non-brand you cannot judge PMax, so the blended ROAS alone is not enough
+to begin.
+
 I will paste: the PMax campaign table (period + prior period), a brand/non-brand split or
 the inputs to estimate one, the channel/placement split (Search/Shopping/Display/YouTube/
 Gmail), new-vs-returning customer value, asset-group and listing-group performance,
@@ -73,8 +79,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read (lead with blended vs ex-brand ROAS).
-2. A ranked table: Lever | Evidence (number/source/window) | Blended vs ex-brand ROAS |
-   Status | Why | Owner | Recheck.
+2. A ranked table using EXACTLY this header row:
+   | Lever | Evidence (number / source / window) | Blended ROAS | Ex-brand ROAS | Status | Why | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

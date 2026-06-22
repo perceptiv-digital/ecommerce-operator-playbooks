@@ -51,6 +51,14 @@ I will paste: Klaviyo complaint rate and bounce rate (per send and 30-day, by pr
 if I have it), Google Postmaster domain/IP reputation, my SPF/DKIM/DMARC/one-click
 List-Unsubscribe status, and my campaign segment recency windows. Some data may be missing.
 
+Required inputs for this play are: spam-complaint rate, bounce rate, and authentication
+status (SPF/DKIM/DMARC). The spam-complaint rate is the critical input — without it you
+cannot judge whether it is safe to keep sending.
+
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the spam-complaint
+rate is missing, STOP and return only (a) what's missing and (b) how to get it — never
+estimate it or proceed.
+
 RULES:
 - Authentication gates everything. If SPF, DKIM, DMARC, or one-click List-Unsubscribe is
   missing or misaligned, return FIX-AUTH and treat complaint/open metrics as unreliable.
@@ -66,8 +74,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read: is it safe to keep sending, yes or no, and why.
-2. A table: Segment/Send | Complaint % | Bounce % | Auth status | Engagement window |
-   Status | Owner | Recheck.
+2. A table using exactly this header row:
+   | Segment / Send | Complaint % | Bounce % | Auth status | Engagement window | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. The single highest-priority fix and the warm-back-up plan if anything is paused.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a clear send/no-send.
 ```

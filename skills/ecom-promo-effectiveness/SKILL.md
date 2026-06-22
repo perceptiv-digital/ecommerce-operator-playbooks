@@ -59,6 +59,13 @@ I will paste, for the promo window and an equal-length baseline window:
 - COGS or contribution margin and the actual discount depth
 Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical inputs are the
+promo-window CVR and AOV, the new-customer flag for the cohort, and margin (COGS/contribution +
+discount depth) — each measured against the baseline window. Without the promo cohort's repeat
+behaviour and the margin inputs you cannot judge whether the conversion lift was quality or hollow.
+If any critical input is missing, STOP and return only (a) what's missing and (b) how to get it —
+never estimate it or proceed.
+
 RULES:
 - Treat the conversion-rate lift as a headline to disprove, not the verdict.
 - Check AOV direction against the mechanic: a threshold offer should raise AOV; a flat % off
@@ -73,7 +80,10 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read that names the verdict (e.g. "conversion win, quality loss").
-2. A table: Dimension | Promo window | Baseline | Delta | Read.
+2. A table using exactly this header row:
+   | Dimension | Promo window | Baseline | Delta | Read |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the table
+   with prose.
 3. The single decision: was this promo good business? Status + why.
 4. Vetoes/caveats that downgraded the call, and what evidence would upgrade a WATCH.
 ```

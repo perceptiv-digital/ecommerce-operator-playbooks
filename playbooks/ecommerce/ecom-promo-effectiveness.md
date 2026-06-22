@@ -77,6 +77,15 @@ A plain AI assistant cannot see your storefront analytics, your order ledger, or
 - **Tracking/attribution notes** — discount-code reporting gaps, a checkout change mid-window, or a paid-traffic surge that inflates the CVR comparison.
 - **Inventory state** — whether a stockout mid-promo suppressed conversions or AOV and is muddying the read.
 
+## How To Pull This Evidence
+
+- **Shopify promo-window CVR/AOV** — Shopify Analytics → Reports → "Online store conversion over time" and "Average order value" for the promo window, then re-run for an equal-length baseline immediately before it. *Gotcha:* Shopify's headline conversion rate is sessions-based and shifts with traffic-source mix — pull sessions and the referrer/channel breakdown for both windows so you're not reading a paid-traffic spike as an offer lift, and set both windows to the same store timezone.
+- **New-vs-returning** — Reports → Customers → "First-time vs. returning customer sales" (or the "Customer cohort analysis" report) for the promo window to isolate first-order customers. *Gotcha:* Shopify keys "returning" off the customer record, so guest checkouts and customers who used a different email read as new and inflate the new-customer count — reconcile against orders that have a matching customer ID before trusting the tag.
+- **Cohort repeat** — use "Customer cohort analysis" (or export the promo-window first-order customers and check second-order rate) at 60 and 90 days out, against a pre-promo baseline cohort of similar size. *Gotcha:* repeat behaviour needs ≥60 days to mature — if you pull it the week the promo ends you'll read a near-zero repeat rate and wrongly KILL a cohort that hasn't had time to come back; mark it WATCH instead.
+- **Discount/margin** — Reports → "Discounts" (or "Sales by discount") to split discounted vs. full-price orders and total discount given, then bring in per-product COGS (Products → Inventory → "Cost per item", or your cost export) to compute contribution after discount. *Gotcha:* Shopify discount reporting only captures code- and automatic-discount orders — manual price edits, draft-order discounts, and Shopify Plus script discounts can slip the split, and "Cost per item" is often blank or stale, so confirm COGS coverage before trusting the contribution number.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Confirm the windows are comparable.** Equal length, comparable traffic-source mix, no checkout/tracking change mid-window, no stockout distorting either side. If the promo window was juiced by a paid-traffic push the baseline didn't have, the CVR delta is partly traffic, not offer → mark **FIX** on the comparison and caveat everything downstream.
@@ -117,6 +126,13 @@ I will paste, for the promo window and an equal-length baseline window:
 - COGS or contribution margin and the actual discount depth
 Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical inputs are the
+promo-window CVR and AOV, the new-customer flag for the cohort, and margin (COGS/contribution +
+discount depth) — each measured against the baseline window. Without the promo cohort's repeat
+behaviour and the margin inputs you cannot judge whether the conversion lift was quality or hollow.
+If any critical input is missing, STOP and return only (a) what's missing and (b) how to get it —
+never estimate it or proceed.
+
 RULES:
 - Treat the conversion-rate lift as a headline to disprove, not the verdict.
 - Check AOV direction against the mechanic: a threshold offer should raise AOV; a flat % off
@@ -131,7 +147,10 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read that names the verdict (e.g. "conversion win, quality loss").
-2. A table: Dimension | Promo window | Baseline | Delta | Read.
+2. A table using exactly this header row:
+   | Dimension | Promo window | Baseline | Delta | Read |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the table
+   with prose.
 3. The single decision: was this promo good business? Status + why.
 4. Vetoes/caveats that downgraded the call, and what evidence would upgrade a WATCH.
 ```

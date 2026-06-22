@@ -76,6 +76,18 @@ Do that for one client and it's an afternoon. Do it for fifteen and it's your en
 - **Last week's scores** — the *direction of the score itself* (amber→red is more urgent than steady-red) is often the real trigger.
 - **Client sentiment notes** — a quiet client, a terse email, a missed call: soft signals that promote a borderline amber.
 
+## How To Pull This Evidence
+
+For each client on the roster, gather the four dimensions from their own connected accounts:
+
+- **Commerce revenue trend vs. target (Shopify)** — pull revenue this week vs. prior week and this month vs. prior month, plus orders and AOV direction, and hold it against *that client's own* revenue target or run-rate — not a portfolio benchmark.
+- **Blended paid efficiency (Meta + Google)** — pull total ad spend and platform-attributed revenue across all that client's ad platforms, compute blended MER (or blended CPA), and read its multi-week trend against their target. A MER sliding over three weeks is the signal, not the absolute number.
+- **Retention & deliverability (Klaviyo)** — pull email/SMS share of revenue and its trend, core lifecycle flow status (live and sending?), and deliverability signals (open-rate step-downs, spam-complaint rate). A collapsing email revenue share is an early churn tell.
+- **Tracking health** — reconcile platform-claimed conversion revenue against store orders; if they diverge beyond tolerance the account is **blind** on the affected dimensions, not green.
+- **Gotcha — per-client thresholds and small-account noise:** judge every client against its *own* targets (a 2.4 MER is a crisis for one account and the plan for another), and below ~150 orders/month widen the bands and read the monthly trend, not the weekly swing — a small account swinging on a handful of orders is jitter, not a slide.
+
+Or skip all of this — ShopMCP pulls it across your whole roster at once.
+
 ## The Decision Logic (run in this order)
 
 1. **Set each client's bar before scoring anyone.** Pull each account's own targets (revenue, MER/CPA, retention baseline). No portfolio-wide threshold survives contact with a roster that mixes a $40k/mo skincare brand and a $480k/mo outdoor-gear brand — they fail and pass at different absolute numbers. A client with no targets on file is scored **blind**, not green.
@@ -111,6 +123,12 @@ and a tracking-reconciliation figure (platform-claimed revenue vs store orders).
 give each client's targets, monthly order volume, account tier/MRR, and renewal date where
 I have them. Some data will be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+per-client multi-dimension data over a trend window - commerce trend, paid efficiency,
+retention/email health, and tracking integrity, read across multiple weeks (a one-week dip
+is not red). If that per-client multi-dimension trend data is missing for a client, mark
+them BLIND (not green) and say what's needed - never score a client green on missing data.
+
 RULES:
 - Judge every client against ITS OWN targets, never a blanket benchmark. A $40k/mo and a
   $480k/mo account are not scored on the same absolute numbers.
@@ -131,8 +149,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read naming the accounts that need the week's attention.
-2. A portfolio table ranked worst-first: Client | Tier/MRR | Commerce | Paid | Retention |
-   Tracking | Composite | RAG | One-line WHY | Owning AM | Recheck.
+2. A portfolio table ranked worst-first, using exactly this header row:
+   | Client | Tier / MRR | Commerce | Paid | Retention | Tracking | Composite | RAG | Why (one line) | Owning AM | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. The 2-3 accounts to intervene on, re-ranked by stakes + renewal proximity, each with the
    specific reason and the recommended first action.
 4. Which accounts are BLIND (data gap) and what's needed to score them honestly.

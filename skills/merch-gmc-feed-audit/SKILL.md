@@ -52,6 +52,12 @@ I will paste: Merchant Center account-level issues; a per-SKU table with status
 the live-store price and availability for affected SKUs; trailing 30-60d revenue/units per
 SKU; and which SKUs are in active Shopping/PMax. Some fields may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If GMC item-level
+status/issues joined to per-SKU trailing revenue is missing, STOP and return only (a) what's
+missing and (b) how to get it — never estimate it or proceed. Without per-SKU revenue you
+cannot rank by money at risk, and ranking by money (not issue count) is the entire point of
+this play; an issue-only list with no revenue join is not a ranking.
+
 RULES:
 - Account-level first: if there's a misrepresentation/policy/suspension issue, flag it as the
   top FIX and note that item-level fixes are blocked until it clears.
@@ -69,8 +75,11 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: SKU/Product | Issue (code) | Severity | Surfaces affected | 30d revenue at
-   risk | Root cause (source-of-truth layer) | Fix | Owner | Recheck.
+2. A ranked table using EXACTLY this header row and column set:
+   | SKU/Product | Issue (code) | Severity | Surfaces affected | 30d revenue at risk | Root cause | Fix | Owner | Recheck |
+   |---|---|---|---|---|---|---|---|---|
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose. (Root cause = the source-of-truth layer.)
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH to a FIX decision.
 ```

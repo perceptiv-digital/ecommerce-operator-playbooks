@@ -51,6 +51,11 @@ sell-rate per SKU (units/day, with OOS days already excluded), contribution marg
 GA4 PDP sessions/day on each dead page, incoming-PO ETA, back-in-stock signups, and
 sibling-variant stock. Some fields may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the per-SKU clean
+sell-rate (over a clean pre-stockout window with OOS days excluded), the days out of stock,
+or the contribution margin per unit is missing, STOP and return only (a) what's missing and
+(b) how to get it — never estimate it or proceed.
+
 RULES:
 - Lost units = clean sell-rate x days out of stock. Lost contribution = lost units x margin/unit.
   Rank by lost CONTRIBUTION, not units and not revenue.
@@ -68,8 +73,9 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read (total lost contribution + the top offender).
-2. A ranked table: SKU | Days OOS | Clean sell-rate | Lost units | Margin/unit | Lost contribution |
-   Live PDP sessions/day | Recoverable (sub/BIS) | Restock ETA | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | SKU | Days OOS | Clean sell-rate | Lost units | Margin/unit | Lost contribution | Live PDP sessions/day | Recoverable | Restock ETA | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the table with prose.
 3. Vetoes/caveats that downgraded any row.
 4. What evidence is blocked and what would upgrade a WATCH/FIX to a confident escalation.
 ```

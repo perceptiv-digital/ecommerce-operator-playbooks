@@ -71,6 +71,15 @@ The diagnosis is the easy part. The brutal part is the join: matching a Merchant
 - **Promo calendar** — a sale price live on the store but not yet in the feed is the single most common mismatch cause.
 - **Contribution margin** per hero SKU — so revenue-at-risk can be expressed as profit-at-risk when you escalate.
 
+## How To Pull This Evidence
+
+- **GMC item status (Products / Diagnostics).** In Merchant Center, open **Products → All products** (or **Products → Diagnostics → Item issues**) and filter to *Disapproved* and *Limited*. Add the **Item ID**, **issue title + code**, and **destination** columns, then export the list — that export is the spine you join everything else onto.
+- **Price / availability — feed vs store check.** For each flagged "mismatch", read the **feed value** from the GMC item detail (the price/availability GMC ingested) and open the **live product page** to read the real store value. Compare them by hand; the disagreement, not the GMC flag, tells you which layer is wrong and which is canonical.
+- **Google Ads Shopping spend by product.** In Google Ads, go to **Campaigns → Insights & reports → Reports**, build a **Shopping product** report (or use the Performance Max product report), pull **cost, impressions, conversions, conv. value by Item ID** for the trailing 7 and 30 days, and export. Join it to the GMC export on Item ID — this is the spend ranking key.
+- **Crawl-cycle recovery gotcha.** A fix doesn't clear instantly: GMC re-fetches and re-evaluates on its crawl cycle (typically ~24h, up to 1–3 cycles). An item still showing *Disapproved* minutes after the edit means *not yet re-crawled*, not *fix failed* — check the **last fetch timestamp**, don't re-edit, and set the recheck date to the next cycle.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Confirm the feed is fresh.** Check the last successful fetch/crawl timestamp. If the feed hasn't re-evaluated in >24h, the disapproval list is stale → treat the whole run as **FIX** (fix the sync) before judging individual SKUs.
@@ -103,6 +112,13 @@ I will paste: a Merchant Center disapproved/"limited" list with issue codes, Goo
 product-level spend/impressions/conversion value by item ID (7d and 30d), and live store
 price/availability for flagged items. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+GMC item status for the actively-advertised SKUs joined to their ad spend / revenue at risk
+(the spend-ranked join is what lets you prioritise by money, not issue count). If that
+critical input is missing, STOP and return only (a) what's missing and (b) how to get it —
+never estimate spend, revenue at risk, or which SKUs are actively advertised, and never
+proceed on issue count alone.
+
 RULES:
 - Rank strictly by trailing-7-day ad spend and revenue at risk. A disapproved $1,500/week
   hero is an emergency; a disapproved zero-spend SKU is noise — say so and move on.
@@ -120,8 +136,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read leading with total revenue/day at risk.
-2. A ranked table: Item (ID) | 7d spend | Issue + code | Ads state | Est. lost rev/day |
-   Source of truth | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Item (ID) | 7d spend | Issue + code | Ads state | Est. lost rev/day | Source of truth | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to confirm a FIX vs an auction loss.
 ```

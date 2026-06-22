@@ -73,6 +73,14 @@ A plain AI assistant cannot see your Meta Ads Manager, your Google Ads account, 
 - **Learning-phase status / recent edits** — a budget or creative edit resets learning.
 - **Creative launch dates** — to tell genuine fatigue apart from an immature ad.
 
+## How To Pull This Evidence
+
+- **Meta Ads Manager** — set Columns to **Performance**, add a breakdown **by ad**, then **export the CSV**.
+- **Google Ads** — pull the **campaign** report plus the **Search Terms report**; add the **Impression Share** columns (lost to budget vs. lost to rank).
+- **TikTok Ads** — export campaign-level spend, CPA, and ROAS (treat as directional only).
+- **Shopify** — export **orders by source/UTM**, then add **COGS**: variant **Cost per item** carries margin but is **not** in the standard orders export, so pull it separately and join.
+- Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this exact order)
 
 1. **Gate on trust.** If platform-claimed conversions and commerce orders diverge by more than ~15% for a channel, set that channel to **FIX** and stop there. Fix tracking before touching budget.
@@ -106,6 +114,7 @@ I will paste: Meta/Google/TikTok spend tables, my commerce orders by source, COG
 contribution margin, and my targets. Some data may be missing.
 
 RULES:
+- PRE-FLIGHT: First list which required inputs I provided vs. missing. If commerce order truth (real attributed orders) is missing, STOP and return only (a) what's missing and (b) how to get it — never estimate commerce truth from a platform or proceed.
 - Trust gate first: if platform-claimed conversions and my commerce orders diverge >15%
   for a channel, mark that channel FIX and exclude it from KILL decisions.
 - Protect learning-phase and small samples (<~300 clicks): WATCH, never KILL.
@@ -120,8 +129,9 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: Spend unit | Platform | Spend (14d) | Orders (commerce) | CPA vs target |
-   Real ROAS @ margin | Driver | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Spend unit | Platform | Spend (14d) | Orders (commerce) | CPA vs target | Real ROAS @ margin | Driver | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

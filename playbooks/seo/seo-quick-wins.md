@@ -75,6 +75,14 @@ A plain AI assistant has no line into your Search Console, so it cannot see a si
 - **Internal-link inventory to the target page** — the cheapest lever to nudge a position-11 page onto page one is usually three contextual internal links from high-authority pages.
 - **Keyword volume / difficulty** — to weight a borderline win by how big the prize is once you break through.
 
+## How To Pull This Evidence
+
+- **GSC Search results export (Queries + Pages).** In Google Search Console open *Performance → Search results*, set the date range to the last 28 days, and switch on the **Average CTR** and **Average position** toggles so every row carries clicks, impressions, CTR, and position together. Export the **Queries** tab and the **Pages** tab separately (Export → Google Sheets / CSV) — they don't show each other's dimension by default, which is why you pull both.
+- **Striking-distance filter (position 5–15).** Sort or filter the Queries export by Average position and keep only rows between ~5 and ~15 — the band where one or two positions of movement produces the biggest click delta. Always pair the position filter with your impressions floor: a position-8 query with 40 impressions is rounding error, not a striking-distance win.
+- **Commercial-intent / money-page gotcha.** GSC has no idea which queries a buyer types versus a researcher, and the position-5–15 list is full of informational pages that will never convert. Before you forecast revenue, tag each surviving query transactional vs. informational and confirm the ranking URL either *is* a money page or can route demand to one — otherwise a "win" is just traffic.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Gate on stability and demand.** Drop any query/page below your impressions floor — no demand, no win. Drop anything whose position is visibly mid-move (check the trend, not just the 28-day average); judge it next week. A position-9 query with 80 impressions is a decoy, not an opportunity.
@@ -107,6 +115,13 @@ I will paste: a GSC Queries table and a GSC Pages table (query/page, clicks, imp
 CTR, avg position, 28-day window), a query->page mapping, my impressions floor, and where I
 have it, a commercial-intent tag and a money-page flag per row. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+GSC query/page data carrying impressions AND average position AND CTR together -
+striking-distance math needs impressions (a position 5-15 row with no impressions isn't a
+win, it's rounding error), and the snippet/CTR call needs CTR against position. If that
+critical input is missing, STOP and return only (a) what's missing and (b) how to get it -
+never estimate impressions, position, or CTR, and never proceed on assumed demand.
+
 RULES:
 - Only consider rows at avg position ~5-15 AND above my impressions floor. Everything else
   is no-demand or out-of-band: exclude it and say so. Do not invent demand.
@@ -127,8 +142,10 @@ RULES:
 RETURN:
 1. A 3-sentence executive read: total est. incremental clicks/mo within reach and the
    single fastest win.
-2. A ranked table: Query / Page | Position | Impressions (28d) | CTR vs expected | Intent |
-   Win type | Est. clicks gained | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Query / Page | Position | Impressions (28d) | CTR vs expected | Intent | Win type | Est. clicks gained / mo | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any row.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a WIN.
 ```

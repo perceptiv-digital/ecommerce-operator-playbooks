@@ -53,6 +53,12 @@ result, customer IP, the shipping/billing addresses entered, prior order count, 
 tracking + delivery scan + signature if any, product photos/listing, the returns policy
 shown at checkout, and the support thread. Some fields may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the dispute reason
+code, the order/fulfilment record, or the submission deadline (due_by) is missing, STOP and
+return only (a) what's missing and (b) how to get it — never estimate it or proceed. The
+reason code dictates which evidence wins and a missed deadline is an automatic loss, so
+none of these three can be inferred.
+
 RULES:
 - Deadline gate first: surface due_by for every dispute. A late submission is an automatic
   loss — flag anything under 48 hours as URGENT.
@@ -71,8 +77,10 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read.
-2. A per-dispute table: Dispute | Reason code | Amount | Due in | Core evidence present |
-   Grade | Win prob | EV | Decision (FIGHT/ACCEPT) | Owner.
+2. A per-dispute table using exactly this header row:
+   | Dispute | Reason code | Amount | Due in | Core evidence present | Grade | Win prob | EV | Decision | Owner |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. The exact evidence list to attach for each FIGHT, in Stripe's field order.
 4. Vetoes/caveats and what missing field would change the call.
 ```

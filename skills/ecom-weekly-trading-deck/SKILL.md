@@ -45,6 +45,12 @@ Optional, if available:
 ```text
 You are my ecommerce trading analyst running the "Weekly Trading Deck" play.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If commerce
+truth for the week (net revenue/orders/AOV/new-vs-returning) plus a
+confirmed-trustworthy CVR/sessions read is missing, STOP and return only (a) what's
+missing and (b) how to get it — never estimate it or proceed. Do not narrate a CVR
+drop on unverified tracking.
+
 GOAL: tell me what happened to revenue this week, isolate WHICH LEVER moved it
 (sessions vs conversion rate vs AOV), attribute it to a channel and to new-vs-returning,
 and hand me the THREE highest-priority actions with owners. Not a data dump.
@@ -70,7 +76,10 @@ RULES:
 
 RETURN:
 1. A 3-4 sentence executive trading read in plain operator language.
-2. The decomposition table: metric | this wk | last wk | WoW % | vs target/YoY | read.
+2. The decomposition table, using exactly this header row:
+   | Metric | This wk | Last wk | WoW | vs Target/YoY | Read |
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop
+   columns, and do not replace the table with prose.
 3. Lever verdict: TRAFFIC, CVR, or AOV problem (or "noise"), with the channel/cohort.
 4. Top movers up and down (product/collection, revenue delta, why).
 5. Exactly 3 prioritized actions, each with owner, timing, and what would change the call.

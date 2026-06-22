@@ -75,6 +75,16 @@ A plain AI assistant cannot see your store catalog, your Merchant Center diagnos
 - **Recent changes** — launch dates, title/feed edits, theme or URL-structure changes, robots/canonical edits that could have de-indexed pages.
 - **Promotion calendar** — a paused promo can suppress Shopping eligibility or impressions temporarily.
 
+## How To Pull This Evidence
+
+- **GMC item status** — Merchant Center → Products → All products (or Diagnostics) for per-item approval status, disapproval reason, and free-listing vs Shopping-ads eligibility; the Content API / CSV export gives the item-level detail the aggregate Diagnostics dashboard hides.
+- **GSC page metrics** — Search Console → Performance → Search results, set type to **Page**, last 28 days; export impressions/clicks/CTR/avg position per PDP. Watch the **1,000-row UI cap** — use the API or Looker Studio on a large catalog or the zero-impression tail disappears.
+- **Commerce revenue** — Shopify Analytics → Reports → "Sales by product" (or the orders export) for 30-day and prior-30 units and revenue; this lives in orders/analytics, not the product CSV, so it's a separate pull.
+- **Organic / rank presence** — DataForSEO (or your rank tool) SERP check on each priority product's head term to confirm a ranking page exists and at what position — this catches demand GSC is blind to.
+- **Gotcha — join keys differ:** store handle ≠ GMC item ID ≠ GSC page URL. Reconcile all three to the canonical PDP URL before joining, or you'll match the wrong product to its data.
+- **Gotcha — confirm property alignment:** GSC verified on a non-canonical host or GMC pulling a stale feed makes every product look "invisible" for the wrong reason.
+- Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 Diagnose in this exact order — each step rules out a *cause* before the next, so you never prescribe a snippet fix on a product that is actually feed-disapproved.
@@ -107,6 +117,11 @@ GOAL: find which products are invisible across commerce, search, and feed surfac
 bucket each into a named failure mode, and rank the fix list by recoverable 30-day
 revenue — not by SKU count.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the per-product
+join inputs — GMC status + GSC impressions/position + commerce revenue — are missing (in
+particular GMC status, without which you cannot tell a disapproval from low demand), STOP
+and return only (a) what's missing and (b) how to get it — never estimate it or proceed.
+
 I will paste a joined product table with, per product: title, price, availability,
 30-day and prior-30 revenue, GMC status + disapproval reason + free-listing/Shopping
 eligibility, GSC page-level impressions/clicks/CTR/avg position (28d), and whether an
@@ -132,8 +147,11 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read led by total recoverable revenue at risk.
-2. A ranked table: SKU/Product | GMC status | GMC impr (30d) | GSC impr / avg pos |
-   Organic page? | 30d revenue | Bucket | Action | Owner | Recheck.
+2. A ranked table using EXACTLY this header row:
+   | SKU/Product | GMC status | GMC impr (30d) | GSC impr / avg pos | Organic page? | 30d revenue | Bucket | Action | Owner | Recheck |
+   |---|---|---|---|---|---|---|---|---|---|
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns,
+   and do not replace the table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

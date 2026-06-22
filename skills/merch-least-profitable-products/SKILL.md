@@ -53,6 +53,12 @@ I will paste: orders by SKU (net of returns), COGS per SKU, return rate and load
 return cost, payment/fulfillment/ad cost, and list vs realized price. Some data may
 be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical
+input is per-SKU price, COGS, and returns data - without COGS and returns coverage
+the contribution ranking is wrong. If that critical input is missing, STOP and return
+only (a) what's missing and (b) how to get it - never estimate it or proceed. If a
+non-critical input is missing, label the run "partial" and continue.
+
 RULES:
 - Cost-coverage gate first: any SKU with missing/stale COGS or non-attributable
   returns is FIX and labelled "partial profit" - never KILL it.
@@ -69,8 +75,10 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read.
-2. A ranked table: SKU | Net units (90d) | Gross margin % | Return rate | Real unit
-   contribution | Discount-dependent? | Basket role | Lever | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | SKU | Net units (90d) | Gross margin % | Return rate | Real unit contribution | Discount-dependent? | Basket role | Lever | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not
+   replace the table with prose.
 3. Vetoes/caveats that downgraded or exempted any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a FIX/WATCH to a decision.
 ```

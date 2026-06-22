@@ -53,6 +53,10 @@ I will paste two columns of data: THIS period and the comparable window LAST YEA
 net revenue, orders, AOV, new-vs-returning mix, gross margin %, and discount share of
 revenue. I will also note any promos, price changes, stockouts, or store-growth context.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If order-level
+commerce data for the same comparable calendar window last year is missing, STOP and
+return only (a) what's missing and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Confirm the two windows are the same calendar position with matched promo presence.
   If a promo or holiday landed in only one window, say the comparison is unsafe and stop.
@@ -67,7 +71,11 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive trading read.
-2. A YoY table: Metric | This period | Same window LY | YoY delta | Read.
+2. A YoY table using exactly this header row:
+   | Metric | This period | Same window LY | YoY delta | Read |
+   |---|---|---|---|---|
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns,
+   and do not replace the table with prose.
 3. The single most important pattern (healthy growth / discount-funded / margin
    compression / retention erosion / genuine softness) with the evidence behind it.
 4. Vetoes or caveats that downgrade confidence.

@@ -75,6 +75,15 @@ A plain AI assistant has no eyes on your ad accounts. Fatigue lives in metrics t
 - **Site/checkout CVR and product stock** — to rule out "it's not the creative, it's the landing page / it's out of stock."
 - **Creative metadata** (concept, format, hook type) — so the refresh brief knows *what* to iterate, not just *that* to iterate.
 
+## How To Pull This Evidence
+
+- **Meta ad-level export:** in Ads Manager, set the **Ad** level, window to the **last 7 days**, and use the Export → table. Pull **frequency**, **link CTR**, **CPM**, **first-time-impression ratio** (Reach & Frequency breakdown — "first-time impression ratio"), and **3-second video views / hook rate** (add the Video Engagement column set). Add spend, purchases, and CPA in the same export so the ranking column travels with the fatigue signals.
+- **TikTok ad-level export:** in TikTok Ads Manager, export at the **Ad** level for the last 7 days with **CTR**, **CPM**, **2-second / 6-second video views** (the hook proxy), **video completion / hold rate**, plus spend and CPA. TikTok has no "first-time ratio" — use frequency-equivalent reach decay instead.
+- **The ad's launch-week baseline:** for each ad, re-run the same ad-level export filtered to its **first 3–7 days live** (set the date range to the launch window). This is the number you measure decay against — there is no single "baseline" column, so you reconstruct it per ad.
+- **Gotchas:** use **link CTR**, not all-clicks CTR (all-clicks inflates with reactions/comments). Watch for **attribution-window mismatches** between the two date ranges. A creative edit or budget step-change **resets learning** — an "old" ad edited 4 days ago is not mature. Promo weeks distort frequency/CPM/CVR, so a launch window that overlaps a sale gives a polluted baseline.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 Diagnosis order matters more than any single threshold. Run top to bottom and stop at the first that fits.
@@ -116,6 +125,12 @@ I will paste a per-ad table (mostly Meta, some TikTok) with, per ad: 7-day spend
 frequency, link CTR now vs. its launch baseline, CPM trend, hook rate / hold (video),
 CPA trend, conversions to date, and launch/edit date. Some fields may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical
+inputs are per-ad frequency, link CTR now vs. the ad's OWN launch baseline, 7-day
+spend, and enough conversions/sample to clear the maturity gate (so learning-phase ads
+are never called fatigued). If any critical input is missing, STOP and return only
+(a) what's missing and (b) how to get it — never estimate it or proceed.
+
 DIAGNOSIS ORDER (stop at the first that fits, per ad):
 1. Maturity gate: if <~50 conversions OR launched/edited in last ~7 days -> WATCH (in
    learning). Never call it fatigued.
@@ -138,8 +153,10 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read (total spend on the REFRESH list; the single biggest leak).
-2. A ranked table: Ad | Spend (7d) | Frequency | CTR vs launch | CPM trend | Hook/hold |
-   CPA trend | Signal | Status (REFRESH/WATCH/KEEP/FIX) | Action.
+2. A ranked table using exactly this header row:
+   | Ad | Spend (7d) | Frequency | CTR vs launch | CPM trend | Hook/hold | CPA trend | Signal | Status | Action |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace
+   the table with prose. Status is one of REFRESH/WATCH/KEEP/FIX.
 3. Vetoes/caveats that downgraded any call.
 4. What evidence is blocked and what would upgrade a WATCH to a decision.
 ```

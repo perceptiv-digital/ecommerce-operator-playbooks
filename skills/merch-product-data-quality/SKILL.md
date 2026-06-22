@@ -51,6 +51,12 @@ image count, variant data, GTIN/brand/MPN, category attributes, review count), M
 Center feed diagnostics (disapprovals + warning codes + per-item impressions), and per-PDP
 sessions + conversion rate. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+the catalog completeness fields joined to per-SKU traffic/revenue (sessions, GMC impressions,
+and revenue or CVR per SKU) — without that join you cannot prioritise by money instead of
+empty-field count. If that join is missing, STOP and return only (a) what's missing and
+(b) how to get it — never estimate it or proceed.
+
 RULES:
 - Feed-freshness gate first: if the feed sync is older than ~24h, mark FIX (sync first)
   and stop. Stale diagnostics are unreliable.
@@ -70,8 +76,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: SKU/Product | Gap type | The gap | Sessions (28d) | GMC impressions |
-   CVR vs site avg | Impact score | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | SKU / Product | Gap type | The gap | Sessions (28d) | GMC impressions | CVR vs site avg | Impact score | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

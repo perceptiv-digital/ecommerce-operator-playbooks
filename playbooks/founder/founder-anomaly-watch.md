@@ -72,6 +72,17 @@ A plain AI assistant has no line into your Shopify order ledger or your GA4 prop
 - **External demand drivers** — a TikTok / press / influencer mention, a competitor stockout, weather, or a public holiday shifting the baseline.
 - **Stock state** — a hero SKU back in stock (spike) or sold out (drop) during the window.
 
+## How To Pull This Evidence
+
+- **Shopify net revenue/orders** — Analytics → Reports → "Sales over time" and "Sales by traffic source"; set the date range to the anomaly window, then re-run it for the trailing 14/28 days. Gotcha: the dashboard tiles show *gross* sales by order date — switch to **net sales** and confirm cancellations/refunds attribute to the order date, not the refund date, or your delta is wrong.
+- **Shopify slices (channel/device/geo/product/new-vs-returning)** — same Reports area: "Sales by referrer", "Online store conversion over time", and "Customers" → first-time vs returning. Gotcha: exclude **test orders and the one giant wholesale/POS order** before you trust AOV — a single $14k order silently owns the whole swing.
+- **GA4 sessions/CVR/revenue** — Reports → Acquisition → "Traffic acquisition" (set primary dimension to Default channel grouping) and Monetization → Ecommerce purchases; apply the exact same dates. Gotcha: GA4 defaults to **last-click attribution and its own timezone/data-thresholding** — match the property timezone to your store and disable thresholding, or GA4 and Shopify will never reconcile.
+- **GA4 reconciliation check** — compare GA4 "purchase revenue" to Shopify net for the window side by side. Gotcha: a gap that *only* moves on one side is the artefact signal — don't average them away.
+- **Baseline / threshold** — pull the trailing-average and standard-deviation the alert fired on from whatever raised it (Shopify alert, Triple Whale, Glew, a sheet). Gotcha: if no one can state the threshold, the "anomaly" is a feeling — recompute it before proceeding.
+- **Promo calendar & incidents** — check Shopify Discounts (active/just-ended codes) and your status page / deploy log / app-install history for the window. Gotcha: a promo that ended *yesterday* still distorts today by borrowing demand forward.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Validate the window first.** Confirm the anomaly day/week is fully settled and compared against equal, complete periods. A partial day vs. full days is an artefact → **FIX** the comparison before anything else.
@@ -94,6 +105,11 @@ A plain AI assistant has no line into your Shopify order ledger or your GA4 prop
 
 ```text
 You are my ecommerce trading analyst running the "Revenue Anomaly Watch" play.
+
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If settled commerce
+order data (net of cancellations/test orders) for the anomaly window AND the trailing
+baseline is missing, STOP and return only (a) what's missing and (b) how to get it — never
+estimate it or proceed.
 
 SITUATION: revenue broke abnormally from baseline and people want to react. Before anyone
 acts, tell me what actually changed and whether it is even real.
@@ -125,7 +141,10 @@ RULES:
 RETURN:
 1. A 3-sentence executive read: real or artefact, the moving factor, the concentrating slice.
 2. A decomposition table: Factor | Baseline | Anomaly window | Change | Share of revenue delta.
-3. A ranked explanations table: Explanation | Variance explained | Evidence | Status | Owner | Recheck.
+3. A ranked explanations table using EXACTLY this header row:
+   | Explanation | Variance explained | Evidence | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and
+   do not replace the table with prose.
 4. Vetoes/caveats that downgraded any conclusion.
 5. What evidence is blocked and what you'd need to confirm the cause.
 ```

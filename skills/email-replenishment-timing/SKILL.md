@@ -51,6 +51,11 @@ the 25th/75th percentiles, my Klaviyo flow inventory (which SKUs have a replenis
 and its current delay), AOV per SKU, and optionally contribution margin. Some data may be
 missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If enough
+repeat-purchase history per consumable product to compute a reliable median inter-purchase
+interval (>=30 distinct customers who bought the SKU >=2 times) is missing, STOP and return
+only (a) what's missing and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Data gate first: only set a trigger for a SKU with >=30 distinct customers who bought it
   >=2 times. Below that, mark WATCH - thin data, and do NOT invent an interval.
@@ -68,8 +73,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked table: Product/Category | Median interval | IQR | Repeat buyers | Trigger window |
-   Existing flow? | Est. monthly opportunity | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Product / Category | Median interval | IQR (25th–75th) | Repeat buyers | Trigger window | Existing flow? | Est. monthly opportunity | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH to a decision.
 ```

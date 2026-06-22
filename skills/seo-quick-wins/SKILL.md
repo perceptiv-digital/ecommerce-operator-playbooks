@@ -51,6 +51,13 @@ I will paste: a GSC Queries table and a GSC Pages table (query/page, clicks, imp
 CTR, avg position, 28-day window), a query->page mapping, my impressions floor, and where I
 have it, a commercial-intent tag and a money-page flag per row. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+GSC query/page data carrying impressions AND average position AND CTR together -
+striking-distance math needs impressions (a position 5-15 row with no impressions isn't a
+win, it's rounding error), and the snippet/CTR call needs CTR against position. If that
+critical input is missing, STOP and return only (a) what's missing and (b) how to get it -
+never estimate impressions, position, or CTR, and never proceed on assumed demand.
+
 RULES:
 - Only consider rows at avg position ~5-15 AND above my impressions floor. Everything else
   is no-demand or out-of-band: exclude it and say so. Do not invent demand.
@@ -71,8 +78,10 @@ RULES:
 RETURN:
 1. A 3-sentence executive read: total est. incremental clicks/mo within reach and the
    single fastest win.
-2. A ranked table: Query / Page | Position | Impressions (28d) | CTR vs expected | Intent |
-   Win type | Est. clicks gained | Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Query / Page | Position | Impressions (28d) | CTR vs expected | Intent | Win type | Est. clicks gained / mo | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any row.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a WIN.
 ```

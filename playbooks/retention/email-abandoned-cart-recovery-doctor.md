@@ -74,6 +74,15 @@ A plain AI assistant cannot see your Klaviyo flow analytics or your Shopify chec
 - **Klaviyo attribution settings** — the click/view attribution window (default 5-day click / 1-day view) and flow-priority / suppression order, to judge revenue overlap.
 - **Promo calendar** — a site-wide sale window suppresses or distorts recovery economics for that period.
 
+## How To Pull This Evidence
+
+- **Flow trigger metric (abandoned-checkout / cart / browse):** in Klaviyo, open each flow → click the trigger card at the top to read the exact trigger metric (`Checkout Started`, `Added to Cart` / `Started Checkout`, `Viewed Product`). Confirm it's live by checking the "people in flow" count is still incrementing daily — a stalled count means the trigger broke, often in a Shopify checkout-extensibility migration.
+- **Per-message performance:** Klaviyo → Flows → the flow → **Analytics** tab, switched to the per-message (per-step) view, not the flow summary. Read recipients, open rate, click rate, placed-order rate, and placed-order value for each step.
+- **Timing:** read the **time delay** on each step directly from the flow builder (the delay block before each message), so you can see how long after abandon the first touch fires and the spacing of the series.
+- **Recovery rate & revenue per recipient:** from the flow-level Analytics summary — recovery rate = placed orders ÷ people who entered the flow; revenue per recipient = attributed placed-order value ÷ recipients. Pull the same 30–90 day window for every flow.
+- **Attribution-window gotcha:** before you trust Klaviyo's attributed revenue, check Account → Settings → **Attribution** for the conversion window (default 5-day click / 1-day view). That window overlaps your post-purchase and browse flows, so the same order can be credited to multiple flows — reconcile against real Shopify orders before sizing recovered revenue, or you'll double-count.
+- Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Verify the trigger fires, and fires on the right event.** Open each recovery flow and read the trigger metric. Abandoned *checkout* should trigger on `Checkout Started`; cart recovery on `Added to Cart`; browse on `Viewed Product`. If "people in flow" hasn't incremented in days, or the flow still listens to a deprecated `Started Checkout` event post-migration, set it to **FIX** and stop — every downstream number is meaningless until it fires.
@@ -109,6 +118,13 @@ per-message analytics (recipients, open, click, placed-order rate, revenue), flo
 recovery rate and revenue per recipient, Shopify checkouts-started / orders / AOV /
 discount-code usage, and my benchmarks. Some data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical input is
+confirmation that each recovery flow is firing on the correct trigger (e.g. Checkout Started
+vs the deprecated Started Checkout, and not Added to Cart) PLUS its recovery rate and
+revenue-per-recipient — a flow firing on a broken or wrong trigger earns nothing, so every
+downstream number is meaningless without it. If that critical input is missing, STOP and
+return only (a) what's missing and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Trigger gate first: if a flow's trigger metric is wrong (e.g. deprecated Started Checkout
   vs Checkout Started after Shopify checkout extensibility) or it has stopped firing, mark
@@ -127,8 +143,10 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read.
-2. A ranked table: Defect | Flow | Evidence (number+source+window) | Recoverable $/mo (est) |
-   Status | Owner | Recheck.
+2. A ranked table using exactly this header row:
+   | Defect | Flow | Evidence (number + source + window) | Recoverable $/mo (est) | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation (esp. thin sample, attribution overlap,
    discount-margin risk).
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.

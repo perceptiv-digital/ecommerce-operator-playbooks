@@ -52,6 +52,12 @@ revenue, categories), my category reorder cadences, Klaviyo engagement (last ope
 days since engaged, complaint/bounce signals), and my contribution margin. Some data may
 be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the critical input
+is missing — lapsed customers with their prior value AND the category's natural reorder
+cycle (lapsed = past their expected reorder window, not an arbitrary 90 days), plus
+engagement state to identify sunset candidates — STOP and return only (a) what's missing
+and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Freshness gate first: if last-order-date or last-engaged timestamps look stale or the
   commerce<->Klaviyo sync is broken, mark the run FIX and stop. Do not segment on bad dates.
@@ -70,8 +76,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked segment table: Segment | Size | Avg prior LTV | Days lapsed (vs cadence) |
-   Engagement | Recoverable value | Recommended offer | Status | Owner | Recheck.
+2. A ranked segment table using exactly this header row:
+   | Segment | Size | Avg prior LTV | Days lapsed (vs cadence) | Engagement | Recoverable value | Recommended offer | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation (esp. anything sunset for deliverability).
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

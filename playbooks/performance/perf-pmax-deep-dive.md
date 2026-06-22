@@ -77,6 +77,16 @@ A plain AI assistant cannot open your Google Ads account or your Merchant Center
 - **Seasonality / demand index** — to separate "PMax scaled" from "the category got hot."
 - **Asset launch dates** — to tell a genuinely fatiguing asset group from one that is simply still ramping.
 
+## How To Pull This Evidence
+
+- **PMax brand/non-brand split** — Google does not give it directly. Reconstruct it: read the PMax **search-term insights** (Campaigns → Insights → "What's driving your performance" / search-term insights) to see brand-query share, cross-reference the campaign's **brand-list / brand-exclusions** setting, and triangulate against your Brand Search campaign volume or Search Console brand-query volume. Operators who run the Google Ads API or PMax **scripts** can dump search-term insights to a sheet and tag brand vs non-brand programmatically — far faster than the UI.
+- **Channel/placement breakdown** — PMax withholds a clean Search/Shopping/Display/YouTube/Gmail split in the standard view. Approximate it from the **asset-group reporting**, the listing-group view for the Shopping slice, and the placement/channel data exposed via the Google Ads API or a PMax script; stitch the slices together to estimate where spend and conversion value actually landed.
+- **Search-term & category insights** — pull the **category** and **search-term insight** report for the window (Insights tab, or via API). Remember PMax reports categories and insight terms, not the full raw search-term table — treat it as directional.
+- **New-customer value** — requires the **customer-acquisition / first-party customer-list** setup (Google Ads → Audiences → your customer list, with "new customer" conversion goal configured). Pull new-customer conversions and **new-customer value** vs returning from the customer-acquisition report; without the customer-list match you only get a new-customer *count*, not value.
+- **The opacity gotcha** — every one of these is a partial, lagging, deliberately fragmented view: PMax shows you categories not terms, asset-group slices not a true channel ledger, and an estimated brand share not a measured one. Stitch them, label what is estimated vs measured, and never report the reassembly as exact.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Gate on conversion integrity.** If Google Ads conversions and your commerce/GA4 orders diverge by more than ~15% for the window, or a tracking/consent change landed mid-window, set the campaign to **FIX** and stop. PMax optimises toward whatever it's told converts — bad signal means bad spend.
@@ -107,6 +117,12 @@ GOAL: decide whether Performance Max is scaling NEW, PROFITABLE demand or coasti
 brand and padding ROAS with low-value Display/Gmail conversions. Output a defensible
 KILL / REFRESH / WATCH / KEEP / FIX call, judged on EX-BRAND, margin-adjusted economics.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the brand-vs-non-brand
+split (or the inputs to estimate it, plus the channel/placement breakdown) is missing, STOP and
+return only (a) what's missing and (b) how to get it — never estimate it or proceed. Without
+separating brand from non-brand you cannot judge PMax, so the blended ROAS alone is not enough
+to begin.
+
 I will paste: the PMax campaign table (period + prior period), a brand/non-brand split or
 the inputs to estimate one, the channel/placement split (Search/Shopping/Display/YouTube/
 Gmail), new-vs-returning customer value, asset-group and listing-group performance,
@@ -129,8 +145,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read (lead with blended vs ex-brand ROAS).
-2. A ranked table: Lever | Evidence (number/source/window) | Blended vs ex-brand ROAS |
-   Status | Why | Owner | Recheck.
+2. A ranked table using EXACTLY this header row:
+   | Lever | Evidence (number / source / window) | Blended ROAS | Ex-brand ROAS | Status | Why | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

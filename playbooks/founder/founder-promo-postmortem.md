@@ -76,6 +76,16 @@ A bare AI assistant has no line into your store, so it cannot see the one thing 
 - **Full-price sell-through of the same SKUs** in the baseline — tells you how many discounted units would have sold anyway.
 - **Email/SMS send volume** behind the promo — distinguishes offer pull from list-fatigue.
 
+## How To Pull This Evidence
+
+- **Daily orders / units / revenue (all windows):** Shopify Admin → Analytics → Reports → "Sales over time," set Day granularity and export CSV per window. Gotcha: the default report is by *order processed date* and includes taxes/shipping — filter to net sales and confirm the timezone matches your promo start/end, or a sale that ran "Friday" leaks an extra day.
+- **Same-period-last-year baseline:** re-run the same Shopify sales report with last year's date range. Gotcha: if the SKU set or your traffic mix changed materially YoY, last year isn't a clean counterfactual on its own — pair it with the trailing 4-week run-rate.
+- **New vs. returning + discount-code usage:** Shopify → Analytics → "Sales by customer type," and Discounts → the specific code for redemption counts. Gotcha: "returning" is keyed to Shopify's customer record, so guest checkouts and email-mismatched repeat buyers get mis-tagged as new — treat the new share as a slight overcount.
+- **COGS / contribution margin:** Shopify product "Cost per item" field (Admin → Products), exported via the "Sales" report's cost columns or a margin app. Gotcha: COGS is blank for any SKU where cost was never entered, and it's a *current* snapshot — it won't reflect what the unit actually cost during the promo.
+- **Discount value actually given away:** Shopify Discounts report → "Total discounts," not list price. Gotcha: automatic discounts, stacked codes, and free-shipping thresholds land in different buckets — sum them or you'll undercount the margin transfer.
+- **Returns / refunds on promo orders:** Shopify → Analytics → "Returns" or the Refunds export, filtered to orders within the promo window. Gotcha: refunds lag the sale by days to weeks, so let the window settle before reading the rate or you'll flatter the promo.
+- Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Establish the counterfactual first.** Before looking at uplift, fix the baseline: trailing 4-week run-rate *and* same-period-last-year. **Gross uplift means nothing until you have a number to be incremental *against*.** If you can't build a credible baseline, the play is **FIX**, not a verdict.
@@ -110,6 +120,11 @@ revenue for the promo window, the 4 weeks before, and the 2-3 weeks after; same-
 last-year; new-vs-returning split; discount value given away; COGS; and refunds. Some
 data may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If a clean pre-promo
+baseline (trailing 4-week run-rate and/or same-period-last-year) or per-unit margin/COGS to
+judge incrementality is missing, STOP and return only (a) what's missing and (b) how to get
+it -- never estimate it or proceed.
+
 RUN IN THIS ORDER:
 1. Build the counterfactual baseline (trailing 4-week run-rate AND same-period-last-year).
    If no credible baseline exists, return FIX -- do not score the promo.
@@ -129,7 +144,11 @@ RULES:
 
 RETURN:
 1. A 2-3 sentence executive read with the verdict.
-2. A table: Metric | Baseline | Promo window | Post-promo | Net incremental | Confidence.
+2. A table using exactly this header row:
+   | Metric | Baseline (run-rate / LY) | Promo window | Post-promo window | Net incremental | Confidence |
+   |---|---|---|---|---|---|
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and
+   do not replace the table with prose.
 3. The contribution-profit walk (gross uplift -> minus trough -> minus margin given away
    -> minus refunds -> net).
 4. Vetoes/caveats and what evidence would upgrade the confidence.

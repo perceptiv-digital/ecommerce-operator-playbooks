@@ -52,6 +52,10 @@ revenue / orders / sessions / AOV, last year's same-month daily revenue curve (o
 trailing weekday index), days remaining, and my promo calendar. Some data may be missing.
 
 RULES:
+- PRE-FLIGHT: First list which required inputs I provided vs. missing. If settled net commerce
+  revenue for the MTD window and yesterday (orders fully settled, after refunds/cancellations,
+  tracking confirmed clean) is missing, STOP and return only (a) what's missing and (b) how to
+  get it — never estimate it or proceed.
 - Build a seasonality-adjusted pace target by distributing the monthly target across days
   using the daily shape I gave you. Never use a naive target / days-in-month linear split.
 - Report the gap as dollars and as a percent of the pace target to date.
@@ -65,8 +69,11 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read ending in PUSH / HOLD / IT'S FINE.
-2. A table: MTD actual | Pace target to date | $ ahead/behind | Required $/day to close |
-   Binding lever | Recommended move | Confidence.
+2. A table using exactly this header row:
+   | MTD actual | Pace target to date | $ ahead/behind | Required $/day to close | Binding lever | Recommended move | Confidence |
+   |---|---|---|---|---|---|---|
+   Use "—" for any cell you cannot fill from the evidence. Do not add or drop columns, and do
+   not replace the table with prose.
 3. The lever decomposition (traffic / CVR / AOV) showing which one is binding.
 4. Vetoes/caveats that downgraded the call, and what evidence would upgrade it.
 ```

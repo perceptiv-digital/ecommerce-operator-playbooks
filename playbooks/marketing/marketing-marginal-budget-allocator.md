@@ -78,6 +78,16 @@ To run it manually you must:
 - **Learning-phase and recent-edit status** — a budget jump resets Meta learning; the next-dollar read is unreliable until it re-stabilises.
 - **Stock cover on top SKUs** — never point the marginal dollar at a channel selling a product about to stock out.
 
+## How To Pull This Evidence
+
+- **Google IS-lost-to-budget columns** — in Google Ads, open Campaigns → Columns → Modify columns → **Competitive metrics**, and enable **Search lost IS (budget)** alongside **Search lost IS (rank)** and **Search impression share**. Segment by campaign and by network so Shopping/PMax don't blur the Search read; only the *budget* column is scaling headroom — the *rank* column is a bid/quality problem.
+- **Meta frequency** — in Ads Manager, set the level to **Ad set**, add the **Frequency** and **Reach** columns (Columns → Customize columns → Performance), and match the window to your spend curve. Read frequency next to **Audience size / Estimated audience** per ad set; rising frequency on a shrinking audience is the saturation tell.
+- **Recent marginal-spend response** — for each channel, export daily spend with daily CPA/ROAS for the last 28–30 days and the prior equal period, then read CPA/ROAS *at the points where you changed budget* (the slope after each bump), not the period average. For TikTok specifically, isolate the days after the most recent budget change and treat a small base as directional.
+- **Margin CPA ceiling** — from your store/finance data, take contribution margin per order (price − COGS − payment/fulfilment/variable costs), per product or blended; that margin is the maximum allowable CPA. Pull it from Shopify/Woo/BigCommerce order data joined to product costs, or from your finance sheet if margin lives there.
+- **Gotchas** — match every window to the same date range or the slope lies; reconcile platform-claimed conversions against commerce orders before trusting any channel's headroom; exclude campaigns still in the learning phase or recently edited; and don't read a promo window or a near-stockout SKU as durable headroom.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Gate on trust and margin.** If platform-claimed conversions and commerce orders diverge materially for a channel, or contribution margin is missing, you can't locate real headroom → mark that channel **FIX** and exclude it from add/cut calls. The CPA ceiling = contribution margin per order; everything below is judged against it.
@@ -115,6 +125,12 @@ I will paste, per channel: spend curve with CPA/ROAS trend as spend changed; Goo
 Search impression share lost to BUDGET vs lost to RANK; Meta frequency + audience size;
 TikTok response to its last budget change; and my contribution margin. Some may be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. The critical inputs
+are the scaling-headroom signals (Google Search impression-share-lost-to-BUDGET, Meta
+frequency/saturation) and a contribution-margin CPA ceiling — average ROAS alone is NOT
+marginal ROAS and cannot stand in for them. If any of those critical inputs is missing,
+STOP and return only (a) what's missing and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Gate first: if platform conversions and my commerce orders diverge, or margin is
   missing, mark that channel FIX and exclude it from add/cut calls. Do not guess headroom.
@@ -131,8 +147,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read naming where the next dollar goes and why.
-2. A ranked table: Channel | Spend (30d) | Avg ROAS/CPA | Marginal read | Headroom signal |
-   Frequency / IS-lost-budget | Call (Add/Hold/Test) | Owner | Recheck.
+2. A ranked table using EXACTLY this header row, copied verbatim:
+   | Channel | Spend (30d) | Avg ROAS/CPA | Marginal read | Headroom signal | Call | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation.
 4. What evidence is blocked and what you'd need to upgrade a HOLD/FIX to a decision.
 ```

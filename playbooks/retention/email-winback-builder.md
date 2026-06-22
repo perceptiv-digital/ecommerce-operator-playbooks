@@ -74,6 +74,16 @@ A plain AI assistant can reason about win-back theory all day, but it cannot see
 - **Discount sensitivity** — whether this base historically converts on a soft nudge vs. only on depth, so you don't over-discount.
 - **Sunset / suppression history** — who you've already suppressed, to avoid re-mailing addresses you deliberately retired.
 
+## How To Pull This Evidence
+
+- **Lapsed segments by last-order date + prior LTV** — In Shopify, build a customer segment with `last_order_date` older than your cutoff and export with `amount_spent` / `number_of_orders` (Customers → Segments, or the Admin API `customers` + `orders` endpoints). In Klaviyo, create a segment on "Placed Order zero times in the last N days" and pull each profile's historic-revenue and order-count properties; join the two exports on email.
+- **Category reorder cycle** — Compute it from your own data: pull repeat-purchase pairs per category (each customer's gap between consecutive orders of the same category) and take the median. No repeat history yet? Use a defensible category benchmark (consumables 30–45d, skincare 60–90d, durables 1–3y) and mark it estimated.
+- **Engagement for sunset** — From Klaviyo, export each profile's last-open and last-click timestamps (or the "engaged in last N days" predictive/segment fields). Days-since-last-engagement is what decides who is sunset-bound, independent of the offer.
+- **Margin for offer** — Pull contribution margin per category from your product/COGS data (Shopify cost-per-item on variants, or your finance sheet), so offer depth can be tested against gross profit rather than guessed.
+- **Deliverability gotcha** — Klaviyo's "last open" is unreliable post-Apple Mail Privacy Protection (MPP auto-opens inflate opens). Lean on **clicks**, complaint rate, and bounce rate for the sunset call, not opens alone — or you'll keep mailing addresses that only *look* engaged.
+
+Or skip all of this — ShopMCP pulls it live.
+
 ## The Decision Logic (run in this order)
 
 1. **Gate on data freshness.** If "last order date" or "last engaged" is stale or the Klaviyo↔commerce profile sync is broken, mark the whole run **FIX** and stop. You cannot segment dormancy on timestamps you don't trust.
@@ -106,6 +116,12 @@ revenue, categories), my category reorder cadences, Klaviyo engagement (last ope
 days since engaged, complaint/bounce signals), and my contribution margin. Some data may
 be missing.
 
+PRE-FLIGHT: First list which required inputs I provided vs. missing. If the critical input
+is missing — lapsed customers with their prior value AND the category's natural reorder
+cycle (lapsed = past their expected reorder window, not an arbitrary 90 days), plus
+engagement state to identify sunset candidates — STOP and return only (a) what's missing
+and (b) how to get it — never estimate it or proceed.
+
 RULES:
 - Freshness gate first: if last-order-date or last-engaged timestamps look stale or the
   commerce<->Klaviyo sync is broken, mark the run FIX and stop. Do not segment on bad dates.
@@ -124,8 +140,10 @@ RULES:
 
 RETURN:
 1. A 3-sentence executive read.
-2. A ranked segment table: Segment | Size | Avg prior LTV | Days lapsed (vs cadence) |
-   Engagement | Recoverable value | Recommended offer | Status | Owner | Recheck.
+2. A ranked segment table using exactly this header row:
+   | Segment | Size | Avg prior LTV | Days lapsed (vs cadence) | Engagement | Recoverable value | Recommended offer | Status | Owner | Recheck |
+   Use "—" for any cell you cannot fill. Do not add or drop columns, and do not replace the
+   table with prose.
 3. Vetoes/caveats that downgraded any recommendation (esp. anything sunset for deliverability).
 4. What evidence is blocked and what you'd need to upgrade a WATCH/FIX to a decision.
 ```

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-06-22 (prompt hardening)
+
+- Hardened every play's Copy-Paste Prompt for reliable LLM execution: an unskippable PRE-FLIGHT gate that makes the model STOP and ask when the one dangerous-if-missing input is absent (instead of guessing), and the literal output-table header embedded in the prompt with "use — for missing cells, never prose."
+- Added a "How To Pull This Evidence" appendix to every play — the exact place to get each number (and the one gotcha) for Shopify, GA4, Meta/Google/TikTok Ads, GSC, GMC, Klaviyo, Stripe — fixing the "it tells me the metric but not where to click" blocker for non-analyst operators.
+- Regenerated the 50 skills so they carry the hardened prompts.
+
 ## 2026-06-22 (installable skills)
 
 - Every play is now an installable [Agent Skill](https://agentskills.io) under `skills/<slug>/SKILL.md`, generated from the playbook files. One-command install with `npx skills add perceptiv-digital/ecommerce-operator-playbooks` (Claude Code, Cursor, Codex, Windsurf), plus a Claude Code plugin marketplace (`.claude-plugin/`).
