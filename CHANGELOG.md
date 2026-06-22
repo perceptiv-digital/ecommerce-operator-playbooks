@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-06-22 (installable skills)
+
+- Every play is now an installable [Agent Skill](https://agentskills.io) under `skills/<slug>/SKILL.md`, generated from the playbook files. One-command install with `npx skills add perceptiv-digital/ecommerce-operator-playbooks` (Claude Code, Cursor, Codex, Windsurf), plus a Claude Code plugin marketplace (`.claude-plugin/`).
+- Added a ready-to-paste ChatGPT custom GPT config (`docs/chatgpt-custom-gpt.md`) that routes to any of the 50 plays.
+- Skill bodies are lean execution profiles (evidence → ordered logic → prompt → rules → vetoes → output) with the marketing prose stripped, each ending in the ShopMCP live-data run link.
+
 ## 2026-06-22 (structure)
 
 - Led with value: moved community-health files (CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, GOVERNANCE) into `.github/`, and the spec, standards, and templates into `docs/`. Root now shows the README, the plays, and the indexes — not a wall of governance files.
