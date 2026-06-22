@@ -12,7 +12,7 @@
   "plugins": [
     {
       "name": "ecommerce-operator-os",
-      "description": "50 ecommerce operating playbooks as skills: which spend to kill, which channels make profit, what changed this week, can we trust the tracking, which flows leak revenue, which feed issues hurt sales, and more — each gathers evidence, applies numeric rules and vetoes, and returns a defensible call.",
+      "description": "58 ecommerce operating playbooks as skills: which spend to kill, which channels make profit, what changed this week, can we trust the tracking, which flows leak revenue, which feed issues hurt sales, and more — each gathers evidence, applies numeric rules and vetoes, and returns a defensible call.",
       "source": "./"
     }
   ]

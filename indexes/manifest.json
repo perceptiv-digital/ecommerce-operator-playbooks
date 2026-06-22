@@ -1,8 +1,8 @@
 {
   "name": "eCommerce Operator OS",
   "repo": "perceptiv-digital/ecommerce-operator-playbooks",
-  "generated_at": "2026-06-22T09:48:06.589Z",
-  "playbook_count": 50,
+  "generated_at": "2026-06-22T09:58:12.203Z",
+  "playbook_count": 58,
   "playbooks": [
     {
       "schema_version": 1,
@@ -73,6 +73,234 @@
     },
     {
       "schema_version": 1,
+      "slug": "agency-new-client-audit",
+      "title": "New-Client Onboarding Audit",
+      "summary": "New-Client Onboarding Audit helps ecommerce operators answer: What is the state of this new client's account, and what do we fix in week one?",
+      "operating_question": "What is the state of this new client's account, and what do we fix in week one?",
+      "short_title": "New-Client Audit",
+      "path": "playbooks/agency/agency-new-client-audit.md",
+      "primary_persona": "agency",
+      "primary_persona_label": "Agency AM / COO",
+      "personas": [
+        "agency",
+        "ecommerce"
+      ],
+      "persona_labels": [
+        "Agency AM / COO",
+        "Head of Ecommerce"
+      ],
+      "category": "agency-portfolio",
+      "category_label": "Agency portfolio",
+      "platforms": [
+        "commerce",
+        "google-analytics-4",
+        "meta-ads",
+        "google-ads",
+        "klaviyo",
+        "google-merchant-center"
+      ],
+      "cadence": "ad-hoc",
+      "difficulty": "intermediate",
+      "decision_type": "client-action-packet",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question_label": "What is the state of this new client's account, and what do we fix in week one?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Merchant Center product status, disapprovals, price, availability, and feed diagnostics.",
+          "freshness": "matching-period"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/agency-new-client-audit",
+        "required_connections": [
+          "commerce",
+          "google-analytics-4",
+          "meta-ads",
+          "google-ads",
+          "klaviyo",
+          "google-merchant-center"
+        ],
+        "first_run_read_only": true,
+        "prompt": "Run the New-Client Onboarding Audit play. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "agency-portfolio-mer-watch",
+      "title": "Portfolio Efficiency Watch",
+      "summary": "Portfolio Efficiency Watch helps ecommerce operators answer: Which clients' blended efficiency is sliding toward breakeven?",
+      "operating_question": "Which clients' blended efficiency is sliding toward breakeven?",
+      "short_title": "Portfolio Efficiency",
+      "path": "playbooks/agency/agency-portfolio-mer-watch.md",
+      "primary_persona": "agency",
+      "primary_persona_label": "Agency AM / COO",
+      "personas": [
+        "agency",
+        "marketing"
+      ],
+      "persona_labels": [
+        "Agency AM / COO",
+        "Head of Marketing"
+      ],
+      "category": "agency-portfolio",
+      "category_label": "Agency portfolio",
+      "platforms": [
+        "commerce",
+        "meta-ads",
+        "google-ads",
+        "tiktok-ads"
+      ],
+      "cadence": "weekly",
+      "difficulty": "intermediate",
+      "decision_type": "client-action-packet",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question_label": "Which clients' blended efficiency is sliding toward breakeven?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Tiktok Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/agency-portfolio-mer-watch",
+        "required_connections": [
+          "commerce",
+          "meta-ads",
+          "google-ads",
+          "tiktok-ads"
+        ],
+        "first_run_read_only": true,
+        "prompt": "Run the Portfolio Efficiency Watch play for the last 4 weeks. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "agency-qbr-builder",
+      "title": "Client QBR Builder",
+      "summary": "Client QBR Builder helps ecommerce operators answer: What goes in this client's quarterly business review?",
+      "operating_question": "What goes in this client's quarterly business review?",
+      "short_title": "QBR Builder",
+      "path": "playbooks/agency/agency-qbr-builder.md",
+      "primary_persona": "agency",
+      "primary_persona_label": "Agency AM / COO",
+      "personas": [
+        "agency",
+        "marketing"
+      ],
+      "persona_labels": [
+        "Agency AM / COO",
+        "Head of Marketing"
+      ],
+      "category": "agency-portfolio",
+      "category_label": "Agency portfolio",
+      "platforms": [
+        "commerce",
+        "google-analytics-4",
+        "meta-ads",
+        "google-ads",
+        "klaviyo"
+      ],
+      "cadence": "ad-hoc",
+      "difficulty": "intermediate",
+      "decision_type": "client-action-packet",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question_label": "What goes in this client's quarterly business review?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/agency-qbr-builder",
+        "required_connections": [
+          "commerce",
+          "google-analytics-4",
+          "meta-ads",
+          "google-ads",
+          "klaviyo"
+        ],
+        "first_run_read_only": true,
+        "prompt": "Run the Client QBR Builder play for the last quarter. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
       "slug": "agency-retention-intelligence-packet",
       "title": "Retention Intelligence Packet",
       "summary": "Retention Intelligence Packet helps ecommerce operators answer: What should the agency tell this client about retention risk and next actions?",
@@ -131,6 +359,340 @@
         ],
         "first_run_read_only": true,
         "prompt": "Run the Retention Intelligence Packet play for the last 30 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "agency-roster-anomaly-watch",
+      "title": "Roster Anomaly Radar",
+      "summary": "Roster Anomaly Radar helps ecommerce operators answer: Which client needs a human this morning?",
+      "operating_question": "Which client needs a human this morning?",
+      "short_title": "Roster Anomaly Radar",
+      "path": "playbooks/agency/agency-roster-anomaly-watch.md",
+      "primary_persona": "agency",
+      "primary_persona_label": "Agency AM / COO",
+      "personas": [
+        "agency"
+      ],
+      "persona_labels": [
+        "Agency AM / COO"
+      ],
+      "category": "agency-portfolio",
+      "category_label": "Agency portfolio",
+      "platforms": [
+        "commerce",
+        "meta-ads",
+        "google-ads",
+        "klaviyo"
+      ],
+      "cadence": "daily",
+      "difficulty": "intermediate",
+      "decision_type": "client-action-packet",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question_label": "Which client needs a human this morning?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/agency-roster-anomaly-watch",
+        "required_connections": [
+          "commerce",
+          "meta-ads",
+          "google-ads",
+          "klaviyo"
+        ],
+        "first_run_read_only": true,
+        "prompt": "Run the Roster Anomaly Radar play for yesterday vs baseline. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "agency-roster-wasted-spend",
+      "title": "Roster Wasted-Spend Rollup",
+      "summary": "Roster Wasted-Spend Rollup helps ecommerce operators answer: Which clients across my roster are wasting the most ad spend this week?",
+      "operating_question": "Which clients across my roster are wasting the most ad spend this week?",
+      "short_title": "Roster Wasted Spend",
+      "path": "playbooks/agency/agency-roster-wasted-spend.md",
+      "primary_persona": "agency",
+      "primary_persona_label": "Agency AM / COO",
+      "personas": [
+        "agency",
+        "performance"
+      ],
+      "persona_labels": [
+        "Agency AM / COO",
+        "Performance Marketer"
+      ],
+      "category": "agency-portfolio",
+      "category_label": "Agency portfolio",
+      "platforms": [
+        "commerce",
+        "meta-ads",
+        "google-ads",
+        "tiktok-ads"
+      ],
+      "cadence": "weekly",
+      "difficulty": "intermediate",
+      "decision_type": "client-action-packet",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question_label": "Which clients across my roster are wasting the most ad spend this week?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Tiktok Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/agency-roster-wasted-spend",
+        "required_connections": [
+          "commerce",
+          "meta-ads",
+          "google-ads",
+          "tiktok-ads"
+        ],
+        "first_run_read_only": true,
+        "prompt": "Run the Roster Wasted-Spend Rollup play for the last 7 days. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "agency-scope-creep-watch",
+      "title": "Retainer Scope-Creep Watch",
+      "summary": "Retainer Scope-Creep Watch helps ecommerce operators answer: Which clients are consuming more work than their retainer covers?",
+      "operating_question": "Which clients are consuming more work than their retainer covers?",
+      "short_title": "Scope-Creep Watch",
+      "path": "playbooks/agency/agency-scope-creep-watch.md",
+      "primary_persona": "agency",
+      "primary_persona_label": "Agency AM / COO",
+      "personas": [
+        "agency"
+      ],
+      "persona_labels": [
+        "Agency AM / COO"
+      ],
+      "category": "agency-portfolio",
+      "category_label": "Agency portfolio",
+      "platforms": [
+        "commerce"
+      ],
+      "cadence": "monthly",
+      "difficulty": "intermediate",
+      "decision_type": "client-action-packet",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question_label": "Which clients are consuming more work than their retainer covers?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/agency-scope-creep-watch",
+        "required_connections": [
+          "commerce"
+        ],
+        "first_run_read_only": true,
+        "prompt": "Run the Retainer Scope-Creep Watch play for the last month. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "agency-tracking-setup-audit",
+      "title": "Client Tracking Setup Audit",
+      "summary": "Client Tracking Setup Audit helps ecommerce operators answer: Can we trust this client's tracking before we report on it or scale spend?",
+      "operating_question": "Can we trust this client's tracking before we report on it or scale spend?",
+      "short_title": "Tracking Setup Audit",
+      "path": "playbooks/agency/agency-tracking-setup-audit.md",
+      "primary_persona": "agency",
+      "primary_persona_label": "Agency AM / COO",
+      "personas": [
+        "agency",
+        "performance"
+      ],
+      "persona_labels": [
+        "Agency AM / COO",
+        "Performance Marketer"
+      ],
+      "category": "agency-portfolio",
+      "category_label": "Agency portfolio",
+      "platforms": [
+        "commerce",
+        "google-analytics-4",
+        "meta-ads",
+        "google-ads",
+        "klaviyo"
+      ],
+      "cadence": "ad-hoc",
+      "difficulty": "intermediate",
+      "decision_type": "client-action-packet",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "launch",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question_label": "Can we trust this client's tracking before we report on it or scale spend?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "GA4 sessions, purchases, source/medium, landing page, or funnel-step evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/agency-tracking-setup-audit",
+        "required_connections": [
+          "commerce",
+          "google-analytics-4",
+          "meta-ads",
+          "google-ads",
+          "klaviyo"
+        ],
+        "first_run_read_only": true,
+        "prompt": "Run the Client Tracking Setup Audit play. Keep it read-only."
+      }
+    },
+    {
+      "schema_version": 1,
+      "slug": "agency-upsell-radar",
+      "title": "Client Upsell Radar",
+      "summary": "Client Upsell Radar helps ecommerce operators answer: Which clients have a data-backed reason to expand budget or services right now?",
+      "operating_question": "Which clients have a data-backed reason to expand budget or services right now?",
+      "short_title": "Upsell Radar",
+      "path": "playbooks/agency/agency-upsell-radar.md",
+      "primary_persona": "agency",
+      "primary_persona_label": "Agency AM / COO",
+      "personas": [
+        "agency",
+        "marketing"
+      ],
+      "persona_labels": [
+        "Agency AM / COO",
+        "Head of Marketing"
+      ],
+      "category": "agency-portfolio",
+      "category_label": "Agency portfolio",
+      "platforms": [
+        "commerce",
+        "meta-ads",
+        "google-ads",
+        "klaviyo",
+        "google-search-console"
+      ],
+      "cadence": "monthly",
+      "difficulty": "intermediate",
+      "decision_type": "client-action-packet",
+      "evidence_level": "live-data-recommended",
+      "public_tier": "fast-follow",
+      "flagship": false,
+      "shopmcp_ready": true,
+      "operating_question_label": "Which clients have a data-backed reason to expand budget or services right now?",
+      "required_evidence": [
+        {
+          "source": "public-evidence-checklist",
+          "label": "Commerce orders, products, customers, inventory, or discounts as required by the question.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Meta Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Ads spend, conversion, campaign, ad group, creative, and performance evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Klaviyo flow, campaign, list, deliverability, profile, or attributed value evidence.",
+          "freshness": "matching-period"
+        },
+        {
+          "source": "public-evidence-checklist",
+          "label": "Google Search Console query, page, click, impression, CTR, and position evidence.",
+          "freshness": "matching-period"
+        }
+      ],
+      "shopmcp": {
+        "ready": true,
+        "run_url": "https://my.shop-mcp.app/playbooks/agency-upsell-radar",
+        "required_connections": [
+          "commerce",
+          "meta-ads",
+          "google-ads",
+          "klaviyo",
+          "google-search-console"
+        ],
+        "first_run_read_only": true,
+        "prompt": "Run the Client Upsell Radar play for the last 30 days. Keep it read-only."
       }
     },
     {

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-06-22 (agency depth)
+
+- Took the agency persona from 2 plays to 10 — the cross-client multiplier the primary ICP wanted, visible in the free manual version: roster wasted-spend rollup, roster anomaly radar, new-client onboarding audit, tracking-setup audit, portfolio efficiency watch, QBR builder, upsell radar, and retainer scope-creep watch.
+- Added a synthetic agency roster fixture (`examples/synthetic-agency/`) and a worked sample output so agencies can dry-run the roster plays with no real client data.
+- Added a "ShopMCP for agencies" page answering the read-only / client-isolation / data questions, and an agency on-ramp in the README. The library is now 58 plays.
+
 ## 2026-06-22 (prompt hardening)
 
 - Hardened every play's Copy-Paste Prompt for reliable LLM execution: an unskippable PRE-FLIGHT gate that makes the model STOP and ask when the one dangerous-if-missing input is absent (instead of guessing), and the literal output-table header embedded in the prompt with "use — for missing cells, never prose."

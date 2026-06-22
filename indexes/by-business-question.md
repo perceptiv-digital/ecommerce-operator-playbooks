@@ -1,7 +1,15 @@
 # Playbooks by Business Question
 
 - [Which client needs intervention before the next meeting?](../playbooks/agency/agency-client-health-score.md)
+- [What is the state of this new client's account, and what do we fix in week one?](../playbooks/agency/agency-new-client-audit.md)
+- [Which clients' blended efficiency is sliding toward breakeven?](../playbooks/agency/agency-portfolio-mer-watch.md)
+- [What goes in this client's quarterly business review?](../playbooks/agency/agency-qbr-builder.md)
 - [What should the agency tell this client about retention risk and next actions?](../playbooks/agency/agency-retention-intelligence-packet.md)
+- [Which client needs a human this morning?](../playbooks/agency/agency-roster-anomaly-watch.md)
+- [Which clients across my roster are wasting the most ad spend this week?](../playbooks/agency/agency-roster-wasted-spend.md)
+- [Which clients are consuming more work than their retainer covers?](../playbooks/agency/agency-scope-creep-watch.md)
+- [Can we trust this client's tracking before we report on it or scale spend?](../playbooks/agency/agency-tracking-setup-audit.md)
+- [Which clients have a data-backed reason to expand budget or services right now?](../playbooks/agency/agency-upsell-radar.md)
 - [Which products are invisible across commerce, search, and feed surfaces?](../playbooks/ecommerce/commerce-product-visibility-audit.md)
 - [Where does ad promise fail to match landing-page reality?](../playbooks/ecommerce/ecom-ad-message-match.md)
 - [Is checkout conversion healthy enough to trust demand generation?](../playbooks/ecommerce/ecom-checkout-health.md)

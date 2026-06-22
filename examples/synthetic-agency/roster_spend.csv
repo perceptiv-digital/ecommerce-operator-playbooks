@@ -1,0 +1,11 @@
+client,platform,spend_7d,platform_orders,commerce_orders,revenue_7d,cogs_pct,target_cpa
+Aurelia Skincare,meta,4120,42,31,5890,0.42,55
+Aurelia Skincare,google,2980,51,47,8200,0.42,55
+Belmonte Coffee,meta,1240,9,0,0,0.38,40
+Belmonte Coffee,google,3300,41,38,4900,0.38,40
+Northwind Outdoors,meta,6100,77,70,15400,0.55,60
+Northwind Outdoors,tiktok,1150,8,4,720,0.55,60
+Marlowe & Field,meta,2300,28,22,4100,0.30,45
+Marlowe & Field,google,1800,33,31,5200,0.30,45
+Tinderbox Goods,meta,3400,19,12,2600,0.48,70
+Tinderbox Goods,google,2100,24,20,3300,0.48,70

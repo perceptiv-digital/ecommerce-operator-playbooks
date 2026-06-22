@@ -1,7 +1,15 @@
 # eCommerce Operator OS — full index
 
 - Agency Client Health Score: Which client needs intervention before the next meeting? (playbooks/agency/agency-client-health-score.md)
+- New-Client Onboarding Audit: What is the state of this new client's account, and what do we fix in week one? (playbooks/agency/agency-new-client-audit.md)
+- Portfolio Efficiency Watch: Which clients' blended efficiency is sliding toward breakeven? (playbooks/agency/agency-portfolio-mer-watch.md)
+- Client QBR Builder: What goes in this client's quarterly business review? (playbooks/agency/agency-qbr-builder.md)
 - Retention Intelligence Packet: What should the agency tell this client about retention risk and next actions? (playbooks/agency/agency-retention-intelligence-packet.md)
+- Roster Anomaly Radar: Which client needs a human this morning? (playbooks/agency/agency-roster-anomaly-watch.md)
+- Roster Wasted-Spend Rollup: Which clients across my roster are wasting the most ad spend this week? (playbooks/agency/agency-roster-wasted-spend.md)
+- Retainer Scope-Creep Watch: Which clients are consuming more work than their retainer covers? (playbooks/agency/agency-scope-creep-watch.md)
+- Client Tracking Setup Audit: Can we trust this client's tracking before we report on it or scale spend? (playbooks/agency/agency-tracking-setup-audit.md)
+- Client Upsell Radar: Which clients have a data-backed reason to expand budget or services right now? (playbooks/agency/agency-upsell-radar.md)
 - Commerce Product Visibility Audit: Which products are invisible across commerce, search, and feed surfaces? (playbooks/ecommerce/commerce-product-visibility-audit.md)
 - Ad-to-Landing-Page Message Match Audit: Where does ad promise fail to match landing-page reality? (playbooks/ecommerce/ecom-ad-message-match.md)
 - Checkout Health Watch: Is checkout conversion healthy enough to trust demand generation? (playbooks/ecommerce/ecom-checkout-health.md)
