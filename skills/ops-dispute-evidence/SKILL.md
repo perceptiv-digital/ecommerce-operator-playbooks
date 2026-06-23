@@ -4,6 +4,7 @@ description: "When an ecommerce operator needs to decide: What evidence is neede
 license: CC-BY-4.0
 metadata:
   persona: Ops / Dispatch Lead
+  contributed_by: Perceptiv
   source: perceptiv-digital/ecommerce-operator-playbooks
 ---
 

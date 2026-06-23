@@ -8,6 +8,7 @@ category: "seo-demand-capture"
 platforms: ["dataforseo", "commerce"]
 cadence: "monthly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Schema and Rich Result Readiness
@@ -206,3 +207,7 @@ What ShopMCP removes:
 - Cross-referencing required vs. recommended fields against Google's product docs from memory.
 - Reconciling per-template findings against Search Console enhancement reports.
 - Sizing and value-ranking each gap by pages-affected and organic revenue every month.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

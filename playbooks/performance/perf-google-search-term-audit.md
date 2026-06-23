@@ -8,6 +8,7 @@ category: "acquisition-efficiency"
 platforms: ["google-ads"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Google Ads Search-Term Audit
@@ -205,3 +206,7 @@ What ShopMCP removes:
 - Hand-joining each term to its campaign and match type to spot brand leakage and self-competition.
 - Manually checking conversion lag before deciding a term is "dead."
 - Rebuilding the same negative-keyword audit pivot every single week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

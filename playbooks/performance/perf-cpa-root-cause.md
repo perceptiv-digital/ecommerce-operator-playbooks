@@ -8,6 +8,7 @@ category: "acquisition-efficiency"
 platforms: ["commerce", "meta-ads", "google-ads", "tiktok-ads"]
 cadence: "weekly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # CPA Spike Root Cause Explainer
@@ -213,3 +214,7 @@ What ShopMCP removes:
 - Reconciling platform-reported conversions against real Shopify orders every week.
 - Guessing the diagnostic order and defaulting to "it's the creative."
 - Rebuilding the same decomposition and tracking-gate workflow every week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

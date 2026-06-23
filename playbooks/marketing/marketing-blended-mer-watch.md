@@ -8,6 +8,7 @@ category: "acquisition-efficiency"
 platforms: ["commerce", "meta-ads", "google-ads", "tiktok-ads"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Blended MER Watch
@@ -200,3 +201,7 @@ What ShopMCP removes:
 - Re-deriving contribution margin and breakeven MER every week.
 - Splitting new vs. returning revenue to compute aMER manually.
 - Rebuilding the 4-week blended-MER trend from fresh CSV exports each week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

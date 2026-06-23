@@ -8,6 +8,7 @@ category: "agency-portfolio"
 platforms: ["commerce", "google-analytics-4", "meta-ads", "google-ads", "klaviyo", "google-merchant-center"]
 cadence: "ad-hoc"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # New-Client Onboarding Audit
@@ -206,3 +207,7 @@ What ShopMCP removes:
 - Sorting GMC disapprovals manually and joining them to top SKUs.
 - Opening every Klaviyo flow one at a time to see which are actually sending.
 - Guessing which fresh-account numbers are safe enough to act on versus an access artefact.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

@@ -8,6 +8,7 @@ category: "ops-risk"
 platforms: ["stripe", "commerce"]
 cadence: "triggered"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Stripe Dispute Evidence Pack
@@ -203,3 +204,7 @@ What ShopMCP removes:
 - Cross-referencing Stripe charges, store orders, support threads, and carrier scans by hand.
 - Guessing the win probability and whether a low-value dispute is even worth fighting.
 - Rebuilding the reason-code-to-evidence mapping from scratch on every single chargeback.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

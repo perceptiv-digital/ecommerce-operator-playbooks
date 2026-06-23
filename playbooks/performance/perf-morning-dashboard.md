@@ -8,6 +8,7 @@ category: "acquisition-efficiency"
 platforms: ["meta-ads", "google-ads", "tiktok-ads"]
 cadence: "daily"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Performance Morning Dashboard
@@ -205,3 +206,7 @@ What ShopMCP removes:
 - Reconciling three account time zones by hand to define "overnight."
 - Missing a disapproval or limited-by-budget flag buried in the UI.
 - Mistaking a tracking-zero or weekend lag for a real performance collapse.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

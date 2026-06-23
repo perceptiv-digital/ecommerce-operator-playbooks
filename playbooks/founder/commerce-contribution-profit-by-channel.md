@@ -8,6 +8,7 @@ category: "trading-profit"
 platforms: ["commerce", "google-analytics-4", "meta-ads", "google-ads", "tiktok-ads"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Contribution Profit by Channel
@@ -210,3 +211,7 @@ What ShopMCP removes:
 - Hand-building the COGS / shipping / fees / returns margin model every month.
 - Reconciling three platforms' inflated purchase counts against one real order count.
 - Guessing which channel actually created the demand a harvester is taking credit for.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

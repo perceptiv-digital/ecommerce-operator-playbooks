@@ -8,6 +8,7 @@ category: "retention-ltv"
 platforms: ["klaviyo", "commerce"]
 cadence: "monthly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Abandoned Cart Recovery Doctor
@@ -207,3 +208,7 @@ What ShopMCP removes:
 - Exporting per-message Klaviyo analytics and stale CSVs.
 - Reconciling Klaviyo's attributed revenue against real Shopify orders to kill double-counting.
 - Rebuilding the recovery-rate and discount-margin math every month, per store.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

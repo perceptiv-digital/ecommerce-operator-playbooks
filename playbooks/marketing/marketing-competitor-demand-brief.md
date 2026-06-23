@@ -8,6 +8,7 @@ category: "seo-demand-capture"
 platforms: ["dataforseo", "google-search-console"]
 cadence: "monthly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Competitor Demand Brief
@@ -200,3 +201,7 @@ What ShopMCP removes:
 - Cross-referencing competitor movement against your own rankings by hand.
 - Guessing which modeled search volume is real demand versus a blip.
 - Rebuilding the same intent-and-feasibility triage every month.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

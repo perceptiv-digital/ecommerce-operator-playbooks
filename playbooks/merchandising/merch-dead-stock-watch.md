@@ -8,6 +8,7 @@ category: "merchandising-feed"
 platforms: ["commerce"]
 cadence: "weekly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Dead Stock Watch
@@ -215,3 +216,7 @@ What ShopMCP removes:
 - Computing days of cover and cash-at-risk by hand across sales, cost, and age files.
 - Guessing whether a low-velocity SKU is dead, seasonal, or just newly launched.
 - Rebuilding the same five-source join every single week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

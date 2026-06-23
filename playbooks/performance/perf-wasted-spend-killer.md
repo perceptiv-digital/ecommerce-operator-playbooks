@@ -8,6 +8,7 @@ category: "acquisition-efficiency"
 platforms: ["meta-ads", "google-ads", "tiktok-ads", "commerce"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Wasted Spend Killer
@@ -190,3 +191,7 @@ What ShopMCP removes:
 - Copy-pasting across Meta, Google, TikTok, analytics, and your store.
 - Guessing which evidence is safe enough to act on.
 - Rebuilding the same reconciliation every week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

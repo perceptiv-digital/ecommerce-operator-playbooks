@@ -8,6 +8,7 @@ category: "trading-profit"
 platforms: ["commerce"]
 cadence: "monthly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Profit Readiness Audit
@@ -199,3 +200,7 @@ What ShopMCP removes:
 - Chasing down whether each cost feed (shipping, fees, returns) is present and current.
 - Guessing — and the temptation to backfill a missing cost with an average.
 - Rebuilding the same month-end readiness reconciliation every cycle.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

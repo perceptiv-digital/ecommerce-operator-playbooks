@@ -80,6 +80,7 @@ const plays = files.map((rel) => {
     slug: fm.slug, title: fm.title, persona: fm.primary_persona,
     persona_label: personaLabels[fm.primary_persona] || fm.primary_persona,
     operating_question: fm.operating_question, platforms, description,
+    contributed_by: fm.contributed_by || "Perceptiv",
     body: {
       required: section(text, "## Required Evidence"),
       optional: section(text, "## Optional Evidence"),
@@ -101,6 +102,7 @@ description: "${p.description.replace(/"/g, "'")}"
 license: CC-BY-4.0
 metadata:
   persona: ${p.persona_label}
+  contributed_by: ${p.contributed_by}
   source: ${REPO}
 ---
 

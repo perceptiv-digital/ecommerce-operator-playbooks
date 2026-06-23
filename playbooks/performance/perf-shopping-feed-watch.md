@@ -8,6 +8,7 @@ category: "merchandising-feed"
 platforms: ["google-merchant-center", "commerce"]
 cadence: "daily"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Shopping Feed Watch
@@ -197,3 +198,7 @@ What ShopMCP removes:
 - The item-ID join across feed diagnostics, ad spend, and live store price.
 - Guessing whether a flag is an emergency or zero-spend noise.
 - Editing the wrong data layer because the source of truth was never confirmed.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

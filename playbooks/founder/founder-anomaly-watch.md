@@ -8,6 +8,7 @@ category: "trading-profit"
 platforms: ["commerce", "google-analytics-4"]
 cadence: "triggered"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Revenue Anomaly Watch
@@ -202,3 +203,7 @@ What ShopMCP removes:
 - Reconciling commerce orders against GA4 purchases by hand to spot a tracking artefact.
 - Rebuilding the Traffic × CVR × AOV decomposition and the variance ranking every time.
 - Guessing whether a one-day move is real, concentrated, and worth reacting to.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

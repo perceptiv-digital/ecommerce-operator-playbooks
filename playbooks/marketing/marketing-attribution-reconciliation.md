@@ -8,6 +8,7 @@ category: "tracking-data-quality"
 platforms: ["commerce", "google-analytics-4"]
 cadence: "monthly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Attribution Reconciliation
@@ -202,3 +203,7 @@ What ShopMCP removes:
 - Hand-aligning five different click/view attribution windows.
 - Recomputing per-channel credit ratios against the order count every month.
 - Arguing budget from four self-serving numbers instead of one agreed map.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

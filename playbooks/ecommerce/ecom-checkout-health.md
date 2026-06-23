@@ -8,6 +8,7 @@ category: "onsite-cro"
 platforms: ["commerce", "google-analytics-4"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Checkout Health Watch
@@ -203,3 +204,7 @@ What ShopMCP removes:
 - Hand-segmenting completion by device, payment method, and country every week.
 - Cross-referencing the deploy log to bind a drop to a cause.
 - Rebuilding the same tracking-gate and revenue-at-risk math after every theme or app change.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

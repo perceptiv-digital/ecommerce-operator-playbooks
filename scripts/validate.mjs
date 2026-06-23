@@ -105,6 +105,10 @@ for (const play of manifest.playbooks) {
     errors.push(`${play.slug} decision rules must require numbers and evidence`);
   }
 
+  if (!/\*Contributed by /.test(text)) {
+    errors.push(`${play.slug} missing the contributor credit footer`);
+  }
+
   // Depth gates: a real playbook is substantial and numeric, not a stub.
   const body = bodyOf(text);
   if (body.length < 2500) {

@@ -8,6 +8,7 @@ category: "agency-portfolio"
 platforms: ["commerce", "klaviyo", "attentive"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Retention Intelligence Packet
@@ -219,3 +220,7 @@ What ShopMCP removes:
 - Copy-pasting across each client's commerce, Klaviyo, and Attentive.
 - Re-deciding every week which signals are real enough to raise versus noise.
 - Hand-writing client-safe commentary from raw internal metrics, one account at a time.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

@@ -8,6 +8,7 @@ category: "trading-profit"
 platforms: ["commerce"]
 cadence: "ad-hoc"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Promo Effectiveness
@@ -212,3 +213,7 @@ What ShopMCP removes:
 - Tagging the promo cohort and remembering to read its repeat rate 60 days later.
 - Computing contribution after discount and cannibalisation by hand.
 - Rebuilding the same two-window comparison every time a promo ends.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

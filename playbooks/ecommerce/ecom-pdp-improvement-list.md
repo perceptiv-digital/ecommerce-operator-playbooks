@@ -8,6 +8,7 @@ category: "onsite-cro"
 platforms: ["commerce", "google-analytics-4"]
 cadence: "weekly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # PDP Improvement List
@@ -206,3 +207,7 @@ What ShopMCP removes:
 - Hand-joining GA4 page paths to store product handles every week.
 - Re-deriving per-page benchmarks and the recoverable-revenue math by hand.
 - Guessing whether a low CVR is a page problem, a stock problem, or an intent problem.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

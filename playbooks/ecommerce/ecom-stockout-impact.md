@@ -8,6 +8,7 @@ category: "merchandising-feed"
 platforms: ["commerce", "google-analytics-4"]
 cadence: "daily"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Stockout Lost-Revenue Impact
@@ -198,3 +199,7 @@ What ShopMCP removes:
 - Rebuilding a clean, OOS-excluded sell-rate per SKU by hand.
 - Copy-pasting between your store, GA4, and your margin sheet.
 - Hunting for the ad set or feed entry still pointing at a Sold Out page.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

@@ -8,6 +8,7 @@ category: "retention-ltv"
 platforms: ["klaviyo"]
 cadence: "weekly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Email Deliverability Watch
@@ -201,3 +202,7 @@ What ShopMCP removes:
 - Hand-running DNS lookups to confirm SPF, DKIM, DMARC, and one-click List-Unsubscribe.
 - Guessing which segment's recency window is dragging down domain reputation.
 - Rebuilding the same complaint-rate-vs-threshold check every single week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

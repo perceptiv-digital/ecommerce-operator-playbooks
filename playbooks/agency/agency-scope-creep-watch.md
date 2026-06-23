@@ -8,6 +8,7 @@ category: "agency-portfolio"
 platforms: ["commerce"]
 cadence: "monthly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Retainer Scope-Creep Watch
@@ -206,3 +207,7 @@ What ShopMCP removes:
 - Re-joining timesheets, retainers, and complexity in a fresh spreadsheet each renewal cycle.
 - Guessing whether a heavy account is real work or scope creep.
 - Rebuilding the same effective-rate model from scratch every time you re-price.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

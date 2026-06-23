@@ -8,6 +8,7 @@ category: "merchandising-feed"
 platforms: ["google-merchant-center", "commerce"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # GMC Feed Audit
@@ -200,3 +201,7 @@ What ShopMCP removes:
 - Opening every product page by hand to run the feed-vs-store mismatch test.
 - Joining cryptic issue codes to SKU revenue and Shopping/PMax membership across separate tools.
 - Rebuilding the same account-before-item, revenue-weighted triage every week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

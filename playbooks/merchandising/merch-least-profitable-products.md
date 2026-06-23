@@ -8,6 +8,7 @@ category: "merchandising-feed"
 platforms: ["commerce"]
 cadence: "weekly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Least Profitable Products
@@ -203,3 +204,7 @@ What ShopMCP removes:
 - Joining orders, returns, COGS, and fees by hand into one per-SKU row.
 - Mistaking gross margin for real contribution because returns are netted somewhere else.
 - Rebuilding the same contribution model every week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

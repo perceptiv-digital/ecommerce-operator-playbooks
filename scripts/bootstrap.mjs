@@ -35,6 +35,16 @@ const categoryLabels = {
   "agency-portfolio": "Agency portfolio",
 };
 
+// Contributing partners. Each play's `contributed_by` frontmatter resolves here for
+// the credit link and the Partners page. Add a partner agency as a new entry.
+const partners = {
+  Perceptiv: {
+    url: "https://perceptiv.digital",
+    lane: "Founding maintainer",
+    bio: "Shopify Plus growth agency. Created and maintains eCommerce Operator OS.",
+  },
+};
+
 function slugTitle(slug) {
   return slug
     .split("-")
@@ -125,6 +135,8 @@ function buildPlay(rel) {
     platforms,
     cadence: fm.cadence,
     public_tier: fm.public_tier,
+    contributed_by: fm.contributed_by || "Perceptiv",
+    contributed_by_url: (partners[fm.contributed_by || "Perceptiv"] || {}).url || "https://perceptiv.digital",
     required_evidence: requiredEvidence,
     shopmcp: {
       ready: true,
@@ -242,4 +254,33 @@ write(
   `# eCommerce Operator OS — full index\n\n${playbooks.map((p) => `- ${p.title}: ${p.operating_question} (${p.path})`).join("\n")}`,
 );
 
-console.log(`Rebuilt indexes for ${playbooks.length} playbooks (${launch.length} in launch set).`);
+// --- partners / contributors page ---
+const byPartner = new Map();
+for (const p of playbooks) {
+  const name = p.contributed_by || "Perceptiv";
+  if (!byPartner.has(name)) byPartner.set(name, []);
+  byPartner.get(name).push(p);
+}
+const partnerSections = [...byPartner.entries()]
+  .sort((a, b) => b[1].length - a[1].length)
+  .map(([name, plays]) => {
+    const meta = partners[name] || {};
+    const link = meta.url ? `[${name}](${meta.url})` : name;
+    const lane = meta.lane ? ` — ${meta.lane}` : "";
+    const bio = meta.bio ? `${meta.bio}\n\n` : "";
+    const list = plays.map((p) => `- [${p.title}](${p.path}) (${p.category_label})`).join("\n");
+    return `## ${link}${lane}\n\n${bio}${plays.length} ${plays.length === 1 ? "play" : "plays"}:\n\n${list}`;
+  })
+  .join("\n\n");
+write(
+  "PARTNERS.md",
+  `# Contributing partners
+
+eCommerce Operator OS is maintained by [Perceptiv](https://perceptiv.digital) and built with a small group of specialist agencies, each owning the lane they are known for. Every play credits the agency that contributed it, here and on the play itself.
+
+**Want to own a lane?** See the [contributor brief](docs/contributor-brief.md). We keep the founding group small, one agency per specialty.
+
+${partnerSections}`,
+);
+
+console.log(`Rebuilt indexes for ${playbooks.length} playbooks (${launch.length} in launch set, ${byPartner.size} partner(s)).`);

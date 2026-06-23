@@ -19,6 +19,7 @@ The reference implementation is [perf-wasted-spend-killer.md](../playbooks/perfo
 11. **Worked Example** — realistic numbers unique to this play, plus a short executive read.
 12. **Common Failure Modes.**
 13. **Run This Play With Live Data** — the manual-vs-ShopMCP contrast, one CTA, read-only default.
+14. **Credit** — `contributed_by` in the frontmatter and a `*Contributed by [Agency](url).*` line at the bottom, so the author is credited everywhere the play travels.
 
 ## Hard rules
 
@@ -26,3 +27,4 @@ The reference implementation is [perf-wasted-spend-killer.md](../playbooks/perfo
 - **Give away the full method.** The moat is live-data access (integrations), not the words. A playbook must be 100% useful to read and run manually, with no ShopMCP account.
 - **Read-only by default.** Any write-like action needs an explicit approval step and a supported preview/apply path.
 - **Numbers or it didn't happen.** Thresholds, examples, and outputs carry real figures, sources, and time windows.
+- **Credit the author.** Every play names its contributing agency in `contributed_by` and the footer. CI checks the footer is present.

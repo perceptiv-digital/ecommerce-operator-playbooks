@@ -8,6 +8,7 @@ category: "agency-portfolio"
 platforms: ["commerce", "meta-ads", "google-ads", "tiktok-ads"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Roster Wasted-Spend Rollup
@@ -203,3 +204,7 @@ What ShopMCP removes:
 - Keeping every client's window, timezone, target, and margin straight in one spreadsheet.
 - Reconciling each platform's claimed conversions against each store's real orders, client by client.
 - Re-deciding every Monday which client's evidence is even safe enough to rank.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

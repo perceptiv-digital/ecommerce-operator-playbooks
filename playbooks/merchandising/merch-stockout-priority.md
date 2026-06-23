@@ -8,6 +8,7 @@ category: "merchandising-feed"
 platforms: ["commerce"]
 cadence: "daily"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Stockout Priority List
@@ -205,3 +206,7 @@ What ShopMCP removes:
 - Rebuilding a clean daily sell rate per SKU and dividing for days-of-cover by hand.
 - Copy-pasting between your store, your buying sheet, and your ad accounts to find the winners about to run dry.
 - Re-deriving lead-time vs. cover thresholds for every SKU, every morning.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

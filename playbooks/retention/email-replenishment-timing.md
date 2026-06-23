@@ -8,6 +8,7 @@ category: "retention-ltv"
 platforms: ["commerce", "klaviyo"]
 cadence: "monthly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Replenishment Timing
@@ -203,3 +204,7 @@ What ShopMCP removes:
 - Computing per-customer-per-SKU reorder gaps and medians by hand.
 - Copy-pasting between your store's order history and Klaviyo's flow inventory.
 - Rebuilding the same interval-and-gap analysis every month.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

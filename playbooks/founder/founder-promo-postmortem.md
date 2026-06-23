@@ -8,6 +8,7 @@ category: "trading-profit"
 platforms: ["commerce"]
 cadence: "ad-hoc"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Promo Post-Mortem
@@ -213,3 +214,7 @@ What ShopMCP removes:
 - Rebuilding the counterfactual baseline and netting the trough by hand.
 - Stitching new-vs-returning mix to per-line COGS and discount values.
 - Remembering to re-pull the promo-acquired cohort 30–60 days later.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

@@ -8,6 +8,7 @@ category: "onsite-cro"
 platforms: ["commerce", "google-analytics-4"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Funnel Leak Finder
@@ -202,3 +203,7 @@ What ShopMCP removes:
 - Re-segmenting every step by device and source by hand.
 - Guessing whether a step drop is a real leak or a tracking artifact.
 - Rebuilding the same lost-revenue ranking every week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

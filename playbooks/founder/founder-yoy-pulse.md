@@ -8,6 +8,7 @@ category: "trading-profit"
 platforms: ["commerce"]
 cadence: "weekly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Year-over-Year Pulse
@@ -205,3 +206,7 @@ What ShopMCP removes:
 - Recomputing AOV, mix, margin, and discount share YoY from order-level data.
 - Guessing whether a "decline" is a real trend or a shifted promo calendar.
 - Rebuilding the same YoY decomposition every Monday.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

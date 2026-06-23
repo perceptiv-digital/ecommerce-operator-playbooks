@@ -8,6 +8,7 @@ category: "agency-portfolio"
 platforms: ["commerce", "google-analytics-4", "meta-ads", "google-ads", "klaviyo"]
 cadence: "ad-hoc"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Client QBR Builder
@@ -219,3 +220,7 @@ What ShopMCP removes:
 - Reconciling every ad platform against store orders by hand before any number is reportable.
 - Digging last quarter's agreed targets out of an old deck to have something to judge against.
 - Bolting contribution profit onto revenue, and separating agency impact from market and season, under deadline pressure.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

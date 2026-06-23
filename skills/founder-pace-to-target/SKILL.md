@@ -4,6 +4,7 @@ description: "When an ecommerce operator needs to decide: Are we on pace to hit 
 license: CC-BY-4.0
 metadata:
   persona: Founder / CEO
+  contributed_by: Perceptiv
   source: perceptiv-digital/ecommerce-operator-playbooks
 ---
 
