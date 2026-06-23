@@ -8,6 +8,7 @@ category: "agency-portfolio"
 platforms: ["commerce", "meta-ads", "google-ads", "klaviyo"]
 cadence: "weekly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Agency Client Health Score
@@ -225,3 +226,7 @@ What ShopMCP removes:
 - Copy-pasting commerce, ads, and Klaviyo numbers for every account, every week.
 - Re-normalizing each client's metrics against its own targets by hand.
 - Rebuilding the same portfolio scoring spreadsheet every Monday.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

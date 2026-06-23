@@ -8,6 +8,7 @@ category: "trading-profit"
 platforms: ["commerce", "google-analytics-4"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Weekly Trading Deck
@@ -220,3 +221,7 @@ What ShopMCP removes:
 - Rebuilding the sessions × CVR × AOV decomposition and the channel/device splits by hand.
 - Copy-pasting across your store, GA4, the promo calendar, and the inventory view.
 - Guessing whether a WoW move is signal or noise for your traffic volume.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

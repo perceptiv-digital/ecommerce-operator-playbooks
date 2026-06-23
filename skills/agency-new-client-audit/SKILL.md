@@ -4,6 +4,7 @@ description: "When an ecommerce operator needs to decide: What is the state of t
 license: CC-BY-4.0
 metadata:
   persona: Agency AM / COO
+  contributed_by: Perceptiv
   source: perceptiv-digital/ecommerce-operator-playbooks
 ---
 

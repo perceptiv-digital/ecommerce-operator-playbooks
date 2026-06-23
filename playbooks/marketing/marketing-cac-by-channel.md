@@ -8,6 +8,7 @@ category: "acquisition-efficiency"
 platforms: ["commerce", "google-analytics-4", "meta-ads", "google-ads", "tiktok-ads"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # New-Customer CAC by Channel
@@ -207,3 +208,7 @@ What ShopMCP removes:
 - The fragile new-vs-returning-to-channel join that makes true CAC possible.
 - Mistaking platform CPA for real acquisition cost.
 - Rebuilding the same margin-and-payback target sheet every cycle.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

@@ -8,6 +8,7 @@ category: "seo-demand-capture"
 platforms: ["google-search-console"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # SEO Quick Wins
@@ -207,3 +208,7 @@ What ShopMCP removes:
 - Hand-joining the Queries report to the Pages report to find which URL ranks for each query.
 - Computing the CTR-vs-position-expected gap for every row by hand.
 - Rebuilding the same striking-distance scan every week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

@@ -8,6 +8,7 @@ category: "retention-ltv"
 platforms: ["commerce", "klaviyo"]
 cadence: "monthly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Winback Builder
@@ -201,3 +202,7 @@ What ShopMCP removes:
 - Hand-computing days-since-order against a per-category reorder window.
 - Stitching commerce LTV to engagement state to margin across separate tools.
 - Rebuilding the same segmentation and sunset logic every month.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

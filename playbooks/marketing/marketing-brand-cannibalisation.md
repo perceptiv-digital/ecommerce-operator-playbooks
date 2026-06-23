@@ -8,6 +8,7 @@ category: "acquisition-efficiency"
 platforms: ["google-ads", "google-search-console"]
 cadence: "monthly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Brand Cannibalisation Audit
@@ -199,3 +200,7 @@ What ShopMCP removes:
 - Joining paid brand spend to organic rank to competitor presence by hand.
 - Eyeballing every brand SERP on mobile and desktop to catch below-the-fold cases.
 - Re-deriving the cannibalised-vs-defensible split from scratch each cycle — and forgetting to label it an estimate.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

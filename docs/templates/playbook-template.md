@@ -8,8 +8,13 @@ category: "trading-profit"
 platforms: ["commerce"]
 cadence: "weekly"
 public_tier: "template"
+contributed_by: "Perceptiv"
 ---
 
 # Example Playbook
 
 Use this file as the starting point for new playbooks. Replace every placeholder before submitting a PR.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

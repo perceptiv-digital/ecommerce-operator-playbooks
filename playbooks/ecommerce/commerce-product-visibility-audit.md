@@ -8,6 +8,7 @@ category: "merchandising-feed"
 platforms: ["commerce", "google-merchant-center", "google-search-console", "dataforseo"]
 cadence: "ad-hoc"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Commerce Product Visibility Audit
@@ -212,3 +213,7 @@ What ShopMCP removes:
 - Item-level GMC status and disapproval reasons that the aggregate UI hides.
 - The GSC row-cap and sampling blind spots on a large catalog.
 - Rebuilding the same four-surface join every time you need a fresh read.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

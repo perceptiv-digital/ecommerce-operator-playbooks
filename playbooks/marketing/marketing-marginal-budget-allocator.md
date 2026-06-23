@@ -8,6 +8,7 @@ category: "acquisition-efficiency"
 platforms: ["commerce", "meta-ads", "google-ads", "tiktok-ads"]
 cadence: "weekly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Marginal Budget Allocator
@@ -210,3 +211,7 @@ What ShopMCP removes:
 - Reconstructing each channel's spend-to-response slope by hand to find the marginal read.
 - Stitching together Google impression share, Meta frequency, and contribution margin to locate real headroom.
 - Rebuilding the same average-vs-marginal allocation sheet every cycle.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

@@ -8,6 +8,7 @@ category: "agency-portfolio"
 platforms: ["commerce", "meta-ads", "google-ads", "klaviyo", "google-search-console"]
 cadence: "monthly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Client Upsell Radar
@@ -204,3 +205,7 @@ What ShopMCP removes:
 - Reconciling every platform's claimed performance against real store revenue and margin, per account.
 - Sizing each opportunity in contribution by hand and re-ranking across the roster.
 - Rebuilding the same multi-tool scan every month for every account on the book.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

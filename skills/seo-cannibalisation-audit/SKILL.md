@@ -4,6 +4,7 @@ description: "When an ecommerce operator needs to decide: Which pages compete wi
 license: CC-BY-4.0
 metadata:
   persona: SEO / Content Lead
+  contributed_by: Perceptiv
   source: perceptiv-digital/ecommerce-operator-playbooks
 ---
 

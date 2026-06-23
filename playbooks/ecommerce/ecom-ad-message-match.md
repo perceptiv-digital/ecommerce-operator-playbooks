@@ -8,6 +8,7 @@ category: "onsite-cro"
 platforms: ["meta-ads", "google-ads", "tiktok-ads", "commerce", "google-analytics-4"]
 cadence: "weekly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Ad-to-Landing-Page Message Match Audit
@@ -199,3 +200,7 @@ What ShopMCP removes:
 - Reconciling display URLs, redirects, and UTMs to find where traffic actually lands.
 - Segmenting GA4 by each ad's campaign and joining it to creative and page.
 - Rebuilding the same promise-vs-page-vs-behaviour join every week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

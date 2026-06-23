@@ -8,6 +8,7 @@ category: "retention-ltv"
 platforms: ["klaviyo", "commerce"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Klaviyo Flow Health Check
@@ -211,3 +212,7 @@ What ShopMCP removes:
 - Catching the "Live but $0" broken-trigger flows the dashboard shows as green.
 - Cross-checking the Deliverability tab and reconciling attributed revenue against real orders.
 - Rebuilding the same benchmark-by-flow-type comparison every week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

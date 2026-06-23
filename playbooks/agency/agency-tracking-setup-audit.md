@@ -8,6 +8,7 @@ category: "agency-portfolio"
 platforms: ["commerce", "google-analytics-4", "meta-ads", "google-ads", "klaviyo"]
 cadence: "ad-hoc"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Client Tracking Setup Audit
@@ -222,3 +223,7 @@ What ShopMCP removes:
 - Re-deriving each platform's attribution window, dedup state, and currency/time-zone quirk by hand.
 - Guessing whether a gap is a structural break or an expected modelled/consent gap.
 - Hand-listing every conversion action to catch the one that double-counts.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

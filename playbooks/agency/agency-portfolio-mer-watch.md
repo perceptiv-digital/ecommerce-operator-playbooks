@@ -8,6 +8,7 @@ category: "agency-portfolio"
 platforms: ["commerce", "meta-ads", "google-ads", "tiktok-ads"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Portfolio Efficiency Watch
@@ -197,3 +198,7 @@ What ShopMCP removes:
 - Summing spend across Meta, Google, and TikTok by hand for every client.
 - Chasing a current contribution-margin % before you can even draw a breakeven line.
 - Rebuilding the same 4-week trend across the whole roster every single week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

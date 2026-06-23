@@ -8,6 +8,7 @@ category: "merchandising-feed"
 platforms: ["commerce", "google-merchant-center"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Product Data Quality
@@ -203,3 +204,7 @@ What ShopMCP removes:
 - Copy-pasting across your store, Merchant Center, and analytics every week.
 - Guessing which gaps sit on traffic and which are noise.
 - Rebuilding the same traffic × gap-severity scoring every week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

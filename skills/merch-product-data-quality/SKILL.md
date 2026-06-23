@@ -4,6 +4,7 @@ description: "When an ecommerce operator needs to decide: Which product data gap
 license: CC-BY-4.0
 metadata:
   persona: Merchandising Manager
+  contributed_by: Perceptiv
   source: perceptiv-digital/ecommerce-operator-playbooks
 ---
 

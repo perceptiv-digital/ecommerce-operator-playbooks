@@ -8,6 +8,7 @@ category: "agency-portfolio"
 platforms: ["commerce", "meta-ads", "google-ads", "klaviyo"]
 cadence: "daily"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Roster Anomaly Radar
@@ -223,3 +224,7 @@ What ShopMCP removes:
 - Reconstructing each client's own same-weekday baseline and normal band by hand.
 - Telling a real overnight break apart from weekend lag, promo noise, and a flaky pixel.
 - Re-running the whole roster scan again tomorrow, and every morning after that.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

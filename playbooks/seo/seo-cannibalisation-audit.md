@@ -8,6 +8,7 @@ category: "seo-demand-capture"
 platforms: ["google-search-console"]
 cadence: "monthly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # SEO Cannibalisation Audit
@@ -199,3 +200,7 @@ What ShopMCP removes:
 - Eyeballing week-by-week position history to spot oscillation.
 - Guessing which split is real cannibalisation vs. intent or brand noise.
 - Rebuilding the same cluster analysis every month.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

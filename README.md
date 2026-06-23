@@ -67,6 +67,12 @@ So we give the whole method away. The thinking is the easy part; the live-data a
 
 Every play answers one recurring decision, names the exact evidence, uses numeric decision rules (every call carries a number, source, time window, and confidence), includes weak-data vetoes, shows a worked example with real figures, and defaults to read-only. **No two plays share boilerplate — CI enforces it.** → [The full standard](docs/playbook-standard.md)
 
+## Built with specialist agencies
+
+The plays are contributed by a small group of specialist agencies, each owning the lane they're known for, and every play credits the agency that wrote it. See the [partners](PARTNERS.md).
+
+**Run a retention, PPC, SEO, CRO, feed, or analytics agency?** Own your lane. The method stays yours (CC BY) and you get the byline and the backlink. Start with the [contributor brief](docs/contributor-brief.md).
+
 ## Star this repo
 
 If a play saves you a spreadsheet afternoon, **star it** — it helps other operators find it, and it's the only "payment" the free playbooks ask for.

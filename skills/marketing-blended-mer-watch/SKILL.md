@@ -4,6 +4,7 @@ description: "When an ecommerce operator needs to decide: Is blended efficiency 
 license: CC-BY-4.0
 metadata:
   persona: Head of Marketing
+  contributed_by: Perceptiv
   source: perceptiv-digital/ecommerce-operator-playbooks
 ---
 

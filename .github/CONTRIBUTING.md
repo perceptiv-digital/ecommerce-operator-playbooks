@@ -23,7 +23,11 @@ We accept operating questions, sharper evidence checklists, platform-specific de
 ## How to add or improve a playbook
 
 1. Read [the playbook standard](../docs/playbook-standard.md) and the reference play: [perf-wasted-spend-killer.md](../playbooks/performance/perf-wasted-spend-killer.md).
-2. Start from [the playbook template](../docs/templates/playbook-template.md). Run `npm run bootstrap` to rebuild the indexes after adding a play.
+2. Start from [the playbook template](../docs/templates/playbook-template.md). Set `contributed_by: "Your Agency"` in the frontmatter and the `*Contributed by [Your Agency](https://youragency.com).*` line at the bottom. Run `npm run bootstrap` to rebuild the indexes.
 3. Write real depth. Match the reference play's standard.
 4. Run `npm run validate` — every play is deep-checked and must have a unique worked example.
 5. Open a PR using the template.
+
+## Become a contributing partner
+
+Specialist agencies (retention, PPC, SEO, CRO, feed, analytics) can own a lane in this library. You contribute a few deep plays in your specialty and they ship with your byline and a dofollow link, here and on the [Partners page](../PARTNERS.md). The method stays open (CC BY) and the credit is yours. See the [contributor brief](../docs/contributor-brief.md).

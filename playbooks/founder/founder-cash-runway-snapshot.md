@@ -8,6 +8,7 @@ category: "trading-profit"
 platforms: ["stripe", "commerce"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Cash and Payout Snapshot
@@ -204,3 +205,7 @@ What ShopMCP removes:
 - Separating available from pending and mapping payouts to the days they clear.
 - Trending refund and dispute rates far enough back to catch a reserve risk early.
 - Rebuilding the same runway math — and re-finding the forgotten inventory POs — every single week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

@@ -8,6 +8,7 @@ category: "acquisition-efficiency"
 platforms: ["meta-ads", "tiktok-ads", "google-ads"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Creative Fatigue List
@@ -217,3 +218,7 @@ What ShopMCP removes:
 - Stitching frequency, CTR, CPM, and hook/hold out of separate Meta and TikTok breakdowns.
 - Manually tagging which ads are mature vs. still in learning.
 - Re-ranking the list by spend exposure and rebuilding the same audit every week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

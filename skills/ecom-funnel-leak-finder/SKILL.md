@@ -4,6 +4,7 @@ description: "When an ecommerce operator needs to decide: Where is the buying jo
 license: CC-BY-4.0
 metadata:
   persona: Head of Ecommerce
+  contributed_by: Perceptiv
   source: perceptiv-digital/ecommerce-operator-playbooks
 ---
 

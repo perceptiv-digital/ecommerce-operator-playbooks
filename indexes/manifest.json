@@ -1,7 +1,7 @@
 {
   "name": "eCommerce Operator OS",
   "repo": "perceptiv-digital/ecommerce-operator-playbooks",
-  "generated_at": "2026-06-23T00:27:32.084Z",
+  "generated_at": "2026-06-23T02:43:36.242Z",
   "playbook_count": 58,
   "playbooks": [
     {
@@ -29,6 +29,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -93,6 +95,8 @@
       ],
       "cadence": "ad-hoc",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -167,6 +171,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -230,6 +236,8 @@
       ],
       "cadence": "ad-hoc",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -297,6 +305,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -351,6 +361,8 @@
       ],
       "cadence": "daily",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -413,6 +425,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -470,6 +484,8 @@
       ],
       "cadence": "monthly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -515,6 +531,8 @@
       ],
       "cadence": "ad-hoc",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -584,6 +602,8 @@
       ],
       "cadence": "monthly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -656,6 +676,8 @@
       ],
       "cadence": "ad-hoc",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -721,6 +743,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -787,6 +811,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -833,6 +859,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -881,6 +909,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -928,6 +958,8 @@
       ],
       "cadence": "ad-hoc",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -972,6 +1004,8 @@
       ],
       "cadence": "daily",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1025,6 +1059,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1091,6 +1127,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1144,6 +1182,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1207,6 +1247,8 @@
       ],
       "cadence": "monthly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1247,6 +1289,8 @@
       ],
       "cadence": "triggered",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1293,6 +1337,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1338,6 +1384,8 @@
       ],
       "cadence": "daily",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1381,6 +1429,8 @@
       ],
       "cadence": "ad-hoc",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1424,6 +1474,8 @@
       ],
       "cadence": "monthly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1463,6 +1515,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1503,6 +1557,8 @@
       ],
       "cadence": "monthly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1553,6 +1609,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1613,6 +1671,8 @@
       ],
       "cadence": "monthly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1666,6 +1726,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1734,6 +1796,8 @@
       ],
       "cadence": "monthly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1786,6 +1850,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1847,6 +1913,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1889,6 +1957,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1938,6 +2008,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1978,6 +2050,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2025,6 +2099,8 @@
       ],
       "cadence": "daily",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2064,6 +2140,8 @@
       ],
       "cadence": "daily",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2104,6 +2182,8 @@
       ],
       "cadence": "triggered",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2154,6 +2234,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2215,6 +2297,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2266,6 +2350,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2307,6 +2393,8 @@
       ],
       "cadence": "daily",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2359,6 +2447,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2407,6 +2497,8 @@
       ],
       "cadence": "daily",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2457,6 +2549,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2517,6 +2611,8 @@
       ],
       "cadence": "monthly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2562,6 +2658,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2602,6 +2700,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2650,6 +2750,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2698,6 +2800,8 @@
       ],
       "cadence": "monthly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2746,6 +2850,8 @@
       ],
       "cadence": "monthly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2792,6 +2898,8 @@
       ],
       "cadence": "monthly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2837,6 +2945,8 @@
       ],
       "cadence": "monthly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2879,6 +2989,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2924,6 +3036,8 @@
       ],
       "cadence": "weekly",
       "public_tier": "launch",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2968,6 +3082,8 @@
       ],
       "cadence": "monthly",
       "public_tier": "fast-follow",
+      "contributed_by": "Perceptiv",
+      "contributed_by_url": "https://perceptiv.digital",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",

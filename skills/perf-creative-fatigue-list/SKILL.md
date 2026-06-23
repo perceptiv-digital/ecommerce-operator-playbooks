@@ -4,6 +4,7 @@ description: "When an ecommerce operator needs to decide: Which ads are fatigued
 license: CC-BY-4.0
 metadata:
   persona: Performance Marketer
+  contributed_by: Perceptiv
   source: perceptiv-digital/ecommerce-operator-playbooks
 ---
 

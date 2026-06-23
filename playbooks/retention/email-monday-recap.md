@@ -8,6 +8,7 @@ category: "retention-ltv"
 platforms: ["klaviyo", "commerce"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Email Monday Recap
@@ -220,3 +221,7 @@ What ShopMCP removes:
 - Manually splitting campaign revenue from flow revenue every Monday.
 - Recomputing email + SMS share of total store revenue by hand.
 - Rebuilding the same recap and reconciliation every week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

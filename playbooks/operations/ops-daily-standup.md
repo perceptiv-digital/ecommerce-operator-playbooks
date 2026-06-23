@@ -8,6 +8,7 @@ category: "ops-risk"
 platforms: ["commerce"]
 cadence: "daily"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Ops Daily Standup
@@ -214,3 +215,7 @@ What ShopMCP removes:
 - Hand-computing each order's hours-past-SLA from placed-at timestamps.
 - Re-sorting the queue by value and customer impact by eye.
 - Rebuilding the same triage from scratch every single day.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

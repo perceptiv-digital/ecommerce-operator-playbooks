@@ -8,6 +8,7 @@ category: "tracking-data-quality"
 platforms: ["commerce", "google-analytics-4", "meta-ads", "google-ads", "klaviyo"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Tracking Sanity Check
@@ -216,3 +217,7 @@ What ShopMCP removes:
 - Re-deriving each platform's attribution window and currency/time-zone quirk by hand.
 - Guessing whether a gap is a real break or an expected modelled/consent gap.
 - Rebuilding the same commerce-truth reconciliation every single week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

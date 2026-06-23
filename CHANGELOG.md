@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-06-23 (partner attribution)
+
+- Added a partner-attribution layer so specialist agencies can own a lane. Every play carries a `contributed_by` field and a linked credit footer; a generated `PARTNERS.md` lists each partner and their plays; the credit is carried into each installed skill's metadata; and `docs/contributor-brief.md` is the one-pager to send prospects. README, CONTRIBUTING and the playbook standard updated, and CI now checks the credit footer is present.
+
 ## 2026-06-22 (lean frontmatter)
 
 - Trimmed every play's YAML frontmatter from about 24 fields to the 9 that actually drive the indexes and skills (slug, title, operating_question, primary_persona, personas, category, platforms, cadence, public_tier). The rest were vestigial scaffold that nothing read. This shrinks the metadata table GitHub renders at the top of each play, so the playbook itself leads.

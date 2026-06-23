@@ -8,6 +8,7 @@ category: "trading-profit"
 platforms: ["commerce"]
 cadence: "daily"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # Pace to Target
@@ -195,3 +196,7 @@ What ShopMCP removes:
 - Rebuilding the seasonality-adjusted pace curve by hand every day.
 - Splitting the gap across traffic, conversion, and AOV in a spreadsheet.
 - Guessing whether a promo window or unsettled orders are faking the shortfall.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

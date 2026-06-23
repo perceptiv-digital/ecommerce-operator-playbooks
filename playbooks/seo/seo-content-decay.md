@@ -8,6 +8,7 @@ category: "seo-demand-capture"
 platforms: ["google-search-console", "google-analytics-4"]
 cadence: "weekly"
 public_tier: "launch"
+contributed_by: "Perceptiv"
 ---
 
 # SEO Content Decay Watch
@@ -204,3 +205,7 @@ What ShopMCP removes:
 - Cross-referencing GA4 revenue per landing page to separate high-traffic from high-value.
 - Guessing whether a drop is ranking, demand, SERP-layout, or cannibalisation.
 - Rebuilding the same decay workflow every week.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

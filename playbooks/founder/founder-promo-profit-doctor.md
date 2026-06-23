@@ -8,6 +8,7 @@ category: "trading-profit"
 platforms: ["commerce"]
 cadence: "monthly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Promo Profit Doctor
@@ -196,3 +197,7 @@ What ShopMCP removes:
 - The order-level join across discounts, costs, and refunds that breaks in spreadsheets.
 - Guessing which promos have enough cost coverage to rank safely.
 - Rebuilding the same contribution math every month-end.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

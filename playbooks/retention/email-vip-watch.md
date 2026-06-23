@@ -8,6 +8,7 @@ category: "retention-ltv"
 platforms: ["commerce", "klaviyo"]
 cadence: "monthly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # VIP Cohort Watch
@@ -220,3 +221,7 @@ What ShopMCP removes:
 - Re-deriving a stable VIP cohort and per-customer cadence every month.
 - Reconciling Shopify customers against Klaviyo profiles by hand.
 - Guessing whether a cohort move is signal or small-sample noise.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*

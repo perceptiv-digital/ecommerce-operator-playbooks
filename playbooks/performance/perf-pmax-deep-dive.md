@@ -8,6 +8,7 @@ category: "acquisition-efficiency"
 platforms: ["google-ads", "google-merchant-center"]
 cadence: "weekly"
 public_tier: "fast-follow"
+contributed_by: "Perceptiv"
 ---
 
 # Performance Max Deep Dive
@@ -209,3 +210,7 @@ What ShopMCP removes:
 - Hand-reconstructing the brand/non-brand split Google doesn't expose.
 - Copy-pasting across Google Ads, Merchant Center, analytics, and your margin sheet.
 - Guessing whether a high ROAS is real demand or Display/Gmail padding.
+
+---
+
+*Contributed by [Perceptiv](https://perceptiv.digital).*
