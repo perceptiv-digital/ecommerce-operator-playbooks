@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "agency-roster-wasted-spend"
 title: "Roster Wasted-Spend Rollup"
-summary: "Roster Wasted-Spend Rollup helps ecommerce operators answer: Which clients across my roster are wasting the most ad spend this week?"
 operating_question: "Which clients across my roster are wasting the most ad spend this week?"
-short_title: "Roster Wasted Spend"
 primary_persona: "agency"
 personas: ["agency", "performance"]
 category: "agency-portfolio"
 platforms: ["commerce", "meta-ads", "google-ads", "tiktok-ads"]
 cadence: "weekly"
-difficulty: "intermediate"
-manual_time_minutes_min: 45
-manual_time_minutes_max: 90
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "client-action-packet"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Roster Wasted-Spend Rollup play for the last 7 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Roster Wasted-Spend Rollup

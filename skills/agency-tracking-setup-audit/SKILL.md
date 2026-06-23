@@ -1,6 +1,6 @@
 ---
 name: agency-tracking-setup-audit
-description: "When an ecommerce operator needs to decide: Can we trust this client's tracking before we report on it or scale spend? Runs the Client Tracking Setup Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Tracking Setup Audit', 'Commerce', 'Google Analytics 4', 'Meta Ads', 'Google Ads', 'Klaviyo', 'Agency Portfolio'."
+description: "When an ecommerce operator needs to decide: Can we trust this client's tracking before we report on it or scale spend? Runs the Client Tracking Setup Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Client Tracking Setup Audit', 'Commerce', 'Google Analytics 4', 'Meta Ads', 'Google Ads', 'Klaviyo', 'Agency Portfolio'."
 license: CC-BY-4.0
 metadata:
   persona: Agency AM / COO

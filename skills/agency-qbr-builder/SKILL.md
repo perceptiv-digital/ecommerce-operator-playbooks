@@ -1,6 +1,6 @@
 ---
 name: agency-qbr-builder
-description: "When an ecommerce operator needs to decide: What goes in this client's quarterly business review? Runs the Client QBR Builder play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'QBR Builder', 'Commerce', 'Google Analytics 4', 'Meta Ads', 'Google Ads', 'Klaviyo', 'Agency Portfolio'."
+description: "When an ecommerce operator needs to decide: What goes in this client's quarterly business review? Runs the Client QBR Builder play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Client QBR Builder', 'Commerce', 'Google Analytics 4', 'Meta Ads', 'Google Ads', 'Klaviyo', 'Agency Portfolio'."
 license: CC-BY-4.0
 metadata:
   persona: Agency AM / COO

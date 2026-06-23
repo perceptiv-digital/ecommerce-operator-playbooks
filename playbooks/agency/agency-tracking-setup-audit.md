@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "agency-tracking-setup-audit"
 title: "Client Tracking Setup Audit"
-summary: "Client Tracking Setup Audit helps ecommerce operators answer: Can we trust this client's tracking before we report on it or scale spend?"
 operating_question: "Can we trust this client's tracking before we report on it or scale spend?"
-short_title: "Tracking Setup Audit"
 primary_persona: "agency"
 personas: ["agency", "performance"]
 category: "agency-portfolio"
 platforms: ["commerce", "google-analytics-4", "meta-ads", "google-ads", "klaviyo"]
 cadence: "ad-hoc"
-difficulty: "intermediate"
-manual_time_minutes_min: 45
-manual_time_minutes_max: 90
-shopmcp_time_minutes_min: 4
-shopmcp_time_minutes_max: 10
-decision_type: "client-action-packet"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Client Tracking Setup Audit play. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Client Tracking Setup Audit

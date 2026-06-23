@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "marketing-attribution-reconciliation"
 title: "Attribution Reconciliation"
-summary: "Attribution Reconciliation helps ecommerce operators answer: Which source of attribution is drifting from commerce truth?"
 operating_question: "Which source of attribution is drifting from commerce truth?"
-short_title: "Attribution Reconciliation"
 primary_persona: "marketing"
 personas: ["marketing"]
 category: "tracking-data-quality"
 platforms: ["commerce", "google-analytics-4"]
 cadence: "monthly"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "fast-follow"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Attribution Reconciliation play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Attribution Reconciliation

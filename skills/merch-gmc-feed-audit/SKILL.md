@@ -1,6 +1,6 @@
 ---
 name: merch-gmc-feed-audit
-description: "When an ecommerce operator needs to decide: Which feed issues are blocking product visibility or trust? Runs the GMC Feed Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'GMC Feed', 'Google Merchant Center', 'Commerce', 'Merchandising Feed'."
+description: "When an ecommerce operator needs to decide: Which feed issues are blocking product visibility or trust? Runs the GMC Feed Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'GMC Feed Audit', 'Google Merchant Center', 'Commerce', 'Merchandising Feed'."
 license: CC-BY-4.0
 metadata:
   persona: Merchandising Manager

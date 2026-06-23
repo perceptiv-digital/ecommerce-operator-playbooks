@@ -1,6 +1,6 @@
 ---
 name: commerce-product-visibility-audit
-description: "When an ecommerce operator needs to decide: Which products are invisible across commerce, search, and feed surfaces? Runs the Commerce Product Visibility Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Commerce Product Visibility', 'Commerce', 'Google Merchant Center', 'Google Search Console', 'Dataforseo', 'Merchandising Feed'."
+description: "When an ecommerce operator needs to decide: Which products are invisible across commerce, search, and feed surfaces? Runs the Commerce Product Visibility Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Commerce Product Visibility Audit', 'Commerce', 'Google Merchant Center', 'Google Search Console', 'Dataforseo', 'Merchandising Feed'."
 license: CC-BY-4.0
 metadata:
   persona: Head of Ecommerce

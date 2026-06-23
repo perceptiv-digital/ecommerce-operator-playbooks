@@ -1,6 +1,6 @@
 ---
 name: merch-stockout-priority
-description: "When an ecommerce operator needs to decide: Which stockouts create the most commercial risk? Runs the Stockout Priority List play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Stockout Priority', 'Commerce', 'Merchandising Feed'."
+description: "When an ecommerce operator needs to decide: Which stockouts create the most commercial risk? Runs the Stockout Priority List play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Stockout Priority List', 'Commerce', 'Merchandising Feed'."
 license: CC-BY-4.0
 metadata:
   persona: Merchandising Manager

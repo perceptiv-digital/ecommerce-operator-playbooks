@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "merch-stockout-priority"
 title: "Stockout Priority List"
-summary: "Stockout Priority List helps ecommerce operators answer: Which stockouts create the most commercial risk?"
 operating_question: "Which stockouts create the most commercial risk?"
-short_title: "Stockout Priority"
 primary_persona: "merchandising"
 personas: ["merchandising", "operations"]
 category: "merchandising-feed"
 platforms: ["commerce"]
 cadence: "daily"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Stockout Priority List play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Stockout Priority List

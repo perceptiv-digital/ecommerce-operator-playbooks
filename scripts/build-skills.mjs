@@ -69,7 +69,7 @@ const plays = files.map((rel) => {
   const fm = parseFrontmatter(text);
   const platforms = fm.platforms || [];
   const keywords = [
-    fm.short_title, ...platforms.map(slugTitle), slugTitle(fm.category || ""),
+    fm.title, ...platforms.map(slugTitle), slugTitle(fm.category || ""),
   ].filter(Boolean).map((k) => `"${k}"`).join(", ");
   const description =
     `When an ecommerce operator needs to decide: ${fm.operating_question} ` +
@@ -79,8 +79,7 @@ const plays = files.map((rel) => {
   return {
     slug: fm.slug, title: fm.title, persona: fm.primary_persona,
     persona_label: personaLabels[fm.primary_persona] || fm.primary_persona,
-    operating_question: fm.operating_question, platforms,
-    run_url: fm.shopmcp_run_url, description,
+    operating_question: fm.operating_question, platforms, description,
     body: {
       required: section(text, "## Required Evidence"),
       optional: section(text, "## Optional Evidence"),

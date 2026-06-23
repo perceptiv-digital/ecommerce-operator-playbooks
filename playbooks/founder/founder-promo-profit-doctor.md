@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "founder-promo-profit-doctor"
 title: "Promo Profit Doctor"
-summary: "Promo Profit Doctor helps ecommerce operators answer: Which promotions look good on revenue but weak on profit?"
 operating_question: "Which promotions look good on revenue but weak on profit?"
-short_title: "Promo Profit Doctor"
 primary_persona: "founder"
 personas: ["founder", "ecommerce", "marketing"]
 category: "trading-profit"
 platforms: ["commerce"]
 cadence: "monthly"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "fast-follow"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Promo Profit Doctor play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Promo Profit Doctor

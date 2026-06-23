@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "founder-anomaly-watch"
 title: "Revenue Anomaly Watch"
-summary: "Revenue Anomaly Watch helps ecommerce operators answer: What changed enough to explain the revenue anomaly?"
 operating_question: "What changed enough to explain the revenue anomaly?"
-short_title: "Revenue Anomaly"
 primary_persona: "founder"
 personas: ["founder"]
 category: "trading-profit"
 platforms: ["commerce", "google-analytics-4"]
 cadence: "triggered"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Revenue Anomaly Watch play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Revenue Anomaly Watch

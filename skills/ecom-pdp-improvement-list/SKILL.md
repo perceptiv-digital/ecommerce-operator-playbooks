@@ -1,6 +1,6 @@
 ---
 name: ecom-pdp-improvement-list
-description: "When an ecommerce operator needs to decide: Which product pages should be improved first? Runs the PDP Improvement List play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'PDP Improvement', 'Commerce', 'Google Analytics 4', 'Onsite Cro'."
+description: "When an ecommerce operator needs to decide: Which product pages should be improved first? Runs the PDP Improvement List play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'PDP Improvement List', 'Commerce', 'Google Analytics 4', 'Onsite Cro'."
 license: CC-BY-4.0
 metadata:
   persona: Head of Ecommerce

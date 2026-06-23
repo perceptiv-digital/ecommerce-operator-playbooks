@@ -1,6 +1,6 @@
 ---
 name: marketing-brand-cannibalisation
-description: "When an ecommerce operator needs to decide: Are paid campaigns buying demand that organic search would have captured? Runs the Brand Cannibalisation Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Brand Cannibalisation', 'Google Ads', 'Google Search Console', 'Acquisition Efficiency'."
+description: "When an ecommerce operator needs to decide: Are paid campaigns buying demand that organic search would have captured? Runs the Brand Cannibalisation Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Brand Cannibalisation Audit', 'Google Ads', 'Google Search Console', 'Acquisition Efficiency'."
 license: CC-BY-4.0
 metadata:
   persona: Head of Marketing

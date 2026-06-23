@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "agency-new-client-audit"
 title: "New-Client Onboarding Audit"
-summary: "New-Client Onboarding Audit helps ecommerce operators answer: What is the state of this new client's account, and what do we fix in week one?"
 operating_question: "What is the state of this new client's account, and what do we fix in week one?"
-short_title: "New-Client Audit"
 primary_persona: "agency"
 personas: ["agency", "ecommerce"]
 category: "agency-portfolio"
 platforms: ["commerce", "google-analytics-4", "meta-ads", "google-ads", "klaviyo", "google-merchant-center"]
 cadence: "ad-hoc"
-difficulty: "intermediate"
-manual_time_minutes_min: 60
-manual_time_minutes_max: 120
-shopmcp_time_minutes_min: 5
-shopmcp_time_minutes_max: 12
-decision_type: "client-action-packet"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the New-Client Onboarding Audit play. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # New-Client Onboarding Audit

@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "email-monday-recap"
 title: "Email Monday Recap"
-summary: "Email Monday Recap helps ecommerce operators answer: What changed in email and retention last week?"
 operating_question: "What changed in email and retention last week?"
-short_title: "Email Monday Recap"
 primary_persona: "retention"
 personas: ["retention", "marketing"]
 category: "retention-ltv"
 platforms: ["klaviyo", "commerce"]
 cadence: "weekly"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Email Monday Recap play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Email Monday Recap

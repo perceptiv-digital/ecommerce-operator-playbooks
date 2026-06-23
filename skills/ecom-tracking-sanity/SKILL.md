@@ -1,6 +1,6 @@
 ---
 name: ecom-tracking-sanity
-description: "When an ecommerce operator needs to decide: Can we trust the tracking before making growth decisions? Runs the Tracking Sanity Check play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Tracking Sanity', 'Commerce', 'Google Analytics 4', 'Meta Ads', 'Google Ads', 'Klaviyo', 'Tracking Data Quality'."
+description: "When an ecommerce operator needs to decide: Can we trust the tracking before making growth decisions? Runs the Tracking Sanity Check play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Tracking Sanity Check', 'Commerce', 'Google Analytics 4', 'Meta Ads', 'Google Ads', 'Klaviyo', 'Tracking Data Quality'."
 license: CC-BY-4.0
 metadata:
   persona: Head of Ecommerce

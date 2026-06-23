@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "marketing-blended-mer-watch"
 title: "Blended MER Watch"
-summary: "Blended MER Watch helps ecommerce operators answer: Is blended efficiency moving in the right direction?"
 operating_question: "Is blended efficiency moving in the right direction?"
-short_title: "Blended MER"
 primary_persona: "marketing"
 personas: ["marketing", "founder"]
 category: "acquisition-efficiency"
 platforms: ["commerce", "meta-ads", "google-ads", "tiktok-ads"]
 cadence: "weekly"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Blended MER Watch play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Blended MER Watch

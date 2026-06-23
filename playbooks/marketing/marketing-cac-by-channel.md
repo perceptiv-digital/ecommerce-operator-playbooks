@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "marketing-cac-by-channel"
 title: "New-Customer CAC by Channel"
-summary: "New-Customer CAC by Channel helps ecommerce operators answer: Which channels are acquiring new customers at acceptable cost?"
 operating_question: "Which channels are acquiring new customers at acceptable cost?"
-short_title: "New-Customer CAC by Channel"
 primary_persona: "marketing"
 personas: ["marketing", "founder", "performance"]
 category: "acquisition-efficiency"
 platforms: ["commerce", "google-analytics-4", "meta-ads", "google-ads", "tiktok-ads"]
 cadence: "weekly"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the New-Customer CAC by Channel play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # New-Customer CAC by Channel

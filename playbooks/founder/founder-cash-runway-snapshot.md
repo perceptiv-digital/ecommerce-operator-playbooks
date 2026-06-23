@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "founder-cash-runway-snapshot"
 title: "Cash and Payout Snapshot"
-summary: "Cash and Payout Snapshot helps ecommerce operators answer: What does cash, payout, refund, and sales evidence say about runway pressure?"
 operating_question: "What does cash, payout, refund, and sales evidence say about runway pressure?"
-short_title: "Cash and Payout Snapshot"
 primary_persona: "founder"
 personas: ["founder"]
 category: "trading-profit"
 platforms: ["stripe", "commerce"]
 cadence: "weekly"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Cash and Payout Snapshot play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Cash and Payout Snapshot

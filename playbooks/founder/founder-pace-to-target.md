@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "founder-pace-to-target"
 title: "Pace to Target"
-summary: "Pace to Target helps ecommerce operators answer: Are we on pace to hit the target, and what must change today?"
 operating_question: "Are we on pace to hit the target, and what must change today?"
-short_title: "Pace to Target"
 primary_persona: "founder"
 personas: ["founder"]
 category: "trading-profit"
 platforms: ["commerce"]
 cadence: "daily"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Pace to Target play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Pace to Target

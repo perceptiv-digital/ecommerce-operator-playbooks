@@ -1,6 +1,6 @@
 ---
 name: agency-retention-intelligence-packet
-description: "When an ecommerce operator needs to decide: What should the agency tell this client about retention risk and next actions? Runs the Retention Intelligence Packet play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Retention Intelligence', 'Commerce', 'Klaviyo', 'Attentive', 'Agency Portfolio'."
+description: "When an ecommerce operator needs to decide: What should the agency tell this client about retention risk and next actions? Runs the Retention Intelligence Packet play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Retention Intelligence Packet', 'Commerce', 'Klaviyo', 'Attentive', 'Agency Portfolio'."
 license: CC-BY-4.0
 metadata:
   persona: Agency AM / COO

@@ -1,6 +1,6 @@
 ---
 name: ecom-checkout-health
-description: "When an ecommerce operator needs to decide: Is checkout conversion healthy enough to trust demand generation? Runs the Checkout Health Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Checkout Health', 'Commerce', 'Google Analytics 4', 'Onsite Cro'."
+description: "When an ecommerce operator needs to decide: Is checkout conversion healthy enough to trust demand generation? Runs the Checkout Health Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Checkout Health Watch', 'Commerce', 'Google Analytics 4', 'Onsite Cro'."
 license: CC-BY-4.0
 metadata:
   persona: Head of Ecommerce

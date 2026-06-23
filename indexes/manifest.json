@@ -1,7 +1,7 @@
 {
   "name": "eCommerce Operator OS",
   "repo": "perceptiv-digital/ecommerce-operator-playbooks",
-  "generated_at": "2026-06-22T23:47:55.891Z",
+  "generated_at": "2026-06-23T00:27:32.084Z",
   "playbook_count": 58,
   "playbooks": [
     {
@@ -10,7 +10,6 @@
       "title": "Agency Client Health Score",
       "summary": "Agency Client Health Score helps ecommerce operators answer: Which client needs intervention before the next meeting?",
       "operating_question": "Which client needs intervention before the next meeting?",
-      "short_title": "Agency Client Health Score",
       "path": "playbooks/agency/agency-client-health-score.md",
       "primary_persona": "agency",
       "primary_persona_label": "Agency AM / COO",
@@ -29,13 +28,7 @@
         "klaviyo"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "client-action-packet",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which client needs intervention before the next meeting?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -77,7 +70,6 @@
       "title": "New-Client Onboarding Audit",
       "summary": "New-Client Onboarding Audit helps ecommerce operators answer: What is the state of this new client's account, and what do we fix in week one?",
       "operating_question": "What is the state of this new client's account, and what do we fix in week one?",
-      "short_title": "New-Client Audit",
       "path": "playbooks/agency/agency-new-client-audit.md",
       "primary_persona": "agency",
       "primary_persona_label": "Agency AM / COO",
@@ -100,13 +92,7 @@
         "google-merchant-center"
       ],
       "cadence": "ad-hoc",
-      "difficulty": "intermediate",
-      "decision_type": "client-action-packet",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "What is the state of this new client's account, and what do we fix in week one?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -151,7 +137,7 @@
           "google-merchant-center"
         ],
         "first_run_read_only": true,
-        "prompt": "Run the New-Client Onboarding Audit play. Keep it read-only."
+        "prompt": "Run the New-Client Onboarding Audit play for the last 30 days. Keep it read-only."
       }
     },
     {
@@ -160,7 +146,6 @@
       "title": "Portfolio Efficiency Watch",
       "summary": "Portfolio Efficiency Watch helps ecommerce operators answer: Which clients' blended efficiency is sliding toward breakeven?",
       "operating_question": "Which clients' blended efficiency is sliding toward breakeven?",
-      "short_title": "Portfolio Efficiency",
       "path": "playbooks/agency/agency-portfolio-mer-watch.md",
       "primary_persona": "agency",
       "primary_persona_label": "Agency AM / COO",
@@ -181,13 +166,7 @@
         "tiktok-ads"
       ],
       "cadence": "weekly",
-      "difficulty": "intermediate",
-      "decision_type": "client-action-packet",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which clients' blended efficiency is sliding toward breakeven?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -220,7 +199,7 @@
           "tiktok-ads"
         ],
         "first_run_read_only": true,
-        "prompt": "Run the Portfolio Efficiency Watch play for the last 4 weeks. Keep it read-only."
+        "prompt": "Run the Portfolio Efficiency Watch play for the last 30 days. Keep it read-only."
       }
     },
     {
@@ -229,7 +208,6 @@
       "title": "Client QBR Builder",
       "summary": "Client QBR Builder helps ecommerce operators answer: What goes in this client's quarterly business review?",
       "operating_question": "What goes in this client's quarterly business review?",
-      "short_title": "QBR Builder",
       "path": "playbooks/agency/agency-qbr-builder.md",
       "primary_persona": "agency",
       "primary_persona_label": "Agency AM / COO",
@@ -251,13 +229,7 @@
         "klaviyo"
       ],
       "cadence": "ad-hoc",
-      "difficulty": "intermediate",
-      "decision_type": "client-action-packet",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "What goes in this client's quarterly business review?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -296,7 +268,7 @@
           "klaviyo"
         ],
         "first_run_read_only": true,
-        "prompt": "Run the Client QBR Builder play for the last quarter. Keep it read-only."
+        "prompt": "Run the Client QBR Builder play for the last 30 days. Keep it read-only."
       }
     },
     {
@@ -305,7 +277,6 @@
       "title": "Retention Intelligence Packet",
       "summary": "Retention Intelligence Packet helps ecommerce operators answer: What should the agency tell this client about retention risk and next actions?",
       "operating_question": "What should the agency tell this client about retention risk and next actions?",
-      "short_title": "Retention Intelligence",
       "path": "playbooks/agency/agency-retention-intelligence-packet.md",
       "primary_persona": "agency",
       "primary_persona_label": "Agency AM / COO",
@@ -325,13 +296,7 @@
         "attentive"
       ],
       "cadence": "weekly",
-      "difficulty": "intermediate",
-      "decision_type": "client-action-packet",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": true,
-      "shopmcp_ready": true,
-      "operating_question_label": "What should the agency tell this client about retention risk and next actions?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -367,7 +332,6 @@
       "title": "Roster Anomaly Radar",
       "summary": "Roster Anomaly Radar helps ecommerce operators answer: Which client needs a human this morning?",
       "operating_question": "Which client needs a human this morning?",
-      "short_title": "Roster Anomaly Radar",
       "path": "playbooks/agency/agency-roster-anomaly-watch.md",
       "primary_persona": "agency",
       "primary_persona_label": "Agency AM / COO",
@@ -386,13 +350,7 @@
         "klaviyo"
       ],
       "cadence": "daily",
-      "difficulty": "intermediate",
-      "decision_type": "client-action-packet",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which client needs a human this morning?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -425,7 +383,7 @@
           "klaviyo"
         ],
         "first_run_read_only": true,
-        "prompt": "Run the Roster Anomaly Radar play for yesterday vs baseline. Keep it read-only."
+        "prompt": "Run the Roster Anomaly Radar play for the last 30 days. Keep it read-only."
       }
     },
     {
@@ -434,7 +392,6 @@
       "title": "Roster Wasted-Spend Rollup",
       "summary": "Roster Wasted-Spend Rollup helps ecommerce operators answer: Which clients across my roster are wasting the most ad spend this week?",
       "operating_question": "Which clients across my roster are wasting the most ad spend this week?",
-      "short_title": "Roster Wasted Spend",
       "path": "playbooks/agency/agency-roster-wasted-spend.md",
       "primary_persona": "agency",
       "primary_persona_label": "Agency AM / COO",
@@ -455,13 +412,7 @@
         "tiktok-ads"
       ],
       "cadence": "weekly",
-      "difficulty": "intermediate",
-      "decision_type": "client-action-packet",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which clients across my roster are wasting the most ad spend this week?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -494,7 +445,7 @@
           "tiktok-ads"
         ],
         "first_run_read_only": true,
-        "prompt": "Run the Roster Wasted-Spend Rollup play for the last 7 days. Keep it read-only."
+        "prompt": "Run the Roster Wasted-Spend Rollup play for the last 30 days. Keep it read-only."
       }
     },
     {
@@ -503,7 +454,6 @@
       "title": "Retainer Scope-Creep Watch",
       "summary": "Retainer Scope-Creep Watch helps ecommerce operators answer: Which clients are consuming more work than their retainer covers?",
       "operating_question": "Which clients are consuming more work than their retainer covers?",
-      "short_title": "Scope-Creep Watch",
       "path": "playbooks/agency/agency-scope-creep-watch.md",
       "primary_persona": "agency",
       "primary_persona_label": "Agency AM / COO",
@@ -519,13 +469,7 @@
         "commerce"
       ],
       "cadence": "monthly",
-      "difficulty": "intermediate",
-      "decision_type": "client-action-packet",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which clients are consuming more work than their retainer covers?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -540,7 +484,7 @@
           "commerce"
         ],
         "first_run_read_only": true,
-        "prompt": "Run the Retainer Scope-Creep Watch play for the last month. Keep it read-only."
+        "prompt": "Run the Retainer Scope-Creep Watch play for the last 30 days. Keep it read-only."
       }
     },
     {
@@ -549,7 +493,6 @@
       "title": "Client Tracking Setup Audit",
       "summary": "Client Tracking Setup Audit helps ecommerce operators answer: Can we trust this client's tracking before we report on it or scale spend?",
       "operating_question": "Can we trust this client's tracking before we report on it or scale spend?",
-      "short_title": "Tracking Setup Audit",
       "path": "playbooks/agency/agency-tracking-setup-audit.md",
       "primary_persona": "agency",
       "primary_persona_label": "Agency AM / COO",
@@ -571,13 +514,7 @@
         "klaviyo"
       ],
       "cadence": "ad-hoc",
-      "difficulty": "intermediate",
-      "decision_type": "client-action-packet",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Can we trust this client's tracking before we report on it or scale spend?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -616,7 +553,7 @@
           "klaviyo"
         ],
         "first_run_read_only": true,
-        "prompt": "Run the Client Tracking Setup Audit play. Keep it read-only."
+        "prompt": "Run the Client Tracking Setup Audit play for the last 30 days. Keep it read-only."
       }
     },
     {
@@ -625,7 +562,6 @@
       "title": "Client Upsell Radar",
       "summary": "Client Upsell Radar helps ecommerce operators answer: Which clients have a data-backed reason to expand budget or services right now?",
       "operating_question": "Which clients have a data-backed reason to expand budget or services right now?",
-      "short_title": "Upsell Radar",
       "path": "playbooks/agency/agency-upsell-radar.md",
       "primary_persona": "agency",
       "primary_persona_label": "Agency AM / COO",
@@ -647,13 +583,7 @@
         "google-search-console"
       ],
       "cadence": "monthly",
-      "difficulty": "intermediate",
-      "decision_type": "client-action-packet",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which clients have a data-backed reason to expand budget or services right now?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -701,7 +631,6 @@
       "title": "Commerce Product Visibility Audit",
       "summary": "Commerce Product Visibility Audit helps ecommerce operators answer: Which products are invisible across commerce, search, and feed surfaces?",
       "operating_question": "Which products are invisible across commerce, search, and feed surfaces?",
-      "short_title": "Commerce Product Visibility",
       "path": "playbooks/ecommerce/commerce-product-visibility-audit.md",
       "primary_persona": "ecommerce",
       "primary_persona_label": "Head of Ecommerce",
@@ -726,13 +655,7 @@
         "dataforseo"
       ],
       "cadence": "ad-hoc",
-      "difficulty": "intermediate",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": true,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which products are invisible across commerce, search, and feed surfaces?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -774,7 +697,6 @@
       "title": "Ad-to-Landing-Page Message Match Audit",
       "summary": "Ad-to-Landing-Page Message Match Audit helps ecommerce operators answer: Where does ad promise fail to match landing-page reality?",
       "operating_question": "Where does ad promise fail to match landing-page reality?",
-      "short_title": "Ad-to-Landing-Page Message Match",
       "path": "playbooks/ecommerce/ecom-ad-message-match.md",
       "primary_persona": "ecommerce",
       "primary_persona_label": "Head of Ecommerce",
@@ -798,13 +720,7 @@
         "google-analytics-4"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Where does ad promise fail to match landing-page reality?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -852,7 +768,6 @@
       "title": "Checkout Health Watch",
       "summary": "Checkout Health Watch helps ecommerce operators answer: Is checkout conversion healthy enough to trust demand generation?",
       "operating_question": "Is checkout conversion healthy enough to trust demand generation?",
-      "short_title": "Checkout Health",
       "path": "playbooks/ecommerce/ecom-checkout-health.md",
       "primary_persona": "ecommerce",
       "primary_persona_label": "Head of Ecommerce",
@@ -871,13 +786,7 @@
         "google-analytics-4"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Is checkout conversion healthy enough to trust demand generation?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -907,7 +816,6 @@
       "title": "Funnel Leak Finder",
       "summary": "Funnel Leak Finder helps ecommerce operators answer: Where is the buying journey leaking revenue?",
       "operating_question": "Where is the buying journey leaking revenue?",
-      "short_title": "Funnel Leak Finder",
       "path": "playbooks/ecommerce/ecom-funnel-leak-finder.md",
       "primary_persona": "ecommerce",
       "primary_persona_label": "Head of Ecommerce",
@@ -924,13 +832,7 @@
         "google-analytics-4"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Where is the buying journey leaking revenue?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -960,7 +862,6 @@
       "title": "PDP Improvement List",
       "summary": "PDP Improvement List helps ecommerce operators answer: Which product pages should be improved first?",
       "operating_question": "Which product pages should be improved first?",
-      "short_title": "PDP Improvement",
       "path": "playbooks/ecommerce/ecom-pdp-improvement-list.md",
       "primary_persona": "ecommerce",
       "primary_persona_label": "Head of Ecommerce",
@@ -979,13 +880,7 @@
         "google-analytics-4"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which product pages should be improved first?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1015,7 +910,6 @@
       "title": "Promo Effectiveness",
       "summary": "Promo Effectiveness helps ecommerce operators answer: Did the promotion improve customer quality, margin, or conversion?",
       "operating_question": "Did the promotion improve customer quality, margin, or conversion?",
-      "short_title": "Promo Effectiveness",
       "path": "playbooks/ecommerce/ecom-promo-effectiveness.md",
       "primary_persona": "ecommerce",
       "primary_persona_label": "Head of Ecommerce",
@@ -1033,13 +927,7 @@
         "commerce"
       ],
       "cadence": "ad-hoc",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Did the promotion improve customer quality, margin, or conversion?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1063,7 +951,6 @@
       "title": "Stockout Lost-Revenue Impact",
       "summary": "Stockout Lost-Revenue Impact helps ecommerce operators answer: Which stockouts are costing the most demand or revenue?",
       "operating_question": "Which stockouts are costing the most demand or revenue?",
-      "short_title": "Stockout Lost-Revenue Impact",
       "path": "playbooks/ecommerce/ecom-stockout-impact.md",
       "primary_persona": "ecommerce",
       "primary_persona_label": "Head of Ecommerce",
@@ -1084,13 +971,7 @@
         "google-analytics-4"
       ],
       "cadence": "daily",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which stockouts are costing the most demand or revenue?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1120,7 +1001,6 @@
       "title": "Tracking Sanity Check",
       "summary": "Tracking Sanity Check helps ecommerce operators answer: Can we trust the tracking before making growth decisions?",
       "operating_question": "Can we trust the tracking before making growth decisions?",
-      "short_title": "Tracking Sanity",
       "path": "playbooks/ecommerce/ecom-tracking-sanity.md",
       "primary_persona": "ecommerce",
       "primary_persona_label": "Head of Ecommerce",
@@ -1144,13 +1024,7 @@
         "klaviyo"
       ],
       "cadence": "weekly",
-      "difficulty": "intermediate",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": true,
-      "shopmcp_ready": true,
-      "operating_question_label": "Can we trust the tracking before making growth decisions?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1198,7 +1072,6 @@
       "title": "Weekly Trading Deck",
       "summary": "Weekly Trading Deck helps ecommerce operators answer: What happened this week, why, and what should the operator do next?",
       "operating_question": "What happened this week, why, and what should the operator do next?",
-      "short_title": "Weekly Trading",
       "path": "playbooks/ecommerce/ecom-weekly-trading-deck.md",
       "primary_persona": "ecommerce",
       "primary_persona_label": "Head of Ecommerce",
@@ -1217,13 +1090,7 @@
         "google-analytics-4"
       ],
       "cadence": "weekly",
-      "difficulty": "intermediate",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": true,
-      "shopmcp_ready": true,
-      "operating_question_label": "What happened this week, why, and what should the operator do next?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1253,7 +1120,6 @@
       "title": "Contribution Profit by Channel",
       "summary": "Contribution Profit by Channel helps ecommerce operators answer: Which channels are creating contribution profit, not just revenue?",
       "operating_question": "Which channels are creating contribution profit, not just revenue?",
-      "short_title": "Contribution Profit by Channel",
       "path": "playbooks/founder/commerce-contribution-profit-by-channel.md",
       "primary_persona": "founder",
       "primary_persona_label": "Founder / CEO",
@@ -1277,13 +1143,7 @@
         "tiktok-ads"
       ],
       "cadence": "weekly",
-      "difficulty": "intermediate",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": true,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which channels are creating contribution profit, not just revenue?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1331,7 +1191,6 @@
       "title": "Profit Readiness Audit",
       "summary": "Profit Readiness Audit helps ecommerce operators answer: Do we have enough cost evidence to answer profit questions safely?",
       "operating_question": "Do we have enough cost evidence to answer profit questions safely?",
-      "short_title": "Profit Readiness",
       "path": "playbooks/founder/commerce-profit-readiness-audit.md",
       "primary_persona": "founder",
       "primary_persona_label": "Founder / CEO",
@@ -1347,13 +1206,7 @@
         "commerce"
       ],
       "cadence": "monthly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Do we have enough cost evidence to answer profit questions safely?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1377,7 +1230,6 @@
       "title": "Revenue Anomaly Watch",
       "summary": "Revenue Anomaly Watch helps ecommerce operators answer: What changed enough to explain the revenue anomaly?",
       "operating_question": "What changed enough to explain the revenue anomaly?",
-      "short_title": "Revenue Anomaly",
       "path": "playbooks/founder/founder-anomaly-watch.md",
       "primary_persona": "founder",
       "primary_persona_label": "Founder / CEO",
@@ -1394,13 +1246,7 @@
         "google-analytics-4"
       ],
       "cadence": "triggered",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "What changed enough to explain the revenue anomaly?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1430,7 +1276,6 @@
       "title": "Cash and Payout Snapshot",
       "summary": "Cash and Payout Snapshot helps ecommerce operators answer: What does cash, payout, refund, and sales evidence say about runway pressure?",
       "operating_question": "What does cash, payout, refund, and sales evidence say about runway pressure?",
-      "short_title": "Cash and Payout Snapshot",
       "path": "playbooks/founder/founder-cash-runway-snapshot.md",
       "primary_persona": "founder",
       "primary_persona_label": "Founder / CEO",
@@ -1447,13 +1292,7 @@
         "commerce"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "What does cash, payout, refund, and sales evidence say about runway pressure?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1483,7 +1322,6 @@
       "title": "Pace to Target",
       "summary": "Pace to Target helps ecommerce operators answer: Are we on pace to hit the target, and what must change today?",
       "operating_question": "Are we on pace to hit the target, and what must change today?",
-      "short_title": "Pace to Target",
       "path": "playbooks/founder/founder-pace-to-target.md",
       "primary_persona": "founder",
       "primary_persona_label": "Founder / CEO",
@@ -1499,13 +1337,7 @@
         "commerce"
       ],
       "cadence": "daily",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Are we on pace to hit the target, and what must change today?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1529,7 +1361,6 @@
       "title": "Promo Post-Mortem",
       "summary": "Promo Post-Mortem helps ecommerce operators answer: Did the promotion create incremental value or just pull forward demand?",
       "operating_question": "Did the promotion create incremental value or just pull forward demand?",
-      "short_title": "Promo Post-Mortem",
       "path": "playbooks/founder/founder-promo-postmortem.md",
       "primary_persona": "founder",
       "primary_persona_label": "Founder / CEO",
@@ -1549,13 +1380,7 @@
         "commerce"
       ],
       "cadence": "ad-hoc",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Did the promotion create incremental value or just pull forward demand?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1579,7 +1404,6 @@
       "title": "Promo Profit Doctor",
       "summary": "Promo Profit Doctor helps ecommerce operators answer: Which promotions look good on revenue but weak on profit?",
       "operating_question": "Which promotions look good on revenue but weak on profit?",
-      "short_title": "Promo Profit Doctor",
       "path": "playbooks/founder/founder-promo-profit-doctor.md",
       "primary_persona": "founder",
       "primary_persona_label": "Founder / CEO",
@@ -1599,13 +1423,7 @@
         "commerce"
       ],
       "cadence": "monthly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which promotions look good on revenue but weak on profit?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1629,7 +1447,6 @@
       "title": "Year-over-Year Pulse",
       "summary": "Year-over-Year Pulse helps ecommerce operators answer: What is materially different versus the same period last year?",
       "operating_question": "What is materially different versus the same period last year?",
-      "short_title": "Year-over-Year Pulse",
       "path": "playbooks/founder/founder-yoy-pulse.md",
       "primary_persona": "founder",
       "primary_persona_label": "Founder / CEO",
@@ -1645,13 +1462,7 @@
         "commerce"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "What is materially different versus the same period last year?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1675,7 +1486,6 @@
       "title": "Attribution Reconciliation",
       "summary": "Attribution Reconciliation helps ecommerce operators answer: Which source of attribution is drifting from commerce truth?",
       "operating_question": "Which source of attribution is drifting from commerce truth?",
-      "short_title": "Attribution Reconciliation",
       "path": "playbooks/marketing/marketing-attribution-reconciliation.md",
       "primary_persona": "marketing",
       "primary_persona_label": "Head of Marketing",
@@ -1692,13 +1502,7 @@
         "google-analytics-4"
       ],
       "cadence": "monthly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which source of attribution is drifting from commerce truth?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1728,7 +1532,6 @@
       "title": "Blended MER Watch",
       "summary": "Blended MER Watch helps ecommerce operators answer: Is blended efficiency moving in the right direction?",
       "operating_question": "Is blended efficiency moving in the right direction?",
-      "short_title": "Blended MER",
       "path": "playbooks/marketing/marketing-blended-mer-watch.md",
       "primary_persona": "marketing",
       "primary_persona_label": "Head of Marketing",
@@ -1749,13 +1552,7 @@
         "tiktok-ads"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Is blended efficiency moving in the right direction?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1797,7 +1594,6 @@
       "title": "Brand Cannibalisation Audit",
       "summary": "Brand Cannibalisation Audit helps ecommerce operators answer: Are paid campaigns buying demand that organic search would have captured?",
       "operating_question": "Are paid campaigns buying demand that organic search would have captured?",
-      "short_title": "Brand Cannibalisation",
       "path": "playbooks/marketing/marketing-brand-cannibalisation.md",
       "primary_persona": "marketing",
       "primary_persona_label": "Head of Marketing",
@@ -1816,13 +1612,7 @@
         "google-search-console"
       ],
       "cadence": "monthly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Are paid campaigns buying demand that organic search would have captured?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1852,7 +1642,6 @@
       "title": "New-Customer CAC by Channel",
       "summary": "New-Customer CAC by Channel helps ecommerce operators answer: Which channels are acquiring new customers at acceptable cost?",
       "operating_question": "Which channels are acquiring new customers at acceptable cost?",
-      "short_title": "New-Customer CAC by Channel",
       "path": "playbooks/marketing/marketing-cac-by-channel.md",
       "primary_persona": "marketing",
       "primary_persona_label": "Head of Marketing",
@@ -1876,13 +1665,7 @@
         "tiktok-ads"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which channels are acquiring new customers at acceptable cost?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1930,7 +1713,6 @@
       "title": "Competitor Demand Brief",
       "summary": "Competitor Demand Brief helps ecommerce operators answer: Which competitor demand signals deserve a response?",
       "operating_question": "Which competitor demand signals deserve a response?",
-      "short_title": "Competitor Demand Brief",
       "path": "playbooks/marketing/marketing-competitor-demand-brief.md",
       "primary_persona": "marketing",
       "primary_persona_label": "Head of Marketing",
@@ -1951,13 +1733,7 @@
         "google-search-console"
       ],
       "cadence": "monthly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which competitor demand signals deserve a response?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -1987,7 +1763,6 @@
       "title": "Marginal Budget Allocator",
       "summary": "Marginal Budget Allocator helps ecommerce operators answer: Where should the next marginal dollar go?",
       "operating_question": "Where should the next marginal dollar go?",
-      "short_title": "Marginal Budget Allocator",
       "path": "playbooks/marketing/marketing-marginal-budget-allocator.md",
       "primary_persona": "marketing",
       "primary_persona_label": "Head of Marketing",
@@ -2010,13 +1785,7 @@
         "tiktok-ads"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Where should the next marginal dollar go?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2058,7 +1827,6 @@
       "title": "Dead Stock Watch",
       "summary": "Dead Stock Watch helps ecommerce operators answer: Which products are tying up cash without enough demand?",
       "operating_question": "Which products are tying up cash without enough demand?",
-      "short_title": "Dead Stock",
       "path": "playbooks/merchandising/merch-dead-stock-watch.md",
       "primary_persona": "merchandising",
       "primary_persona_label": "Merchandising Manager",
@@ -2078,13 +1846,7 @@
         "commerce"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which products are tying up cash without enough demand?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2108,7 +1870,6 @@
       "title": "GMC Feed Audit",
       "summary": "GMC Feed Audit helps ecommerce operators answer: Which feed issues are blocking product visibility or trust?",
       "operating_question": "Which feed issues are blocking product visibility or trust?",
-      "short_title": "GMC Feed",
       "path": "playbooks/merchandising/merch-gmc-feed-audit.md",
       "primary_persona": "merchandising",
       "primary_persona_label": "Merchandising Manager",
@@ -2127,13 +1888,7 @@
         "commerce"
       ],
       "cadence": "weekly",
-      "difficulty": "intermediate",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": true,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which feed issues are blocking product visibility or trust?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2163,7 +1918,6 @@
       "title": "Least Profitable Products",
       "summary": "Least Profitable Products helps ecommerce operators answer: Which products create the weakest known profit?",
       "operating_question": "Which products create the weakest known profit?",
-      "short_title": "Least Profitable Products",
       "path": "playbooks/merchandising/merch-least-profitable-products.md",
       "primary_persona": "merchandising",
       "primary_persona_label": "Merchandising Manager",
@@ -2183,13 +1937,7 @@
         "commerce"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which products create the weakest known profit?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2213,7 +1961,6 @@
       "title": "Product Data Quality",
       "summary": "Product Data Quality helps ecommerce operators answer: Which product data gaps are hurting sales, feed quality, or search?",
       "operating_question": "Which product data gaps are hurting sales, feed quality, or search?",
-      "short_title": "Product Data Quality",
       "path": "playbooks/merchandising/merch-product-data-quality.md",
       "primary_persona": "merchandising",
       "primary_persona_label": "Merchandising Manager",
@@ -2230,13 +1977,7 @@
         "google-merchant-center"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which product data gaps are hurting sales, feed quality, or search?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2266,7 +2007,6 @@
       "title": "Stockout Priority List",
       "summary": "Stockout Priority List helps ecommerce operators answer: Which stockouts create the most commercial risk?",
       "operating_question": "Which stockouts create the most commercial risk?",
-      "short_title": "Stockout Priority",
       "path": "playbooks/merchandising/merch-stockout-priority.md",
       "primary_persona": "merchandising",
       "primary_persona_label": "Merchandising Manager",
@@ -2284,13 +2024,7 @@
         "commerce"
       ],
       "cadence": "daily",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which stockouts create the most commercial risk?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2314,7 +2048,6 @@
       "title": "Ops Daily Standup",
       "summary": "Ops Daily Standup helps ecommerce operators answer: What order, fulfilment, refund, or exception queue needs action today?",
       "operating_question": "What order, fulfilment, refund, or exception queue needs action today?",
-      "short_title": "Ops Daily Standup",
       "path": "playbooks/operations/ops-daily-standup.md",
       "primary_persona": "operations",
       "primary_persona_label": "Ops / Dispatch Lead",
@@ -2330,13 +2063,7 @@
         "commerce"
       ],
       "cadence": "daily",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "What order, fulfilment, refund, or exception queue needs action today?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2360,7 +2087,6 @@
       "title": "Stripe Dispute Evidence Pack",
       "summary": "Stripe Dispute Evidence Pack helps ecommerce operators answer: What evidence is needed to respond to this dispute safely?",
       "operating_question": "What evidence is needed to respond to this dispute safely?",
-      "short_title": "Stripe Dispute Evidence Pack",
       "path": "playbooks/operations/ops-dispute-evidence.md",
       "primary_persona": "operations",
       "primary_persona_label": "Ops / Dispatch Lead",
@@ -2377,13 +2103,7 @@
         "commerce"
       ],
       "cadence": "triggered",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "What evidence is needed to respond to this dispute safely?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2413,7 +2133,6 @@
       "title": "CPA Spike Root Cause Explainer",
       "summary": "CPA Spike Root Cause Explainer helps ecommerce operators answer: Why did CPA spike and what should be checked first?",
       "operating_question": "Why did CPA spike and what should be checked first?",
-      "short_title": "CPA Spike Root Cause Explainer",
       "path": "playbooks/performance/perf-cpa-root-cause.md",
       "primary_persona": "performance",
       "primary_persona_label": "Performance Marketer",
@@ -2434,13 +2153,7 @@
         "tiktok-ads"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Why did CPA spike and what should be checked first?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2482,7 +2195,6 @@
       "title": "Creative Fatigue List",
       "summary": "Creative Fatigue List helps ecommerce operators answer: Which ads are fatigued enough to refresh before they drain spend?",
       "operating_question": "Which ads are fatigued enough to refresh before they drain spend?",
-      "short_title": "Creative Fatigue",
       "path": "playbooks/performance/perf-creative-fatigue-list.md",
       "primary_persona": "performance",
       "primary_persona_label": "Performance Marketer",
@@ -2502,13 +2214,7 @@
         "google-ads"
       ],
       "cadence": "weekly",
-      "difficulty": "intermediate",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": true,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which ads are fatigued enough to refresh before they drain spend?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2544,7 +2250,6 @@
       "title": "Google Ads Search-Term Audit",
       "summary": "Google Ads Search-Term Audit helps ecommerce operators answer: Which search terms are wasting spend or cannibalising intent?",
       "operating_question": "Which search terms are wasting spend or cannibalising intent?",
-      "short_title": "Google Ads Search-Term",
       "path": "playbooks/performance/perf-google-search-term-audit.md",
       "primary_persona": "performance",
       "primary_persona_label": "Performance Marketer",
@@ -2560,13 +2265,7 @@
         "google-ads"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which search terms are wasting spend or cannibalising intent?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2590,7 +2289,6 @@
       "title": "Performance Morning Dashboard",
       "summary": "Performance Morning Dashboard helps ecommerce operators answer: What needs attention in paid media this morning?",
       "operating_question": "What needs attention in paid media this morning?",
-      "short_title": "Performance Morning",
       "path": "playbooks/performance/perf-morning-dashboard.md",
       "primary_persona": "performance",
       "primary_persona_label": "Performance Marketer",
@@ -2608,13 +2306,7 @@
         "tiktok-ads"
       ],
       "cadence": "daily",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "What needs attention in paid media this morning?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2650,7 +2342,6 @@
       "title": "Performance Max Deep Dive",
       "summary": "Performance Max Deep Dive helps ecommerce operators answer: Is Performance Max scaling profitably or hiding waste?",
       "operating_question": "Is Performance Max scaling profitably or hiding waste?",
-      "short_title": "Performance Max Deep Dive",
       "path": "playbooks/performance/perf-pmax-deep-dive.md",
       "primary_persona": "performance",
       "primary_persona_label": "Performance Marketer",
@@ -2667,13 +2358,7 @@
         "google-merchant-center"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Is Performance Max scaling profitably or hiding waste?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2703,7 +2388,6 @@
       "title": "Shopping Feed Watch",
       "summary": "Shopping Feed Watch helps ecommerce operators answer: Which shopping feed issues are hurting paid performance?",
       "operating_question": "Which shopping feed issues are hurting paid performance?",
-      "short_title": "Shopping Feed",
       "path": "playbooks/performance/perf-shopping-feed-watch.md",
       "primary_persona": "performance",
       "primary_persona_label": "Performance Marketer",
@@ -2722,13 +2406,7 @@
         "commerce"
       ],
       "cadence": "daily",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which shopping feed issues are hurting paid performance?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2758,7 +2436,6 @@
       "title": "Wasted Spend Killer",
       "summary": "Wasted Spend Killer helps ecommerce operators answer: Which spend should be killed, refreshed, watched, or kept?",
       "operating_question": "Which spend should be killed, refreshed, watched, or kept?",
-      "short_title": "Wasted Spend Killer",
       "path": "playbooks/performance/perf-wasted-spend-killer.md",
       "primary_persona": "performance",
       "primary_persona_label": "Performance Marketer",
@@ -2779,13 +2456,7 @@
         "commerce"
       ],
       "cadence": "weekly",
-      "difficulty": "intermediate",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": true,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which spend should be killed, refreshed, watched, or kept?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2827,7 +2498,6 @@
       "title": "Abandoned Cart Recovery Doctor",
       "summary": "Abandoned Cart Recovery Doctor helps ecommerce operators answer: Is abandoned-cart recovery leaving money behind?",
       "operating_question": "Is abandoned-cart recovery leaving money behind?",
-      "short_title": "Abandoned Cart Recovery Doctor",
       "path": "playbooks/retention/email-abandoned-cart-recovery-doctor.md",
       "primary_persona": "retention",
       "primary_persona_label": "Retention / Email Lead",
@@ -2846,13 +2516,7 @@
         "commerce"
       ],
       "cadence": "monthly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Is abandoned-cart recovery leaving money behind?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2882,7 +2546,6 @@
       "title": "Email Deliverability Watch",
       "summary": "Email Deliverability Watch helps ecommerce operators answer: Is deliverability safe enough to keep sending?",
       "operating_question": "Is deliverability safe enough to keep sending?",
-      "short_title": "Email Deliverability",
       "path": "playbooks/retention/email-deliverability-watch.md",
       "primary_persona": "retention",
       "primary_persona_label": "Retention / Email Lead",
@@ -2898,13 +2561,7 @@
         "klaviyo"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Is deliverability safe enough to keep sending?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2928,7 +2585,6 @@
       "title": "Klaviyo Flow Health Check",
       "summary": "Klaviyo Flow Health Check helps ecommerce operators answer: Which lifecycle flows are underperforming or broken?",
       "operating_question": "Which lifecycle flows are underperforming or broken?",
-      "short_title": "Klaviyo Flow Health",
       "path": "playbooks/retention/email-flow-health-check.md",
       "primary_persona": "retention",
       "primary_persona_label": "Retention / Email Lead",
@@ -2945,13 +2601,7 @@
         "commerce"
       ],
       "cadence": "weekly",
-      "difficulty": "intermediate",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": true,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which lifecycle flows are underperforming or broken?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -2981,7 +2631,6 @@
       "title": "Email Monday Recap",
       "summary": "Email Monday Recap helps ecommerce operators answer: What changed in email and retention last week?",
       "operating_question": "What changed in email and retention last week?",
-      "short_title": "Email Monday Recap",
       "path": "playbooks/retention/email-monday-recap.md",
       "primary_persona": "retention",
       "primary_persona_label": "Retention / Email Lead",
@@ -3000,13 +2649,7 @@
         "commerce"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "What changed in email and retention last week?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -3036,7 +2679,6 @@
       "title": "Replenishment Timing",
       "summary": "Replenishment Timing helps ecommerce operators answer: When should replenishment messages be sent by product or category?",
       "operating_question": "When should replenishment messages be sent by product or category?",
-      "short_title": "Replenishment Timing",
       "path": "playbooks/retention/email-replenishment-timing.md",
       "primary_persona": "retention",
       "primary_persona_label": "Retention / Email Lead",
@@ -3055,13 +2697,7 @@
         "klaviyo"
       ],
       "cadence": "monthly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "When should replenishment messages be sent by product or category?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -3091,7 +2727,6 @@
       "title": "VIP Cohort Watch",
       "summary": "VIP Cohort Watch helps ecommerce operators answer: Are VIP customers becoming less active or less valuable?",
       "operating_question": "Are VIP customers becoming less active or less valuable?",
-      "short_title": "VIP Cohort",
       "path": "playbooks/retention/email-vip-watch.md",
       "primary_persona": "retention",
       "primary_persona_label": "Retention / Email Lead",
@@ -3110,13 +2745,7 @@
         "klaviyo"
       ],
       "cadence": "monthly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Are VIP customers becoming less active or less valuable?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -3146,7 +2775,6 @@
       "title": "Winback Builder",
       "summary": "Winback Builder helps ecommerce operators answer: Which dormant customers are worth trying to win back?",
       "operating_question": "Which dormant customers are worth trying to win back?",
-      "short_title": "Winback Builder",
       "path": "playbooks/retention/email-winback-builder.md",
       "primary_persona": "retention",
       "primary_persona_label": "Retention / Email Lead",
@@ -3163,13 +2791,7 @@
         "klaviyo"
       ],
       "cadence": "monthly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which dormant customers are worth trying to win back?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -3199,7 +2821,6 @@
       "title": "SEO Cannibalisation Audit",
       "summary": "SEO Cannibalisation Audit helps ecommerce operators answer: Which pages compete with each other for the same search demand?",
       "operating_question": "Which pages compete with each other for the same search demand?",
-      "short_title": "SEO Cannibalisation",
       "path": "playbooks/seo/seo-cannibalisation-audit.md",
       "primary_persona": "seo",
       "primary_persona_label": "SEO / Content Lead",
@@ -3215,13 +2836,7 @@
         "google-search-console"
       ],
       "cadence": "monthly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which pages compete with each other for the same search demand?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -3245,7 +2860,6 @@
       "title": "SEO Content Decay Watch",
       "summary": "SEO Content Decay Watch helps ecommerce operators answer: Which pages are losing demand and are worth refreshing?",
       "operating_question": "Which pages are losing demand and are worth refreshing?",
-      "short_title": "SEO Content Decay",
       "path": "playbooks/seo/seo-content-decay.md",
       "primary_persona": "seo",
       "primary_persona_label": "SEO / Content Lead",
@@ -3264,13 +2878,7 @@
         "google-analytics-4"
       ],
       "cadence": "weekly",
-      "difficulty": "intermediate",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": true,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which pages are losing demand and are worth refreshing?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -3300,7 +2908,6 @@
       "title": "SEO Quick Wins",
       "summary": "SEO Quick Wins helps ecommerce operators answer: Which organic search wins are close enough to act on now?",
       "operating_question": "Which organic search wins are close enough to act on now?",
-      "short_title": "SEO Quick Wins",
       "path": "playbooks/seo/seo-quick-wins.md",
       "primary_persona": "seo",
       "primary_persona_label": "SEO / Content Lead",
@@ -3316,13 +2923,7 @@
         "google-search-console"
       ],
       "cadence": "weekly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "launch",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which organic search wins are close enough to act on now?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",
@@ -3346,7 +2947,6 @@
       "title": "Schema and Rich Result Readiness",
       "summary": "Schema and Rich Result Readiness helps ecommerce operators answer: Which structured-data gaps block ecommerce search trust?",
       "operating_question": "Which structured-data gaps block ecommerce search trust?",
-      "short_title": "Schema and Rich Result Readiness",
       "path": "playbooks/seo/seo-schema-rich-result-readiness.md",
       "primary_persona": "seo",
       "primary_persona_label": "SEO / Content Lead",
@@ -3367,13 +2967,7 @@
         "commerce"
       ],
       "cadence": "monthly",
-      "difficulty": "standard",
-      "decision_type": "diagnose-and-rank",
-      "evidence_level": "live-data-recommended",
       "public_tier": "fast-follow",
-      "flagship": false,
-      "shopmcp_ready": true,
-      "operating_question_label": "Which structured-data gaps block ecommerce search trust?",
       "required_evidence": [
         {
           "source": "public-evidence-checklist",

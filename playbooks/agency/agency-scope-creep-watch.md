@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "agency-scope-creep-watch"
 title: "Retainer Scope-Creep Watch"
-summary: "Retainer Scope-Creep Watch helps ecommerce operators answer: Which clients are consuming more work than their retainer covers?"
 operating_question: "Which clients are consuming more work than their retainer covers?"
-short_title: "Scope-Creep Watch"
 primary_persona: "agency"
 personas: ["agency"]
 category: "agency-portfolio"
 platforms: ["commerce"]
 cadence: "monthly"
-difficulty: "intermediate"
-manual_time_minutes_min: 45
-manual_time_minutes_max: 90
-shopmcp_time_minutes_min: 4
-shopmcp_time_minutes_max: 10
-decision_type: "client-action-packet"
-evidence_level: "live-data-recommended"
 public_tier: "fast-follow"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Retainer Scope-Creep Watch play for the last month. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Retainer Scope-Creep Watch

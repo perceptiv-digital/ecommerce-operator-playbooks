@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "perf-cpa-root-cause"
 title: "CPA Spike Root Cause Explainer"
-summary: "CPA Spike Root Cause Explainer helps ecommerce operators answer: Why did CPA spike and what should be checked first?"
 operating_question: "Why did CPA spike and what should be checked first?"
-short_title: "CPA Spike Root Cause Explainer"
 primary_persona: "performance"
 personas: ["performance", "marketing"]
 category: "acquisition-efficiency"
 platforms: ["commerce", "meta-ads", "google-ads", "tiktok-ads"]
 cadence: "weekly"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "fast-follow"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the CPA Spike Root Cause Explainer play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # CPA Spike Root Cause Explainer

@@ -1,6 +1,6 @@
 ---
 name: ecom-weekly-trading-deck
-description: "When an ecommerce operator needs to decide: What happened this week, why, and what should the operator do next? Runs the Weekly Trading Deck play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Weekly Trading', 'Commerce', 'Google Analytics 4', 'Trading Profit'."
+description: "When an ecommerce operator needs to decide: What happened this week, why, and what should the operator do next? Runs the Weekly Trading Deck play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Weekly Trading Deck', 'Commerce', 'Google Analytics 4', 'Trading Profit'."
 license: CC-BY-4.0
 metadata:
   persona: Head of Ecommerce

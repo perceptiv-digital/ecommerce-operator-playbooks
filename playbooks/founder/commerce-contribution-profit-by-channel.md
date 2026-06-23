@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "commerce-contribution-profit-by-channel"
 title: "Contribution Profit by Channel"
-summary: "Contribution Profit by Channel helps ecommerce operators answer: Which channels are creating contribution profit, not just revenue?"
 operating_question: "Which channels are creating contribution profit, not just revenue?"
-short_title: "Contribution Profit by Channel"
 primary_persona: "founder"
 personas: ["founder", "ecommerce", "marketing"]
 category: "trading-profit"
 platforms: ["commerce", "google-analytics-4", "meta-ads", "google-ads", "tiktok-ads"]
 cadence: "weekly"
-difficulty: "intermediate"
-manual_time_minutes_min: 45
-manual_time_minutes_max: 90
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: true
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Contribution Profit by Channel play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Contribution Profit by Channel

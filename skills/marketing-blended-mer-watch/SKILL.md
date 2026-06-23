@@ -1,6 +1,6 @@
 ---
 name: marketing-blended-mer-watch
-description: "When an ecommerce operator needs to decide: Is blended efficiency moving in the right direction? Runs the Blended MER Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Blended MER', 'Commerce', 'Meta Ads', 'Google Ads', 'Tiktok Ads', 'Acquisition Efficiency'."
+description: "When an ecommerce operator needs to decide: Is blended efficiency moving in the right direction? Runs the Blended MER Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Blended MER Watch', 'Commerce', 'Meta Ads', 'Google Ads', 'Tiktok Ads', 'Acquisition Efficiency'."
 license: CC-BY-4.0
 metadata:
   persona: Head of Marketing

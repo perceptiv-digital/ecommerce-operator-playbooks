@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "agency-qbr-builder"
 title: "Client QBR Builder"
-summary: "Client QBR Builder helps ecommerce operators answer: What goes in this client's quarterly business review?"
 operating_question: "What goes in this client's quarterly business review?"
-short_title: "QBR Builder"
 primary_persona: "agency"
 personas: ["agency", "marketing"]
 category: "agency-portfolio"
 platforms: ["commerce", "google-analytics-4", "meta-ads", "google-ads", "klaviyo"]
 cadence: "ad-hoc"
-difficulty: "intermediate"
-manual_time_minutes_min: 60
-manual_time_minutes_max: 120
-shopmcp_time_minutes_min: 5
-shopmcp_time_minutes_max: 12
-decision_type: "client-action-packet"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Client QBR Builder play for the last quarter. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Client QBR Builder

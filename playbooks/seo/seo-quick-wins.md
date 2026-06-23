@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "seo-quick-wins"
 title: "SEO Quick Wins"
-summary: "SEO Quick Wins helps ecommerce operators answer: Which organic search wins are close enough to act on now?"
 operating_question: "Which organic search wins are close enough to act on now?"
-short_title: "SEO Quick Wins"
 primary_persona: "seo"
 personas: ["seo"]
 category: "seo-demand-capture"
 platforms: ["google-search-console"]
 cadence: "weekly"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the SEO Quick Wins play for the last 30 days. Keep it read-only."
-status_vocab: ["WIN", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # SEO Quick Wins

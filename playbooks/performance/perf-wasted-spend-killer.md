@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "perf-wasted-spend-killer"
 title: "Wasted Spend Killer"
-summary: "Wasted Spend Killer helps ecommerce operators answer: Which spend should be killed, refreshed, watched, or kept?"
 operating_question: "Which spend should be killed, refreshed, watched, or kept?"
-short_title: "Wasted Spend Killer"
 primary_persona: "performance"
 personas: ["performance", "marketing"]
 category: "acquisition-efficiency"
 platforms: ["meta-ads", "google-ads", "tiktok-ads", "commerce"]
 cadence: "weekly"
-difficulty: "intermediate"
-manual_time_minutes_min: 45
-manual_time_minutes_max: 90
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: true
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Wasted Spend Killer play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Wasted Spend Killer

@@ -1,6 +1,6 @@
 ---
 name: email-flow-health-check
-description: "When an ecommerce operator needs to decide: Which lifecycle flows are underperforming or broken? Runs the Klaviyo Flow Health Check play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Klaviyo Flow Health', 'Klaviyo', 'Commerce', 'Retention Ltv'."
+description: "When an ecommerce operator needs to decide: Which lifecycle flows are underperforming or broken? Runs the Klaviyo Flow Health Check play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Klaviyo Flow Health Check', 'Klaviyo', 'Commerce', 'Retention Ltv'."
 license: CC-BY-4.0
 metadata:
   persona: Retention / Email Lead

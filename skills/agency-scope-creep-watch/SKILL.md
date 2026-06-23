@@ -1,6 +1,6 @@
 ---
 name: agency-scope-creep-watch
-description: "When an ecommerce operator needs to decide: Which clients are consuming more work than their retainer covers? Runs the Retainer Scope-Creep Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Scope-Creep Watch', 'Commerce', 'Agency Portfolio'."
+description: "When an ecommerce operator needs to decide: Which clients are consuming more work than their retainer covers? Runs the Retainer Scope-Creep Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Retainer Scope-Creep Watch', 'Commerce', 'Agency Portfolio'."
 license: CC-BY-4.0
 metadata:
   persona: Agency AM / COO

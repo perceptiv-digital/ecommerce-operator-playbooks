@@ -1,6 +1,6 @@
 ---
 name: agency-upsell-radar
-description: "When an ecommerce operator needs to decide: Which clients have a data-backed reason to expand budget or services right now? Runs the Client Upsell Radar play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Upsell Radar', 'Commerce', 'Meta Ads', 'Google Ads', 'Klaviyo', 'Google Search Console', 'Agency Portfolio'."
+description: "When an ecommerce operator needs to decide: Which clients have a data-backed reason to expand budget or services right now? Runs the Client Upsell Radar play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Client Upsell Radar', 'Commerce', 'Meta Ads', 'Google Ads', 'Klaviyo', 'Google Search Console', 'Agency Portfolio'."
 license: CC-BY-4.0
 metadata:
   persona: Agency AM / COO
