@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "founder-promo-postmortem"
 title: "Promo Post-Mortem"
-summary: "Promo Post-Mortem helps ecommerce operators answer: Did the promotion create incremental value or just pull forward demand?"
 operating_question: "Did the promotion create incremental value or just pull forward demand?"
-short_title: "Promo Post-Mortem"
 primary_persona: "founder"
 personas: ["founder", "ecommerce", "marketing"]
 category: "trading-profit"
 platforms: ["commerce"]
 cadence: "ad-hoc"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Promo Post-Mortem play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Promo Post-Mortem

@@ -1,6 +1,6 @@
 ---
 name: perf-creative-fatigue-list
-description: "When an ecommerce operator needs to decide: Which ads are fatigued enough to refresh before they drain spend? Runs the Creative Fatigue List play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Creative Fatigue', 'Meta Ads', 'Tiktok Ads', 'Google Ads', 'Acquisition Efficiency'."
+description: "When an ecommerce operator needs to decide: Which ads are fatigued enough to refresh before they drain spend? Runs the Creative Fatigue List play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Creative Fatigue List', 'Meta Ads', 'Tiktok Ads', 'Google Ads', 'Acquisition Efficiency'."
 license: CC-BY-4.0
 metadata:
   persona: Performance Marketer

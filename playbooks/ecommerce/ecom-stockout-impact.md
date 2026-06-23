@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "ecom-stockout-impact"
 title: "Stockout Lost-Revenue Impact"
-summary: "Stockout Lost-Revenue Impact helps ecommerce operators answer: Which stockouts are costing the most demand or revenue?"
 operating_question: "Which stockouts are costing the most demand or revenue?"
-short_title: "Stockout Lost-Revenue Impact"
 primary_persona: "ecommerce"
 personas: ["ecommerce", "merchandising", "operations"]
 category: "merchandising-feed"
 platforms: ["commerce", "google-analytics-4"]
 cadence: "daily"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "fast-follow"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Stockout Lost-Revenue Impact play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Stockout Lost-Revenue Impact

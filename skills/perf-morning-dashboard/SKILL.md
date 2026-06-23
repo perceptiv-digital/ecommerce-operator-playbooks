@@ -1,6 +1,6 @@
 ---
 name: perf-morning-dashboard
-description: "When an ecommerce operator needs to decide: What needs attention in paid media this morning? Runs the Performance Morning Dashboard play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Performance Morning', 'Meta Ads', 'Google Ads', 'Tiktok Ads', 'Acquisition Efficiency'."
+description: "When an ecommerce operator needs to decide: What needs attention in paid media this morning? Runs the Performance Morning Dashboard play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Performance Morning Dashboard', 'Meta Ads', 'Google Ads', 'Tiktok Ads', 'Acquisition Efficiency'."
 license: CC-BY-4.0
 metadata:
   persona: Performance Marketer

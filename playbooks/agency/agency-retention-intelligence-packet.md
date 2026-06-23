@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "agency-retention-intelligence-packet"
 title: "Retention Intelligence Packet"
-summary: "Retention Intelligence Packet helps ecommerce operators answer: What should the agency tell this client about retention risk and next actions?"
 operating_question: "What should the agency tell this client about retention risk and next actions?"
-short_title: "Retention Intelligence"
 primary_persona: "agency"
 personas: ["agency", "retention"]
 category: "agency-portfolio"
 platforms: ["commerce", "klaviyo", "attentive"]
 cadence: "weekly"
-difficulty: "intermediate"
-manual_time_minutes_min: 45
-manual_time_minutes_max: 90
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "client-action-packet"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: true
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Retention Intelligence Packet play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Retention Intelligence Packet

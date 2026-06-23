@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-06-22 (lean frontmatter)
+
+- Trimmed every play's YAML frontmatter from about 24 fields to the 9 that actually drive the indexes and skills (slug, title, operating_question, primary_persona, personas, category, platforms, cadence, public_tier). The rest were vestigial scaffold that nothing read. This shrinks the metadata table GitHub renders at the top of each play, so the playbook itself leads.
+- The generator now derives the summary and the ShopMCP block, so they no longer clutter the file. The manifest, indexes, catalogue and the 58 skills are unchanged in output.
+
 ## 2026-06-22 (public CTAs)
 
 - Reworked every play's "Run This Play With Live Data" CTA: removed the subscriber-only `my.shop-mcp.app/playbooks/<slug>` deep links (they don't publicly route yet), reframed the example prompt as a "already a subscriber? paste this" action, and pointed new users to a clean public trial link.

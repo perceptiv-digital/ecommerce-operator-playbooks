@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "agency-portfolio-mer-watch"
 title: "Portfolio Efficiency Watch"
-summary: "Portfolio Efficiency Watch helps ecommerce operators answer: Which clients' blended efficiency is sliding toward breakeven?"
 operating_question: "Which clients' blended efficiency is sliding toward breakeven?"
-short_title: "Portfolio Efficiency"
 primary_persona: "agency"
 personas: ["agency", "marketing"]
 category: "agency-portfolio"
 platforms: ["commerce", "meta-ads", "google-ads", "tiktok-ads"]
 cadence: "weekly"
-difficulty: "intermediate"
-manual_time_minutes_min: 45
-manual_time_minutes_max: 90
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "client-action-packet"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Portfolio Efficiency Watch play for the last 4 weeks. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Portfolio Efficiency Watch

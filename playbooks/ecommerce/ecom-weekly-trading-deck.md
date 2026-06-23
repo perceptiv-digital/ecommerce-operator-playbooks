@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "ecom-weekly-trading-deck"
 title: "Weekly Trading Deck"
-summary: "Weekly Trading Deck helps ecommerce operators answer: What happened this week, why, and what should the operator do next?"
 operating_question: "What happened this week, why, and what should the operator do next?"
-short_title: "Weekly Trading"
 primary_persona: "ecommerce"
 personas: ["ecommerce", "founder"]
 category: "trading-profit"
 platforms: ["commerce", "google-analytics-4"]
 cadence: "weekly"
-difficulty: "intermediate"
-manual_time_minutes_min: 45
-manual_time_minutes_max: 90
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: true
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Weekly Trading Deck play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Weekly Trading Deck

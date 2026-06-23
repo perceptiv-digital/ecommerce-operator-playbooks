@@ -1,6 +1,6 @@
 ---
 name: commerce-profit-readiness-audit
-description: "When an ecommerce operator needs to decide: Do we have enough cost evidence to answer profit questions safely? Runs the Profit Readiness Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Profit Readiness', 'Commerce', 'Trading Profit'."
+description: "When an ecommerce operator needs to decide: Do we have enough cost evidence to answer profit questions safely? Runs the Profit Readiness Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Profit Readiness Audit', 'Commerce', 'Trading Profit'."
 license: CC-BY-4.0
 metadata:
   persona: Founder / CEO

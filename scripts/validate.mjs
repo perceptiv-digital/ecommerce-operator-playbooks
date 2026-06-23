@@ -15,11 +15,8 @@ const required = [
   "category",
   "platforms",
   "cadence",
-  "decision_type",
-  "evidence_level",
   "operating_question",
   "public_tier",
-  "shopmcp_ready",
   "required_evidence",
   "shopmcp",
 ];

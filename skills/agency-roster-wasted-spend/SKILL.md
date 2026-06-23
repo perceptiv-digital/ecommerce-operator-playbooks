@@ -1,6 +1,6 @@
 ---
 name: agency-roster-wasted-spend
-description: "When an ecommerce operator needs to decide: Which clients across my roster are wasting the most ad spend this week? Runs the Roster Wasted-Spend Rollup play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Roster Wasted Spend', 'Commerce', 'Meta Ads', 'Google Ads', 'Tiktok Ads', 'Agency Portfolio'."
+description: "When an ecommerce operator needs to decide: Which clients across my roster are wasting the most ad spend this week? Runs the Roster Wasted-Spend Rollup play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Roster Wasted-Spend Rollup', 'Commerce', 'Meta Ads', 'Google Ads', 'Tiktok Ads', 'Agency Portfolio'."
 license: CC-BY-4.0
 metadata:
   persona: Agency AM / COO

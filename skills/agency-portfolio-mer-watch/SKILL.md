@@ -1,6 +1,6 @@
 ---
 name: agency-portfolio-mer-watch
-description: "When an ecommerce operator needs to decide: Which clients' blended efficiency is sliding toward breakeven? Runs the Portfolio Efficiency Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Portfolio Efficiency', 'Commerce', 'Meta Ads', 'Google Ads', 'Tiktok Ads', 'Agency Portfolio'."
+description: "When an ecommerce operator needs to decide: Which clients' blended efficiency is sliding toward breakeven? Runs the Portfolio Efficiency Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Portfolio Efficiency Watch', 'Commerce', 'Meta Ads', 'Google Ads', 'Tiktok Ads', 'Agency Portfolio'."
 license: CC-BY-4.0
 metadata:
   persona: Agency AM / COO

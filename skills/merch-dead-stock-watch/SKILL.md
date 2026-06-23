@@ -1,6 +1,6 @@
 ---
 name: merch-dead-stock-watch
-description: "When an ecommerce operator needs to decide: Which products are tying up cash without enough demand? Runs the Dead Stock Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Dead Stock', 'Commerce', 'Merchandising Feed'."
+description: "When an ecommerce operator needs to decide: Which products are tying up cash without enough demand? Runs the Dead Stock Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Dead Stock Watch', 'Commerce', 'Merchandising Feed'."
 license: CC-BY-4.0
 metadata:
   persona: Merchandising Manager

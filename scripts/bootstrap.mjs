@@ -106,13 +106,15 @@ function buildPlay(rel) {
     label,
     freshness: "matching-period",
   }));
+  // The play file carries only the 9 fields that drive indexes and skills.
+  // Everything else (summary, the shopmcp block) is derived here, so it does
+  // not clutter the frontmatter table GitHub renders at the top of each play.
   return {
-    schema_version: fm.schema_version ?? 1,
+    schema_version: 1,
     slug: fm.slug,
     title: fm.title,
-    summary: fm.summary,
+    summary: `${fm.title} helps ecommerce operators answer: ${fm.operating_question}`,
     operating_question: fm.operating_question,
-    short_title: fm.short_title,
     path: `playbooks/${rel}`,
     primary_persona: fm.primary_persona,
     primary_persona_label: personaLabels[fm.primary_persona] || fm.primary_persona,
@@ -122,20 +124,14 @@ function buildPlay(rel) {
     category_label: categoryLabels[fm.category] || fm.category,
     platforms,
     cadence: fm.cadence,
-    difficulty: fm.difficulty,
-    decision_type: fm.decision_type,
-    evidence_level: fm.evidence_level,
     public_tier: fm.public_tier,
-    flagship: fm.flagship === true,
-    shopmcp_ready: fm.shopmcp_ready === true,
-    operating_question_label: fm.operating_question,
     required_evidence: requiredEvidence,
     shopmcp: {
-      ready: fm.shopmcp_ready === true,
-      run_url: fm.shopmcp_run_url,
+      ready: true,
+      run_url: "https://shop-mcp.app",
       required_connections: platforms,
       first_run_read_only: true,
-      prompt: fm.shopmcp_prompt,
+      prompt: `Run the ${fm.title} play for the last 30 days. Keep it read-only.`,
     },
   };
 }

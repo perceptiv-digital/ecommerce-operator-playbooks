@@ -1,6 +1,6 @@
 ---
 name: perf-google-search-term-audit
-description: "When an ecommerce operator needs to decide: Which search terms are wasting spend or cannibalising intent? Runs the Google Ads Search-Term Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Google Ads Search-Term', 'Google Ads', 'Acquisition Efficiency'."
+description: "When an ecommerce operator needs to decide: Which search terms are wasting spend or cannibalising intent? Runs the Google Ads Search-Term Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Google Ads Search-Term Audit', 'Google Ads', 'Acquisition Efficiency'."
 license: CC-BY-4.0
 metadata:
   persona: Performance Marketer

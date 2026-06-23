@@ -1,6 +1,6 @@
 ---
 name: agency-new-client-audit
-description: "When an ecommerce operator needs to decide: What is the state of this new client's account, and what do we fix in week one? Runs the New-Client Onboarding Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'New-Client Audit', 'Commerce', 'Google Analytics 4', 'Meta Ads', 'Google Ads', 'Klaviyo', 'Google Merchant Center', 'Agency Portfolio'."
+description: "When an ecommerce operator needs to decide: What is the state of this new client's account, and what do we fix in week one? Runs the New-Client Onboarding Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'New-Client Onboarding Audit', 'Commerce', 'Google Analytics 4', 'Meta Ads', 'Google Ads', 'Klaviyo', 'Google Merchant Center', 'Agency Portfolio'."
 license: CC-BY-4.0
 metadata:
   persona: Agency AM / COO

@@ -1,6 +1,6 @@
 ---
 name: ecom-ad-message-match
-description: "When an ecommerce operator needs to decide: Where does ad promise fail to match landing-page reality? Runs the Ad-to-Landing-Page Message Match Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Ad-to-Landing-Page Message Match', 'Meta Ads', 'Google Ads', 'Tiktok Ads', 'Commerce', 'Google Analytics 4', 'Onsite Cro'."
+description: "When an ecommerce operator needs to decide: Where does ad promise fail to match landing-page reality? Runs the Ad-to-Landing-Page Message Match Audit play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Ad-to-Landing-Page Message Match Audit', 'Meta Ads', 'Google Ads', 'Tiktok Ads', 'Commerce', 'Google Analytics 4', 'Onsite Cro'."
 license: CC-BY-4.0
 metadata:
   persona: Head of Ecommerce

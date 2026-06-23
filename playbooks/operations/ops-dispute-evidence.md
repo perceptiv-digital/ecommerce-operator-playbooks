@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "ops-dispute-evidence"
 title: "Stripe Dispute Evidence Pack"
-summary: "Stripe Dispute Evidence Pack helps ecommerce operators answer: What evidence is needed to respond to this dispute safely?"
 operating_question: "What evidence is needed to respond to this dispute safely?"
-short_title: "Stripe Dispute Evidence Pack"
 primary_persona: "operations"
 personas: ["operations"]
 category: "ops-risk"
 platforms: ["stripe", "commerce"]
 cadence: "triggered"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Stripe Dispute Evidence Pack play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Stripe Dispute Evidence Pack

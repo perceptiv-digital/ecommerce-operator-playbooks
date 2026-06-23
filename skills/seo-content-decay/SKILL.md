@@ -1,6 +1,6 @@
 ---
 name: seo-content-decay
-description: "When an ecommerce operator needs to decide: Which pages are losing demand and are worth refreshing? Runs the SEO Content Decay Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'SEO Content Decay', 'Google Search Console', 'Google Analytics 4', 'Seo Demand Capture'."
+description: "When an ecommerce operator needs to decide: Which pages are losing demand and are worth refreshing? Runs the SEO Content Decay Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'SEO Content Decay Watch', 'Google Search Console', 'Google Analytics 4', 'Seo Demand Capture'."
 license: CC-BY-4.0
 metadata:
   persona: SEO / Content Lead

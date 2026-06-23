@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "agency-client-health-score"
 title: "Agency Client Health Score"
-summary: "Agency Client Health Score helps ecommerce operators answer: Which client needs intervention before the next meeting?"
 operating_question: "Which client needs intervention before the next meeting?"
-short_title: "Agency Client Health Score"
 primary_persona: "agency"
 personas: ["agency"]
 category: "agency-portfolio"
 platforms: ["commerce", "meta-ads", "google-ads", "klaviyo"]
 cadence: "weekly"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "client-action-packet"
-evidence_level: "live-data-recommended"
 public_tier: "fast-follow"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Agency Client Health Score play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Agency Client Health Score

@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "agency-upsell-radar"
 title: "Client Upsell Radar"
-summary: "Client Upsell Radar helps ecommerce operators answer: Which clients have a data-backed reason to expand budget or services right now?"
 operating_question: "Which clients have a data-backed reason to expand budget or services right now?"
-short_title: "Upsell Radar"
 primary_persona: "agency"
 personas: ["agency", "marketing"]
 category: "agency-portfolio"
 platforms: ["commerce", "meta-ads", "google-ads", "klaviyo", "google-search-console"]
 cadence: "monthly"
-difficulty: "intermediate"
-manual_time_minutes_min: 45
-manual_time_minutes_max: 90
-shopmcp_time_minutes_min: 4
-shopmcp_time_minutes_max: 10
-decision_type: "client-action-packet"
-evidence_level: "live-data-recommended"
 public_tier: "fast-follow"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Client Upsell Radar play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Client Upsell Radar

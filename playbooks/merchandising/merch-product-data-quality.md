@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "merch-product-data-quality"
 title: "Product Data Quality"
-summary: "Product Data Quality helps ecommerce operators answer: Which product data gaps are hurting sales, feed quality, or search?"
 operating_question: "Which product data gaps are hurting sales, feed quality, or search?"
-short_title: "Product Data Quality"
 primary_persona: "merchandising"
 personas: ["merchandising"]
 category: "merchandising-feed"
 platforms: ["commerce", "google-merchant-center"]
 cadence: "weekly"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Product Data Quality play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Product Data Quality

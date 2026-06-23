@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "perf-morning-dashboard"
 title: "Performance Morning Dashboard"
-summary: "Performance Morning Dashboard helps ecommerce operators answer: What needs attention in paid media this morning?"
 operating_question: "What needs attention in paid media this morning?"
-short_title: "Performance Morning"
 primary_persona: "performance"
 personas: ["performance"]
 category: "acquisition-efficiency"
 platforms: ["meta-ads", "google-ads", "tiktok-ads"]
 cadence: "daily"
-difficulty: "standard"
-manual_time_minutes_min: 30
-manual_time_minutes_max: 75
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: false
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the Performance Morning Dashboard play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # Performance Morning Dashboard

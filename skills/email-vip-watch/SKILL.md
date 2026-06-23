@@ -1,6 +1,6 @@
 ---
 name: email-vip-watch
-description: "When an ecommerce operator needs to decide: Are VIP customers becoming less active or less valuable? Runs the VIP Cohort Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'VIP Cohort', 'Commerce', 'Klaviyo', 'Retention Ltv'."
+description: "When an ecommerce operator needs to decide: Are VIP customers becoming less active or less valuable? Runs the VIP Cohort Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'VIP Cohort Watch', 'Commerce', 'Klaviyo', 'Retention Ltv'."
 license: CC-BY-4.0
 metadata:
   persona: Retention / Email Lead

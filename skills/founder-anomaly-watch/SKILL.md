@@ -1,6 +1,6 @@
 ---
 name: founder-anomaly-watch
-description: "When an ecommerce operator needs to decide: What changed enough to explain the revenue anomaly? Runs the Revenue Anomaly Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Revenue Anomaly', 'Commerce', 'Google Analytics 4', 'Trading Profit'."
+description: "When an ecommerce operator needs to decide: What changed enough to explain the revenue anomaly? Runs the Revenue Anomaly Watch play — gathers the named evidence, applies numeric decision rules and weak-data vetoes, and returns a defensible answer rather than a confident guess. Also use when the user mentions 'Revenue Anomaly Watch', 'Commerce', 'Google Analytics 4', 'Trading Profit'."
 license: CC-BY-4.0
 metadata:
   persona: Founder / CEO

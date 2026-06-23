@@ -1,30 +1,13 @@
 ---
-schema_version: 1
 slug: "seo-content-decay"
 title: "SEO Content Decay Watch"
-summary: "SEO Content Decay Watch helps ecommerce operators answer: Which pages are losing demand and are worth refreshing?"
 operating_question: "Which pages are losing demand and are worth refreshing?"
-short_title: "SEO Content Decay"
 primary_persona: "seo"
 personas: ["seo", "marketing"]
 category: "seo-demand-capture"
 platforms: ["google-search-console", "google-analytics-4"]
 cadence: "weekly"
-difficulty: "intermediate"
-manual_time_minutes_min: 45
-manual_time_minutes_max: 90
-shopmcp_time_minutes_min: 3
-shopmcp_time_minutes_max: 8
-decision_type: "diagnose-and-rank"
-evidence_level: "live-data-recommended"
 public_tier: "launch"
-flagship: true
-shopmcp_ready: true
-default_mode: "read-only"
-approved_writes_supported: false
-shopmcp_run_url: "https://shop-mcp.app"
-shopmcp_prompt: "Run the SEO Content Decay Watch play for the last 30 days. Keep it read-only."
-status_vocab: ["KILL", "REFRESH", "WATCH", "KEEP", "FIX"]
 ---
 
 # SEO Content Decay Watch
